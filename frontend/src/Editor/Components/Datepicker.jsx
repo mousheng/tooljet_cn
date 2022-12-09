@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import DatePickerComponent from 'react-datepicker';
+import DatePickerComponent, { registerLocale } from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import zh from 'date-fns/locale/zh-CN'; // the locale you want
 
 export const Datepicker = function Datepicker({
   height,
@@ -17,6 +18,7 @@ export const Datepicker = function Datepicker({
   fireEvent,
   dataCy,
 }) {
+  registerLocale('zh', zh);
   const { enableTime, enableDate, defaultValue, disabledDates } = properties;
   const format = typeof properties.format === 'string' ? properties.format : '';
   const { visibility, disabledState, borderRadius } = styles;
@@ -91,6 +93,7 @@ export const Datepicker = function Datepicker({
         className={`input-field form-control ${!isValid ? 'is-invalid' : ''} validation-without-icon px-2 ${
           darkMode ? 'bg-dark color-white' : 'bg-light'
         }`}
+        locale="zh"
         selected={date}
         value={date !== null ? computeDateString(date) : 'select date'}
         onChange={(date) => onDateChange(date)}
