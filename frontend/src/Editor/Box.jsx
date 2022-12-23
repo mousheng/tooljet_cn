@@ -48,6 +48,7 @@ import { KanbanBoard } from './Components/KanbanBoard/KanbanBoard';
 import { Steps } from './Components/Steps';
 import { TreeSelect } from './Components/TreeSelect';
 import { Icon } from './Components/Icon';
+import { QrCode } from './Components/QrCode';
 import { Link } from './Components/Link';
 import { Form } from './Components/Form';
 import { BoundedBox } from './Components/BoundedBox/BoundedBox';
@@ -116,6 +117,7 @@ const AllComponents = {
   TreeSelect,
   Link,
   Icon,
+  QrCode,
   Form,
   BoundedBox,
 };

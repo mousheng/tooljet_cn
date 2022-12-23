@@ -5440,4 +5440,134 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+  {
+    name: 'QrCode',
+    displayName: '二维码生成器',
+    description: '自定义生成二维码的组件',
+    component: 'QrCode',
+    defaultSize: {
+      width: 6,
+      height: 180,
+    },
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      qrType: {
+        type: 'select',
+        displayName: '二维码渲染类型',
+        options: [
+          { name: 'SVG模式', value: 'svg' },
+          { name: 'Canvas模式', value: 'canvas' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      level: {
+        type: 'select',
+        displayName: '纠错等级',
+        options: [
+          { name: '低', value: 'L' },
+          { name: '中', value: 'M' },
+          { name: '高', value: 'H' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      value: {
+        type: 'code',
+        displayName: 'Default value',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      qrColor: {
+        type: 'color',
+        displayName: '二维码填充颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      qrBackgroundColor: {
+        type: 'color',
+        displayName: '二维码背景色填充颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+    },
+    events: {},
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: 'Disable',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      borderRadius: {
+        type: 'code',
+        displayName: 'Border Radius',
+        validation: {
+          schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] },
+        },
+      },
+      padding: {
+        type: 'code',
+        displayName: 'Padding',
+        validation: {
+          schema: {
+            type: 'union',
+            schemas: [{ type: 'number' }, { type: 'string' }],
+          },
+        },
+      },
+      borderColor: {
+        type: 'color',
+        displayName: '边框颜色',
+        validation: { schema: { type: 'string' } },
+      },
+    },
+    exposedVariables: {
+      value: '欢迎使用二维码生成器',
+    },
+    actions: [
+      {
+        handle: 'setText',
+        displayName: 'Set Text',
+        params: [{ handle: 'text', displayName: 'text', defaultValue: 'New Text' }],
+      },
+    ],
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        value: { value: '欢迎使用二维码生成器', },
+        qrColor: { value: '#000000FF' },
+        qrBackgroundColor: { value: '#FFFFFFFF' },
+        qrType: { value: 'svg' },
+        level: { value: 'M' },
+      },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        borderRadius: { value: '{{5}}' },
+        padding: { value: '5' },
+        borderColor: { value: '#00000020' },
+      },
+    },
+  },
 ];
