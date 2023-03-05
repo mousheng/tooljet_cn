@@ -133,12 +133,12 @@ class HomePageComponent extends React.Component {
     appService
       .cloneApp(app.id)
       .then((data) => {
-        toast.success('App cloned successfully.');
+        toast.success('应用程序复制成功.');
         this.setState({ isCloningApp: false });
         this.props.history.push(`/apps/${data.id}`);
       })
       .catch(({ _error }) => {
-        toast.error('Could not clone the app.');
+        toast.error('无法复制应用.');
         this.setState({ isCloningApp: false });
         console.log(_error);
       });
@@ -159,20 +159,20 @@ class HomePageComponent extends React.Component {
         appService
           .importApp(requestBody)
           .then((data) => {
-            toast.success('App imported successfully.');
+            toast.success('应用程序导入成功.');
             this.setState({
               isImportingApp: false,
             });
             this.props.history.push(`/apps/${data.id}`);
           })
           .catch(({ error }) => {
-            toast.error(`Could not import the app: ${error}`);
+            toast.error(`无法导入应用: ${error}`);
             this.setState({
               isImportingApp: false,
             });
           });
       } catch (error) {
-        toast.error(`Could not import the app: ${error}`);
+        toast.error(`无法导入应用: ${error}`);
         this.setState({
           isImportingApp: false,
         });
@@ -268,7 +268,7 @@ class HomePageComponent extends React.Component {
       .deleteApp(this.state.appToBeDeleted.id)
       // eslint-disable-next-line no-unused-vars
       .then((data) => {
-        toast.success('App deleted successfully.');
+        toast.success('应用程序已成功删除.');
         this.fetchApps(
           this.state.currentPage
             ? this.state.apps?.length === 1
@@ -280,7 +280,7 @@ class HomePageComponent extends React.Component {
         this.fetchFolders();
       })
       .catch(({ error }) => {
-        toast.error('Could not delete the app.');
+        toast.error('无法删除应用.');
         console.log(error);
       })
       .finally(() => {
@@ -303,14 +303,14 @@ class HomePageComponent extends React.Component {
   addAppToFolder = () => {
     const { appOperations } = this.state;
     if (!appOperations?.selectedFolder || !appOperations?.selectedApp) {
-      return toast.error('Select a folder');
+      return toast.error('选择文件夹');
     }
     this.setState({ appOperations: { ...appOperations, isAdding: true } });
 
     folderService
       .addToFolder(appOperations.selectedApp.id, appOperations.selectedFolder)
       .then(() => {
-        toast.success('Added to folder.');
+        toast.success('已添加到文件夹.');
         this.foldersChanged();
         this.setState({ appOperations: {}, showAddToFolderModal: false });
       })
@@ -323,14 +323,14 @@ class HomePageComponent extends React.Component {
   removeAppFromFolder = () => {
     const { appOperations } = this.state;
     if (!appOperations?.selectedFolder || !appOperations?.selectedApp) {
-      return toast.error('Select a folder');
+      return toast.error('选择文件夹');
     }
     this.setState({ isDeletingAppFromFolder: true });
 
     folderService
       .removeAppFromFolder(appOperations.selectedApp.id, appOperations.selectedFolder.id)
       .then(() => {
-        toast.success('Removed from folder.');
+        toast.success('已从文件夹中删除.');
 
         this.fetchApps(1, appOperations.selectedFolder.id);
         this.fetchFolders();
@@ -387,18 +387,18 @@ class HomePageComponent extends React.Component {
     const { appOperations, apps } = this.state;
 
     if (!appOperations?.selectedIcon || !appOperations?.selectedApp) {
-      return toast.error('Select an icon');
+      return toast.error('选择图标');
     }
     if (appOperations.selectedIcon === appOperations.selectedApp.icon) {
       this.setState({ appOperations: {}, showChangeIconModal: false });
-      return toast.success('Icon updated.');
+      return toast.success('图标已更新.');
     }
     this.setState({ appOperations: { ...appOperations, isAdding: true } });
 
     appService
       .changeIcon(appOperations.selectedIcon, appOperations.selectedApp.id)
       .then(() => {
-        toast.success('Icon updated.');
+        toast.success('图标已更新.');
 
         const updatedApps = apps.map((app) => {
           if (app.id === appOperations.selectedApp.id) {

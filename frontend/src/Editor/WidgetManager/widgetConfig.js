@@ -481,8 +481,8 @@ export const widgets = [
       },
     },
     events: {
-      onClick: { displayName: 'On click' },
-      onHover: { displayName: 'On hover' },
+      onClick: { displayName: '单击时' },
+      onHover: { displayName: '悬停时' },
     },
     styles: {
       backgroundColor: {
@@ -5021,8 +5021,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
     events: {
-      onClick: { displayName: 'On click' },
-      onHover: { displayName: 'On hover' },
+      onClick: { displayName: '单击时' },
+      onHover: { displayName: '悬停时' },
     },
     styles: {
       textColor: {
@@ -5108,8 +5108,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
     events: {
-      onClick: { displayName: 'On click' },
-      onHover: { displayName: 'On hover' },
+      onClick: { displayName: '单击时' },
+      onHover: { displayName: '悬停时' },
     },
     styles: {
       iconColor: {

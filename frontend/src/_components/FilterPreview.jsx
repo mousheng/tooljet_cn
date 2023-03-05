@@ -5,7 +5,7 @@ function FilterPreview({ text, onClose }) {
   return (
     <div className="tj-ms-preview">
       <div className="count-main d-flex">
-        <div className="selected-count">{text}</div>
+        <div className="selected-count">{text.replace('selected','选择')}</div>
         {onClose && (
           <div className="select-close-btn" title="clear" onClick={onClose}>
             <svg

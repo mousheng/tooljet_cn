@@ -512,8 +512,8 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
                             onSearch={(query) => this.searchUsersNotInGroup(query, groupPermission.id)}
                             selectedValues={selectedUsers}
                             onReset={() => this.setSelectedUsers([])}
-                            placeholder="Select users to add to the group"
-                            searchLabel="Enter name or email"
+                            placeholder="选择要添加到组的用户"
+                            searchLabel="输入姓名或电子邮件"
                           />
                         </div>
                         <div className="col-auto">
@@ -532,7 +532,7 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
                         <div className="row mt-2">
                           <div className="selected-section">
                             <div className="selected-text" data-cy="selected-user-label">
-                              Selected Users:
+                            选定的用户:
                             </div>
                             {this.generateSelection(selectedUsers)}
                           </div>

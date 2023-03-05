@@ -260,12 +260,8 @@ class ManageOrgUsersComponent extends React.Component {
                   </div>
                   <div className="col-auto ms-auto d-print-none">
                     {!showUploadUserForm && !showNewUserForm && (
-                      <div
-                        className="btn btn-primary mx-2"
-                        onClick={() => this.setState({ showUploadUserForm: true })}
-                        data-cy="invite-bulk-user-button"
-                      >
-                        Invite bulk users
+                      <div className="btn btn-primary mx-2" onClick={() => this.setState({ showUploadUserForm: true })}>
+                        批量邀请用户
                       </div>
                     )}
                     {!showNewUserForm && !showUploadUserForm && (
@@ -388,8 +384,8 @@ class ManageOrgUsersComponent extends React.Component {
                   <div className="container-xl">
                     <div className="card">
                       <div className="card-header">
-                        <h3 className="card-title" data-cy="bulk-user-upload-page-title">
-                          Upload Users
+                        <h3 className="card-title" data-cy="add-new-user">
+                        上传用户
                         </h3>
                       </div>
                       <div className="card-body">
@@ -424,7 +420,7 @@ class ManageOrgUsersComponent extends React.Component {
                                   download="sample_upload.csv"
                                   data-cy="download-template-button"
                                 >
-                                  Download Template
+                                  下载模板
                                 </a>
                               </div>
                             </div>
@@ -450,7 +446,7 @@ class ManageOrgUsersComponent extends React.Component {
                               disabled={uploadingUsers}
                               data-cy="create-users-button"
                             >
-                              Create Users
+                              创建用户
                             </button>
                           </div>
                         </form>
@@ -469,8 +465,8 @@ class ManageOrgUsersComponent extends React.Component {
 
                 {users?.length === 0 && !showNewUserForm && !showUploadUserForm && (
                   <div className="d-flex justify-content-center flex-column">
-                    <span className="text-center pt-5 font-weight-bold">No result found</span>
-                    <small className="text-center text-muted">Try changing the filters</small>
+                    <span className="text-center pt-5 font-weight-bold">未找到结果</span>
+                    <small className="text-center text-muted">尝试更换过滤选项</small>
                   </div>
                 )}
 

@@ -52,7 +52,7 @@ export const GlobalSettings = ({
     <Popover id="global-settings-popover" className={cx({ 'theme-dark': darkMode })}>
       <Popover.Content bsPrefix="global-settings-popover">
         <HeaderSection darkMode={darkMode}>
-          <HeaderSection.PanelHeader title="Global settings" />
+          <HeaderSection.PanelHeader title="全局设置" />
         </HeaderSection>
         <div className="card-body">
           <div>
@@ -217,8 +217,8 @@ export const GlobalSettings = ({
         show={showConfirmation}
         message={
           is_maintenance_on
-            ? 'Users will now be able to launch the released version of this app, do you wish to continue?'
-            : 'Users will not be able to launch the app until maintenance mode is turned off, do you wish to continue?'
+            ? '用户现在可以启动此应用程序，是否继续?'
+            : '在关闭维护模式之前，用户将无法启动应用程序，是否继续?'
         }
         onConfirm={() => toggleAppMaintenance()}
         onCancel={() => setConfirmationShow(false)}

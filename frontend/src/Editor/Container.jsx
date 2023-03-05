@@ -562,12 +562,10 @@ export const Container = ({
       {Object.keys(boxes).length === 0 && !appLoading && !isDragging && (
         <div className="mx-auto w-50 p-5 bg-light no-components-box" style={{ marginTop: '10%' }}>
           <center className="text-muted">
-            You haven&apos;t added any components yet. Drag components from the right sidebar and drop here. Check out
-            our{' '}
+          尚未添加任何组件,您可以将组件从右侧拖放到此处。查看添加小部件的{' '}
             <a href="https://docs.tooljet.com/docs#the-very-quick-quickstart" target="_blank" rel="noreferrer">
-              guide
+            指南
             </a>{' '}
-            on adding widgets.
           </center>
         </div>
       )}

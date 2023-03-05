@@ -2,10 +2,10 @@ import React from 'react';
 import Select from '@/_ui/Select';
 
 const userStatusOptions = [
-  { name: 'All', value: '' },
-  { name: 'Active', value: 'active' },
-  { name: 'Invited', value: 'invited' },
-  { name: 'Archived', value: 'archived' },
+  { name: '全部', value: '' },
+  { name: '激活', value: 'active' },
+  { name: '邀请', value: 'invited' },
+  { name: '已归档', value: 'archived' },
 ];
 
 const UsersFilter = ({ filterList, darkMode, clearIconPressed }) => {
@@ -81,7 +81,7 @@ const UsersFilter = ({ filterList, darkMode, clearIconPressed }) => {
         </div>
         <div className="col-2 d-flex gap-3">
           <button type="submit" className="btn btn-primary" onClick={() => filterList(options)} data-cy="filter-button">
-            Filter
+            过滤
           </button>
           <div className="d-flex align-items-center cursor-pointer" onClick={clearTextAndResult}>
             <svg

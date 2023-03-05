@@ -24,7 +24,7 @@ export const LeftSidebarComment = ({ toggleComments, selectedSidebarItem, appVer
     <LeftSidebarItem
       commentBadge={notifications?.length > 0}
       selectedSidebarItem={selectedSidebarItem}
-      title={appVersionsId ? 'toggle comments' : 'Comments section will be available once you save this application'}
+      title={appVersionsId ? '切换评论' : '保存此应用程序后，评论部分将可用'}
       icon={darkMode ? `comments-dark` : 'comments-light'}
       className={cx(`left-sidebar-item left-sidebar-layout sidebar-comments`, {
         disabled: !appVersionsId,

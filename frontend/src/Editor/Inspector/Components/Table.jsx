@@ -175,7 +175,7 @@ class TableComponent extends React.Component {
             <SelectSearch
               className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
               options={[
-                { name: 'Default', value: 'default' },
+                { name: '默认', value: 'default' },
                 { name: 'String', value: 'string' },
                 { name: 'Number', value: 'number' },
                 { name: 'Text', value: 'text' },
@@ -214,7 +214,7 @@ class TableComponent extends React.Component {
               defaultValue={column.name}
             />
           </div>
-          {(column.columnType === 'string' || column.columnType === undefined || column.columnType === 'default') && (
+          {(column.columnType === 'string' || column.columnType === undefined || column.columnType === '默认') && (
             <div data-cy={`input-overflow`} className="field mb-2">
               <label data-cy={`label-overflow`} className="form-label">
                 {this.props.t('widget.Table.overflow', 'Overflow')}
@@ -222,9 +222,9 @@ class TableComponent extends React.Component {
               <SelectSearch
                 className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
                 options={[
-                  { name: 'Wrap', value: 'wrap' },
-                  { name: 'Scroll', value: 'scroll' },
-                  { name: 'Hide', value: 'hide' },
+                  { name: '换行', value: 'wrap' },
+                  { name: '滚动条', value: 'scroll' },
+                  { name: '隐藏', value: 'hide' },
                 ]}
                 value={column.textWrap}
                 search={true}
@@ -264,7 +264,7 @@ class TableComponent extends React.Component {
                   theme={this.props.darkMode ? 'monokai' : 'default'}
                   mode="javascript"
                   lineNumbers={false}
-                  placeholder={'Text color of the cell'}
+                  placeholder={'单元格的文本颜色'}
                   onChange={(value) => this.onColumnItemChange(index, 'textColor', value)}
                   componentName={this.getPopoverFieldSource(column.columnType, 'textColor')}
                   fieldMeta={column}
