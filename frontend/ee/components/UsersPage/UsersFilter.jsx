@@ -37,7 +37,7 @@ const UsersFilter = ({ filterList, darkMode, clearIconPressed }) => {
           <input
             type="email"
             className="form-control"
-            placeholder="电子邮件"
+            placeholder="电子邮箱"
             name="email"
             onKeyPress={handleEnterKey}
             onChange={valuesChanged}
