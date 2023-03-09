@@ -1315,7 +1315,7 @@ export const widgets = [
       },
     },
     events: {
-      onSelect: { displayName: 'On select' },
+      onSelect: { displayName: '选择日期后' },
     },
     styles: {
       visibility: {
@@ -1352,8 +1352,8 @@ export const widgets = [
         customRule: { value: null },
       },
       properties: {
-        defaultValue: { value: '01/01/2022' },
-        format: { value: 'DD/MM/YYYY' },
+        defaultValue: { value: "{{moment().format('yyyy/MM/DD')}}" },
+        format: { value: 'YYYY/MM/DD' },
         enableTime: { value: '{{false}}' },
         enableDate: { value: '{{true}}' },
         disabledDates: { value: '{{[]}}' },
