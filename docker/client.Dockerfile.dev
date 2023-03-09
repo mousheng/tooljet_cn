@@ -3,7 +3,7 @@ FROM node:18.3.0-buster
 
 ENV NODE_ENV=development
 
-RUN npm i -g npm@8.11.0
+RUN npm i -g npm@8.11.0 && npm config set registry https://registry.npm.taobao.org
 
 # set working directory
 WORKDIR /app
