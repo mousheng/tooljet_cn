@@ -136,14 +136,14 @@ export const widgets = [
       },
       rowsPerPage: {
         type: 'code',
-        displayName: 'Number of rows per page',
+        displayName: '每页行数',
         validation: {
           schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] },
         },
       },
       serverSidePagination: {
         type: 'toggle',
-        displayName: 'Server-side pagination',
+        displayName: '服务器端分页',
         validation: {
           schema: { type: 'boolean' },
         },
@@ -178,7 +178,7 @@ export const widgets = [
       },
       totalRecords: {
         type: 'code',
-        displayName: 'Total records server side',
+        displayName: '服务器端总记录条数',
         validation: {
           schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] },
         },
@@ -306,11 +306,11 @@ export const widgets = [
         type: 'select',
         displayName: 'Table type',
         options: [
-          { name: 'Bordered', value: 'table-bordered' },
-          { name: 'Borderless', value: 'table-borderless' },
-          { name: 'Classic', value: 'table-classic' },
-          { name: 'Striped', value: 'table-striped' },
-          { name: 'Striped & bordered', value: 'table-striped table-bordered' },
+          { name: '有边框', value: 'table-bordered' },
+          { name: '无边框', value: 'table-borderless' },
+          { name: '经典', value: 'table-classic' },
+          { name: '表格线', value: 'table-striped' },
+          { name: '有表格线和边框', value: 'table-striped table-bordered' },
         ],
         validation: {
           schema: { type: 'string' },

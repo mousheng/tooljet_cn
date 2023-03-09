@@ -601,21 +601,21 @@ export function Table({
         <Popover.Content>
           <div className="d-flex flex-column">
             <span data-cy={`option-download-CSV`} className="cursor-pointer" onClick={() => exportData('csv', true)}>
-              Download as CSV
+              下载CSV
             </span>
             <span
               data-cy={`option-download-execel`}
               className="pt-2 cursor-pointer"
               onClick={() => exportData('xlsx', true)}
             >
-              Download as Excel
+              下载Excel
             </span>
             <span
               data-cy={`option-download-pdf`}
               className="pt-2 cursor-pointer"
               onClick={() => exportData('pdf', true)}
             >
-              Download as PDF
+              下载PDF
             </span>
           </div>
         </Popover.Content>
@@ -690,7 +690,7 @@ export function Table({
                         <div className="dropdown-item">
                           <IndeterminateCheckbox {...getToggleHideAllColumnsProps()} />
                           <span className="hide-column-name" data-cy={`options-select-all-coloumn`}>
-                            Select All
+                            全选
                           </span>
                         </div>
                         {allColumns.map(
@@ -971,20 +971,20 @@ export function Table({
                     }
                     data-cy={`table-button-save-changes`}
                   >
-                    Save Changes
+                    保存更改
                   </button>
                   <button
                     className="btn btn-light btn-sm"
                     onClick={() => handleChangesDiscarded()}
                     data-cy={`table-button-discard-changes`}
                   >
-                    Discard changes
+                    放弃更改
                   </button>
                 </>
               ) : (
                 <span data-cy={`footer-number-of-records`}>
-                  {clientSidePagination && !serverSidePagination && `${globalFilteredRows.length} Records`}
-                  {serverSidePagination && totalRecords ? `${totalRecords} Records` : ''}
+                  {clientSidePagination && !serverSidePagination && `共${globalFilteredRows.length} 条记录`}
+                  {serverSidePagination && totalRecords ? `共${totalRecords} 条记录` : ''}
                 </span>
               )}
             </div>

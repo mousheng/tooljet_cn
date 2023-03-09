@@ -10,9 +10,9 @@ export const initEditorWalkThrough = () => {
     const darkMode = getDataFromLocalStorage('darkMode') === 'true';
     const driver = new Driver({
       allowClose: true,
-      closeBtnText: 'Skip',
-      nextBtnText: 'Next',
-      prevBtnText: 'Previous',
+      closeBtnText: '跳过',
+      nextBtnText: '下一条',
+      prevBtnText: '上一条',
       padding: 2,
       onReset: () => {
         // Here we need to write the logic to update walkthroughCompleted column of the current user.
@@ -25,57 +25,56 @@ export const initEditorWalkThrough = () => {
       {
         element: '.component-image-holder',
         popover: {
-          title: 'Drag and drop widgets',
-          description: 'From the widget sidebar, drag and drop widgets to the canvas.',
+          title: '拖放控件',
+          description: '从侧边栏将组件拖放到画布.',
           position: 'left',
-          closeBtnText: 'Skip (1/6)',
+          closeBtnText: '跳过 (1/6)',
         },
       },
       {
         element: '.sidebar-datasources',
         popover: {
-          title: 'Connect to data sources',
-          description: 'You can manage your data sources from here.',
+          title: '连接到数据源',
+          description: '您可以在此处管理数据源.',
           position: 'right',
-          closeBtnText: 'Skip (2/6)',
+          closeBtnText: '跳过 (2/6)',
         },
       },
       {
         element: '.left-sidebar-inspector',
         popover: {
-          title: 'Inspector',
-          description: 'Inspector lets you check the properties of widgets, results of queries etc.',
+          title: '检查器',
+          description: '检查器能为您检查组件的属性、查询结果等',
           position: 'right',
-          closeBtnText: 'Skip (3/6)',
+          closeBtnText: '跳过 (3/6)',
         },
       },
       {
         element: '.queries-header ',
         popover: {
-          title: 'Create queries',
-          description:
-            'Create queries to interact with your data sources, run JavaScript snippets and to make API requests.',
+          title: '创建查询',
+          description: '可与数据源进行交互，运行JavaScript片段，发出 API 请求',
           position: 'top',
-          closeBtnText: 'Skip (4/6)',
+          closeBtnText: '跳过 (4/6)',
         },
       },
       {
         element: '.release-buttons',
         popover: {
-          title: 'Preview, release & share',
+          title: '预览、发布和共享',
           description:
-            'Click on preview to view the current changes on app viewer. Click on share button to view the sharing options. Release the editing version to make the changes live. Released versions cannot be modified, you will have to create another version to make more changes.',
+            '单击预览可立即查看当前修改。单击共享按钮可修改共享选项。发布版本可使更改生效。已发布的版本无法修改，您必须创建新版本才能进行更改。',
           position: 'bottom',
-          closeBtnText: 'Skip (5/6)',
+          closeBtnText: '跳过 (5/6)',
         },
       },
       {
         element: '.sidebar-comments',
         popover: {
-          title: 'Collaborate',
-          description: 'Add comments on canvas and tag your team members to collaborate.',
+          title: '合作',
+          description: '在画布上添加评论并标记您的团队成员以进行协作.',
           position: 'right',
-          closeBtnText: 'Skip (6/6)',
+          closeBtnText: '跳过 (6/6)',
         },
       },
     ]);

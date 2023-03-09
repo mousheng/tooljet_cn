@@ -6,7 +6,7 @@ import { Color } from './Color';
 import FxButton from './FxButton';
 
 export const BoxShadow = ({ value, onChange, forceCodeBox, cyLabel }) => {
-  const defaultValue = { X: 0, Y: 0, Blur: 0, Spread: 0, Color: '#00000040' };
+  const defaultValue = { X: 0, Y: 0, 模糊半径: 0, 阴影尺寸: 0, Color: '#00000040' };
 
   const popoverLabelstyle = {
     display: 'flex',
@@ -20,7 +20,7 @@ export const BoxShadow = ({ value, onChange, forceCodeBox, cyLabel }) => {
     paddingRight: '1.5rem',
   };
 
-  const input = ['X', 'Y', 'Blur', 'Spread'];
+  const input = ['X', 'Y', '模糊半径', '阴影尺寸'];
 
   const [boxShadow, setBoxShadow] = useState(defaultValue);
   const [debouncedShadow, setDebouncedShadow] = useState(defaultValue);
@@ -38,8 +38,8 @@ export const BoxShadow = ({ value, onChange, forceCodeBox, cyLabel }) => {
       const newValue = {
         X: valueArr[0],
         Y: valueArr[1],
-        Blur: valueArr[2],
-        Spread: valueArr[3],
+        模糊半径: valueArr[2],
+        阴影尺寸: valueArr[3],
         Color: valueArr[4],
       };
       setBoxShadow(newValue);
@@ -58,7 +58,7 @@ export const BoxShadow = ({ value, onChange, forceCodeBox, cyLabel }) => {
 
   const setBoxShadowValue = (item, value, debounced = false) => {
     const newValue = { ...boxShadow };
-    if (item === 'Blur' && value < 0) {
+    if (item === '模糊半径' && value < 0) {
       newValue[item] = 0;
       debounced ? setDebouncedShadow(newValue) : setBoxShadow(newValue);
     } else {
@@ -74,7 +74,7 @@ export const BoxShadow = ({ value, onChange, forceCodeBox, cyLabel }) => {
       <div className="range-slider">
         {
           <Slider
-            min={item === 'Blur' || item === 'Spread' ? 0 : -20}
+            min={item === '模糊半径' || item === '阴影尺寸' ? 0 : -20}
             max={20}
             defaultValue={0}
             value={value}
@@ -139,7 +139,7 @@ export const BoxShadow = ({ value, onChange, forceCodeBox, cyLabel }) => {
               className="btn btn-sm btn-outline-danger mt-2 col"
               onClick={clearBoxShadow}
             >
-              Clear
+              重置
             </button>
           </>
         </Popover.Content>

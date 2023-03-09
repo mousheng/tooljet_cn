@@ -23,8 +23,7 @@ export default function ErrorModal() {
               ></button>
             </div>
             <div className="modal-body">
-              Please make sure a camera is available on your device. Try closing your browser and opening it again, if
-              it doesn&apos;t work, please contact support.
+              请确保您的设备上有摄像头请尝试关闭浏览器并再次打开, 如果它不工作，请联系支持人员.
             </div>
             <div className="modal-footer">
               <button type="button" className="btn" data-bs-dismiss="modal" onClick={close}>

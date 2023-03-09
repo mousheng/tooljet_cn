@@ -44,7 +44,7 @@ function ContinueButtonSelfHost({
       if (event.key === 'Enter' && !activeCondition) {
         if (page == 0) {
           if (!validateEmail(email)) {
-            setEmailError('电子邮件无效');
+            setEmailError('电子邮箱无效');
             return;
           }
         }
@@ -71,7 +71,7 @@ function ContinueButtonSelfHost({
         e.preventDefault();
         if (page == 0) {
           if (!validateEmail(email)) {
-            setEmailError('电子邮件无效');
+            setEmailError('电子邮箱无效');
             return;
           }
         }

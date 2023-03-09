@@ -53,7 +53,7 @@ class LoginPageComponent extends React.Component {
         if (response.data.statusCode !== 404) {
           return this.props.history.push({
             pathname: '/',
-            state: { errorMessage: 'Error while login, please try again' },
+            state: { errorMessage: '登录时出错，请重试' },
           });
         }
         // If there is no organization found for single organization setup
@@ -106,14 +106,13 @@ class LoginPageComponent extends React.Component {
     this.setState({ isLoading: true });
 
     const { email, password } = this.state;
-
     if (!validateEmail(email)) {
-      this.setState({ isLoading: false, emailError: 'Invalid Email' });
+      this.setState({ isLoading: false, emailError: '电子邮箱无效' });
       return;
     }
 
     if (!password || !password.trim()) {
-      toast.error('Invalid email or password', {
+      toast.error('邮箱或密码无效', {
         id: 'toast-login-auth-error',
         position: 'top-center',
       });
@@ -137,7 +136,7 @@ class LoginPageComponent extends React.Component {
   };
 
   authFailureHandler = (res) => {
-    toast.error(res.error || 'Invalid email or password', {
+    toast.error(res.error || '邮箱或密码无效', {
       id: 'toast-login-auth-error',
       position: 'top-center',
     });
@@ -187,7 +186,7 @@ class LoginPageComponent extends React.Component {
                               className="text-center-onboard workspace-login-description"
                               data-cy="workspace-sign-in-sub-header"
                             >
-                              Sign in to your workspace - {configs?.name}
+                              登录到您的工作区 - {configs?.name}
                             </p>
                           )}
                           <div className="tj-text-input-label">
@@ -241,7 +240,7 @@ class LoginPageComponent extends React.Component {
                               name="email"
                               type="email"
                               className="tj-text-input"
-                              placeholder={this.props.t('loginSignupPage.enterWorkEmail', 'Enter your email')}
+                              placeholder={this.props.t('loginSignupPage.enterWorkEmail', '输入您的电子邮箱')}
                               style={{ marginBottom: '0px' }}
                               data-cy="work-email-input"
                               autoFocus
@@ -274,7 +273,7 @@ class LoginPageComponent extends React.Component {
                                 name="password"
                                 type={this.state?.showPassword ? 'text' : 'password'}
                                 className="tj-text-input"
-                                placeholder={this.props.t('loginSignupPage.EnterPassword', 'Enter password')}
+                                placeholder={this.props.t('loginSignupPage.EnterPassword', '输入密码')}
                                 data-cy="password-input-field"
                                 autoComplete="new-password"
                               />
@@ -352,7 +351,7 @@ class LoginPageComponent extends React.Component {
                             .toLowerCase()
                             .replace(/\s+/g, '-')}`}
                         >
-                          back to&nbsp; <Link to="/">{authenticationService?.currentUserValue?.organization}</Link>
+                          返回到&nbsp; <Link to="/">{authenticationService?.currentUserValue?.organization}</Link>
                         </div>
                       )}
                     </div>

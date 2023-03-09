@@ -130,6 +130,7 @@ class TableComponent extends React.Component {
   }
 
   columnPopover = (column, index) => {
+    console.log('columnPopover', column, index);
     const timeZoneOptions = [
       { name: 'UTC', value: 'Etc/UTC' },
       { name: '-12:00', value: 'Etc/GMT+12' },
@@ -175,19 +176,19 @@ class TableComponent extends React.Component {
             <SelectSearch
               className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
               options={[
-                { name: '默认', value: 'default' },
-                { name: 'String', value: 'string' },
-                { name: 'Number', value: 'number' },
-                { name: 'Text', value: 'text' },
-                { name: 'Badge', value: 'badge' },
-                { name: 'Multiple badges', value: 'badges' },
-                { name: 'Tags', value: 'tags' },
-                { name: 'Dropdown', value: 'dropdown' },
-                { name: 'Radio', value: 'radio' },
-                { name: 'Multiselect', value: 'multiselect' },
-                { name: 'Toggle switch', value: 'toggle' },
-                { name: 'Date Picker', value: 'datepicker' },
-                { name: 'Image', value: 'image' },
+                { name: '默认(文本)', value: 'default' },
+                { name: '文本', value: 'string' },
+                { name: '数字', value: 'number' },
+                { name: '纯文本', value: 'text' },
+                { name: '标记', value: 'badge' },
+                { name: '多标记', value: 'badges' },
+                { name: '标签', value: 'tags' },
+                { name: '下拉列表', value: 'dropdown' },
+                { name: '单选按钮', value: 'radio' },
+                { name: '多选框', value: 'multiselect' },
+                { name: '拨动开关', value: 'toggle' },
+                { name: '日期选择器', value: 'datepicker' },
+                { name: '图片框', value: 'image' },
               ]}
               value={column.columnType}
               search={true}
@@ -197,6 +198,7 @@ class TableComponent extends React.Component {
               }}
               filterOptions={fuzzySearch}
               placeholder={this.props.t('globals.select', 'Select') + '...'}
+              defaultValue={column.columnType}
             />
           </div>
           <div className="field mb-2" data-cy={`input-and-label-column-name`}>
@@ -214,7 +216,7 @@ class TableComponent extends React.Component {
               defaultValue={column.name}
             />
           </div>
-          {(column.columnType === 'string' || column.columnType === undefined || column.columnType === '默认') && (
+          {(column.columnType === 'string' || column.columnType === undefined || column.columnType === 'default') && (
             <div data-cy={`input-overflow`} className="field mb-2">
               <label data-cy={`label-overflow`} className="form-label">
                 {this.props.t('widget.Table.overflow', 'Overflow')}
@@ -445,41 +447,41 @@ class TableComponent extends React.Component {
             column.columnType === 'badge' ||
             column.columnType === 'badges' ||
             column.columnType === 'radio') && (
-              <div>
-                <div data-cy={`input-and-label-values`} className="field mb-2">
-                  <label className="form-label">{this.props.t('widget.Table.values', 'Values')}</label>
-                  <CodeHinter
-                    currentState={this.props.currentState}
-                    initialValue={column.values}
-                    theme={this.props.darkMode ? 'monokai' : 'default'}
-                    mode="javascript"
-                    lineNumbers={false}
-                    placeholder={'{{[1, 2, 3]}}'}
-                    onChange={(value) => this.onColumnItemChange(index, 'values', value)}
-                    componentName={this.getPopoverFieldSource(column.columnType, 'values')}
-                    popOverCallback={(showing) => {
-                      this.setColumnPopoverRootCloseBlocker('values', showing);
-                    }}
-                  />
-                </div>
-                <div data-cy={`input-and-label-labels`} className="field mb-2">
-                  <label className="form-label">{this.props.t('widget.Table.labels', 'Labels')}</label>
-                  <CodeHinter
-                    currentState={this.props.currentState}
-                    initialValue={column.labels}
-                    theme={this.props.darkMode ? 'monokai' : 'default'}
-                    mode="javascript"
-                    lineNumbers={false}
-                    placeholder={'{{["one", "two", "three"]}}'}
-                    onChange={(value) => this.onColumnItemChange(index, 'labels', value)}
-                    componentName={this.getPopoverFieldSource(column.columnType, 'labels')}
-                    popOverCallback={(showing) => {
-                      this.setColumnPopoverRootCloseBlocker('labels', showing);
-                    }}
-                  />
-                </div>
+            <div>
+              <div data-cy={`input-and-label-values`} className="field mb-2">
+                <label className="form-label">{this.props.t('widget.Table.values', 'Values')}</label>
+                <CodeHinter
+                  currentState={this.props.currentState}
+                  initialValue={column.values}
+                  theme={this.props.darkMode ? 'monokai' : 'default'}
+                  mode="javascript"
+                  lineNumbers={false}
+                  placeholder={'{{[1, 2, 3]}}'}
+                  onChange={(value) => this.onColumnItemChange(index, 'values', value)}
+                  componentName={this.getPopoverFieldSource(column.columnType, 'values')}
+                  popOverCallback={(showing) => {
+                    this.setColumnPopoverRootCloseBlocker('values', showing);
+                  }}
+                />
               </div>
-            )}
+              <div data-cy={`input-and-label-labels`} className="field mb-2">
+                <label className="form-label">{this.props.t('widget.Table.labels', 'Labels')}</label>
+                <CodeHinter
+                  currentState={this.props.currentState}
+                  initialValue={column.labels}
+                  theme={this.props.darkMode ? 'monokai' : 'default'}
+                  mode="javascript"
+                  lineNumbers={false}
+                  placeholder={'{{["one", "two", "three"]}}'}
+                  onChange={(value) => this.onColumnItemChange(index, 'labels', value)}
+                  componentName={this.getPopoverFieldSource(column.columnType, 'labels')}
+                  popOverCallback={(showing) => {
+                    this.setColumnPopoverRootCloseBlocker('labels', showing);
+                  }}
+                />
+              </div>
+            </div>
+          )}
 
           {column.columnType === 'dropdown' && (
             <>
@@ -713,8 +715,8 @@ class TableComponent extends React.Component {
             <SelectSearch
               className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
               options={[
-                { name: 'Left', value: 'left' },
-                { name: 'Right', value: 'right' },
+                { name: '左', value: 'left' },
+                { name: '右', value: 'right' },
               ]}
               value={action.position ?? 'right'}
               search={false}
@@ -727,7 +729,7 @@ class TableComponent extends React.Component {
             />
           </div>
           <Color
-            param={{ name: 'actionButtonBackgroundColor' }}
+            param={{ name: 'actionButtonBackgroundColor', displayName: '按钮背景色' }}
             paramType="properties"
             componentMeta={this.state.componentMeta}
             definition={{ value: action.backgroundColor }}
@@ -736,7 +738,7 @@ class TableComponent extends React.Component {
           />
 
           <Color
-            param={{ name: 'actionButtonTextColor' }}
+            param={{ name: 'actionButtonTextColor', displayName: '文本颜色' }}
             paramType="properties"
             componentMeta={this.state.componentMeta}
             definition={{ value: action.textColor }}
@@ -745,7 +747,7 @@ class TableComponent extends React.Component {
           />
           <EventManager
             component={dummyComponentForActionButton}
-            componentMeta={{ events: { onClick: { displayName: 'On click' } } }}
+            componentMeta={{ events: { onClick: { displayName: '单击时' } } }}
             currentState={this.state.currentState}
             dataQueries={this.props.dataQueries}
             components={this.props.components}
@@ -877,7 +879,6 @@ class TableComponent extends React.Component {
 
   render() {
     const { dataQueries, component, paramUpdated, componentMeta, components, currentState, darkMode } = this.props;
-
     const columns = component.component.definition.properties.columns;
     const actions = component.component.definition.properties.actions || { value: [] };
 

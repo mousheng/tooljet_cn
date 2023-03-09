@@ -114,12 +114,12 @@ export function Filter(props) {
       <div className="card-header row">
         <div className="col">
           <h4 data-cy={`header-filters`} className="font-weight-normal">
-            Filters
+            筛选
           </h4>
         </div>
         <div className="col-auto">
           <button data-cy={`button-close-filters`} onClick={() => props.hideFilters()} className="btn btn-light btn-sm">
-            x
+            X
           </button>
         </div>
       </div>
@@ -133,7 +133,7 @@ export function Filter(props) {
         {props.filters.map((filter, index) => (
           <div className="row mb-2" key={index}>
             <div className="col p-2" style={{ maxWidth: '70px' }}>
-              <small data-cy={`label-filter-column`}>{index > 0 ? 'and' : 'column'}</small>
+              <small data-cy={`label-filter-column`}>{index > 0 ? '且' : '列'}</small>
             </div>
             <div data-cy={`select-coloumn-dropdown-${index ?? ''}`} className="col">
               <Select
@@ -150,18 +150,18 @@ export function Filter(props) {
             <div data-cy={`select-operation-dropdown-${index ?? ''}`} className="col" style={{ maxWidth: '180px' }}>
               <Select
                 options={[
-                  { name: 'contains', value: 'contains' },
-                  { name: 'does not contains', value: 'doesNotContains' },
-                  { name: 'matches', value: 'matches' },
-                  { name: 'does not match', value: 'nl' },
-                  { name: 'equals', value: 'equals' },
-                  { name: 'does not equal', value: 'ne' },
-                  { name: 'is empty', value: 'isEmpty' },
-                  { name: 'is not empty', value: 'isNotEmpty' },
-                  { name: 'greater than', value: 'gt' },
-                  { name: 'less than', value: 'lt' },
-                  { name: 'greater than or equals', value: 'gte' },
-                  { name: 'less than or equals', value: 'lte' },
+                  { name: '包含', value: 'contains' },
+                  { name: '不包含', value: 'doesNotContains' },
+                  { name: '匹配', value: 'matches' },
+                  { name: '不匹配', value: 'nl' },
+                  { name: '等于', value: 'equals' },
+                  { name: '不等于', value: 'ne' },
+                  { name: '为空', value: 'isEmpty' },
+                  { name: '不为空', value: 'isNotEmpty' },
+                  { name: '大于', value: 'gt' },
+                  { name: '小于', value: 'lt' },
+                  { name: '大于或等于', value: 'gte' },
+                  { name: '小于或等于', value: 'lte' },
                 ]}
                 value={filter.value.condition}
                 search={true}
@@ -193,7 +193,7 @@ export function Filter(props) {
                 onClick={() => removeFilter(index)}
                 className={`btn ${darkMode ? 'btn-dark' : 'btn-light'} btn-sm p-2 text-danger font-weight-bold`}
               >
-                x
+                X
               </button>
             </div>
           </div>
@@ -201,17 +201,17 @@ export function Filter(props) {
         {props.filters.length === 0 && (
           <div>
             <center>
-              <span data-cy={`label-no-filters`}>no filters yet.</span>
+              <span data-cy={`label-no-filters`}>还没有添加筛选条件.</span>
             </center>
           </div>
         )}
       </div>
       <div className="card-footer">
         <button data-cy={`button-add-filter`} onClick={addFilter} className="btn btn-light btn-sm">
-          + add filter
+          + 添加条件
         </button>
         <button data-cy={`button-clear-filters`} onClick={() => clearFilters()} className="btn btn-light btn-sm mx-2">
-          clear filters
+          清除条件
         </button>
       </div>
     </div>

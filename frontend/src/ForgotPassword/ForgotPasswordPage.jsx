@@ -65,22 +65,22 @@ class ForgotPasswordComponent extends React.Component {
                 {!this.state.responseShow ? (
                   <>
                     <h2 className="common-auth-section-header" data-cy="forgot-password-page-header">
-                      Forgot Password
+                    忘记密码
                     </h2>
                     <p className="common-auth-sub-header" data-cy="forgot-password-sub-header">
-                      New to ToolJet? &nbsp;
+                    新用户? &nbsp;
                       <Link
                         to={'/signup'}
                         tabIndex="-1"
                         style={{ color: this.darkMode && '#3E63DD' }}
                         data-cy="create-an-account-link"
                       >
-                        Create an account
+                        创建帐户
                       </Link>
                     </p>
                     <div className="forgot-input-wrap">
                       <p className="tj-text-input-label" data-cy="email-input-label">
-                        Email address
+                        电子邮箱地址
                       </p>
                       <input
                         onChange={this.handleChange}
@@ -110,7 +110,7 @@ class ForgotPasswordComponent extends React.Component {
                           </div>
                         ) : (
                           <>
-                            <span> Send a reset link</span>
+                            <span> 发送重置链接</span>
                             <EnterIcon
                               className="enter-icon-onboard"
                               fill={isLoading || !this.state.email ? (this.darkMode ? '#656565' : ' #D1D5DB') : '#fff'}

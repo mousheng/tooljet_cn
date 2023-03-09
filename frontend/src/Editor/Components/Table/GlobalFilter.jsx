@@ -30,7 +30,7 @@ export const GlobalFilter = ({
         className={`global-search-field btn-light align-self-center ${darkMode && 'dark-theme-placeholder'}`}
         defaultValue={value || ''}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Search"
+        placeholder="搜索"
         data-cy="search-input-field"
         style={{
           border: '0',

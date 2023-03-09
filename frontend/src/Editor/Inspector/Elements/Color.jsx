@@ -12,9 +12,8 @@ export const Color = ({ param, definition, onChange, paramType, componentMeta, c
     bottom: '0px',
     left: '0px',
   };
-
   const paramMeta = componentMeta[paramType][param.name] || {};
-  const displayName = paramMeta.displayName || param.name;
+  const displayName = param.displayName || paramMeta.displayName || param.name;
 
   const decimalToHex = (alpha) => {
     let aHex = Math.round(255 * alpha).toString(16);

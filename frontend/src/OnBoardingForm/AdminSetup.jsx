@@ -32,7 +32,7 @@ function AdminSetup({ formData, setFormData, setPage, page, setCompleted, isLoad
         邮箱
       </p>
       <OnBoardingInput
-        placeholder="输入您的电子邮件"
+        placeholder="输入您的电子邮箱"
         className="onboard-email-input"
         {...props}
         fieldType="email"

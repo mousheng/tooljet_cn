@@ -513,7 +513,7 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
                             selectedValues={selectedUsers}
                             onReset={() => this.setSelectedUsers([])}
                             placeholder="选择要添加到组的用户"
-                            searchLabel="输入姓名或电子邮件"
+                            searchLabel="输入姓名或电子邮箱"
                           />
                         </div>
                         <div className="col-auto">
