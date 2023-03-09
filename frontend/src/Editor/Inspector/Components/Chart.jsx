@@ -72,7 +72,7 @@ class Chart extends React.Component {
     let items = [];
 
     items.push({
-      title: 'Title',
+      title: '标题',
       children: renderElement(
         component,
         componentMeta,
@@ -87,7 +87,7 @@ class Chart extends React.Component {
     });
 
     items.push({
-      title: 'Plotly JSON chart schema',
+      title: '绘制图表架构',
       children: renderElement(
         component,
         componentMeta,
@@ -101,7 +101,7 @@ class Chart extends React.Component {
 
     if (plotFromJson) {
       items.push({
-        title: 'Json description',
+        title: 'json描述',
         children: (
           <CodeHinter
             currentState={this.props.currentState}
@@ -117,7 +117,7 @@ class Chart extends React.Component {
       });
     } else {
       items.push({
-        title: 'Properties',
+        title: '特性',
         children: renderElement(
           component,
           componentMeta,
@@ -131,7 +131,7 @@ class Chart extends React.Component {
       });
 
       items.push({
-        title: 'Chart data',
+        title: '图表数据',
         children: (
           <CodeHinter
             currentState={this.props.currentState}
@@ -150,7 +150,7 @@ class Chart extends React.Component {
     if (chartType !== 'pie') {
       if (!plotFromJson) {
         items.push({
-          title: 'Marker color',
+          title: '标记颜色',
           children: renderElement(
             component,
             componentMeta,
@@ -164,7 +164,7 @@ class Chart extends React.Component {
       }
 
       items.push({
-        title: 'Options',
+        title: '选项',
         children: (
           <>
             {renderElement(
@@ -192,7 +192,7 @@ class Chart extends React.Component {
     }
 
     items.push({
-      title: 'Layout',
+      title: '布局',
       isOpen: false,
       children: (
         <>

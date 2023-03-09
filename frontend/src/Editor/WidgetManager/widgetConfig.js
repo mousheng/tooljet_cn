@@ -728,7 +728,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        title: { value: 'This title can be changed' },
+        title: { value: '可修改标题' },
         markerColor: { value: '#CDE1F8' },
         showAxes: { value: '{{true}}' },
         showGridLines: { value: '{{true}}' },
@@ -910,7 +910,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        title: { value: 'This title can be changed' },
+        title: { value: '可修改标题' },
         loadingState: { value: `{{false}}` },
         useDefaultButton: { value: `{{true}}` },
         triggerButtonLabel: { value: `Launch Modal` },
