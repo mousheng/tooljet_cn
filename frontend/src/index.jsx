@@ -17,7 +17,7 @@ appService
   .getConfig()
   .then((config) => {
     window.public_config = config;
-    const language = config.LANGUAGE || 'en';
+    const language = config.LANGUAGE || 'zh';
     const path = config?.SUB_PATH || '/';
     i18n
       .use(Backend)
