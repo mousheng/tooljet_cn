@@ -34,7 +34,7 @@ const Search = () => {
         type="text"
         className="form-control"
         data-cy="search-table-input"
-        placeholder="Search table"
+        placeholder="搜索表格"
       />
     </div>
   );

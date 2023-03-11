@@ -12,7 +12,7 @@ export const SelectComponent = ({ options = [], value, onChange, ...restProps })
     hasSearch = true,
     height,
     width,
-    placeholder = 'Select..',
+    placeholder = '选择..',
     customOption = undefined,
     defaultValue = null,
     useMenuPortal = true, // todo: deprecate this prop, use menuPortalTarget instead

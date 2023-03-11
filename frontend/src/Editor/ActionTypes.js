@@ -1,25 +1,25 @@
 export const ActionTypes = [
   {
-    name: 'Show Alert',
+    name: '显示提醒',
     id: 'show-alert',
     options: [{ name: 'message', type: 'text', default: 'Message !' }],
   },
   {
-    name: 'Logout',
+    name: '注销当前账号',
     id: 'logout',
   },
   {
-    name: 'Run Query',
+    name: '运行查询',
     id: 'run-query',
     options: [{ queryId: '' }],
   },
   {
-    name: 'Open Webpage',
+    name: '打开网页',
     id: 'open-webpage',
     options: [{ name: 'url', type: 'text', default: 'https://example.com' }],
   },
   {
-    name: 'Go to app',
+    name: '跳转到App',
     id: 'go-to-app',
     options: [
       { name: 'app', type: 'text', default: '' },
@@ -27,22 +27,22 @@ export const ActionTypes = [
     ],
   },
   {
-    name: 'Show Modal',
+    name: '显示弹窗',
     id: 'show-modal',
     options: [{ name: 'modal', type: 'text', default: '' }],
   },
   {
-    name: 'Close Modal',
+    name: '关闭弹窗',
     id: 'close-modal',
     options: [{ name: 'modal', type: 'text', default: '' }],
   },
   {
-    name: 'Copy to clipboard',
+    name: '复制到剪贴板',
     id: 'copy-to-clipboard',
     options: [{ name: 'copy-to-clipboard', type: 'text', default: '' }],
   },
   {
-    name: 'Set local storage',
+    name: '设置本地存储',
     id: 'set-localstorage-value',
     options: [
       { name: 'key', type: 'code', default: '' },
@@ -50,7 +50,7 @@ export const ActionTypes = [
     ],
   },
   {
-    name: 'Generate file',
+    name: '生成文件',
     id: 'generate-file',
     options: [
       { name: 'fileType', type: 'text', default: '' },
@@ -59,7 +59,7 @@ export const ActionTypes = [
     ],
   },
   {
-    name: 'Set table page',
+    name: '设置表格页码',
     id: 'set-table-page',
     options: [
       {
@@ -71,7 +71,7 @@ export const ActionTypes = [
     ],
   },
   {
-    name: 'Set variable',
+    name: '设置变量',
     id: 'set-custom-variable',
     options: [
       { name: 'key', type: 'code', default: '' },
@@ -79,17 +79,17 @@ export const ActionTypes = [
     ],
   },
   {
-    name: 'Unset variable',
+    name: '删除变量',
     id: 'unset-custom-variable',
     options: [{ name: 'key', type: 'code', default: '' }],
   },
   {
-    name: 'Switch page',
+    name: '切换页面',
     id: 'switch-page',
     options: [{ name: 'page', type: 'text', default: '' }],
   },
   {
-    name: 'Set page variable',
+    name: '设置页面变量',
     id: 'set-page-variable',
     options: [
       { name: 'key', type: 'code', default: '' },
@@ -97,7 +97,7 @@ export const ActionTypes = [
     ],
   },
   {
-    name: 'Unset page variable',
+    name: '删除页面变量',
     id: 'unset-page-variable',
     options: [
       { name: 'key', type: 'code', default: '' },
@@ -105,7 +105,7 @@ export const ActionTypes = [
     ],
   },
   {
-    name: 'Control component',
+    name: '控制组件',
     id: 'control-component',
     options: [
       { name: 'component', type: 'text', default: '' },

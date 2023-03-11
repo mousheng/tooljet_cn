@@ -25,14 +25,14 @@ export default function CreateTableDrawer() {
             fill="#FDFDFE"
           />
         </svg>
-        Add table
+        添加表
       </button>
       <Drawer isOpen={isCreateTableDrawerOpen} onClose={() => setIsCreateTableDrawerOpen(false)} position="right">
         <CreateTableForm
           onCreate={(tableName) => {
             tooljetDatabaseService.findAll(organizationId).then(({ data = [], error }) => {
               if (error) {
-                toast.error(error?.message ?? 'Failed to fetch tables');
+                toast.error(error?.message ?? '无法获取表');
                 return;
               }
 

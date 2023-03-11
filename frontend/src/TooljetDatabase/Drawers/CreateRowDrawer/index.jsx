@@ -25,7 +25,7 @@ const CreateRowDrawer = ({ isCreateRowDrawerOpen, setIsCreateRowDrawerOpen }) =>
         </svg>
         &nbsp;&nbsp;
         <span className="color-primary" data-cy="add-new-row-button-text">
-          Add new row
+          添加行
         </span>
       </button>
       <Drawer isOpen={isCreateRowDrawerOpen} onClose={() => setIsCreateRowDrawerOpen(false)} position="right">

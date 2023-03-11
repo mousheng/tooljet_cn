@@ -70,14 +70,14 @@ function OnbboardingFromSH({ darkMode }) {
   }, [completed]);
 
   const FORM_TITLES = [
-    `Set up your admin account`,
-    `Set up your workspace`,
-    `Where do you work ${formData?.name}?`,
-    'What best describes your role?',
-    'What is the size of your company?',
+    `设置管理员帐户`,
+    `设置工作区`,
+    `${formData?.name}，你在哪里工作 ?`,
+    '您的角色?',
+    '您公司的规模?',
     'What is the size of your company?', //dummy placeholder
   ];
-  const FormSubTitles = ['This information will help us improve ToolJet.'];
+  const FormSubTitles = ['这些信息将帮助我们改进Tool Jet。'];
 
   return (
     <div className="flex">
@@ -97,7 +97,7 @@ function OnbboardingFromSH({ darkMode }) {
               loading="lazy"
               alt="check mark"
             ></img>
-            Set up admin
+            设置管理员
           </p>
           <p
             className={page == 1 ? `active-onboarding-tab` : page < 1 ? 'passive-onboarding-tab' : ''}
@@ -114,14 +114,9 @@ function OnbboardingFromSH({ darkMode }) {
                 alt="check mark"
               ></img>
             )}
-            Set up workspace
+            设置工作区
           </p>
-          <p
-            className={page >= 2 ? `active-onboarding-tab` : `passive-onboarding-tab`}
-            data-cy="company-profile-check-point"
-          >
-            Company profile
-          </p>
+          <p className={page >= 2 ? `active-onboarding-tab` : `passive-onboarding-tab`}>公司简介</p>
           <div className="onboarding-divider"></div>
         </div>
         <div></div>
@@ -153,9 +148,7 @@ function OnbboardingFromSH({ darkMode }) {
                     alt="arrow back"
                     data-cy="back-arrow"
                   />
-                  <p className="onboarding-back-text" data-cy="back-arrow-text">
-                    Back
-                  </p>
+                  <p className="onboarding-back-text">返回</p>
                 </div>
               )}
               <div className="onboarding-bubbles-container">{page > 1 && <OnboardingBubblesSH page={page} />}</div>
@@ -171,9 +164,7 @@ function OnbboardingFromSH({ darkMode }) {
                     }
                   }}
                 >
-                  <p className="onboarding-skip-text" data-cy="skip-arrow-text">
-                    Skip
-                  </p>
+                  <p className="onboarding-skip-text">跳过</p>
                   <img
                     src={
                       darkMode
@@ -229,7 +220,7 @@ export function Page0({ formData, setFormData, setPage, page, setCompleted, isLo
   };
   return (
     <div className="onboarding-pages-wrapper">
-      <OnBoardingInput {...props} placeholder="Enter company name" autoFocus={true} dataCy="company-name-input-field" />
+      <OnBoardingInput {...props} placeholder="输入公司名称" autoFocus={true} />
       <ContinueButtonSelfHost {...btnProps} />
     </div>
   );
@@ -297,15 +288,8 @@ export function WorkspaceSetupPage({
   };
   return (
     <div className="onboarding-pages-wrapper">
-      <p className="onboarding-sh-labels" data-cy="workspace-name-input-label">
-        Workspace name
-      </p>
-      <OnBoardingInput
-        {...props}
-        placeholder="Enter a workspace name"
-        autoFocus={true}
-        dataCy="workspace-name-input-field"
-      />
+      <p className="onboarding-sh-labels">工作区名</p>
+      <OnBoardingInput {...props} placeholder="输入工作区名称" autoFocus={true} />
       <ContinueButtonSelfHost {...btnProps} />
     </div>
   );

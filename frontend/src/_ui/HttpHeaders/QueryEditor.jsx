@@ -13,7 +13,7 @@ export default ({ options, addNewKeyValuePair, removeKeyValuePair, keyValuePairV
                   currentState={currentState}
                   initialValue={option[0]}
                   height="32px"
-                  placeholder="key"
+                  placeholder="键"
                   onChange={(value) => keyValuePairValueChanged(value, 0, index)}
                   componentName={`HttpHeaders::key::${index}`}
                 />
@@ -23,7 +23,7 @@ export default ({ options, addNewKeyValuePair, removeKeyValuePair, keyValuePairV
                   currentState={currentState}
                   initialValue={option[1]}
                   height="32px"
-                  placeholder="value"
+                  placeholder="值"
                   onChange={(value) => keyValuePairValueChanged(value, 1, index)}
                   componentName={`HttpHeaders::value::${index}`}
                 />

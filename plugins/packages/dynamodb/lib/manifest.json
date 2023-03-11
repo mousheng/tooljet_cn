@@ -40,22 +40,22 @@
   },
   "properties": {
     "credentials": {
-      "label": "Authentication",
+      "label": "认证",
       "key": "instance_metadata_credentials",
       "type": "dropdown-component-flip",
-      "description": "Single select dropdown for choosing credentials",
+      "description": "选择认证的下拉列表",
       "list": [
         {
           "value": "iam_access_keys",
-          "name": "Use IAM Access Keys"
+          "name": "使用IAM访问密钥"
         }, 
         {
           "value": "aws_instance_credentials",
-          "name": "Use AWS Instance Credentials"
+          "name": "使用AWS实例凭据"
         },
         {
           "value": "aws_arn_role",
-          "name": "Use AWS ARN Role"
+          "name": "使用AWS ARN角色"
         }
       ],
       "commonFields": {
@@ -66,103 +66,103 @@
           "description": "Single select dropdown for region",
           "list": [
             {
-              "name": "US East (Ohio)",
+              "name": "美国东部 (俄亥俄州)",
               "value": "us-east-2"
             },
             {
-              "name": "US East (N. Virginia)",
+              "name": "美国东部 (北弗吉尼亚州)",
               "value": "us-east-1"
             },
             {
-              "name": "US West (N. California)",
+              "name": "美国西部 (北加利福尼亚州)",
               "value": "us-west-1"
             },
             {
-              "name": "US West (Oregon)",
+              "name": "美国西部 (俄勒冈)",
               "value": "us-west-2"
             },
             {
-              "name": "Africa (Cape Town)",
+              "name": "非洲 (开普敦)",
               "value": "af-south-1"
             },
             {
-              "name": "Asia Pacific (Hong Kong)",
+              "name": "亚太地区 (香港)",
               "value": "ap-east-1"
             },
             {
-              "name": "Asia Pacific (Mumbai)",
+              "name": "亚太地区（孟买）",
               "value": "ap-south-1"
             },
             {
-              "name": "Asia Pacific (Osaka)",
+              "name": "亚太地区（大阪）",
               "value": "ap-northeast-3"
             },
             {
-              "name": "Asia Pacific (Seoul)",
+              "name": "亚太地区（首尔）",
               "value": "ap-northeast-2"
             },
             {
-              "name": "Asia Pacific (Singapore)",
+              "name": "亚太地区（新加坡）",
               "value": "ap-southeast-1"
             },
             {
-              "name": "Asia Pacific (Sydney)",
+              "name": "亚太地区（悉尼）",
               "value": "ap-southeast-2"
             },
             {
-              "name": "Asia Pacific (Tokyo)",
+              "name": "亚太地区（东京）",
               "value": "ap-northeast-1"
             },
             {
-              "name": "Canada (Central)",
+              "name": "加拿大（中部）",
               "value": "ca-central-1"
             },
             {
-              "name": "China (Beijing)",
+              "name": "中国（北京）",
               "value": "cn-north-1"
             },
             {
-              "name": "China (Ningxia)",
+              "name": "中国（宁夏）",
               "value": "cn-northwest-1"
             },
             {
-              "name": "Europe (Frankfurt)",
+              "name": "欧洲（法兰克福）",
               "value": "eu-central-1"
             },
             {
-              "name": "Europe (Ireland)",
+              "name": "欧洲（爱尔兰）",
               "value": "eu-west-1"
             },
             {
-              "name": "Europe (London)",
+              "name": "欧洲（伦敦）",
               "value": "eu-west-2"
             },
             {
-              "name": "Europe (Milan)",
+              "name": "欧洲（米兰）",
               "value": "eu-south-1"
             },
             {
-              "name": "Europe (Paris)",
+              "name": "欧洲（巴黎）",
               "value": "eu-west-3"
             },
             {
-              "name": "Europe (Stockholm)",
+              "name": "欧洲（斯德哥尔摩）",
               "value": "eu-north-1"
             },
             {
-              "name": "Middle East (Bahrain)",
+              "name": "中东（巴林）",
               "value": "me-south-1"
             },
             {
-              "name": "South America (São Paulo)",
+              "name": "南美洲（圣保罗）",
               "value": "sa-east-1"
             },
             {
-              "name": "AWS GovCloud (US-East)",
+              "name": "AWS 政府云 (美国东部)",
               "value": "us-gov-east-1"
             },
             {
-              "name": "AWS GovCloud (US-West)",
+              "name": "AWS 政府云 (美国西部)",
               "value": "us-gov-west-1"
             }
           ]
@@ -172,24 +172,24 @@
     },
     "iam_access_keys": {
       "access_key": {
-        "label": "Access key",
+        "label": "访问密钥",
         "key": "access_key",
         "type": "text",
-        "description": "Enter access key"
+        "description": "输入访问密钥"
       },
       "secret_key": {
-        "label": "Secret key",
+        "label": "密钥",
         "key": "secret_key",
         "type": "password",
-        "description": "Enter secret key"
+        "description": "输入密钥"
       }
     },
     "aws_arn_role": {
       "role_arn": {
-        "label": "Role ARN",
+        "label": "角色ARN",
         "key": "role_arn",
         "type": "text",
-        "description": "Enter role ARN, e.g. arn:aws:iam::123456789012:role/role-name"
+        "description": "输入角色ARN, 例如:arn:aws:iam::123456789012:role/role-name"
       }
     }
   },

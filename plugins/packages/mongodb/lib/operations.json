@@ -8,273 +8,273 @@
   },
   "properties": {
     "operation": {
-      "label": "Operation",
+      "label": "操作",
       "key": "operation",
       "type": "dropdown-component-flip",
       "description": "Single select dropdown for operation",
       "list": [
         {
-          "name": "List collections",
+          "name": "List collections——列出集合",
           "value": "list_collections"
         },
         {
-          "name": "Find One",
+          "name": "Find One——查找一个文档",
           "value": "find_one"
         },
         {
-          "name": "Find Many",
+          "name": "Find Many——查找多个文档",
           "value": "find_many"
         },
         {
-          "name": "Total Count",
+          "name": "Total Count——总数",
           "value": "count_total"
         },
         {
-          "name": "Count",
+          "name": "Count——条件计数",
           "value": "count"
         },
         {
-          "name": "Distinct",
+          "name": "Distinct——去重",
           "value": "distinct"
         },
         {
-          "name": "Insert One",
+          "name": "Insert One——插入一个文档",
           "value": "insert_one"
         },
         {
-          "name": "Insert Many",
+          "name": "Insert Many——插入多个文档",
           "value": "insert_many"
         },
         {
-          "name": "Update One",
+          "name": "Update One——更新一个文档",
           "value": "update_one"
         },
         {
-          "name": "Update Many",
+          "name": "Update Many——更新多个文档",
           "value": "update_many"
         },
         {
-          "name": "Replace One",
+          "name": "Replace One——替换一个文档",
           "value": "replace_one"
         },
         {
-          "name": "Find One and Update",
+          "name": "Find One and Update——查找一个文档并更新",
           "value": "find_one_update"
         },
         {
-          "name": "Find One and Replace",
+          "name": "Find One and Replace——查找一个文档并替换",
           "value": "find_one_replace"
         },
         {
-          "name": "Find One and Delete",
+          "name": "Find One and Delete——查找并删除一个文档",
           "value": "find_one_delete"
         },
         {
-          "name": "Aggregate",
+          "name": "Aggregate——聚合操作",
           "value": "aggregate"
         },
         {
-          "name": "Delete One",
+          "name": "Delete One——删除一个文档",
           "value": "delete_one"
         },
         {
-          "name": "Delete Many",
+          "name": "Delete Many——删除多个文档",
           "value": "delete_many"
         },
         {
-          "name": "Bulk Operations",
+          "name": "Bulk Operations——批量操作",
           "value": "bulk_write"
         }
       ]
     },
     "insert_one": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "document": {
-        "label": "Document",
+        "label": "文档",
         "key": "document",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ name: 'Steve', 'hobbies: [ 'hiking', 'tennis', 'fly fishing' ] }",
-        "description": "Enter document",
+        "description": "请输入文档名",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ checkKeys: true }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "insert_many": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "document": {
-        "label": "Documents",
+        "label": "文档列表",
         "key": "documents",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "[ { _id: 1, name: 'Steve' }, { _id: 2, name: 'Sally' } ]",
-        "description": "Enter document",
+        "description": "请输入文档列表",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ checkKeys: true }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "find_one": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ birth: { $lt: 'new Date({{new Date('01/01/1990').getTime()}})' } }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ projection: { _id: 0, 'name.first': 0, birth: 1 }, sort: { birth: -1 }, limit: 10, skip: 2 }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "find_many": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ birth: { $lt: 'new Date({{new Date('01/01/1990').getTime()}})' } }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ projection: { _id: 0, 'name.first': 0, birth: 1 }, sort: { birth: -1 }, limit: 10, skip: 2 }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "count_total": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ fullResponse: true }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "count": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ birth: { $lt: 'new Date({{new Date('01/01/1990').getTime()}})' } }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ skip: 2 }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "distinct": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "field": {
         "label": "Field",
@@ -288,127 +288,127 @@
         "placeholder": "Enter field name"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ directors: 'Barbra Streisand', }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ comment: 'some comment' }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "update_one": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ directors: 'Barbra Streisand', }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "update": {
-        "label": "Update",
+        "label": "更新",
         "key": "update",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ $set: { status: 'Modified' } }",
-        "description": "Enter update",
+        "description": "请输入文档的新值",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ comment: 'some comment' }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "update_many": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ directors: 'Barbra Streisand', }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "update": {
-        "label": "Update",
+        "label": "更新",
         "key": "update",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ $set: { status: 'Modified' } }",
-        "description": "Enter update",
+        "description": "请输入文档的新值",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ comment: 'some comment' }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "replace_one": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ title: { $regex: 'The Cat from' } } }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "replacement": {
-        "label": "Replacement",
+        "label": "替换",
         "key": "replacement",
         "type": "codehinter",
         "mode": "javascript",
@@ -417,38 +417,38 @@
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ comment: 'some comment' }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "find_one_replace": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ title: { $regex: 'The Cat from' } } }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "replacement": {
-        "label": "Replacement",
+        "label": "替换",
         "key": "replacement",
         "type": "codehinter",
         "mode": "javascript",
@@ -457,162 +457,162 @@
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ comment: 'some comment' }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "find_one_update": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ directors: 'Barbra Streisand', }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "update": {
-        "label": "Update",
+        "label": "更新",
         "key": "update",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ $set: { status: 'Modified' } }",
-        "description": "Enter update",
+        "description": "请输入文档的新值",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ upsert: true }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "find_one_delete": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ directors: 'Barbra Streisand', }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ sort: { field: -1 } }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "delete_one": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ directors: 'Barbra Streisand', }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{  comment: 'some comment' }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "delete_many": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "filter": {
-        "label": "Filter",
+        "label": "过滤器",
         "key": "filter",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ directors: 'Barbra Streisand', }",
-        "description": "Enter filter",
+        "description": "请输入过滤条件",
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ comment: 'some comment' }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "bulk_write": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "operations": {
-        "label": "Operations",
+        "label": "操作列表",
         "key": "operations",
         "type": "codehinter",
         "mode": "javascript",
@@ -621,29 +621,29 @@
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ comment: 'some comment' }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     },
     "aggregate": {
       "collection": {
-        "label": "Collection",
+        "label": "集合名",
         "key": "collection",
         "type": "codehinter",
         "lineNumbers": false,
-        "description": "Enter collection",
+        "description": "输入集合名",
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Enter collection"
+        "placeholder": "请输入集合名"
       },
       "pipeline": {
-        "label": "Pipeline",
+        "label": "管道",
         "key": "pipeline",
         "type": "codehinter",
         "mode": "javascript",
@@ -652,12 +652,12 @@
         "height": "150px"
       },
       "options": {
-        "label": "Options",
+        "label": "参数",
         "key": "options",
         "type": "codehinter",
         "mode": "javascript",
         "placeholder": "{ comment: 'some comment' }",
-        "description": "Enter options",
+        "description": "请输入参数",
         "height": "150px"
       }
     }

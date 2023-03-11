@@ -7,11 +7,11 @@ import { TooljetDatabaseContext } from '../index';
 
 const Footer = ({ darkMode, openCreateRowDrawer, dataLoading, tableDataLength }) => {
   const selectOptions = [
-    { label: '50 records', value: 50 },
-    { label: '100 records', value: 100 },
-    { label: '200 records', value: 200 },
-    { label: '500 records', value: 500 },
-    { label: '1000 records', value: 1000 },
+    { label: '50 /页', value: 50 },
+    { label: '100 /页', value: 100 },
+    { label: '200 /页', value: 200 },
+    { label: '500 /页', value: 500 },
+    { label: '1000 /页', value: 1000 },
   ];
 
   const { selectedTable, totalRecords, buildPaginationQuery } = useContext(TooljetDatabaseContext);
@@ -86,8 +86,9 @@ const Footer = ({ darkMode, openCreateRowDrawer, dataLoading, tableDataLength })
             size="sm"
             styles={{ width: '118px', fontSize: '12px', fontWeight: 700, borderColor: darkMode && 'transparent' }}
           >
-            <Button.Content title={'Add new row'} iconSrc={'assets/images/icons/add-row.svg'} direction="right" />
+            <Button.Content title={'添加行'} iconSrc={'assets/images/icons/add-row.svg'} direction="left" />
           </Button>
+            
         </div>
         {tableDataLength > 0 && (
           <div className="col d-flex align-items-center justify-content-end">

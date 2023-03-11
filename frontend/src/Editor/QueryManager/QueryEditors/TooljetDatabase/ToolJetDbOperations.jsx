@@ -178,7 +178,7 @@ const ToolJetDbOperations = ({ currentState, optionchanged, options, darkMode })
       {/* table name dropdown */}
       <div className="row">
         <div className="col-4">
-          <label className="form-label">Table name</label>
+          <label className="form-label">表名</label>
 
           <Select
             options={generateListForDropdown(tables)}
@@ -195,13 +195,13 @@ const ToolJetDbOperations = ({ currentState, optionchanged, options, darkMode })
       {/* operation selection dropdown */}
       <div className="row">
         <div className="my-2 col-4">
-          <label className="form-label">Operations</label>
+          <label className="form-label">操作</label>
           <Select
             options={[
-              { name: 'List rows', value: 'list_rows' },
-              { name: 'Create row', value: 'create_row' },
-              { name: 'Update rows', value: 'update_rows' },
-              { name: 'Delete rows', value: 'delete_rows' },
+              { name: '列出行', value: 'list_rows' },
+              { name: '创建行', value: 'create_row' },
+              { name: '更新行', value: 'update_rows' },
+              { name: '删除行', value: 'delete_rows' },
             ]}
             value={operation}
             onChange={(value) => setOperation(value)}

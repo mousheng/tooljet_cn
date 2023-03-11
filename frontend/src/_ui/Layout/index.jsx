@@ -29,7 +29,7 @@ function Layout({ children, switchDarkMode, darkMode }) {
             <ul className="sidebar-inner nav nav-vertical">
               <li className="text-center mt-2 cursor-pointer">
                 <Link to="/">
-                  <ToolTip message="Dashboard" placement="right">
+                  <ToolTip message="仪表盘" placement="right">
                     <svg
                       className="layout-sidebar-icon"
                       width="32"
@@ -53,7 +53,7 @@ function Layout({ children, switchDarkMode, darkMode }) {
               {window.public_config?.ENABLE_TOOLJET_DB == 'true' && admin && (
                 <li className="text-center mt-3 cursor-pointer">
                   <Link to="/database">
-                    <ToolTip message="Database" placement="right">
+                    <ToolTip message="数据库" placement="right">
                       <svg
                         className="layout-sidebar-icon"
                         width="32"
@@ -83,7 +83,7 @@ function Layout({ children, switchDarkMode, darkMode }) {
               )}
               <li className="text-center mt-3 cursor-pointer">
                 <Link to="/workspace-settings">
-                  <ToolTip message="Workspace settings" placement="right">
+                  <ToolTip message="工作区设置" placement="right">
                     <svg
                       className="layout-sidebar-icon"
                       width="32"

@@ -41,7 +41,7 @@ const List = () => {
   return (
     <>
       <div className="subheader mb-2" data-cy="all-tables-subheader">
-        All tables ({filteredTables.length})
+        所有表格 ({filteredTables.length})
       </div>
       <div className="list-group mb-3">
         {loading && <Skeleton count={3} height={22} />}

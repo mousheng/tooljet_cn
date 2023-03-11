@@ -125,7 +125,7 @@ export const DeleteRows = React.memo(({ currentState, darkMode }) => {
   return (
     <div className="tab-content-wrapper tj-db-field-wrapper mt-2">
       <label className="form-label" data-cy="label-column-filter">
-        Filter
+        过滤器
       </label>
 
       <div className="field-container">
@@ -145,12 +145,12 @@ export const DeleteRows = React.memo(({ currentState, darkMode }) => {
               fill="#466BF2"
             />
           </svg>
-          &nbsp;Add Condition
+          &nbsp;添加条件
         </div>
       </div>
       <div className="field-container ">
         <label className="form-label" data-cy="label-column-limit">
-          Limit
+          限制数量
         </label>
         <div className="field col-4">
           <CodeHinter
@@ -159,7 +159,7 @@ export const DeleteRows = React.memo(({ currentState, darkMode }) => {
             className="codehinter-plugins"
             theme={darkMode ? 'monokai' : 'default'}
             height={'32px'}
-            placeholder="Enter limit. Default is 1"
+            placeholder="输入限制数量. 默认为1"
             onChange={(newValue) => deleteOperationLimitOptionChanged(newValue)}
           />
         </div>

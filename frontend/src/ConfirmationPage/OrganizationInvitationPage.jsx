@@ -161,7 +161,7 @@ class OrganizationInvitationPageComponent extends React.Component {
                               this.state?.configs?.name
                                 ? `a workspace ${this.state?.configs?.name}. Accept the invite to join the workspace.`
                                 : 'ToolJet.'
-                            }`}
+                              }`}
                           </div>
 
                           <div className="org-page-inputs-wrapper">
@@ -185,7 +185,7 @@ class OrganizationInvitationPageComponent extends React.Component {
                                   name="password"
                                   type={this.state.showPassword ? 'text' : 'password'}
                                   className="tj-text-input"
-                                  placeholder="Enter password"
+                                  placeholder="输入密码"
                                   data-cy="password-input"
                                   autoComplete="new-password"
                                 />
@@ -259,11 +259,10 @@ class OrganizationInvitationPageComponent extends React.Component {
                             </h2>
 
                             <div className="invite-sub-header" data-cy="invite-page-sub-header">
-                              {`You are invited to ${
-                                this.state?.configs?.name
+                              {`You are invited to ${this.state?.configs?.name
                                   ? `a workspace ${this.state?.configs?.name}. Accept the invite to join the workspace.`
                                   : 'ToolJet.'
-                              }`}
+                                }`}
                             </div>
                             {this.source !== 'sso' &&
                               (this.state?.configs?.google?.enabled || this.state?.configs?.git?.enabled) && (
@@ -324,7 +323,7 @@ class OrganizationInvitationPageComponent extends React.Component {
                                     name="password"
                                     type={this.state?.showPassword ? 'text' : 'password'}
                                     className="tj-text-input"
-                                    placeholder="Enter password"
+                                    placeholder="输入密码"
                                     autoComplete="new-password"
                                     data-cy="password-input-field"
                                   />

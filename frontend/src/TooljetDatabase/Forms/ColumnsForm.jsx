@@ -18,7 +18,7 @@ const ColumnsForm = ({ columns, setColumns }) => {
     <div className="card">
       <div className="card-header">
         <h3 className="card-title" data-cy="add-columns-header">
-          Add columns
+        添加列
         </h3>
       </div>
       <div className="card-body">
@@ -29,13 +29,13 @@ const ColumnsForm = ({ columns, setColumns }) => {
         >
           <div className="row align-items-center">
             <div className="col-3 m-0">
-              <span data-cy="name-input-field-label">Name</span>
+              <span data-cy="name-input-field-label">列名</span>
             </div>
             <div className="col-3 m-0">
-              <span data-cy="type-input-field-label">Type</span>
+              <span data-cy="type-input-field-label">类型</span>
             </div>
             <div className="col-3 m-0">
-              <span data-cy="default-input-field-label">Default</span>
+              <span data-cy="default-input-field-label">默认值</span>
             </div>
           </div>
         </div>
@@ -77,6 +77,7 @@ const ColumnsForm = ({ columns, setColumns }) => {
                     const prevColumns = { ...columns };
                     prevColumns[index].data_type = value;
                     setColumns(prevColumns);
+
                   }}
                 />
               </div>
@@ -120,7 +121,7 @@ const ColumnsForm = ({ columns, setColumns }) => {
           data-cy="add-more-columns-button"
         >
           <AddColumnIcon />
-          &nbsp;&nbsp; Add more columns
+          &nbsp;&nbsp; 添加列
         </div>
       </div>
     </div>

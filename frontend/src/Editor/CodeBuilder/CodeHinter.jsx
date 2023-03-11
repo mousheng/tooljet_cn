@@ -217,7 +217,7 @@ export function CodeHinter({
               </div>
               {isFocused && (
                 <div className="preview-icons">
-                  <CodeHinter.PopupIcon callback={() => copyToClipboard(content)} icon="copy" tip="Copy to clipboard" />
+                  <CodeHinter.PopupIcon callback={() => copyToClipboard(content)} icon="copy" tip="复制到剪贴板" />
                 </div>
               )}
             </div>
@@ -317,7 +317,7 @@ export function CodeHinter({
                 <CodeHinter.PopupIcon
                   callback={handleToggle}
                   icon="portal-open"
-                  tip="Pop out code editor into a new window"
+                  tip="在悬浮窗口编辑代码"
                 />
               )}
               <CodeHinter.Portal

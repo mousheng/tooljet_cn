@@ -25,12 +25,12 @@
   },
   "properties": {
     "gcp_key": {
-      "label": "Private key",
+      "label": "私钥",
       "key": "gcp_key",
       "rows": 15,
       "encrypted": true,
       "type": "textarea",
-      "description": "Enter private key"
+      "description": "输入私钥"
     }
   },
   "required": [

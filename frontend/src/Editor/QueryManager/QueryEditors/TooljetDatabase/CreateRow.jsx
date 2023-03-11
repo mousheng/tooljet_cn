@@ -131,7 +131,7 @@ export const CreateRow = React.memo(({ currentState, optionchanged, options, dar
     <div className="row tj-db-field-wrapper">
       <div className="tab-content-wrapper mt-2">
         <label className="form-label" data-cy="label-column-filter">
-          Columns
+          列
         </label>
 
         <div className="field-container">
@@ -147,7 +147,7 @@ export const CreateRow = React.memo(({ currentState, optionchanged, options, dar
                   fill="#466BF2"
                 />
               </svg>
-              &nbsp; Add column
+              &nbsp; 添加列
             </div>
           )}
         </div>

@@ -52,10 +52,10 @@ export const EditOrganization = ({ showEditOrg, setShowEditOrg }) => {
       <div className="row">
         <div className="col d-flex justify-content-end">
           <button className="btn mx-1" onClick={() => setShowEditOrg(false)}>
-            {t('globals.cancel', 'Cancel')}
+            {t('globals.cancel', '取消')}
           </button>
           <button className={`btn btn-primary ${isCreating ? 'btn-loading' : ''}`} onClick={editOrganization}>
-            {t('globals.save', 'Save')}
+            {t('globals.save', '保存')}
           </button>
         </div>
       </div>

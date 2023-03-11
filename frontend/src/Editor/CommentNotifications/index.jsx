@@ -47,7 +47,7 @@ const CommentNotifications = ({ socket, toggleComments, appVersionsId, pageId })
   return (
     <div className="comment-notification-sidebar editor-sidebar">
       <div className="card-header">
-        <span className="comment-notification-header">Comments</span>
+        <span className="comment-notification-header">评论</span>
         <div className="ms-auto">
           <svg
             className="cursor-pointer"
@@ -88,7 +88,7 @@ const CommentNotifications = ({ socket, toggleComments, appVersionsId, pageId })
             tabIndex="0"
             onClick={() => handleClick('active')}
           >
-            Active
+            正在进行
           </button>
           <button
             className={cx('btn w-50 comment-notification-nav-item', {
@@ -103,7 +103,7 @@ const CommentNotifications = ({ socket, toggleComments, appVersionsId, pageId })
             tabIndex="-1"
             onClick={() => handleClick('resolved')}
           >
-            Resolved
+            已解决
           </button>
         </div>
       </div>

@@ -47,7 +47,7 @@ function ContinueButton({ setPage, formData, page, setCompleted, isLoading, setI
         </div>
       ) : (
         <>
-          <p className="mb-0">Continue</p>
+          <p className="mb-0">继续</p>
           <EnterIcon
             className="enter-icon-onboard"
             fill={Object.values(formData)[page] == '' || isLoading ? (darkMode ? '#656565' : ' #D1D5DB') : '#fff'}

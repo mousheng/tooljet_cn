@@ -21,10 +21,10 @@ import { CustomToggleSwitch } from './CustomToggleSwitch';
 const queryNameRegex = new RegExp('^[A-Za-z0-9_-]*$');
 
 const staticDataSources = [
-  { kind: 'tooljetdb', id: 'null', name: 'Tooljet Database' },
+  { kind: 'tooljetdb', id: 'null', name: 'Tooljet数据库' },
   { kind: 'restapi', id: 'null', name: 'REST API' },
-  { kind: 'runjs', id: 'runjs', name: 'Run JavaScript code' },
-  { kind: 'runpy', id: 'runpy', name: 'Run Python code' },
+  { kind: 'runjs', id: 'runjs', name: '运行java脚本' },
+  { kind: 'runpy', id: 'runpy', name: '运行python代码' },
 ];
 
 class QueryManagerComponent extends React.Component {
@@ -115,7 +115,7 @@ class QueryManagerComponent extends React.Component {
           base0E: '#d381c3',
           base0F: '#be643c',
         },
-        buttonText: props.mode === 'edit' ? 'Save' : 'Create',
+        buttonText: props.mode === 'edit' ? '保存' : '创建',
         shouldRunQuery: props.mode === 'edit' ? this.state.isFieldsChanged : this.props.isSourceSelected,
       },
       () => {
@@ -539,7 +539,7 @@ class QueryManagerComponent extends React.Component {
                   }}
                   data-cy={`query-type-header`}
                 >
-                  {mode === 'create' ? 'New Query' : 'Queries'}
+                  {mode === 'create' ? '新建查询' : '查询'}
                 </span>
                 <span className="breadcrum">
                   <svg width="5.33" height="9.33" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -695,7 +695,7 @@ class QueryManagerComponent extends React.Component {
                   </svg>
                 </span>
                 <span className="query-manager-btn-name">
-                  {this.state.currentState.queries[selectedQuery.name]?.isLoading ? ' ' : 'Run'}
+                  {this.state.currentState.queries[selectedQuery.name]?.isLoading ? ' ' : '运行'}
                 </span>
               </button>
             )}

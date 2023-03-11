@@ -91,7 +91,7 @@ const QueryPanel = ({ children, computeCurrentQueryPanelHeight }) => {
         }}
       >
         <h5 className="mb-0 font-weight-500 cursor-pointer" onClick={toggleQueryEditor}>
-          QUERIES
+          查询
         </h5>
         <span onClick={toggleQueryEditor} className="cursor-pointer m-1  d-flex" data-tip="Show query editor">
           {isExpanded ? (

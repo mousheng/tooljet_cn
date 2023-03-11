@@ -65,53 +65,53 @@
       "description": "Single select dropdown for connection_type",
       "list": [
         {
-          "name": "Manual connection",
+          "name": "手动连接",
           "value": "manual"
         },
         {
-          "name": "Connect using connection string",
+          "name": "使用连接字符串连接",
           "value": "string"
         }
       ]
     },
     "manual": {
       "host": {
-        "label": "Host",
+        "label": "主机",
         "key": "host",
         "type": "text",
-        "description": "Enter host"
+        "description": "输入主机"
       },
       "port": {
-        "label": "Port",
+        "label": "端口",
         "key": "port",
         "type": "text",
-        "description": "Enter port"
+        "description": "输入端口"
       },
       "database": {
-        "label": "Database Name",
+        "label": "数据库名称",
         "key": "database",
         "type": "text",
-        "description": "Name of the database"
+        "description": "数据库的名称"
       },
       "username": {
-        "label": "Username",
+        "label": "用户名",
         "key": "username",
         "type": "text",
-        "description": "Enter username"
+        "description": "输入用户名"
       },
       "password": {
-        "label": "Password",
+        "label": "密码",
         "key": "password",
         "type": "password",
-        "description": "Enter password"
+        "description": "输入密码"
       }
     },
     "string": {
       "connection_string": {
-        "label": "Connection string",
+        "label": "连接字符串",
         "key": "connection_string",
         "type": "text",
-        "description": "mongodb+srv://tooljet:<password>@cluster0.i1vq4.mongodb.net/mydb?retryWrites=true&w=majority"
+        "description": "mongodb://[用户名]:[密码]@[主机IP]:[端口]/[数据库名称]?authSource=admin"
       }
     }
   }

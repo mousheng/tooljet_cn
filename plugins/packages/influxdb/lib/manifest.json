@@ -34,27 +34,27 @@
   },
   "properties": {
     "api_key": {
-      "label": "API token",
+      "label": "API令牌",
       "key": "api_token",
       "type": "password",
-      "description": "Api token for InfluxDB",
+      "description": "InfluxDB的Api令牌",
       "helpText": "For generating API token, visit: <a href='https://docs.influxdata.com/influxdb/cloud/security/tokens/create-token/' target='_blank' rel='noreferrer'>InfluxDB docs</a>"
     },
     "host": {
-      "label": "Host",
+      "label": "主机",
       "key": "host",
       "type": "text",
-      "description": ""
+      "description": "输入主机地址"
     },
     "port": {
-      "label": "Port",
+      "label": "端口",
       "key": "port",
       "type": "text",
       "description": "8086 ",
       "helpText": ""
     },
     "protocol": {
-      "label": "Protocol",
+      "label": "协议",
       "key": "protocol",
       "type": "dropdown",
       "list": [
@@ -67,7 +67,7 @@
           "value": "https"
         }
       ],
-      "description": "Enter protocol"
+      "description": "输入协议"
     }
   },
   "required": [

@@ -33,7 +33,7 @@ function OnBoardingInput({
       {emailError && (
         <span className="tj-text-input-error-state" data-cy="email-error-message">
           {' '}
-          Invalid email
+          邮箱格式错误，请确认
         </span>
       )}
     </div>

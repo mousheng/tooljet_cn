@@ -229,7 +229,7 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
       <div className="row my-2 tj-db-field-wrapper">
         <div className="tab-content-wrapper">
           <label className="form-label" data-cy="label-column-filter">
-            Filter
+            过滤器
           </label>
           <div className="field-container">
             {Object.values(listRowsOptions?.where_filters || {}).map((filter) => (
@@ -248,14 +248,14 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
                   fill="#466BF2"
                 />
               </svg>
-              &nbsp;Add Condition
+              &nbsp;添加条件
             </div>
           </div>
           {/* sort */}
 
           <div className="fields-container">
             <label className="form-label" data-cy="label-column-sort">
-              Sort
+              排序
             </label>
             <div className="field-container">
               {Object.values(listRowsOptions?.order_filters || {}).map((filter) => (
@@ -273,7 +273,7 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
                     fill="#466BF2"
                   />
                 </svg>
-                &nbsp;Add Condition
+                &nbsp;添加条件
               </div>
             </div>
           </div>
@@ -281,7 +281,7 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
           {/* Limit */}
           <div className="field-container ">
             <label className="form-label" data-cy="label-column-limit">
-              Limit
+              限制
             </label>
             <div className="field col-4">
               <CodeHinter
@@ -290,7 +290,7 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
                 className="codehinter-plugins"
                 theme={darkMode ? 'monokai' : 'default'}
                 height={'32px'}
-                placeholder="Enter limit"
+                placeholder="输入限制数量"
                 onChange={(newValue) => limitOptionChanged(newValue)}
               />
             </div>

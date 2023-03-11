@@ -13,7 +13,7 @@ import { toast } from 'react-hot-toast';
 
 export function ManageSSO({ darkMode }) {
   const menuItems = [
-    { id: 'general-settings', label: 'General Settings' },
+    { id: 'general-settings', label: '常规设置' },
     { id: 'google', label: 'Google' },
     { id: 'git', label: 'GitHub' },
     { id: 'form', label: 'Password Login' },

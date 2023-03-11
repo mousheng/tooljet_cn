@@ -58,40 +58,40 @@
   },
   "properties": {
     "host": {
-      "label": "Host",
+      "label": "主机",
       "key": "host",
       "type": "text",
-      "description": "Enter host"
+      "description": "输入主机地址"
     },
     "instanceName": {
-      "label": "Instance",
+      "label": "实例名称",
       "key": "instance_name",
       "type": "text",
-      "description": "Enter the name of the database instance"
+      "description": "输入数据库实例的名称"
     },
     "port": {
-      "label": "Port",
+      "label": "端口",
       "key": "port",
       "type": "text",
-      "description": "Enter port"
+      "description": "输入端口"
     },
     "database": {
-      "label": "Database Name",
+      "label": "数据库名称",
       "key": "database",
       "type": "text",
-      "description": "Name of the database"
+      "description": "数据库的名称"
     },
     "username": {
-      "label": "Username",
+      "label": "用户名",
       "key": "username",
       "type": "text",
-      "description": "Enter username"
+      "description": "输入用户名"
     },
     "password": {
-      "label": "Password",
+      "label": "密码",
       "key": "password",
       "type": "password",
-      "description": "Enter password"
+      "description": "输入密码"
     },
     "azure": {
       "label": "Azure",

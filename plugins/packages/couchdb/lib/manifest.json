@@ -53,41 +53,41 @@
   },
   "properties": {
     "host": {
-      "label": "Host",
+      "label": "主机",
       "key": "host",
       "type": "text",
       "description": ""
     },
     "port": {
-      "label": "Port",
+      "label": "端口",
       "key": "port",
       "type": "text",
       "description": "5984 ",
       "helpText": ""
     },
     "username": {
-      "label": "Username",
+      "label": "用户名",
       "key": "username",
       "type": "text",
-      "description": "username for couchDB",
+      "description": "couchDB的用户名",
       "helpText": ""
     },
     "password": {
-      "label": "Password",
+      "label": "密码",
       "key": "password",
       "type": "password",
-      "description": "password for couchDB",
+      "description": "couchDB的密码",
       "helpText": ""
     },
     "database": {
-      "label": "Database Name",
+      "label": "数据库名称",
       "key": "database",
       "type": "text",
-      "description": "database name",
+      "description": "数据库名称",
       "helpText": ""
     },
     "protocol": {
-      "label": "Protocol",
+      "label": "协议",
       "key": "protocol",
       "type": "dropdown",
       "list": [
@@ -100,7 +100,7 @@
           "value": "https"
         }
       ],
-      "description": "Enter protocol"
+      "description": "输入协议"
     }
   },
   "required": ["username", "password", "database", "port", "host", "protocol"]

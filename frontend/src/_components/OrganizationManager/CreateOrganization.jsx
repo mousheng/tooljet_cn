@@ -55,7 +55,7 @@ export const CreateOrganization = ({ showCreateOrg, setShowCreateOrg }) => {
       <div className="row">
         <div className="col d-flex justify-content-end">
           <button className="btn mx-2" onClick={() => setShowCreateOrg(false)} data-cy="cancel-button">
-            {t('globals.cancel', 'Cancel')}
+            {t('globals.cancel', '取消')}
           </button>
           <button
             disabled={isCreating}
@@ -63,7 +63,7 @@ export const CreateOrganization = ({ showCreateOrg, setShowCreateOrg }) => {
             onClick={createOrganization}
             data-cy="create-workspace-button"
           >
-            {t('header.organization.createWorkspace', 'Create workspace')}
+            {t('header.organization.createWorkspace', '创建工作区')}
           </button>
         </div>
       </div>

@@ -142,7 +142,7 @@ function OnBoardingForm({ userDetails = {}, token = '', organizationToken = '', 
                   data-cy="back-arrow"
                 />
                 <p className="onboarding-back-text" data-cy="back-arrow-text">
-                  Back
+                  返回
                 </p>
               </div>
             )}

@@ -89,7 +89,7 @@ export default function EditorHeader({
                         })}
                         data-cy="autosave-indicator"
                       >
-                        {isSaving ? 'Saving...' : saveError ? 'Could not save changes' : 'Saved changes'}
+                        {isSaving ? '保存中...' : saveError ? '无法保存更改' : '已经保存更改'}
                       </span>
                     </div>
                   </div>
@@ -125,7 +125,7 @@ export default function EditorHeader({
                 </div>
                 <div className="nav-item me-1">
                   <Link
-                    title="Preview"
+                    title="预览"
                     to={appVersionPreviewLink}
                     target="_blank"
                     rel="noreferrer"

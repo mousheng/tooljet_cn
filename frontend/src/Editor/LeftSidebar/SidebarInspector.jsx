@@ -161,10 +161,10 @@ export const LeftSidebarInspector = ({
   const popoverContent = (
     <div className={`left-sidebar-inspector`} style={{ resize: 'horizontal', minWidth: 288 }}>
       <HeaderSection darkMode={darkMode}>
-        <HeaderSection.PanelHeader title="Inspector">
+        <HeaderSection.PanelHeader title="检查器">
           <div className="d-flex justify-content-end">
             <Button
-              title={`${pinned ? 'Unpin' : 'Pin'}`}
+              title={`${pinned ? '取消前置' : '保持前置'}`}
               onClick={() => setPinned(!pinned)}
               darkMode={darkMode}
               size="sm"

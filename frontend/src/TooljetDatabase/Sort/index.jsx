@@ -66,7 +66,7 @@ const Sort = ({ filters, setFilters, handleBuildSortQuery, resetSortQuery }) => 
               fill="#466BF2"
             />
           </svg>
-          &nbsp;Add another
+          &nbsp;新增排序依据
         </div>
       </Popover.Content>
     </Popover>
@@ -96,7 +96,7 @@ const Sort = ({ filters, setFilters, handleBuildSortQuery, resetSortQuery }) => 
             fill="#889096"
           />
         </svg>
-        &nbsp;&nbsp;Sort
+        &nbsp;&nbsp;排序
         {areFiltersApplied && (
           <span>ed by {pluralize(Object.values(filters).filter(checkIsFilterObjectEmpty).length, 'column')}</span>
         )}

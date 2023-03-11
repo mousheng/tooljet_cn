@@ -354,7 +354,7 @@ class EditorComponent extends React.Component {
 
               if (data.data_queries.length === 0) {
                 this.setState({
-                  dataQueriesDefaultText: 'No queries added',
+                  dataQueriesDefaultText: '您还未添加查询',
                   // showQuerySearchField: false,
                 });
               }
@@ -1776,7 +1776,7 @@ class EditorComponent extends React.Component {
         />
         <Confirm
           show={showDataQueryDeletionConfirmation}
-          message={'Do you really want to delete this query?'}
+          message={'是否确定要删除此查询?'}
           confirmButtonLoading={isDeletingDataQuery}
           onConfirm={() => this.executeDataQueryDeletion()}
           onCancel={() => this.cancelDeleteDataQuery()}
@@ -1784,8 +1784,8 @@ class EditorComponent extends React.Component {
         />
         <Confirm
           show={this.state.showPageDeletionConfirmation?.isOpen ?? false}
-          title={'Delete Page'}
-          message={`Do you really want to delete this page?`}
+          title={'删除页面'}
+          message={`是否确定要删除此页面?`}
           confirmButtonLoading={this.state.isDeletingPage}
           onConfirm={() => this.executeDeletepageRequest()}
           onCancel={() => this.cancelDeletePageRequest()}
@@ -1996,7 +1996,7 @@ class EditorComponent extends React.Component {
                     <>
                       <Confirm
                         show={showSaveConfirmation}
-                        message={`Query ${selectedQuery?.name} has unsaved changes`}
+                        message={`查询 ${selectedQuery?.name} 有未保存的更改`}
                         onConfirm={() => {
                           setSaveConfirmation(false);
                         }}
@@ -2008,8 +2008,8 @@ class EditorComponent extends React.Component {
                             draftQuery: this.state.draftQuery !== null ? null : this.state.draftQuery,
                           });
                         }}
-                        confirmButtonText="Continue editing"
-                        cancelButtonText="Discard changes"
+                        confirmButtonText="继续编辑"
+                        cancelButtonText="放弃更改"
                         callCancelFnOnConfirm={false}
                         queryCancelData={queryCancelData}
                       />
@@ -2039,12 +2039,12 @@ class EditorComponent extends React.Component {
                               >
                                 <span
                                   className={` d-flex query-manager-btn-svg-wrapper align-items-center query-icon-wrapper`}
-                                  data-tip="Add new query"
+                                  data-tip="添加新查询"
                                   data-class=""
                                 >
                                   <svg
-                                    width="auto"
-                                    height="auto"
+                                    width="12px"
+                                    height="12px"
                                     viewBox="0 0 16 16"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -2055,7 +2055,7 @@ class EditorComponent extends React.Component {
                                     />
                                   </svg>
                                 </span>
-                                <span className="query-manager-btn-name">Add</span>
+                                <span className="query-manager-btn-name">添加</span>
                               </button>
                             </div>
 

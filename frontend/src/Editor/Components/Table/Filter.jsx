@@ -181,7 +181,7 @@ export function Filter(props) {
                   data-cy={`data-filtervalue-input-${index ?? ''}`}
                   type="text"
                   value={filter.value.value}
-                  placeholder="value"
+                  placeholder="值"
                   className="form-control"
                   onChange={(e) => _.debounce(filterValueChanged(index, e.target.value), 500)}
                 />

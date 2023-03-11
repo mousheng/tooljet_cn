@@ -22,11 +22,11 @@ export const CreateVersion = ({
 
   const createVersion = () => {
     if (versionName.trim().length > 25) {
-      toast.error('Version name should not be longer than 25 characters');
+      toast.error('版本名称不应超过25个字符');
       return;
     }
     if (versionName.trim() == '') {
-      toast.error('Version name should not be empty');
+      toast.error('版本名称不应为空');
       return;
     }
 
@@ -34,7 +34,7 @@ export const CreateVersion = ({
     appVersionService
       .create(appId, versionName, editingVersion.id)
       .then(() => {
-        toast.success('Version Created');
+        toast.success('新版本已创建');
         appVersionService.getAll(appId).then((data) => {
           setVersionName('');
           setIsCreatingVersion(false);

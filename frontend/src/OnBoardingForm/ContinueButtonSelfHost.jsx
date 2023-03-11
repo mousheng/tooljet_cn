@@ -44,7 +44,7 @@ function ContinueButtonSelfHost({
       if (event.key === 'Enter' && !activeCondition) {
         if (page == 0) {
           if (!validateEmail(email)) {
-            setEmailError('Invalid Email');
+            setEmailError('电子邮件无效');
             return;
           }
         }
@@ -71,7 +71,7 @@ function ContinueButtonSelfHost({
         e.preventDefault();
         if (page == 0) {
           if (!validateEmail(email)) {
-            setEmailError('Invalid Email');
+            setEmailError('电子邮件无效');
             return;
           }
         }
@@ -90,7 +90,7 @@ function ContinueButtonSelfHost({
         </div>
       ) : (
         <>
-          <p className="mb-0">Continue</p>
+          <p className="mb-0">继续</p>
           <EnterIcon
             className="enter-icon-onboard"
             fill={activeCondition || isLoading ? (darkMode ? '#656565' : ' #D1D5DB') : '#fff'}

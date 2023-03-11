@@ -11,11 +11,11 @@ export const TestConnection = ({ kind, options, pluginId, onConnectionTestFailed
 
   useEffect(() => {
     if (isTesting) {
-      setButtonText('Testing connection...');
+      setButtonText('测试连接中...');
     } else if (connectionStatus === 'success') {
-      setButtonText('Connection verified');
+      setButtonText('连接已验证');
     } else {
-      setButtonText('Test Connection');
+      setButtonText('测试连接');
     }
   }, [isTesting, connectionStatus]);
 

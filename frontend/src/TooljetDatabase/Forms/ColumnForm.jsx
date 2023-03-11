@@ -20,11 +20,11 @@ const ColumnForm = ({ onCreate, onClose }) => {
 
   const handleCreate = async () => {
     if (isEmpty(columnName)) {
-      toast.error('Column name cannot be empty');
+      toast.error('列名不能为空');
       return;
     }
     if (isEmpty(dataType)) {
-      toast.error('Data type cannot be empty');
+      toast.error('数据类型不能为空');
       return;
     }
 
@@ -41,11 +41,11 @@ const ColumnForm = ({ onCreate, onClose }) => {
     setFetching(false);
 
     if (error) {
-      toast.error(error?.message ?? `Failed to create a new column in "${selectedTable}" table`);
+      toast.error(error?.message ?? `未能在表"${selectedTable}"中创建新列`);
       return;
     }
 
-    toast.success(`Column created successfully`);
+    toast.success(`已成功创建列`);
     onCreate && onCreate();
   };
 
@@ -53,18 +53,18 @@ const ColumnForm = ({ onCreate, onClose }) => {
     <div className="card">
       <div className="card-header">
         <h3 className="card-title" data-cy="create-new-column-header">
-          Create a new column
+        创建新列
         </h3>
       </div>
       <div className="card-body">
         <div className="mb-3">
           <div className="form-label" data-cy="column-name-input-field-label">
-            Column name
+            列名
           </div>
           <input
             value={columnName}
             type="text"
-            placeholder="Enter column name"
+            placeholder="输入列名"
             className="form-control"
             data-cy="column-name-input-field"
             autoComplete="off"
@@ -73,11 +73,11 @@ const ColumnForm = ({ onCreate, onClose }) => {
         </div>
         <div className="mb-3" data-cy="data-type-dropdown-section">
           <div className="form-label" data-cy="data-type-input-field-label">
-            Data type
+            数据类型
           </div>
           <Select
             useMenuPortal={false}
-            placeholder="Select data type"
+            placeholder="选择数据类型"
             value={dataType}
             options={dataTypes}
             onChange={handleTypeChange}
@@ -85,12 +85,12 @@ const ColumnForm = ({ onCreate, onClose }) => {
         </div>
         <div className="mb-3">
           <div className="form-label" data-cy="default-value-input-field-label">
-            Default value
+            默认值
           </div>
           <input
             value={defaultValue}
             type="text"
-            placeholder="Enter default value"
+            placeholder="输入默认值"
             className="form-control"
             data-cy="default-value-input-field"
             autoComplete="off"

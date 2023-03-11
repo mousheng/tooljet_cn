@@ -160,7 +160,7 @@ const LeftSidebarDataSourcesContainer = ({
   return (
     <div>
       <HeaderSection darkMode={darkMode}>
-        <HeaderSection.PanelHeader title="Datasources">
+        <HeaderSection.PanelHeader title="数据源">
           <div className="d-flex justify-content-end float-right" style={{ maxWidth: 48 }}>
             <Button
               styles={{ width: '28px', padding: 0 }}

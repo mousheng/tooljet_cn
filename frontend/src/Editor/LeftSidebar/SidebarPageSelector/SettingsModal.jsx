@@ -34,7 +34,7 @@ export const SettingsModal = ({
       >
         <Modal.Header>
           <Modal.Title style={{ fontSize: '16px', fontWeight: '400' }} data-cy={'modal-title-page-events'}>
-            Page Events
+            事件页面
           </Modal.Title>
           <span className="cursor-pointer" size="sm" onClick={handleClose} data-cy={'modal-close-button-page-events'}>
             <svg
@@ -56,7 +56,7 @@ export const SettingsModal = ({
           </span>
         </Modal.Header>
         <Modal.Body>
-          <b data-cy={'page-events-labe'}>Events</b>
+          <b data-cy={'page-events-labe'}>事件列表</b>
           <EventManager
             component={{
               component: {
@@ -65,7 +65,7 @@ export const SettingsModal = ({
                 },
               },
             }}
-            componentMeta={{ events: { onPageLoad: { displayName: 'On page load' } } }}
+            componentMeta={{ events: { onPageLoad: { displayName: '页面载入时' } } }}
             currentState={currentState}
             dataQueries={dataQueries}
             components={components}
@@ -83,7 +83,7 @@ export const SettingsModal = ({
             onClick={handleClose}
             data-cy={`page-events-modal-close-button`}
           >
-            <Button.Content title="Close" />
+            <Button.Content title="关闭" />
           </Button>
         </Modal.Footer>
       </Modal>

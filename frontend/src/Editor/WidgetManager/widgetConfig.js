@@ -535,7 +535,7 @@ export const widgets = [
       },
       borderColor: {
         type: 'color',
-        displayName: 'Border color',
+        displayName: '边框颜色',
         validation: {
           schema: { type: 'string' },
           defaultValue: false,
@@ -987,7 +987,7 @@ export const widgets = [
       },
       borderColor: {
         type: 'color',
-        displayName: 'Border Color',
+        displayName: '边框颜色',
         validation: { schema: { type: 'string' } },
       },
       errTextColor: {
@@ -1048,7 +1048,7 @@ export const widgets = [
       },
       properties: {
         value: { value: '' },
-        placeholder: { value: 'Enter your input' },
+        placeholder: { value: '请输入' },
       },
       events: [],
       styles: {
@@ -1136,7 +1136,7 @@ export const widgets = [
       },
       borderColor: {
         type: 'color',
-        displayName: 'Border Color',
+        displayName: '边框颜色',
         validation: {
           schema: { type: 'string' },
         },
@@ -2177,7 +2177,7 @@ export const widgets = [
       },
       borderColor: {
         type: 'color',
-        displayName: 'Border color',
+        displayName: '边框颜色',
         validation: {
           schema: { type: 'string' },
         },
@@ -3663,7 +3663,7 @@ export const widgets = [
       },
       borderColor: {
         type: 'color',
-        displayName: 'Border color',
+        displayName: '边框颜色',
         validation: {
           schema: { type: 'string' },
         },
@@ -5292,7 +5292,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
       borderColor: {
         type: 'color',
-        displayName: 'Border color',
+        displayName: '边框颜色',
         validation: {
           schema: { type: 'string' },
         },

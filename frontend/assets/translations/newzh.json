@@ -1,0 +1,939 @@
+{
+    "globals": {
+        "readDocumentation": "阅读文件",
+        "cancel": "取消",
+        "save": "拯救",
+        "back": "溯源",
+        "edit": "编辑",
+        "search": "搜索",
+        "update": "更新",
+        "delete": "删除",
+        "add": "添加",
+        "view": "查看",
+        "create": "创建",
+        "enabled": "已启用",
+        "disabled": "失能",
+        "yes": "是",
+        "submit": "提交",
+        "select": "选择",
+        "environmentVar": "工作区变量",
+        "saving": "拯救...",
+        "saveDatasource": "保存数据源",
+        "authorize": "授权",
+        "connect": "连接",
+        "reconnect": "重新连接",
+        "components": "组件",
+        "send": "发送",
+        "noConnection": "无法连接",
+        "connectionVerified": "连接已验证",
+        "left": "左边",
+        "center": "中心",
+        "right": "对",
+        "justified": "辩解",
+        "host": "宿主",
+        "operation": "运作",
+        "header": "标题",
+        "path": "路径",
+        "query": "查询",
+        "requestBody": "请求机构",
+        "page": "页码"
+    },
+    "errorBoundary": "出了点问题。",
+    "viewer": "对不起！。此应用程序正在维护中",
+    "app": {
+        "updateAvailable": "可提供最新信息",
+        "newVersionReleased": "ToolJet的一个新版本已经发布。",
+        "readReleaseNotes": "阅读发行说明和更新",
+        "skipVersion": "跳过这个版本"
+    },
+    "stripe": "请等待，我们正在加载Stripe的OpenAPI规范。",
+    "openApi": {
+        "noValidOpenApi": "有效的OpenAPI规范是不可用的！。",
+        "selectHost": "选择一个主机",
+        "selectOperation": "选择一个操作"
+    },
+    "slack": {
+        "authorize": "授权",
+        "connectToolJetToSlack": "ToolJet可以连接到Slack，列出用户，发送消息，等等。请选择适当的权限范围。",
+        "chatWrite": "聊天：写",
+        "listUsersAndSendMessage": "你的ToolJet应用程序将能够列出用户，并向用户和频道发送消息。",
+        "connectSlack": "连接到Slack"
+    },
+    "googleSheets": {
+        "readOnly": "只读",
+        "enableReadAndWrite": "如果你想让你的ToolJet应用程序修改你的Google表单，请确保选择读取和写入权限",
+        "readDataFromSheets": "你的ToolJet应用程序只能从谷歌表读取数据",
+        "readWrite": "读和写",
+        "readModifySheets": "你的ToolJet应用程序可以从纸张上读取数据，修改纸张，以及更多。",
+        "toGoogleSheets": "到谷歌表格"
+    },
+    "profile": {
+        "profileSettings": "简介设置"
+    },
+    "verificationSuccessPage": {
+        "workEmail": "电子邮件",
+        "enterFullName": "输入你的全名",
+        "enterNewPassword": "输入新密码",
+        "name": "命名",
+        "password": "密码",
+        "acceptInvite": "接受邀请",
+        "successfullyVerifiedEmail": "成功验证的电子邮件",
+        "setupTooljet": "设置ToolJet"
+    },
+    "loginSignupPage": {
+        "forgotPassword": "忘记密码",
+        "emailAddress": "电子邮件地址",
+        "enterEmail": "输入电子邮件",
+        "dontHaveAccount": "还没有账户吗？",
+        "enterBusinessEmail": "输入你的企业邮箱",
+        "alreadyHaveAnAccount": "已经有了一个账户？",
+        "resetPassword": "重置密码",
+        "signIn": "登录",
+        "signUp": "报名参加",
+        "createToolJetAccount": "创建一个账户",
+        "password": "密码",
+        "showPassword": "显示密码",
+        "loginTo": "登录",
+        "yourAccount": "您的账户",
+        "noLoginMethodsEnabled": "此工作区没有启用登录方法",
+        "emailConfirmLink": "请检查您的电子邮件以获取确认链接",
+        "newPassword": "新密码",
+        "passwordConfirmation": "密码确认",
+        "newToTooljet": "刚到ToolJet？",
+        "enterWorkEmail": "输入你的电子邮件",
+        "enterPassword": "输入密码",
+        "forgot": "忘了吗？",
+        "workEmail": "电子邮件",
+        "joinTooljet": "加入ToolJet",
+        "getStartedForFree": "免费开始",
+        "passwordCharacter": "密码必须至少有5个字符",
+        "enterFullName": "输入你的全名",
+        "enterNewPassword": "输入新密码"
+    },
+    "editor": {
+        "preview": "预览",
+        "share": "分享",
+        "shareModal": {
+            "makeApplicationPublic": "将申请公开？",
+            "shareableLink": "获取此应用程序的可共享链接",
+            "copy": "拷贝",
+            "embeddableLink": "获取此应用程序的可嵌入链接",
+            "manageUsers": "用户"
+        },
+        "appVersionManager": {
+            "version": "版本",
+            "currentlyReleased": "目前已发布",
+            "createVersion": "创建新版本",
+            "versionName": "版本名称",
+            "createVersionFrom": "创建版本来自",
+            "save": "拯救",
+            "create": "创建版本",
+            "editVersion": "编辑版本",
+            "deleteVersion": "你真的想删除这个版本（{{version}}）吗？",
+            "enterVersionName": "输入版本名称",
+            "versionAlreadyReleased": "你不能对一个已经发布的版本进行修改。\如果你想进行修改，请创建一个新的版本或切换到一个不同的版本。"
+        },
+        "queries": "查询",
+        "inspectComponent": "请选择一个要检查的部件",
+        "release": "发布",
+        "searchQueries": "搜索查询",
+        "createQuery": "创建查询",
+        "queryManager": {
+            "general": "一般",
+            "advanced": "高级",
+            "preview": "预览",
+            "Save": "拯救",
+            "selectDatasource": "选择数据源",
+            "addDatasource": "添加数据源",
+            "dataSourceManager": {
+                "toast": {
+                    "success": {
+                        "dataSourceAdded": "已添加数据源",
+                        "dataSourceSaved": "已保存的数据源"
+                    },
+                    "error": {
+                        "noEmptyDsName": "数据源的名称不应该是空的"
+                    }
+                },
+                "suggestDataSource": "建议数据源",
+                "suggestAnIntegration": "建议进行整合",
+                "whatLookingFor": "告诉我们你在寻找什么？",
+                "noResultFound": "没有看到你要找的东西？",
+                "suggest": "建议",
+                "addNewDataSource": "添加新的数据源",
+                "whiteListIP": "如果数据源不公开，请将我们的IP地址列入白名单。",
+                "copied": "抄袭",
+                "copy": "拷贝",
+                "saving": "节约",
+                "noResultsFor": "没有结果",
+                "noteTaken": "谢谢你，我们已经注意到了这一点。",
+                "goToAllDatasources": "转到所有数据源",
+                "send": "发送"
+            },
+            "runQueryOnApplicationLoad": "在应用程序加载时运行这个查询？",
+            "confirmBeforeQueryRun": "运行查询前要求确认？",
+            "notificationOnSuccess": "成功时显示通知？",
+            "successMessage": "成功信息",
+            "queryRanSuccessfully": "查询运行成功",
+            "notificationDuration": "通知时间（秒）",
+            "events": "活动",
+            "transformation": {
+                "transformationToolTip": "转化可以在查询上启用，以转化查询结果。ToolJet允许你使用两种编程语言来转换查询结果。JavaScript和Python",
+                "transformations": "启用转换功能"
+            }
+        },
+        "inspector": {
+            "eventManager": {
+                "event": "活动",
+                "action": "行动",
+                "actionOptions": "行动选择",
+                "message": "留言",
+                "alertType": "警报类型",
+                "url": "URL",
+                "modal": "模式化",
+                "text": "文本",
+                "query": "查询",
+                "key": "钥匙",
+                "value": "价值",
+                "type": "类型",
+                "fileName": "文件名称",
+                "data": "数据",
+                "table": "表",
+                "pageIndex": "页面索引",
+                "component": "组成部分",
+                "addHandler": "+ 添加处理程序",
+                "addEventHandler": "+ 添加事件处理程序",
+                "emptyMessage": "这个{{componentName}}没有任何事件处理程序",
+                "page": "页码"
+            }
+        }
+    },
+    "header": {
+        "darkModeToggle": {
+            "activateLightMode": "激活灯光模式",
+            "activateDarkMode": "激活黑暗模式"
+        },
+        "languageSelection": {
+            "changeLanguage": "改变语言",
+            "searchLanguage": "搜索语言"
+        },
+        "notificationCenter": {
+            "notifications": "通知",
+            "markAllAs": "标记为所有",
+            "read": "阅读",
+            "un": "不",
+            "youDontHaveany": "你没有任何",
+            "youAreCaughtUp": "你们都赶上了!",
+            "view": "查看"
+        },
+        "organization": {
+            "addNewWorkSpace":"Add new workspace",
+            "loadOrganizations": "负载组织",
+            "createWorkspace": "创建工作空间",
+            "workspaceName": "工作区名称",
+            "editWorkspace": "编辑工作区",
+            "menus": {
+                "addWorkspace": "添加工作区",
+                "menusList": {
+                    "manageUsers": "用户",
+                    "manageGroups": "群体",
+                    "manageSso": "SSO",
+                    "manageEnv": "工作区变量"
+                },
+                "manageUsers": {
+                    "usersAndPermission": "用户和权限",
+                    "inviteNewUser": "邀请新用户",
+                    "name": "名称",
+                    "email": "电子邮件",
+                    "status": "状态",
+                    "archive": "档案",
+                    "unarchive": "解除存档",
+                    "addNewUser": "添加新用户",
+                    "emailAddress": "电子邮件地址",
+                    "createUser": "创建用户",
+                    "enterFirstName": "输入名字",
+                    "enterLastName": "输入姓氏",
+                    "enterEmail": "输入电子邮件"
+                },
+                "manageGroups": {
+                    "permissions": {
+                        "userGroups": "用户组",
+                        "createNewGroup": "创建新组",
+                        "updateGroup": "更新组",
+                        "addNewGroup": "添加新组",
+                        "enterName": "输入名称",
+                        "createGroup": "创建集团",
+                        "name": "命名"
+                    },
+                    "permissionResources": {
+                        "userGroup": "用户组",
+                        "apps": "应用",
+                        "users": "用户",
+                        "permissions": "许可权",
+                        "addAppsToGroup": "选择要添加到组的应用程序",
+                        "name": "名称",
+                        "addUsersToGroup": "选择要添加到组中的用户",
+                        "email": "电子邮件",
+                        "resource": "资源",
+                        "createUpdateDelete": "创建/更新/删除",
+                        "folder": "文件夹"
+                    }
+                },
+                "manageSSO": {
+                    "manageSso": "SSO",
+                    "generalSettings": {
+                        "title": "一般设置",
+                        "enableSignup": "启用注册",
+                        "newAccountWillBeCreated": "将为用户的首次SSO登录创建新的账户。",
+                        "allowedDomains": "允许的域名",
+                        "enterDomains": "输入域名",
+                        "supportMultiDomains": "支持多个域名。输入由逗号分隔的域名。例如：tooljet.com,tooljet.io,yourorganization.com。",
+                        "loginUrl": "登录网址",
+                        "workspaceLogin": "使用此URL直接登录到此工作区",
+                        "allowDefaultSso": "允许默认的SSO",
+                        "ssoAuth": "允许用户通过默认的SSO进行认证。默认的SSO配置可以被工作区级别的SSO所覆盖。"
+                    },
+                    "google": {
+                        "title": "谷歌",
+                        "enabled": "已启用",
+                        "disabled": "失能",
+                        "clientId": "客户身份",
+                        "enterClientId": "输入客户身份",
+                        "redirectUrl": "重定向URL"
+                    },
+                    "github": {
+                        "title": "GitHub",
+                        "hostName": "主机名称",
+                        "enterHostName": "输入主机名称",
+                        "requiredGithub": "如果GitHub是自我托管，则需要",
+                        "clientId": "客户身份",
+                        "enterClientId": "输入客户身份",
+                        "clientSecret": "客户秘密",
+                        "enterClientSecret": "输入客户秘密",
+                        "encrypted": "加密的",
+                        "redirectUrl": "重定向URL"
+                    },
+                    "passwordLogin": "密码登录",
+                    "environmentVar": {
+                        "noEnvConfig": "你还没有配置任何工作区变量，请按 "添加新变量 "按钮来创建一个。",
+                        "envWillBeDeleted": "变量将被删除，你想继续吗？",
+                        "addNewVariable": "添加新变量",
+                        "variableForm": {
+                            "addNewVariable": "添加新变量",
+                            "updatevariable": "更新变量",
+                            "name": "命名",
+                            "value": "价值",
+                            "enterVariableName": "输入变量名称",
+                            "enterValue": "输入值",
+                            "type": "类型",
+                            "enableEncryption": "启用加密功能",
+                            "addVariable": "添加变量"
+                        },
+                        "variableTable": {
+                            "name": "名称",
+                            "value": "价值",
+                            "type": "类型",
+                            "secret": "秘密"
+                        }
+                    }
+                }
+            }
+        },
+        "profileSettingPage": {
+            "profileSettings": "简介设置",
+            "firstName": "名字",
+            "lastName": "姓氏",
+            "enterFirstName": "输入名字",
+            "enterLastName": "输入姓氏",
+            "email": "电子邮件",
+            "avatar": "阿凡达",
+            "update": "更新",
+            "profile": "形象",
+            "changePassword": "更改密码",
+            "currentPassword": "当前密码",
+            "newPassword": "新密码",
+            "confirmNewPassword": "确认新密码",
+            "enterCurrentPassword": "输入当前密码",
+            "enterNewPassword": "输入新密码"
+        },
+        "profile": "形象",
+        "logout": "登出"
+    },
+    "homePage": {
+        "appCard": {
+            "changeIcon": "改变图标",
+            "addToFolder": "添加到文件夹",
+            "move": "移动",
+            "to": "至",
+            "selectFolder": "选择文件夹",
+            "deleteApp": "删除应用程序",
+            "exportApp": "出口应用",
+            "cloneApp": "克隆应用程序",
+            "launch": "启动",
+            "maintenance": "维护",
+            "noDeployedVersion": "应用程序没有部署版本",
+            "openInAppViewer": "在应用程序查看器中打开",
+            "removeFromFolder": "从文件夹中删除"
+        },
+        "blankPage": {
+            "welcomeToToolJet": "欢迎来到你的新ToolJet工作区",
+            "getStartedCreateNewApp": "你可以通过创建一个新的应用程序或者使用ToolJet库中的模板创建一个应用程序来开始。",
+            "importApplication": "导入一个应用程序"
+        },
+        "foldersSection": {
+            "allApplications": "所有应用程序",
+            "folders": "文件夹",
+            "createNewFolder": "+ 创建新",
+            "noFolders": "你还没有创建任何文件夹。使用文件夹来组织你的应用程序",
+            "createFolder": "创建文件夹",
+            "updateFolder": "更新文件夹",
+            "editFolder": "编辑文件夹",
+            "deleteFolder": "删除文件夹",
+            "folderName": "文件夹名称",
+            "wishToDeleteFolder": "你确定要删除该文件夹吗？文件夹内的应用程序将不会被删除。"
+        },
+        "header": {
+            "createNewApplication": "新的应用程序",
+            "import": "进口",
+            "chooseFromTemplate": "从模板中选择"
+        },
+        "pagination": {
+            "showing": "显示",
+            "of": "的",
+            "to": "至"
+        },
+        "noApplicationFound": "没有发现应用",
+        "thisFolderIsEmpty": "这个文件夹是空的",
+        "deleteAppAndData": "该应用程序和相关数据将被永久删除，你想继续吗？",
+        "removeAppFromFolder": "该应用程序将从该文件夹中删除，你想继续吗？",
+        "change": "变化",
+        "templateCard": {
+            "use": "使用",
+            "preview": "预览",
+            "leadGeneretion": "铅的生成"
+        },
+        "templateLibraryModal": {
+            "select": "选择模板",
+            "createAppfromTemplate": "根据模板创建应用程序"
+        }
+    },
+    "confirmationPage": {
+        "setupAccount": "设置你的账户",
+        "signupWithGoogle": "在谷歌上注册",
+        "signupWithGitHub": "用GitHub注册",
+        "or": "或",
+        "firstName": "名字",
+        "lastName": "姓氏",
+        "company": "公司",
+        "role": "角色",
+        "pleaseSelect": "请选择",
+        "password": "密码",
+        "confirmPassword": "确认密码",
+        "clickAndAgree": "通过点击下面的按钮，你同意我们的",
+        "termsAndConditions": "条款和条件",
+        "finishAccountSetup": "完成账户设置",
+        "acceptInvite": "接受邀请",
+        "accountExists": "已经有了一个账户？",
+        "and": "和"
+    },
+    "onBoarding": {
+        "finishToolJetInstallation": "完成ToolJet的安装",
+        "organization": "组织机构",
+        "name": "命名",
+        "email": "电子邮件",
+        "receiveUpdatesFromToolJet": "你会收到来自ToolJet团队的最新信息（每月1-2封，我们不发送垃圾邮件）。",
+        "finishSetup": "完成设置",
+        "skip": "跳过"
+    },
+    "redirectSso": {
+        "upgradingTov1.13.0": "升级到v1.13.0及以上版本。",
+        "fromV1.13.0": "从V1.13.0版开始，我们引入了",
+        "multiWorkspace": "多工作空间",
+        "singleSignOnConfig": "单点登录的相关配置从工作区变量转移到数据库。请参考这个",
+        "link": "链接",
+        "toConfigureSSO": "来配置SSO。",
+        "haveGoogleGithubSSo": "如果你在升级前有谷歌或GitHub的SSO配置，并且禁用了多工作空间，那么SSO配置将在升级时被迁移，但你必须在SSO供应商那边重新配置重定向URL。每个SSO的重定向URL在下面给出。",
+        "isMultiWorkspaceEnabled": "如果你已经启用了多工作区，那么在升级时，SSO的配置将不会被迁移，所以你必须在各自的工作区下重新配置SSO。",
+        "youHaveEnabled": "你已经启用了",
+        "setupSsoWorkspace": "请用密码登录，你可以使用工作区设置SSO。",
+        "manageSsoMenu": "管理SSO菜单。",
+        "youHaveDisabled": "你已经禁用了",
+        "configureRedirectUrl": "请在SSO提供方配置重定向网址。",
+        "google": "谷歌",
+        "redirectUrl": "重定向URL。",
+        "gitHub": "GitHub"
+    },
+    "oAuth2": {
+        "pleaseWait": "请等待...",
+        "authSuccess": "认证成功，你现在可以关闭这个标签。",
+        "authFailed": "认证失败"
+    },
+    "widgetManager": {
+        "commonlyUsed": "常用的",
+        "layouts": "布局",
+        "forms": "形式",
+        "integrations": "集成",
+        "others": "其他",
+        "noResults": "没有发现结果",
+        "tryAdjustingFilterMessage": "尝试调整你的搜索或过滤器，以找到你正在寻找的东西。",
+        "clearQuery": "清除查询"
+    },
+    "widget": {
+        "common": {
+            "properties": "财产",
+            "events": "活动",
+            "layout": "布局",
+            "styles": "风格",
+            "general": "一般",
+            "validation": "审定",
+            "documentation": "{{componentMeta}}文件",
+            "widgetNameEmptyError": "小工具名称不能为空",
+            "componentNameExistsError": "组件名称已经存在",
+            "invalidWidgetName": "无效的小组件名称。应该是唯一的，只包括字母、数字和下划线。"
+        },
+        "commonProperties": {
+            "visibility": "可见性",
+            "disable": "禁用",
+            "borderRadius": "边界半径",
+            "boxShadow": "盒影",
+            "tooltip": "工具提示",
+            "showOnDesktop": "显示在桌面上",
+            "showOnMobile": "在手机上显示",
+            "showLoadingState": "显示加载状态",
+            "backgroundColor": "背景颜色",
+            "textColor": "文字颜色",
+            "loaderColor": "装载机颜色",
+            "defaultValue": "默认值",
+            "placeholder": "占位符",
+            "label": "标签",
+            "title": "标题",
+            "code": "代码",
+            "data": "数据",
+            "tableData": "表格数据",
+            "tableColumns": "表列",
+            "loadingState": "装载状态",
+            "serverSidePagination": "服务器端分页",
+            "clientSidePagination": "客户端分页",
+            "serverSideSearch": "服务器端搜索",
+            "showSearchBox": "显示搜索框",
+            "showDownloadButton": "显示下载按钮",
+            "showFilterButton": "显示过滤按钮",
+            "showBulkUpdateActions": "显示更新按钮",
+            "bulkSelection": "大量选择",
+            "highlightSelectedRow": "突出显示所选行",
+            "actionButtonRadius": "动作按钮半径",
+            "tableType": "表格类型",
+            "cellSize": "细胞大小",
+            "setPage": "设置页面",
+            "page": "页码",
+            "buttonText": "按钮文本",
+            "click": "点击",
+            "setText": "设置文本",
+            "text": "文本",
+            "markerColor": "记号笔颜色",
+            "showAxes": "显示坐标轴",
+            "showGridLines": "显示网格线",
+            "chartType": "图表类型",
+            "jsonDescription": "Json描述",
+            "usePlotlyJsonSchema": "使用Plotly JSON模式",
+            "padding": "填充物",
+            "hideTitleBar": "隐藏标题栏",
+            "hideCloseButton": "隐藏关闭按钮",
+            "hideOnEscape": "逃跑时隐藏",
+            "modalSize": "模态大小",
+            "open": "开放式",
+            "close": "关闭",
+            "regex": "Regex",
+            "minLength": "最小长度",
+            "maxLength": "最大长度",
+            "customValidation": "自定义验证",
+            "clear": "清楚",
+            "minimumValue": "最低值",
+            "maximumValue": "最大值",
+            "format": "格式",
+            "enableTimeSelection": "启用时间选择？",
+            "enableDateSelection": "启用日期选择？",
+            "disabledDates": "残缺的日期",
+            "setChecked": "设置检查",
+            "status": "身份",
+            "defaultStatus": "默认状态",
+            "checkboxColor": "复选框颜色",
+            "optionValues": "选项价值",
+            "optionLabels": "选项标签",
+            "activeColor": "活跃的色彩",
+            "selectOption": "选择选项",
+            "option": "选项",
+            "toggleSwitchColor": "拨动开关颜色",
+            "defaultStartDate": "默认的开始日期",
+            "defaultEndDate": "默认结束日期",
+            "textSize": "文字大小",
+            "alignText": "对齐文本",
+            "url": "URL",
+            "alternativeText": "替代文本",
+            "zoomButton": "缩放按钮",
+            "borderType": "边界类型",
+            "imageFit": "图像适合",
+            "optionsLoadingState": "选项加载状态",
+            "selectedTextColor": "选定的文本颜色",
+            "select": "选择",
+            "deselectOption": "取消选择选项",
+            "clearSelections": "清除选择",
+            "enableSelectAllOption": "启用选择所有选项",
+            "initialLocation": "最初的位置",
+            "defaultMarkers": "默认标记",
+            "addNewMarkers": "添加新的标记",
+            "searchForPlaces": "搜索地方",
+            "setLocation": "设置地点",
+            "latitude": "纬度",
+            "longitude": "经度",
+            "numberOfStars": "星的数量",
+            "defaultNoOfSelectedStars": "默认选择的星星数量",
+            "enableHalfStar": "启用半星",
+            "tooltips": "工具提示",
+            "starColor": "星星的颜色",
+            "labelColor": "标签颜色",
+            "dividerColor": "分隔板颜色",
+            "clearFiles": "清除文件",
+            "instructionText": "教学文本",
+            "useDropZone": "使用下降区",
+            "useFilePicker": "使用文件选取器",
+            "pickMultipleFiles": "挑选多个文件",
+            "maxFileCount": "最大文件数",
+            "acceptFileTypes": "接受文件类型",
+            "maxSizeLimitBytes": "最大尺寸限制（字节）",
+            "minSizeLimitBytes": "最小尺寸限制（字节）",
+            "parseContent": "解析内容",
+            "fileType": "文件类型",
+            "dateFormat": "日期格式",
+            "defaultDate": "默认日期",
+            "events": "活动",
+            "resources": "资源",
+            "defaultView": "默认视图",
+            "startTimeOnWeekAndDayView": "周和日视图上的开始时间",
+            "endTimeOnWeekAndDayView": "周和日视图的结束时间",
+            "showToolbar": "显示工具条",
+            "showViewSwitcher": "显示视图切换器",
+            "highlightToday": "今天的亮点",
+            "showPopoverWhenEventIsClicked": "当事件被点击时显示弹出窗口",
+            "cellSizeInViewsClassifiedByResource": "按资源分类的视图中的细胞大小",
+            "headerDateFormatOnWeekView": "周视图上的标题日期格式",
+            "showLineNumber": "显示线号",
+            "mode": "模式",
+            "tabs": "标签",
+            "defaultTab": "默认标签",
+            "hideTabs": "隐藏标签",
+            "highlightColor": "高光色",
+            "tabWidth": "标签宽度",
+            "setCurrentTab": "设置当前标签",
+            "id": "同上",
+            "timerType": "计时器类型",
+            "listData": "列表数据",
+            "rowHeight": "行高",
+            "showBottomBorder": "显示底部边界",
+            "tags": "标签",
+            "numberOfPages": "页数",
+            "defaultPageIndex": "默认的页面索引",
+            "progress": "进展",
+            "color": "颜色",
+            "strokeWidth": "笔画宽度",
+            "counterClockwise": "逆时针",
+            "circleRatio": "圆周率",
+            "colour": "颜色",
+            "size": "尺寸",
+            "primaryValueLabel": "主要价值标签",
+            "primaryValue": "主要价值",
+            "hideSecondaryValue": "隐藏次要价值",
+            "secondaryValueLabel": "次要价值标签",
+            "secondaryValue": "次要价值",
+            "secondarySignDisplay": "次要标志显示",
+            "primaryLabelColour": "主要标签颜色",
+            "primaryTextColour": "主要文字颜色",
+            "secondaryLabelColour": "二级标签颜色",
+            "secondaryTextColour": "次要文字颜色",
+            "min": "闵行区",
+            "max": "最大",
+            "value": "价值",
+            "twoHandles": "两个手柄",
+            "lineColor": "线条颜色",
+            "handleColor": "手柄颜色",
+            "trackColor": "轨迹颜色",
+            "timelineData": "时间轴数据",
+            "hideDate": "隐藏日期",
+            "svgData": "Svg数据",
+            "rawHtml": "原始HTML",
+            "values": "价值",
+            "labels": "标签",
+            "defaultSelected": "默认选择",
+            "enableMultipleSelection": "启用多重选择",
+            "selectedTextColour": "选定的文本颜色",
+            "selectedBackgroundColor": "选定的背景颜色",
+            "fileUrl": "文件URL",
+            "scalePageToWidth": "缩放页面宽度",
+            "showPageControls": "显示页面控制",
+            "steps": "阶梯",
+            "currentStep": "当前步骤",
+            "stepsSelectable": "可选择的步数",
+            "theme": "主题",
+            "columns": "专栏",
+            "cardData": "卡片数据",
+            "enableAddCard": "启用添加卡",
+            "width": "宽度",
+            "minWidth": "最小宽度",
+            "accentColor": "重点颜色",
+            "defaultColor": "默认颜色",
+            "setColor": "设置颜色",
+            "structure": "结构",
+            "checkedValues": "检查的价值",
+            "expandedValues": "扩大的价值"
+        },
+        "Table": {
+            "displayName": "表",
+            "description": "显示分页的表格数据",
+            "columnType": "专栏类型",
+            "columnName": "专栏名称",
+            "overflow": "溢出",
+            "key": "钥匙",
+            "textColor": "文字颜色",
+            "validation": "审定",
+            "regex": "Regex",
+            "minLength": "最小长度",
+            "maxLength": "最大长度",
+            "customRule": "自定义规则",
+            "values": "价值观",
+            "labels": "标签",
+            "cellBgColor": "单元格背景颜色",
+            "dateDisplayformat": "日期显示格式",
+            "dateParseformat": "日期解析格式",
+            "showTime": "显示时间",
+            "makeEditable": "可编辑",
+            "buttonText": "按钮文本",
+            "buttonPosition": "按钮位置",
+            "remove": "移除",
+            "addButton": "+ 添加按钮",
+            "addColumn": "+ 添加列",
+            "noActionMessage": "该表没有任何行动按钮"
+        },
+        "Button": {
+            "displayName": "钮扣",
+            "description": "触发行动：查询、警报等"
+        },
+        "Chart": {
+            "displayName": "图表",
+            "description": "显示图表"
+        },
+        "Modal": {
+            "displayName": "模式化",
+            "description": "由事件触发的模式"
+        },
+        "TextInput": {
+            "displayName": "文本输入",
+            "description": "表格的文本字段"
+        },
+        "NumberInput": {
+            "displayName": "数字输入",
+            "description": "表格的数字字段"
+        },
+        "PasswordInput": {
+            "displayName": "密码输入",
+            "description": "表格的密码输入栏"
+        },
+        "Datepicker": {
+            "displayName": "日期选择器",
+            "description": "选择一个日期和时间"
+        },
+        "Checkbox": {
+            "displayName": "复选框",
+            "description": "一个单一的复选框"
+        },
+        "Radio-button": {
+            "displayName": "单选按钮",
+            "description": "单选按钮"
+        },
+        "ToggleSwitch": {
+            "displayName": "拨动开关",
+            "description": "拨动开关"
+        },
+        "Textarea": {
+            "displayName": "文本区",
+            "description": "文本区表格字段"
+        },
+        "DateRangePicker": {
+            "displayName": "范围选择器",
+            "description": "选择一个日期范围"
+        },
+        "Text": {
+            "displayName": "文本",
+            "description": "显示markdown或HTML"
+        },
+        "Image": {
+            "displayName": "图片",
+            "description": "显示一个图像"
+        },
+        "Container": {
+            "displayName": "容器",
+            "description": "多个组件的封装器"
+        },
+        "Dropdown": {
+            "displayName": "下拉式",
+            "description": "从选项中选择一个值"
+        },
+        "Multiselect": {
+            "displayName": "多重选择",
+            "description": "从选项中选择多个值"
+        },
+        "RichTextEditor": {
+            "displayName": "文本编辑器",
+            "description": "富文本编辑器"
+        },
+        "Map": {
+            "displayName": "地图",
+            "description": "显示谷歌地图"
+        },
+        "QrScanner": {
+            "displayName": "二维码扫描器",
+            "description": "扫描二维码并持有其数据"
+        },
+        "StarRating": {
+            "displayName": "评价",
+            "description": "星级评定"
+        },
+        "Divider": {
+            "displayName": "分割器",
+            "description": "组件之间的分离器"
+        },
+        "FilePicker": {
+            "displayName": "文件选取器",
+            "description": "文件选取器"
+        },
+        "Calendar": {
+            "displayName": "日历",
+            "description": "日历"
+        },
+        "Iframe": {
+            "displayName": "Iframe",
+            "description": "显示一个Iframe"
+        },
+        "CodeEditor": {
+            "displayName": "代码编辑器",
+            "description": "代码编辑器"
+        },
+        "Tabs": {
+            "displayName": "标签",
+            "description": "Tabs组件"
+        },
+        "Timer": {
+            "displayName": "计时器",
+            "description": "定时器"
+        },
+        "Listview": {
+            "displayName": "列表查看",
+            "description": "多个组件的封装器"
+        },
+        "Tags": {
+            "displayName": "标签",
+            "description": "内容可以显示为标签"
+        },
+        "Pagination": {
+            "displayName": "分页",
+            "description": "分页"
+        },
+        "CircularProgressbar": {
+            "displayName": "圆形进度条",
+            "description": "使用圆形进度条显示进度"
+        },
+        "Spinner": {
+            "displayName": "旋转器",
+            "description": "旋转器可用于显示加载状态"
+        },
+        "Statistics": {
+            "displayName": "统计数据",
+            "description": "统计数据可用于显示不同的统计信息"
+        },
+        "RangeSlider": {
+            "displayName": "范围滑块",
+            "description": "可用于显示有范围的滑块"
+        },
+        "Timeline": {
+            "displayName": "时间轴",
+            "description": "一系列事件的视觉表现"
+        },
+        "SvgImage": {
+            "displayName": "Svg图像",
+            "description": "Svg图像"
+        },
+        "Html": {
+            "displayName": "HTML浏览器",
+            "description": "HTML浏览器"
+        },
+        "VerticalDivider": {
+            "displayName": "垂直分割器",
+            "description": "组件之间的垂直分离器"
+        },
+        "CustomComponent": {
+            "displayName": "定制组件",
+            "description": "添加你的自定义反应组件"
+        },
+        "ButtonGroup": {
+            "displayName": "按钮组",
+            "description": "按钮组"
+        },
+        "PDF": {
+            "displayName": "PDF",
+            "description": "嵌入PDF文件"
+        },
+        "Steps": {
+            "displayName": "阶梯",
+            "description": "阶梯"
+        },
+        "KanbanBoard": {
+            "displayName": "看板",
+            "description": "看板"
+        },
+        "ColorPicker": {
+            "displayName": "颜色选择器",
+            "description": "颜色选择器调色板"
+        },
+        "TreeSelect": {
+            "displayName": "树木选择",
+            "description": "从树状视图中选择数值"
+        }
+    },
+    "leftSidebar": {
+        "Inspector": {
+            "text": "检查员",
+            "tip": "检查员"
+        },
+        "Sources": {
+            "text": "资料来源",
+            "tip": "添加或编辑数据源",
+            "dataSources": "数据来源",
+            "addDataSource": "+ 添加数据源"
+        },
+        "Debugger": {
+            "text": "调试器",
+            "tip": "调试器",
+            "errors": "误区",
+            "noErrors": "没有发现错误",
+            "clear": "清楚"
+        },
+        "Comments": {
+            "text": "评论",
+            "tip": "拨动评论",
+            "commentBody": "没有任何评论可以显示",
+            "typeComment": "在此输入您的评论"
+        },
+        "Settings": {
+            "text": "设置",
+            "tip": "全球设置",
+            "hideHeader": "隐藏已启动应用程序的标题",
+            "maintenanceMode": "维护模式",
+            "maxWidthOfCanvas": "帆布的最大宽度",
+            "maxHeightOfCanvas": "帆布的最大高度",
+            "backgroundColorOfCanvas": "画布的背景颜色"
+        },
+        "Back": {
+            "text": "溯源",
+            "tip": "返回首页"
+        }
+    }
+}

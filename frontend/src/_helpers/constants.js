@@ -19,11 +19,11 @@ export const USER_COLORS = [
 export const ON_BOARDING_SIZE = ['1-10', '11-50', '51-100', '101-500', '501-1000', '1000+'];
 
 export const ON_BOARDING_ROLES = [
-  'Head of engineering',
-  'Head of product',
-  'CIO/CTO',
-  'Software engineer',
-  'Data scientist',
-  'Product manager',
-  'Other',
+  '工程负责人',
+  '产品负责人',
+  '首席执行官/首席执行官',
+  '软件工程师',
+  '数据科学家',
+  '产品经理',
+  '其他',
 ];

@@ -60,7 +60,7 @@ const Menu = (props) => {
               fill="#3E63DD"
             />
           </svg>
-          Create new version
+          创建新版本
         </div>
       </div>
     </components.Menu>

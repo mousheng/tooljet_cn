@@ -21,18 +21,18 @@ const TableForm = ({
 
   const validateTableName = () => {
     if (isEmpty(tableName)) {
-      toast.error('Table name cannot be empty');
+      toast.error('表名不能为空');
       return false;
     }
 
     if (tableName.length > 255) {
-      toast.error('Table name cannot be more than 255 characters');
+      toast.error('表名不能超过255个字符');
       return false;
     }
 
     const tableNameRegex = /^[a-zA-Z_][a-zA-Z0-9_]*$/;
     if (!tableNameRegex.test(tableName)) {
-      toast.error('Table name can only contain alphabets, numbers and underscores');
+      toast.error('表名只能包含字母、数字和下划线');
       return false;
     }
 
@@ -44,7 +44,7 @@ const TableForm = ({
 
     const columnNames = Object.values(columns).map((column) => column.column_name);
     if (columnNames.some((columnName) => isEmpty(columnName))) {
-      toast.error('Column names cannot be empty');
+      toast.error('列名不能为空');
       return;
     }
 
@@ -52,11 +52,11 @@ const TableForm = ({
     const { error } = await tooljetDatabaseService.createTable(organizationId, tableName, Object.values(columns));
     setFetching(false);
     if (error) {
-      toast.error(error?.message ?? `Failed to create a new table "${tableName}"`);
+      toast.error(error?.message ?? `无法创建新表 "${tableName}"`);
       return;
     }
 
-    toast.success(`${tableName} created successfully`);
+    toast.success(`表 ${tableName} 已创建成功`);
     onCreate && onCreate(tableName);
   };
 
@@ -68,11 +68,11 @@ const TableForm = ({
     setFetching(false);
 
     if (error) {
-      toast.error(error?.message ?? `Failed to edit table "${tableName}"`);
+      toast.error(error?.message ?? `无法编辑表 "${tableName}"`);
       return;
     }
 
-    toast.success(`${tableName} edited successfully`);
+    toast.success(`${tableName} 已成功编辑`);
     onEdit && onEdit();
   };
 
@@ -81,23 +81,23 @@ const TableForm = ({
       <div className="card-header">
         {!isEditMode && (
           <h3 className="card-title" data-cy="create-new-table-header">
-            Create a new table
+          创建新表
           </h3>
         )}
         {isEditMode && (
           <h3 className="card-title" data-cy="edit-table-header">
-            Edit table
+            编辑表
           </h3>
         )}
       </div>
       <div className="card-body">
         <div className="mb-3">
           <div className="form-label" data-cy="table-name-label">
-            Table name
+          表名
           </div>
           <input
             type="text"
-            placeholder="Enter table name"
+            placeholder="输入表名"
             name="table-name"
             className="form-control"
             data-cy="table-name-input-field"

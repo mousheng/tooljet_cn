@@ -52,7 +52,7 @@ export const FilterForm = ({ filters, setFilters, index, column = '', operator =
           <div className="col-4" data-cy="select-column-field">
             <Select
               useMenuPortal={false}
-              placeholder="Select column"
+              placeholder="选择列"
               value={column}
               options={displayColumns}
               onChange={handleColumnChange}
@@ -60,7 +60,7 @@ export const FilterForm = ({ filters, setFilters, index, column = '', operator =
           </div>
           <div className="col-4" data-cy="select-operation-field">
             <Select
-              placeholder="Select operation"
+              placeholder="选择操作"
               useMenuPortal={false}
               value={operator}
               options={operators}
@@ -73,7 +73,7 @@ export const FilterForm = ({ filters, setFilters, index, column = '', operator =
               type="text"
               className="form-control"
               data-cy="value-input-field"
-              placeholder="Value"
+              placeholder="值"
               onChange={(event) => {
                 setFilterInputValue(event.target.value);
               }}

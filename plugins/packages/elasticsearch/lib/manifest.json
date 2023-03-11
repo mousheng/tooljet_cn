@@ -61,87 +61,87 @@
   },
   "properties": {
     "ssl_certificate": {
-      "label": "SSL Certificate",
+      "label": "ssl证书",
       "key": "ssl_certificate",
       "type": "dropdown-component-flip",
-      "description": "Single select dropdown for choosing certificates",
+      "description": "用于选择证书的单选下拉列表",
       "list": [
         {
-          "value": "ca_certificate",
+          "value": "ca证书",
           "name": "CA certificate"
         },
         {
-          "value": "client_certificate",
+          "value": "客户端证书",
           "name": "Client certificate"
         },
         {
-          "value": "none",
+          "value": "无",
           "name": "None"
         }
       ],
       "commonFields":{
         "host": {
-          "label": "Host",
+          "label": "主机",
           "key": "host",
           "type": "text",
-          "description": "Enter host"
+          "description": "输入主机"
         },
         "port": {
-          "label": "Port",
+          "label": "端口",
           "key": "port",
           "type": "text",
-          "description": "Enter port"
+          "description": "输入端口"
         },
         "ssl_enabled": {
           "label": "SSL",
           "key": "ssl_enabled",
           "type": "toggle",
-          "description": "Toggle for ssl_enabled"
+          "description": "切换是否启用ssl"
         },
         "username": {
-          "label": "Username",
+          "label": "用户名",
           "key": "username",
           "type": "text",
-          "description": "Enter username"
+          "description": "输入用户名"
         },
         "password": {
-          "label": "Password",
+          "label": "密码",
           "key": "password",
           "type": "password",
-          "description": "Enter password"
+          "description": "输入密码"
         }
       }
     },
     "ca_certificate":{
       "ca_cert": {
-        "label": "CA Cert",
+        "label": "ca证书",
         "key": "ca_cert",
         "type": "textarea",
         "encrypted": true,
-        "description": "Enter ca certificate"
+        "description": "输入ca证书"
       }
     },
     "client_certificate":{
       "client_key": {
-        "label": "Client Key",
+        "label": "客户端密钥",
         "key": "client_key",
         "type": "textarea",
         "encrypted": true,
-        "description": "Enter client key"
+        "description": "输入客户端密钥"
       },
       "client_cert": {
-        "label": "Client Cert",
+        "label": "客户端证书",
         "key": "client_cert",
         "type": "textarea",
         "encrypted": true,
-        "description": "Enter client certificate"
+        "description": "输入客户端证书"
       },
       "root_cert": {
-        "label": "Root Cert",
+        "label": "根证书",
         "key": "root_cert",
         "type": "textarea",
         "encrypted": true,
-        "description": "Enter root certificate"
+        "description": "输入根证书"
       }
     }
   },

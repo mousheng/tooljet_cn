@@ -18,15 +18,19 @@ function ControlledTabs({
   bodyToggle,
 }) {
   const [key, setKey] = React.useState('headers');
-  const tabs = ['Headers', 'Params', 'Body'];
+  const tabs = [
+    { label: '请求标头', value: "headers" },
+    { label: '参数', value: "params" },
+    { label: '请求体', value: "body" }
+  ];
   return (
     <Tab.Container activeKey={key} onSelect={(k) => setKey(k)} defaultActiveKey="headers">
       <Row>
         <div className="keys">
           <ListGroup className="query-pane-rest-api-keys-list-group mx-1" variant="flush">
             {tabs.map((tab) => (
-              <ListGroup.Item key={tab} eventKey={tab.toLowerCase()}>
-                <span>{tab}</span>
+              <ListGroup.Item key={tab.value} eventKey={tab.value.toLowerCase()}>
+                <span>{tab.label}</span>
               </ListGroup.Item>
             ))}
           </ListGroup>

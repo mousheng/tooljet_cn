@@ -28,37 +28,37 @@
   },
   "properties": {
     "username": {
-      "label": "Username",
+      "label": "用户名",
       "key": "username",
       "type": "text",
-      "description": "Enter username"
+      "description": "输入用户名"
     },
     "password": {
-      "label": "Password",
+      "label": "密码",
       "key": "password",
       "type": "password",
-      "description": "Enter password"
+      "description": "输入密码"
     },
     "host": {
-      "label": "Host",
+      "label": "主机",
       "key": "host",
       "type": "text",
       "description": "localhost"
     },
     "port": {
-      "label": "Port",
+      "label": "端口",
       "key": "port",
       "type": "text",
       "description": "8123"
     },
     "database": {
-      "label": "Database Name",
+      "label": "数据库名称",
       "key": "database",
       "type": "text",
-      "description": "database name"  
+      "description": "数据库名称"  
       },
     "protocol": {
-      "label": "Protocol",
+      "label": "协议",
       "key": "protocol",
       "type": "dropdown",
       "list": [
@@ -71,37 +71,37 @@
           "value": "https"
         }
       ],
-      "description": "Enter protocol"
+      "description": "输入协议"
     },
     "usePost": {
-      "label": "Use Post",
+      "label": "使用post",
       "key": "usePost",
       "type": "text",
-      "description": "Enter true/false"
+      "description": "输入 true/false"
     },
     "trimQuery": {
-      "label": "Trim Query",
+      "label": "修剪查询",
       "key": "trimQuery",
       "type": "text",
-      "description": "Enter true/false"
+      "description": "输入 true/false"
     },
     "isUseGzip": {
-      "label": "Use Gzip",
+      "label": "使用gzip",
       "key": "isUseGzip",
       "type": "text",
-      "description": "Enter true/false"
+      "description": "输入 true/false"
     },
     "debug": {
-      "label": "Debug",
+      "label": "调试",
       "key": "debug",
       "type": "text",
-      "description": "Enter true/false"
+      "description": "输入 true/false"
     },
     "raw": {
       "label": "Raw",
       "key": "raw",
       "type": "text",
-      "description": "Enter true/false"
+      "description": "输入 true/false"
     }
   },
   "required": ["port", "host", "protocol"]

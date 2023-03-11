@@ -45,7 +45,7 @@ const Filter = ({ filters, setFilters, handleBuildFilterQuery, resetFilterQuery 
               fill="#466BF2"
             />
           </svg>
-          &nbsp;Add Condition
+          &nbsp;添加条件
         </div>
       </Popover.Content>
     </Popover>
@@ -93,7 +93,7 @@ const Filter = ({ filters, setFilters, handleBuildFilterQuery, resetFilterQuery 
               fill="#889096"
             />
           </svg>
-          &nbsp;&nbsp;Filter
+          &nbsp;&nbsp;过滤
           {areFiltersApplied && (
             <span>ed by {pluralize(Object.values(filters).filter(checkIsFilterObjectEmpty).length, 'column')}</span>
           )}

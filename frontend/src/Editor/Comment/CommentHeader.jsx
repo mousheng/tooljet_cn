@@ -28,15 +28,15 @@ const CommentHeader = ({ socket, count = 0, threadId, isResolved, isThreadOwner,
       })
     );
     if (!isResolved) {
-      toast.success('Thread resolved');
+      toast.success('已解决');
     } else {
-      toast('Thread unresolved');
+      toast('未解决');
     }
   };
 
   const handleDelete = async () => {
     await commentsService.deleteThread(threadId);
-    toast.success('Thread deleted');
+    toast.success('评论已删除');
     fetchThreads();
     socket.send(
       JSON.stringify({

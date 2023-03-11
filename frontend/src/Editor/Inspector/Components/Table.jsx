@@ -445,41 +445,41 @@ class TableComponent extends React.Component {
             column.columnType === 'badge' ||
             column.columnType === 'badges' ||
             column.columnType === 'radio') && (
-            <div>
-              <div data-cy={`input-and-label-values`} className="field mb-2">
-                <label className="form-label">{this.props.t('widget.Table.values', 'Values')}</label>
-                <CodeHinter
-                  currentState={this.props.currentState}
-                  initialValue={column.values}
-                  theme={this.props.darkMode ? 'monokai' : 'default'}
-                  mode="javascript"
-                  lineNumbers={false}
-                  placeholder={'{{[1, 2, 3]}}'}
-                  onChange={(value) => this.onColumnItemChange(index, 'values', value)}
-                  componentName={this.getPopoverFieldSource(column.columnType, 'values')}
-                  popOverCallback={(showing) => {
-                    this.setColumnPopoverRootCloseBlocker('values', showing);
-                  }}
-                />
+              <div>
+                <div data-cy={`input-and-label-values`} className="field mb-2">
+                  <label className="form-label">{this.props.t('widget.Table.values', 'Values')}</label>
+                  <CodeHinter
+                    currentState={this.props.currentState}
+                    initialValue={column.values}
+                    theme={this.props.darkMode ? 'monokai' : 'default'}
+                    mode="javascript"
+                    lineNumbers={false}
+                    placeholder={'{{[1, 2, 3]}}'}
+                    onChange={(value) => this.onColumnItemChange(index, 'values', value)}
+                    componentName={this.getPopoverFieldSource(column.columnType, 'values')}
+                    popOverCallback={(showing) => {
+                      this.setColumnPopoverRootCloseBlocker('values', showing);
+                    }}
+                  />
+                </div>
+                <div data-cy={`input-and-label-labels`} className="field mb-2">
+                  <label className="form-label">{this.props.t('widget.Table.labels', 'Labels')}</label>
+                  <CodeHinter
+                    currentState={this.props.currentState}
+                    initialValue={column.labels}
+                    theme={this.props.darkMode ? 'monokai' : 'default'}
+                    mode="javascript"
+                    lineNumbers={false}
+                    placeholder={'{{["one", "two", "three"]}}'}
+                    onChange={(value) => this.onColumnItemChange(index, 'labels', value)}
+                    componentName={this.getPopoverFieldSource(column.columnType, 'labels')}
+                    popOverCallback={(showing) => {
+                      this.setColumnPopoverRootCloseBlocker('labels', showing);
+                    }}
+                  />
+                </div>
               </div>
-              <div data-cy={`input-and-label-labels`} className="field mb-2">
-                <label className="form-label">{this.props.t('widget.Table.labels', 'Labels')}</label>
-                <CodeHinter
-                  currentState={this.props.currentState}
-                  initialValue={column.labels}
-                  theme={this.props.darkMode ? 'monokai' : 'default'}
-                  mode="javascript"
-                  lineNumbers={false}
-                  placeholder={'{{["one", "two", "three"]}}'}
-                  onChange={(value) => this.onColumnItemChange(index, 'labels', value)}
-                  componentName={this.getPopoverFieldSource(column.columnType, 'labels')}
-                  popOverCallback={(showing) => {
-                    this.setColumnPopoverRootCloseBlocker('labels', showing);
-                  }}
-                />
-              </div>
-            </div>
-          )}
+            )}
 
           {column.columnType === 'dropdown' && (
             <>
@@ -559,7 +559,7 @@ class TableComponent extends React.Component {
                     this.onColumnItemChange(index, 'timeZoneValue', value);
                   }}
                   filterOptions={fuzzySearch}
-                  placeholder="Select.."
+                  placeholder="选择.."
                 />
               </div>
               <label data-cy={`label-display-time-zone`} className="form-label">
@@ -576,7 +576,7 @@ class TableComponent extends React.Component {
                     this.onColumnItemChange(index, 'timeZoneDisplay', value);
                   }}
                   filterOptions={fuzzySearch}
-                  placeholder="Select.."
+                  placeholder="选择.."
                 />
               </div>
               <div className="field mb-2">

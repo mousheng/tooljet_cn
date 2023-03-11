@@ -6,8 +6,8 @@ export const SortForm = ({ filters, setFilters, index, column = '', order = '' }
   const { columns } = useContext(TooljetDatabaseContext);
 
   const orders = [
-    { value: 'asc', label: 'Ascending' },
-    { value: 'desc', label: 'Descending' },
+    { value: 'asc', label: '升序' },
+    { value: 'desc', label: '降序' },
   ];
 
   const handleColumnChange = (value) => {
@@ -35,12 +35,12 @@ export const SortForm = ({ filters, setFilters, index, column = '', order = '' }
   return (
     <div className="row g-2 align-items-center">
       <div className="col-2" data-cy="sort-by-label">
-        Sort by
+        排序依据
       </div>
       <div className="col-4 py-3" data-cy="select-column-field">
         <Select
           useMenuPortal={false}
-          placeholder="Select column"
+          placeholder="选择列"
           value={column}
           options={displayColumns}
           onChange={handleColumnChange}
@@ -50,7 +50,7 @@ export const SortForm = ({ filters, setFilters, index, column = '', order = '' }
         <Select
           useMenuPortal={false}
           value={order}
-          placeholder="Select order"
+          placeholder="升降序"
           options={orders}
           onChange={handleFilterChange}
         />

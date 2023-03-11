@@ -36,7 +36,7 @@ export const PagehandlerMenu = ({ page, darkMode, handlePageCallback, showMenu, 
               <div className="menu-options mb-0">
                 <Field
                   id="rename-page"
-                  text="Rename"
+                  text="重命名"
                   iconSrc={'assets/images/icons/input.svg'}
                   closeMenu={closeMenu}
                   callback={handlePageCallback}
@@ -50,7 +50,7 @@ export const PagehandlerMenu = ({ page, darkMode, handlePageCallback, showMenu, 
                 /> */}
                 <Field
                   id="mark-as-home-page"
-                  text="Mark home"
+                  text="设为主页"
                   iconSrc={'assets/images/icons/home.svg'}
                   closeMenu={closeMenu}
                   callback={handlePageCallback}
@@ -58,7 +58,7 @@ export const PagehandlerMenu = ({ page, darkMode, handlePageCallback, showMenu, 
 
                 <Field
                   id={isHidden ? 'unhide-page' : 'hide-page'}
-                  text={isHidden ? 'Unhide page' : 'Hide page'}
+                  text={isHidden ? '取消隐藏' : '隐藏页面'}
                   iconSrc={`assets/images/icons/${isHidden ? 'eye' : 'eye-off'}.svg`}
                   closeMenu={closeMenu}
                   callback={handlePageCallback}
@@ -66,7 +66,7 @@ export const PagehandlerMenu = ({ page, darkMode, handlePageCallback, showMenu, 
 
                 <Field
                   id="settings"
-                  text="Event Handlers"
+                  text="事件处理"
                   customClass={'delete-btn'}
                   iconSrc={'assets/images/icons/editor/left-sidebar/page-settings.svg'}
                   closeMenu={closeMenu}
@@ -75,7 +75,7 @@ export const PagehandlerMenu = ({ page, darkMode, handlePageCallback, showMenu, 
 
                 <Field
                   id="delete-page"
-                  text="Delete page"
+                  text="删除页面"
                   iconSrc={'assets/images/icons/delete.svg'}
                   customClass={isHome ? 'delete-btn' : 'field__danger delete-btn'}
                   closeMenu={closeMenu}
@@ -105,7 +105,7 @@ const PageHandleField = ({ page, updatePageHandle }) => {
   const Label = () => {
     return (
       <label htmlFor="pin" className="form-label" data-cy={`header-page-handle`}>
-        Page Handle
+        页面路径
       </label>
     );
   };

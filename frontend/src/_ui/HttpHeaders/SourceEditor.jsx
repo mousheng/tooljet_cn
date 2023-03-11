@@ -19,7 +19,7 @@ export default ({ options, addNewKeyValuePair, removeKeyValuePair, keyValuePairV
                   <input
                     type="text"
                     value={option[0]}
-                    placeholder="key"
+                    placeholder="键"
                     autoComplete="off"
                     className="form-control no-border"
                     onChange={(e) => keyValuePairValueChanged(e.target.value, 0, index)}
@@ -29,7 +29,7 @@ export default ({ options, addNewKeyValuePair, removeKeyValuePair, keyValuePairV
                   <input
                     type="text"
                     value={option[1]}
-                    placeholder="value"
+                    placeholder="值"
                     autoComplete="off"
                     className="form-control no-border"
                     onChange={(e) => keyValuePairValueChanged(e.target.value, 1, index)}

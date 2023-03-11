@@ -16,10 +16,10 @@ function OnboardingPassword({ setFormData, formData, fieldType }) {
     <div className="login-password onboard-password">
       <input
         onChange={(e) => setFormData({ ...formData, [fieldType]: e.target.value })}
-        type={showPassword ? 'text' : 'password'}
+        type={showPassword ? 'text' : '密码'}
         className="onboard-input"
         name="password"
-        placeholder="Enter new password"
+        placeholder="输入密码"
         autoComplete="new-password"
         data-cy="password-input-field"
       />

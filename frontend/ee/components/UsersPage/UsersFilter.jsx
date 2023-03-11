@@ -37,7 +37,7 @@ const UsersFilter = ({ filterList, darkMode, clearIconPressed }) => {
           <input
             type="email"
             className="form-control"
-            placeholder="Email"
+            placeholder="电子邮件"
             name="email"
             onKeyPress={handleEnterKey}
             onChange={valuesChanged}
@@ -49,7 +49,7 @@ const UsersFilter = ({ filterList, darkMode, clearIconPressed }) => {
           <input
             type="text"
             className="form-control"
-            placeholder="First Name"
+            placeholder="姓"
             name="firstName"
             onKeyPress={handleEnterKey}
             onChange={valuesChanged}
@@ -61,7 +61,7 @@ const UsersFilter = ({ filterList, darkMode, clearIconPressed }) => {
           <input
             type="text"
             className="form-control"
-            placeholder="Last Name"
+            placeholder="名"
             name="lastName"
             onKeyPress={handleEnterKey}
             onChange={valuesChanged}

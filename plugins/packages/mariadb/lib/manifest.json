@@ -48,99 +48,99 @@
   },
   "properties": {
     "ssl_certificate": {
-      "label": "SSL Certificate",
+      "label": "SSL证书",
       "key": "ssl_certificate",
       "type": "dropdown-component-flip",
-      "description": "Single select dropdown for choosing certificates",
+      "description": "用于选择证书的单选下拉列表",
       "list": [
         {
           "value": "ca_certificate",
-          "name": "CA certificate"
+          "name": "ca证书"
         },
         {
           "value": "self_signed",
-          "name": "Self-signed certificate"
+          "name": "自签名证书"
         },
         {
           "value": "none",
-          "name": "None"
+          "name": "无"
         }
       ],
       "commonFields": {
         "host": {
-          "label": "Host",
+          "label": "主机",
           "key": "host",
           "type": "text",
-          "description": "Enter host"
+          "description": "输入主机地址"
         },
         "user": {
-          "label": "Username",
+          "label": "用户名",
           "key": "user",
           "type": "text",
-          "description": "Enter username"
+          "description": "输入用户名"
         },
         "password": {
-          "label": "Password",
+          "label": "密码",
           "key": "password",
           "type": "password",
-          "description": "Enter password"
+          "description": "输入密码"
         },
         "connectionLimit": {
-          "label": "Connection Limit",
+          "label": "连接限制",
           "key": "connectionLimit",
           "type": "text",
-          "description": "Enter connection limit"
+          "description": "输入连接限制"
         },
         "port": {
-          "label": "Port",
+          "label": "端口",
           "key": "port",
           "type": "text",
-          "description": "Enter port"
+          "description": "输入端口"
         },
         "database": {
-          "label": "Database",
+          "label": "数据库",
           "key": "database",
           "type": "text",
-          "description": "Enter name of the database"
+          "description": "输入数据库的名称"
         },
         "ssl_enabled": {
-          "label": "SSL",
+          "label": "是否启用SSL",
           "key": "ssl_enabled",
           "type": "toggle",
-          "description": "Toggle for ssl_enabled"
+          "description": "切换启用ssl"
         }
       }
     },
     "ca_certificate": {
       "ca": {
-        "label": "CA Cert",
+        "label": "ca证书",
         "key": "ca",
         "type": "textarea",
         "encrypted": true,
-        "description": "Enter ca certificate"
+        "description": "输入ca证书"
       }
     },
     "self_signed": {
       "ca": {
-        "label": "Server Cert",
+        "label": "服务器证书",
         "key": "ca",
         "type": "textarea",
         "encrypted": true,
-        "description": "Enter client key"
+        "description": "输入服务端密钥"
       },
       "cert": {
-        "label": "Client Cert",
+        "label": "客户端证书",
         "key": "cert",
         "type": "textarea",
         "encrypted": true,
-        "description": "Enter client certificate"
+        "description": "输入客户端证书"
       },
       "key": {
-        "label": "Client Key",
+        "label": "客户端密钥",
         "key": "key",
         "type": "text",
         "encrypted": true,
-        "description": "Enter key"
+        "description": "输入客户端密钥"
       }
     }
   },

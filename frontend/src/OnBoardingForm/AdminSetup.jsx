@@ -19,20 +19,20 @@ function AdminSetup({ formData, setFormData, setPage, page, setCompleted, isLoad
   return (
     <div className="onboarding-pages-wrapper">
       <p className="onboarding-sh-labels" data-cy="name-input-label">
-        Name
+        姓名
       </p>
       <OnBoardingInput
         {...props}
         fieldType="name"
-        placeholder="Enter your full name"
+        placeholder="输入您的全名"
         autoFocus={true}
         dataCy="name-input-field"
       />
       <p className="onboarding-sh-labels" data-cy="email-input-label">
-        Email
+        邮箱
       </p>
       <OnBoardingInput
-        placeholder="Enter your email"
+        placeholder="输入您的电子邮件"
         className="onboard-email-input"
         {...props}
         fieldType="email"
@@ -41,21 +41,21 @@ function AdminSetup({ formData, setFormData, setPage, page, setCompleted, isLoad
         dataCy="email-input-field"
       />
       <p className="onboard-password-label onboarding-sh-labels" data-cy="password-label">
-        Password
+        密码
       </p>
       <OnboardingPassword {...passwordProps} fieldType="password" data-cy="password-input-field" />
       <ContinueButtonSelfHost {...btnProps} setEmailError={setEmailError} />
       <p className="signup-terms" data-cy="signup-terms-helper">
-        By continuing you are agreeing to the
+      点击继续，视为同意
         <br />
         <span>
           <a href="https://www.tooljet.com/terms" data-cy="terms-of-service-link">
-            Terms of Service{' '}
+          服务条款{' '}
           </a>
           &
           <a href="https://www.tooljet.com/privacy" data-cy="privacy-policy-link">
             {' '}
-            Privacy Policy
+            隐私政策
           </a>
         </span>
       </p>

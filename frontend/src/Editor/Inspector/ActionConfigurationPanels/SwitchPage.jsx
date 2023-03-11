@@ -61,7 +61,7 @@ export function SwitchPage({ getPages, currentState, event, handlerChanged, even
         className={`${darkMode ? 'select-search-dark' : 'select-search'}`}
         useCustomStyles={true}
       />
-      <label className="form-label mt-2">Query params</label>
+      <label className="form-label mt-2">查询参数</label>
 
       {Array(numberOfQueryParams)
         .fill(0)

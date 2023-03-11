@@ -32,16 +32,16 @@
   },
   "properties": {
     "endPoint": {
-      "label": "End point",
+      "label": "终点",
       "key": "endpoint",
       "type": "text",
       "description": "https://your-account.documents.azure.com"
     },
     "key": {
-      "label": "Key",
+      "label": "密钥",
       "key": "key",
       "type": "password",
-      "description": "Enter your key"
+      "description": "输入您的密钥"
     }
   },
   "required": ["endpoint", "key"]

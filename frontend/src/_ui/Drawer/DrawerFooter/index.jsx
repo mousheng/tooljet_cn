@@ -5,7 +5,7 @@ function DrawerFooter({ fetching, onClose, isEditMode, onCreate, onEdit }) {
     <div className="position-sticky bottom-0 right-0 w-100 card-footer mt-auto">
       <div className="btn-list justify-content-end">
         <a className="btn" data-cy={`cancel-button`} onClick={onClose}>
-          Cancel
+          取消
         </a>
         {isEditMode && (
           <button disabled={fetching} className="btn btn-primary" data-cy={`save-changes-button`} onClick={onEdit}>
@@ -24,7 +24,7 @@ function DrawerFooter({ fetching, onClose, isEditMode, onCreate, onEdit }) {
                 fill="#FDFDFE"
               />
             </svg>
-            Save changes
+            保存更改
           </button>
         )}
         {!isEditMode && (
@@ -44,7 +44,7 @@ function DrawerFooter({ fetching, onClose, isEditMode, onCreate, onEdit }) {
                 fill="#FDFDFE"
               />
             </svg>
-            Create
+            创建
           </button>
         )}
       </div>

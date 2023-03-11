@@ -66,7 +66,7 @@ const LeftSidebarPageSelector = ({
       <div className="card-body p-0 pb-5" onClick={(event) => event.stopPropagation()}>
         <HeaderSection darkMode={darkMode}>
           <HeaderSection.PanelHeader
-            title="Pages"
+            title="页面"
             settings={
               <GlobalSettings
                 darkMode={darkMode}
@@ -77,7 +77,7 @@ const LeftSidebarPageSelector = ({
           >
             <div className="d-flex justify-content-end">
               <Button
-                title={'Add Page'}
+                title={'添加页面'}
                 onClick={() => setNewPageBeingCreated(true)}
                 darkMode={darkMode}
                 size="sm"
@@ -86,7 +86,7 @@ const LeftSidebarPageSelector = ({
                 <Button.Content dataCy={`add-page`} iconSrc={'assets/images/icons/plus.svg'} direction="left" />
               </Button>
               <Button
-                title={'Search'}
+                title={'搜索'}
                 onClick={() => setShowSearch(!showSearch)}
                 darkMode={darkMode}
                 size="sm"
@@ -95,7 +95,7 @@ const LeftSidebarPageSelector = ({
                 <Button.Content dataCy={'search-page'} iconSrc={'assets/images/icons/search.svg'} direction="left" />
               </Button>
               <Button
-                title={`${pinned ? 'Unpin' : 'Pin'}`}
+                title={`${pinned ? '取消前置' : '保持前置'}`}
                 onClick={() => setPinned(!pinned)}
                 darkMode={darkMode}
                 size="sm"
@@ -189,7 +189,7 @@ const LeftSidebarPageSelector = ({
         onClick={() => setSelectedSidebarItem('page')}
         icon="page"
         className={`left-sidebar-item left-sidebar-layout left-sidebar-page-selector`}
-        tip="Pages"
+        tip="页面"
       />
     </Popover>
   );

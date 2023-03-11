@@ -13,7 +13,7 @@ export default ({
 }) => {
   return (
     <>
-      <GroupHeader paramType={'headers'} descText="Query Headers" />
+      <GroupHeader paramType={'headers'} descText="请求标头" />
       <TabContent
         options={options}
         currentState={currentState}

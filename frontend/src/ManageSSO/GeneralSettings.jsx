@@ -94,7 +94,7 @@ export function GeneralSettings({ settings, updateData, instanceSettings }) {
     <div className="card">
       <div className="card-header">
         <div className="card-title" data-cy="card-title">
-          {t('header.organization.menus.manageSSO.generalSettings.title', 'General Settings')}
+          {t('header.organization.menus.manageSSO.generalSettings.title', '常规设置')}
         </div>
       </div>
       <div className="card-body">

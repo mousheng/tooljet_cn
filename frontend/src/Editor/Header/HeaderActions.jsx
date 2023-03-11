@@ -68,7 +68,7 @@ function HeaderActions({ handleUndo, canUndo, handleRedo, canRedo, currentLayout
           disabled: !canUndo,
         })}
         width="44"
-        data-tip="undo"
+        data-tip="撤销"
         height="44"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
@@ -86,7 +86,7 @@ function HeaderActions({ handleUndo, canUndo, handleRedo, canRedo, currentLayout
       </svg>
       <svg
         title="redo"
-        data-tip="redo"
+        data-tip="恢复"
         onClick={handleRedo}
         xmlns="http://www.w3.org/2000/svg"
         className={cx('redo-button cursor-pointer icon icon-tabler icon-tabler-arrow-forward-up', {

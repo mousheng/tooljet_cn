@@ -24,11 +24,11 @@
   },
   "properties": {
     "private_key": {
-      "label": "Private key",
+      "label": "私钥",
       "key": "private_key",
       "type": "textarea",
       "encrypted": true,
-      "description": "Enter JSON private key for service account"
+      "description": "输入服务帐户的JSON私钥"
     }
   },
   "required": [

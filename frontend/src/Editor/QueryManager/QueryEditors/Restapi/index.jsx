@@ -161,7 +161,7 @@ class Restapi extends React.Component {
                 onChange={(value) => {
                   changeOption(this, 'url', value);
                 }}
-                placeholder="Enter request URL"
+                placeholder="输入请求URL"
                 componentName={`${queryName}::url`}
                 mode="javascript"
                 lineNumbers={false}

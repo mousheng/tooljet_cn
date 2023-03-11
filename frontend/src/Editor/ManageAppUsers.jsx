@@ -138,7 +138,7 @@ class ManageAppUsersComponent extends React.Component {
     const embeddableLink = `<iframe width="560" height="315" src="${appLink}${this.props.slug}" title="Tooljet app - ${this.props.slug}" frameborder="0" allowfullscreen></iframe>`;
 
     return (
-      <div title="Share">
+      <div title="共享">
         <svg
           className="w-100 h-100 cursor-pointer icon"
           onClick={() => this.setState({ showModal: true })}
@@ -260,7 +260,7 @@ class ManageAppUsersComponent extends React.Component {
           <Modal.Footer>
             {this.currentUser?.admin && (
               <Link to="/workspace-settings" target="_blank" className="btn color-primary mt-3">
-                Manage users
+                管理用户
               </Link>
             )}
           </Modal.Footer>

@@ -8,12 +8,12 @@ export const dataTypes = [
 export const primaryKeydataTypes = [{ value: 'serial', label: 'serial' }];
 
 export const operators = [
-  { value: 'eq', label: 'equals' },
-  { value: 'gt', label: 'greater than' },
-  { value: 'gte', label: 'greater than or equal' },
-  { value: 'lt', label: 'less than' },
-  { value: 'lte', label: 'less than or equal' },
-  { value: 'neq', label: 'not equal' },
+  { value: 'eq', label: '等于' },
+  { value: 'gt', label: '大于' },
+  { value: 'gte', label: '大于或等于' },
+  { value: 'lt', label: '小于' },
+  { value: 'lte', label: '小于或等于' },
+  { value: 'neq', label: '不等于' },
   { value: 'like', label: 'like' },
   { value: 'ilike', label: 'ilike' },
   { value: 'match', label: 'match' },

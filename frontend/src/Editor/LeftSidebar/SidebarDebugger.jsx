@@ -90,13 +90,13 @@ export const LeftSidebarDebugger = ({
   const popoverContent = (
     <div>
       <HeaderSection darkMode={darkMode}>
-        <HeaderSection.PanelHeader title="Debugger">
+        <HeaderSection.PanelHeader title="调试器">
           <div className="d-flex justify-content-end">
             <Button onClick={clearErrorLogs} darkMode={darkMode} size="sm" styles={{ width: '76px' }}>
-              <Button.Content title={'Clear'} iconSrc={'assets/images/icons/clear.svg'} direction="left" />
+              <Button.Content title={'清空'} iconSrc={'assets/images/icons/clear.svg'} direction="left" />
             </Button>
             <Button
-              title={`${pinned ? 'Unpin' : 'Pin'}`}
+              title={`${pinned ? '取消前置' : '保持前置'}`}
               onClick={() => setPinned(!pinned)}
               darkMode={darkMode}
               size="sm"

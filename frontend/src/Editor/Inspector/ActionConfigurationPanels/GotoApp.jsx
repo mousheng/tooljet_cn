@@ -61,7 +61,7 @@ export function GotoApp({ getAllApps, currentState, event, handlerChanged, event
         className={`${darkMode ? 'select-search-dark' : 'select-search'}`}
         useCustomStyles={true}
       />
-      <label className="form-label mt-2">Query params</label>
+      <label className="form-label mt-2">携带查询参数</label>
 
       {Array(numberOfQueryParams)
         .fill(0)
@@ -75,6 +75,7 @@ export function GotoApp({ getAllApps, currentState, event, handlerChanged, event
                 mode="javascript"
                 className="form-control codehinter-query-editor-input"
                 height={30}
+                placeholder="键"
               />
             </div>
             <div className="col">
@@ -85,6 +86,7 @@ export function GotoApp({ getAllApps, currentState, event, handlerChanged, event
                 mode="javascript"
                 className="form-control codehinter-query-editor-input"
                 height={30}
+                placeholder="值"
               />
             </div>
             <span className="btn-sm col-auto my-1" role="button" onClick={() => deleteQueryParam(index)}>

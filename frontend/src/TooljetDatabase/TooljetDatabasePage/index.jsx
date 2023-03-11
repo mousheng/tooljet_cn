@@ -41,11 +41,11 @@ const TooljetDatabasePage = ({ totalTables }) => {
         </div>
         <div className="text-center">
           <div className="text-h3" data-cy="do-not-have-table-text">
-            You don&apos;t have any tables yet.
+            您还没创建任何表格.
           </div>
         </div>
         <div className="text-h5 text-secondary" data-cy="create-table-to-get-started-text">
-          Create a table to get started!
+        快去创建自己的表格吧！
         </div>
       </div>
     );

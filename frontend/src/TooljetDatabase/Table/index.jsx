@@ -256,7 +256,7 @@ const Table = ({ openCreateRowDrawer }) => {
                     </div>
                     <div className="text-center">
                       <div className="text-h3" data-cy="do-not-have-records-text">
-                        You don&apos;t have any records yet.
+                      您还没有任何记录.
                       </div>
                     </div>
                   </div>

@@ -32,7 +32,7 @@ export default ({
                       initialValue={option[0]}
                       theme={theme}
                       height={'32px'}
-                      placeholder="Key"
+                      placeholder="键"
                       onChange={onChange(paramType, 0, index)}
                       componentName={`${componentName}/${tabType}::key::${index}`}
                     />
@@ -43,7 +43,7 @@ export default ({
                       initialValue={option[1]}
                       theme={theme}
                       height={'32px'}
-                      placeholder="Value"
+                      placeholder="值"
                       onChange={onChange(paramType, 1, index)}
                       componentName={`${componentName}/${tabType}::value::${index}`}
                     />

@@ -33,10 +33,10 @@ const RowForm = ({ onCreate, onClose }) => {
     const { error } = await tooljetDatabaseService.createRow(organizationId, selectedTable, data);
     setFetching(false);
     if (error) {
-      toast.error(error?.message ?? `Failed to create a new column table "${selectedTable}"`);
+      toast.error(error?.message ?? `无法创建新的列表 "${selectedTable}"`);
       return;
     }
-    toast.success(`Row created successfully`);
+    toast.success(`已成功创建行`);
     onCreate && onCreate();
   };
 
@@ -55,7 +55,7 @@ const RowForm = ({ onCreate, onClose }) => {
             type="text"
             disabled={isPrimaryKey}
             onChange={handleInputChange(columnName)}
-            placeholder={isPrimaryKey ? 'Auto-generated' : 'Enter a value'}
+            placeholder={isPrimaryKey ? '自动生成' : '输入值'}
             className="form-control"
             data-cy={`${String(columnName).toLocaleLowerCase().replace(/\s+/g, '-')}-input-field`}
             autoComplete="off"
@@ -84,7 +84,7 @@ const RowForm = ({ onCreate, onClose }) => {
     <div className="card">
       <div className="card-header">
         <h3 className="card-title" data-cy="create-new-row-header">
-          Create a new row
+          创建新行
         </h3>
       </div>
       <div className="card-body">

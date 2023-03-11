@@ -22,8 +22,8 @@ export const BlankPage = function BlankPage({
   const history = useHistory();
 
   const staticTemplates = [
-    { id: 's3-file-explorer', name: 'S3 File Explorer' },
-    { id: 'job-application-tracker', name: 'Job Application Tracker' },
+    { id: 's3-file-explorer', name: 's3文件资源管理器' },
+    { id: 'job-application-tracker', name: '工作申请跟踪' },
     { id: 'whatsapp-and-sms-crm', name: 'WhatsApp and SMS CRM' },
   ];
 
@@ -61,12 +61,12 @@ export const BlankPage = function BlankPage({
                     style={{ color: darkMode && '#ffffff' }}
                     data-cy="empty-homepage-welcome-header"
                   >
-                    {t('blankPage.welcomeToToolJet', 'Welcome to your new ToolJet workspace')}
+                    {t('blankPage.welcomeToToolJet', '欢迎进入您的ToolJet工作区')}
                   </h3>
                   <p className={`empty-title ${darkMode && 'text-white-50'}`} data-cy="empty-homepage-description">
                     {t(
                       'blankPage.getStartedCreateNewApp',
-                      'You can get started by creating a new application or by creating an application using a template in ToolJet Library.'
+                      '您可以通过创建新应用程序或使用tooljet库中的模板创建应用程序.'
                     )}
                   </p>
                   <div className="row mt-4">
@@ -91,7 +91,7 @@ export const BlankPage = function BlankPage({
                             fill="#FDFDFE"
                           />
                         </svg>
-                        New app from scratch
+                        创建的新应用
                       </a>
                     </div>
                     <div className="col">
@@ -119,7 +119,7 @@ export const BlankPage = function BlankPage({
                               fill="#C1C8CD"
                             />
                           </svg>
-                          &nbsp;{t('blankPage.importApplication', 'Import an application')}
+                          &nbsp;{t('blankPage.importApplication', '导入应用程序')}
                           <input
                             type="file"
                             ref={fileInput}
@@ -136,7 +136,7 @@ export const BlankPage = function BlankPage({
                 </div>
               </div>
               <div className="hr-text" data-cy="action-option">
-                Or choose from templates
+                或从模板中选择
               </div>
               <div className="row" data-cy="app-template-row">
                 {staticTemplates.map(({ id, name }) => {
@@ -170,7 +170,7 @@ export const BlankPage = function BlankPage({
                   onClick={viewTemplateLibraryModal}
                   data-cy="see-all-apps-template-buton"
                 >
-                  See all templates
+                  查看所有模板
                 </span>
               </div>
             </div>

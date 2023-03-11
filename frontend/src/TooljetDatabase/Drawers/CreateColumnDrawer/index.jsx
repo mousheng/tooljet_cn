@@ -24,14 +24,14 @@ const CreateColumnDrawer = () => {
             fill="#889096"
           />
         </svg>
-        &nbsp;&nbsp;Add new column
+        &nbsp;&nbsp;增加列
       </button>
       <Drawer isOpen={isCreateColumnDrawerOpen} onClose={() => setIsCreateColumnDrawerOpen(false)} position="right">
         <CreateColumnForm
           onCreate={() => {
             tooljetDatabaseService.viewTable(organizationId, selectedTable).then(({ data = [], error }) => {
               if (error) {
-                toast.error(error?.message ?? `Error fetching columns for table "${selectedTable}"`);
+                toast.error(error?.message ?? `提取表的列时出错 "${selectedTable}"`);
                 return;
               }
 
@@ -49,7 +49,7 @@ const CreateColumnDrawer = () => {
             });
             tooljetDatabaseService.findOne(organizationId, selectedTable).then(({ data = [], error }) => {
               if (error) {
-                toast.error(error?.message ?? `Failed to fetch table "${selectedTable}"`);
+                toast.error(error?.message ?? `无法获取表 "${selectedTable}"`);
                 return;
               }
 

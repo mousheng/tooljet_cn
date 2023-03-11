@@ -20,7 +20,7 @@ const Content = ({ notifications, loading, darkMode }) => {
     if (isEmpty(notifications))
       return (
         <div className="empty">
-          <p className="empty-title">{loading ? <Spinner /> : 'No messages to show'}</p>
+          <p className="empty-title">{loading ? <Spinner /> : '没有要显示的消息'}</p>
         </div>
       );
 
@@ -53,7 +53,7 @@ const Content = ({ notifications, loading, darkMode }) => {
                 className="comment-notification-message"
                 dangerouslySetInnerHTML={{ __html: hightlightMentionedUserInComment(comment.comment) }}
               />
-              <div className="my-2 count">{`${count - 1} replies`}</div>
+              <div className="my-2 count">{`${count - 1} 回复`}</div>
             </div>
           );
         })}
@@ -68,7 +68,7 @@ const Content = ({ notifications, loading, darkMode }) => {
         {!loading && (
           <div className="card-header">
             <sub className={`fw-400 comment-notification-count ${darkMode ? 'text-light' : 'light-gray'}`}>
-              Total {pluralize(notifications.length, 'comment')}
+              共 {notifications.length} 条评论
             </sub>
           </div>
         )}
