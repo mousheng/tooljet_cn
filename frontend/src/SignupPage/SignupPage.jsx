@@ -169,7 +169,7 @@ class SignupPageComponent extends React.Component {
                       <>
                         <div className="signup-page-inputs-wrapper">
                           <label className="tj-text-input-label" data-cy="name-input-label">
-                            Name
+                            姓名
                           </label>
                           <input
                             onChange={this.handleChange}
@@ -184,7 +184,7 @@ class SignupPageComponent extends React.Component {
                           />
                           <div className="signup-password-wrap">
                             <label className="tj-text-input-label" data-cy="email-input-label">
-                              Email address
+                              邮箱
                             </label>
                             <input
                               onChange={this.handleChange}
@@ -202,7 +202,7 @@ class SignupPageComponent extends React.Component {
                             )}
                           </div>
                           <label className="tj-text-input-label" data-cy="passwor-label">
-                            Password
+                            密码
                           </label>
                           <div className="login-password signup-password-wrapper">
                             <input
@@ -295,16 +295,16 @@ class SignupPageComponent extends React.Component {
                       </>
                     )}
                     <p className="signup-terms" data-cy="signup-terms-helper">
-                      By signing up you are agreeing to the
+                      注册即表示您同意
                       <br />
                       <span>
                         <a href="https://www.tooljet.com/terms" data-cy="terms-of-service-link">
-                          Terms of Service{' '}
+                          服务条款{' '}
                         </a>
                         &
                         <a href="https://www.tooljet.com/privacy" data-cy="privacy-policy-link">
                           {' '}
-                          Privacy Policy
+                          隐私政策
                         </a>
                       </span>
                     </p>

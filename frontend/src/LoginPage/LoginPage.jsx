@@ -192,7 +192,7 @@ class LoginPageComponent extends React.Component {
                           <div className="tj-text-input-label">
                             {!this.organizationId && (configs?.form?.enable_sign_up || configs?.enable_sign_up) && (
                               <div className="common-auth-sub-header sign-in-sub-header" data-cy="sign-in-sub-header">
-                                {this.props.t('newToTooljet', 'New to ToolJet?')}
+                                {this.props.t('newToTooljet', '没账户?')}
                                 <Link
                                   to={'/signup'}
                                   tabIndex="-1"
@@ -240,7 +240,7 @@ class LoginPageComponent extends React.Component {
                               name="email"
                               type="email"
                               className="tj-text-input"
-                              placeholder={this.props.t('loginSignupPage.enterWorkEmail', '输入您的电子邮箱')}
+                              placeholder={this.props.t('loginSignupPage.enterWorkEmail', '输入您的邮箱')}
                               style={{ marginBottom: '0px' }}
                               data-cy="work-email-input"
                               autoFocus

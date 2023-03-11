@@ -86,7 +86,7 @@ class ForgotPasswordComponent extends React.Component {
                         onChange={this.handleChange}
                         name="email"
                         type="email"
-                        placeholder="Enter email address"
+                        placeholder="请输入您的邮箱"
                         className="tj-text-input"
                         style={{ marginBottom: '0px' }}
                         autoFocus
