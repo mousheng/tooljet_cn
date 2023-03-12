@@ -1201,7 +1201,7 @@ export const widgets = [
       customRule: { type: 'code', displayName: 'Custom validation' },
     },
     events: {
-      onChange: { displayName: 'On change' },
+      onChange: { displayName: '内容改变时' },
     },
     styles: {
       visibility: {
@@ -1242,7 +1242,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        placeholder: { value: 'password' },
+        placeholder: { value: '请输入密码' },
       },
       validation: {
         regex: { value: '' },
@@ -1403,8 +1403,8 @@ export const widgets = [
       },
     },
     events: {
-      onCheck: { displayName: 'On check' },
-      onUnCheck: { displayName: 'On uncheck' },
+      onCheck: { displayName: '选中时' },
+      onUnCheck: { displayName: '取消选中时' },
     },
     styles: {
       textColor: {
@@ -1445,7 +1445,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        label: { value: 'Checkbox label' },
+        label: { value: '复选框' },
         defaultValue: { value: '{{false}}' },
       },
       events: [],
@@ -1597,7 +1597,7 @@ export const widgets = [
       },
     },
     events: {
-      onChange: { displayName: 'On change' },
+      onChange: { displayName: '内容改变时' },
     },
     styles: {
       textColor: {
@@ -2785,7 +2785,7 @@ export const widgets = [
       },
     },
     events: {
-      onChange: { displayName: 'On Change' },
+      onChange: { displayName: '内容改变时' },
     },
     styles: {
       textColor: {
@@ -4150,7 +4150,7 @@ export const widgets = [
       },
     },
     events: {
-      onChange: { displayName: 'On change' },
+      onChange: { displayName: '内容改变时' },
     },
     styles: {
       lineColor: {
@@ -4875,7 +4875,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
     events: {
-      onChange: { displayName: 'On change' },
+      onChange: { displayName: '内容改变时' },
     },
     styles: {
       visibility: { type: 'toggle', displayName: 'Visibility' },
@@ -4921,9 +4921,9 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       expandedData: { type: 'code', displayName: 'Expanded Values' },
     },
     events: {
-      onChange: { displayName: 'On change' },
-      onCheck: { displayName: 'On check' },
-      onUnCheck: { displayName: 'On uncheck' },
+      onChange: { displayName: '内容改变时' },
+      onCheck: { displayName: '选中时' },
+      onUnCheck: { displayName: '取消选中时' },
     },
     styles: {
       textColor: { type: 'color', displayName: 'Text Color' },
@@ -5386,7 +5386,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
     events: {
-      onChange: { displayName: 'On change' },
+      onChange: { displayName: '内容改变时' },
     },
     styles: {
       visibility: {
