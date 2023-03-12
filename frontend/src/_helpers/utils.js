@@ -266,7 +266,7 @@ export function validateWidget({ validationObject, widgetValue, currentState, cu
   if (!re.test(widgetValue)) {
     return {
       isValid: false,
-      validationError: 'The input should match pattern',
+      validationError: '输入应与模式匹配',
     };
   }
 
@@ -274,7 +274,7 @@ export function validateWidget({ validationObject, widgetValue, currentState, cu
   if ((widgetValue || '').length < parseInt(resolvedMinLength)) {
     return {
       isValid: false,
-      validationError: `Minimum ${resolvedMinLength} characters is needed`,
+      validationError: `必须输入 ${resolvedMinLength} 个以上字符`,
     };
   }
 
@@ -283,7 +283,7 @@ export function validateWidget({ validationObject, widgetValue, currentState, cu
     if ((widgetValue || '').length > parseInt(resolvedMaxLength)) {
       return {
         isValid: false,
-        validationError: `Maximum ${resolvedMaxLength} characters is allowed`,
+        validationError: `最多允许 ${resolvedMaxLength} 个字符`,
       };
     }
   }
@@ -293,7 +293,7 @@ export function validateWidget({ validationObject, widgetValue, currentState, cu
     if (widgetValue === undefined || widgetValue < parseInt(resolvedMinValue)) {
       return {
         isValid: false,
-        validationError: `Minimum value is ${resolvedMinValue}`,
+        validationError: `最小值为 ${resolvedMinValue}`,
       };
     }
   }
@@ -303,7 +303,7 @@ export function validateWidget({ validationObject, widgetValue, currentState, cu
     if (widgetValue === undefined || widgetValue > parseInt(resolvedMaxValue)) {
       return {
         isValid: false,
-        validationError: `Maximum value is ${resolvedMaxValue}`,
+        validationError: `最大值为 ${resolvedMaxValue}`,
       };
     }
   }

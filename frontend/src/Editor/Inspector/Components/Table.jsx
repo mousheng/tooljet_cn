@@ -908,7 +908,7 @@ class TableComponent extends React.Component {
     let items = [];
 
     items.push({
-      title: 'Properties',
+      title: '特性',
       children: renderElement(
         component,
         componentMeta,
@@ -923,7 +923,7 @@ class TableComponent extends React.Component {
     });
 
     items.push({
-      title: 'Columns',
+      title: '列',
       children: (
         <div>
           <div className="col-auto text-right mb-3">
@@ -1008,7 +1008,7 @@ class TableComponent extends React.Component {
     });
 
     items.push({
-      title: 'Action buttons',
+      title: '操作按钮',
       children: (
         <div className="field mb-2 mt-2">
           <div className="row g-2">
@@ -1068,12 +1068,12 @@ class TableComponent extends React.Component {
     });
 
     items.push({
-      title: 'Options',
+      title: '选项',
       children: renderOptions,
     });
 
     items.push({
-      title: 'Events',
+      title: '事件处理',
       isOpen: true,
       children: (
         <EventManager
@@ -1090,7 +1090,7 @@ class TableComponent extends React.Component {
     });
 
     items.push({
-      title: 'Layout',
+      title: '布局',
       isOpen: true,
       children: (
         <>

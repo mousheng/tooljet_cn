@@ -150,14 +150,14 @@ export const widgets = [
       },
       enableNextButton: {
         type: 'toggle',
-        displayName: 'Enable next page button',
+        displayName: '启用下一页按钮',
         validation: {
           schema: { type: 'boolean' },
         },
       },
       enabledSort: {
         type: 'toggle',
-        displayName: 'Enable sorting',
+        displayName: '启用排序',
         validation: {
           schema: { type: 'boolean' },
         },
@@ -171,14 +171,14 @@ export const widgets = [
       },
       enablePrevButton: {
         type: 'toggle',
-        displayName: 'Enable previous page button',
+        displayName: '启用上一页按钮',
         validation: {
           schema: { type: 'boolean' },
         },
       },
       totalRecords: {
         type: 'code',
-        displayName: '服务器端总记录条数',
+        displayName: '服务器端总记录数',
         validation: {
           schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] },
         },
@@ -248,7 +248,7 @@ export const widgets = [
       },
       showBulkUpdateActions: {
         type: 'toggle',
-        displayName: 'Show update buttons',
+        displayName: '显示更新按钮',
         validation: {
           schema: { type: 'boolean' },
         },
@@ -320,8 +320,8 @@ export const widgets = [
         type: 'select',
         displayName: 'Cell size',
         options: [
-          { name: 'Compact', value: 'compact' },
-          { name: 'Spacious', value: 'spacious' },
+          { name: '紧凑', value: 'compact' },
+          { name: '宽松', value: 'spacious' },
         ],
         validation: {
           schema: { type: 'string' },

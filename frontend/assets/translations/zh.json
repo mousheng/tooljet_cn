@@ -733,7 +733,9 @@
             "remove": "移除",
             "addButton": "+ 添加按钮",
             "addColumn": "+ 添加列",
-            "noActionMessage": "此表没有任何操作按钮"
+            "noActionMessage": "此表没有任何操作按钮",
+            "minValue":"最小值",
+            "maxValue":"最大值"
         },
         "Button": {
             "displayName": "按钮",
