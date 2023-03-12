@@ -787,8 +787,8 @@
             "description": "拨动开关"
         },
         "Textarea": {
-            "displayName": "文本区",
-            "description": "文本区域表单域"
+            "displayName": "长文本输入框",
+            "description": "长文本输入框"
         },
         "DateRangePicker": {
             "displayName": "范围选择器",

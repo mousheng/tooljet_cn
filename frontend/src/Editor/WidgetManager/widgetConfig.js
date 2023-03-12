@@ -1705,7 +1705,7 @@ export const widgets = [
     },
     exposedVariables: {
       value:
-        'ToolJet is an open-source low-code platform for building and deploying internal tools with minimal engineering efforts 🚀',
+        'tooljet是一个开源低代码平台，用于以最少的工程工作量构建和部署内部工具 🚀',
     },
     actions: [
       {
@@ -1726,9 +1726,9 @@ export const widgets = [
       properties: {
         value: {
           value:
-            'ToolJet is an open-source low-code platform for building and deploying internal tools with minimal engineering efforts 🚀',
+            'tooljet是一个开源低代码平台，用于以最少的工程工作量构建和部署内部工具 🚀',
         },
-        placeholder: { value: 'Placeholder text' },
+        placeholder: { value: '占位符文本' },
       },
       events: [],
       styles: {
