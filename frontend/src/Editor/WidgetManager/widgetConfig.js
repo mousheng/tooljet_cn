@@ -3416,7 +3416,7 @@ export const widgets = [
         },
       },
     },
-    events: { onTabSwitch: { displayName: 'On tab switch' } },
+    events: { onTabSwitch: { displayName: '选项卡切换时' } },
     styles: {
       highlightColor: {
         type: 'color',
@@ -3447,8 +3447,8 @@ export const widgets = [
         type: 'select',
         displayName: 'Tab width',
         options: [
-          { name: 'Auto', value: 'auto' },
-          { name: 'Equally split', value: 'split' },
+          { name: '自动', value: 'auto' },
+          { name: '平均分配', value: 'split' },
         ],
       },
     },

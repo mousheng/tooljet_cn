@@ -496,6 +496,7 @@
             "invalidWidgetName": "无效的组件名称。应该是唯一的，只包括字母、数字和下划线。"
         },
         "commonProperties": {
+            "renderOnlyActiveTab":"仅渲染活动页",
             "triggerButtonBackgroundColor":"触发按钮背景色",
             "triggerButtonTextColor":"触发按钮文本颜色",
             "bodyBackgroundColor":"背景色",
@@ -631,8 +632,8 @@
             "headerDateFormatOnWeekView": "周视图上的标题日期格式",
             "showLineNumber": "显示行号",
             "mode": "模式",
-            "tabs": "制表符",
-            "defaultTab": "默认标签",
+            "tabs": "选项卡",
+            "defaultTab": "默认选项卡",
             "hideTabs": "隐藏标签页",
             "highlightColor": "高亮颜色",
             "tabWidth": "标签宽度",
