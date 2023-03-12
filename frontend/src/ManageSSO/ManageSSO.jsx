@@ -16,7 +16,7 @@ export function ManageSSO({ darkMode }) {
     { id: 'general-settings', label: '常规设置' },
     { id: 'google', label: 'Google' },
     { id: 'git', label: 'GitHub' },
-    { id: 'form', label: 'Password Login' },
+    { id: 'form', label: '密码登录' },
   ];
   const { t } = useTranslation();
   const changePage = useCallback(
