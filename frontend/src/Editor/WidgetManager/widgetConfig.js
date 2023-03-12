@@ -1501,7 +1501,7 @@ export const widgets = [
       },
     },
     events: {
-      onSelectionChange: { displayName: 'On select' },
+      onSelectionChange: { displayName: '选择时' },
     },
     styles: {
       textColor: {
@@ -1552,7 +1552,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        label: { value: 'Select' },
+        label: { value: '单选' },
         value: { value: '{{true}}' },
         values: { value: '{{[true,false]}}' },
         display_values: { value: '{{["yes", "no"]}}' },
@@ -1781,7 +1781,7 @@ export const widgets = [
       },
     },
     events: {
-      onSelect: { displayName: 'On select' },
+      onSelect: { displayName: '选择时' },
     },
     styles: {
       borderRadius: {
@@ -2279,7 +2279,7 @@ export const widgets = [
       },
     },
     events: {
-      onSelect: { displayName: 'On select' },
+      onSelect: { displayName: '选择时' },
       onSearchTextChanged: { displayName: 'On search text changed' },
     },
     styles: {
@@ -2442,7 +2442,7 @@ export const widgets = [
       },
     },
     events: {
-      onSelect: { displayName: 'On select' },
+      onSelect: { displayName: '选择时' },
     },
     styles: {
       borderRadius: {
@@ -4724,7 +4724,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
     events: {
-      onSelect: { displayName: 'On select' },
+      onSelect: { displayName: '选择时' },
     },
     styles: {
       color: {

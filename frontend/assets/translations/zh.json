@@ -573,7 +573,7 @@
             "checkboxColor": "复选框颜色",
             "optionValues": "选项值",
             "optionLabels": "选项标签",
-            "activeColor": "活跃的色彩",
+            "activeColor": "高亮选中的颜色",
             "selectOption": "选择选项",
             "option": "选项",
             "toggleSwitchColor": "拨动开关颜色",
