@@ -2280,7 +2280,7 @@ export const widgets = [
     },
     events: {
       onSelect: { displayName: '选择时' },
-      onSearchTextChanged: { displayName: 'On search text changed' },
+      onSearchTextChanged: { displayName: '搜索文本改变时' },
     },
     styles: {
       borderRadius: {
@@ -2349,7 +2349,7 @@ export const widgets = [
         customRule: { value: null },
       },
       properties: {
-        label: { value: 'Select' },
+        label: { value: '单选下拉框' },
         value: { value: '{{2}}' },
         values: { value: '{{[1,2,3]}}' },
         display_values: { value: '{{["one", "two", "three"]}}' },
