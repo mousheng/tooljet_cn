@@ -807,11 +807,11 @@
             "description": "多个组件的封装器"
         },
         "Dropdown": {
-            "displayName": "下拉框",
+            "displayName": "单选下拉框",
             "description": "从选项中选择一个值"
         },
         "Multiselect": {
-            "displayName": "多选框",
+            "displayName": "多选下拉框",
             "description": "从选项中选择多个值"
         },
         "RichTextEditor": {

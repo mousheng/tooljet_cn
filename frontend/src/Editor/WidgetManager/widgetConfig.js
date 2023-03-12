@@ -2476,7 +2476,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        label: { value: 'Select' },
+        label: { value: '多选下拉框' },
         value: { value: '{{[2,3]}}' },
         values: { value: '{{[1,2,3]}}' },
         display_values: { value: '{{["one", "two", "three"]}}' },
