@@ -1106,7 +1106,7 @@ export const widgets = [
       },
     },
     events: {
-      onChange: { displayName: 'On change' },
+      onChange: { displayName: '内容改变时' },
     },
     styles: {
       visibility: {
