@@ -205,7 +205,7 @@ export default function AppCard({
               {`${app.user?.first_name ? app.user.first_name : ''} ${app.user?.last_name ? app.user.last_name : ''}`}
               <ToolTip
                 message={
-                  app.created_at && moment(app.created_at).locale('zh-CN').format('dddd, MMMM Do YYYY, h:mm:ss a')
+                  app.created_at && moment(app.created_at).locale('zh-CN').format('创建于YY年M月D日 h:mm:ss')
                 }
               >
                 <span>{updated === 'just now' ? `编辑于 ${updated}` : `编辑于 ${updated} 之前`}</span>
