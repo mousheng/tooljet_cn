@@ -1597,7 +1597,7 @@ export const widgets = [
       },
     },
     events: {
-      onChange: { displayName: '内容改变时' },
+      onChange: { displayName: '状态改变时' },
     },
     styles: {
       textColor: {
@@ -1638,7 +1638,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        label: { value: 'Toggle label' },
+        label: { value: '拨动开关' },
         defaultValue: { value: '{{false}}' },
       },
       events: [],
