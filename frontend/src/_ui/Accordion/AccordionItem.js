@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 const AccordionItem = ({ open = true, index, title, children }) => {
   const [show, setShow] = React.useState(open);
+  debugger;
   return (
     <div className="accordion-item">
       <h2 onClick={() => setShow(!show)} className="accordion-header" id={`heading-${index}`}>

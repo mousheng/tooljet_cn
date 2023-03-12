@@ -800,7 +800,7 @@ export const widgets = [
       },
       useDefaultButton: {
         type: 'toggle',
-        displayName: 'Use default trigger button',
+        displayName: '使用默认触发按钮',
         validation: {
           schema: {
             type: 'boolean',
@@ -824,9 +824,9 @@ export const widgets = [
         type: 'select',
         displayName: 'Modal size',
         options: [
-          { name: 'small', value: 'sm' },
-          { name: 'medium', value: 'lg' },
-          { name: 'large', value: 'xl' },
+          { name: '小', value: 'sm' },
+          { name: '中', value: 'lg' },
+          { name: '大', value: 'xl' },
         ],
         validation: {
           schema: { type: 'string' },
@@ -834,8 +834,8 @@ export const widgets = [
       },
     },
     events: {
-      onOpen: { displayName: 'On open' },
-      onClose: { displayName: 'On close' },
+      onOpen: { displayName: '打开时' },
+      onClose: { displayName: '关闭时' },
     },
     styles: {
       headerBackgroundColor: {
@@ -847,7 +847,7 @@ export const widgets = [
       },
       headerTextColor: {
         type: 'color',
-        displayName: 'Header title color',
+        displayName: '标题文本颜色',
         validation: {
           schema: { type: 'string' },
         },
@@ -913,7 +913,7 @@ export const widgets = [
         title: { value: '可修改标题' },
         loadingState: { value: `{{false}}` },
         useDefaultButton: { value: `{{true}}` },
-        triggerButtonLabel: { value: `Launch Modal` },
+        triggerButtonLabel: { value: `打开弹窗` },
         size: { value: 'lg' },
         hideTitleBar: { value: '{{false}}' },
         hideCloseButton: { value: '{{false}}' },

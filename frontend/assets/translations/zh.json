@@ -230,7 +230,7 @@
             "view": "查看"
         },
         "organization": {
-            "addNewWorkSpace":"添加新工作区",
+            "addNewWorkSpace": "添加新工作区",
             "loadOrganizations": "加载组织",
             "createWorkspace": "创建工作区",
             "workspaceName": "工作区名称",
@@ -376,7 +376,7 @@
             "maintenance": "维护",
             "noDeployedVersion": "应用程序还没有部署，请先发布",
             "openInAppViewer": "在应用查看器中打开",
-            "openInAppBuilder":"在应用编辑器中打开",
+            "openInAppBuilder": "在应用编辑器中打开",
             "removeFromFolder": "从文件夹中删除"
         },
         "blankPage": {
@@ -496,6 +496,13 @@
             "invalidWidgetName": "无效的组件名称。应该是唯一的，只包括字母、数字和下划线。"
         },
         "commonProperties": {
+            "triggerButtonBackgroundColor":"触发按钮背景色",
+            "triggerButtonTextColor":"触发按钮文本颜色",
+            "bodyBackgroundColor":"背景色",
+            "useDefaultButton":"使用默认按钮",
+            "triggerButtonLabel":"触发器按钮标签",
+            "headerBackgroundColor": "标题背景色",
+            "headerTextColor": "标题文本颜色",
             "visibility": "是否显示",
             "disable": "禁用",
             "borderRadius": "组件边框圆角半径",
@@ -735,8 +742,8 @@
             "addButton": "+ 添加按钮",
             "addColumn": "+ 添加列",
             "noActionMessage": "此表没有任何操作按钮",
-            "minValue":"最小值",
-            "maxValue":"最大值"
+            "minValue": "最小值",
+            "maxValue": "最大值"
         },
         "Button": {
             "displayName": "按钮",

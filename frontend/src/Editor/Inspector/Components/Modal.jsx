@@ -38,7 +38,7 @@ export const Modal = ({ componentMeta, darkMode, ...restProps }) => {
     });
 
     accordionItems.push({
-      title: 'Options',
+      title: '选项',
       children: renderOptions,
     });
     return accordionItems;
