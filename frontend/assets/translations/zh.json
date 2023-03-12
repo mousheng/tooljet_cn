@@ -374,8 +374,9 @@
             "cloneApp": "复制应用",
             "launch": "启动",
             "maintenance": "维护",
-            "noDeployedVersion": "应用程序没有部署版本",
-            "openInAppViewer": "在应用程序查看器中打开",
+            "noDeployedVersion": "应用程序还没有部署，请先发布",
+            "openInAppViewer": "在应用查看器中打开",
+            "openInAppBuilder":"在应用编辑器中打开",
             "removeFromFolder": "从文件夹中删除"
         },
         "blankPage": {
@@ -735,8 +736,8 @@
             "noActionMessage": "此表没有任何操作按钮"
         },
         "Button": {
-            "displayName": "钮扣",
-            "description": "触发操作：查询、提示信息等"
+            "displayName": "按钮",
+            "description": "用户点击触发查询、提示信息等操作"
         },
         "Chart": {
             "displayName": "图表",
