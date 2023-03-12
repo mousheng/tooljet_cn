@@ -386,9 +386,9 @@ class EditorComponent extends React.Component {
       });
 
       if (newState) {
-        toast.success('Application is on maintenance.');
+        toast.success('应用正在维护中.');
       } else {
-        toast.success('Application maintenance is completed');
+        toast.success('应用维护已完成');
       }
     });
   };
@@ -667,11 +667,11 @@ class EditorComponent extends React.Component {
       removeSelectedComponent(this.state.currentPageId, newDefinition, selectedComponents);
       const platform = navigator?.userAgentData?.platform || navigator?.platform || 'unknown';
       if (platform.toLowerCase().indexOf('mac') > -1) {
-        toast('Selected components deleted! (⌘ + Z to undo)', {
+        toast('选定组件已删除! (撤销请按 ⌘ + Z)', {
           icon: '🗑️',
         });
       } else {
-        toast('Selected components deleted! (ctrl + Z to undo)', {
+        toast('选定组件已删除! (撤销请按 ctrl + Z)', {
           icon: '🗑️',
         });
       }
@@ -709,11 +709,11 @@ class EditorComponent extends React.Component {
       delete newDefinition.pages[currentPageId].components[component.id];
       const platform = navigator?.userAgentData?.platform || navigator?.platform || 'unknown';
       if (platform.toLowerCase().indexOf('mac') > -1) {
-        toast('Component deleted! (⌘ + Z to undo)', {
+        toast('组件已删除! (撤销请按 ⌘ + Z)', {
           icon: '🗑️',
         });
       } else {
-        toast('Component deleted! (ctrl + Z to undo)', {
+        toast('组件已删除! (撤销请按 ctrl + Z)', {
           icon: '🗑️',
         });
       }

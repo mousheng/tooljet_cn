@@ -69,7 +69,7 @@ const EditRowForm = ({ onEdit, onClose }) => {
   return (
     <div className="card">
       <div className="card-header">
-        <h3 className="card-title">Edit a row</h3>
+        <h3 className="card-title">编辑行</h3>
       </div>
       <div className="card-body">
         <div>

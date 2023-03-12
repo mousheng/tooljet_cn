@@ -23,7 +23,7 @@ const EditRowDrawer = ({ isCreateRowDrawerOpen, setIsCreateRowDrawerOpen }) => {
             fill="#3E63DD"
           />
         </svg>
-        &nbsp;&nbsp;<span className="color-primary">Edit row</span>
+        &nbsp;&nbsp;<span className="color-primary">编辑行</span>
       </button>
       <Drawer isOpen={isCreateRowDrawerOpen} onClose={() => setIsCreateRowDrawerOpen(false)} position="right">
         <EditRowForm

@@ -9,7 +9,7 @@ const Breadcrumbs = ({ breadcrumbs }) => {
     <ol className="breadcrumb breadcrumb-arrows">
       {breadcrumbs.length === 0 && (
         <li className="breadcrumb-item font-weight-500">
-          <Link to={'/'}>Apps</Link>
+          <Link to={'/'}>程序列表</Link>
         </li>
       )}
       {breadcrumbs.map(({ breadcrumb, dataCy }) => {
@@ -26,8 +26,8 @@ const Breadcrumbs = ({ breadcrumbs }) => {
 // define some custom breadcrumbs for certain routes (optional)
 const routes = [
   // { path: '/', breadcrumb: 'Apps' },
-  { path: '/database', breadcrumb: 'Tables', dataCy: 'tables-page-header' },
-  { path: '/workspace-settings', breadcrumb: 'Workspace settings' },
+  { path: '/database', breadcrumb: '数据表', dataCy: 'tables-page-header' },
+  { path: '/workspace-settings', breadcrumb: '工作区设置' },
 ];
 
 export default withBreadcrumbs(routes, { excludePaths: ['/'] })(Breadcrumbs);

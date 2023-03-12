@@ -138,7 +138,7 @@ const Table = ({ openCreateRowDrawer }) => {
   );
 
   const handleDeleteRow = async () => {
-    const shouldDelete = confirm('Are you sure you want to delete the selected rows?');
+    const shouldDelete = confirm('是否要删除选定行?');
     if (shouldDelete) {
       const selectedRows = Object.keys(selectedRowIds).map((key) => rows[key]);
       const primaryKey = columns.find((column) => column.isPrimaryKey);
@@ -151,25 +151,25 @@ const Table = ({ openCreateRowDrawer }) => {
       const { error } = await tooljetDatabaseService.deleteRow(organizationId, selectedTable, query);
 
       if (error) {
-        toast.error(error?.message ?? `Error deleting rows from table "${selectedTable}"`);
+        toast.error(error?.message ?? `删除行时出错"${selectedTable}"`);
         return;
       }
 
-      toast.success(`Deleted ${selectedRows.length} rows from table "${selectedTable}"`);
+      toast.success(`已从表"${selectedTable}"中删除${selectedRows.length} 行`);
       fetchTableData();
     }
   };
 
   const handleDeleteColumn = async (columnName) => {
-    const shouldDelete = confirm(`Are you sure you want to delete the column "${columnName}"?`);
+    const shouldDelete = confirm(`是否要删除列 "${columnName}"?`);
     if (shouldDelete) {
       const { error } = await tooljetDatabaseService.deleteColumn(organizationId, selectedTable, columnName);
       if (error) {
-        toast.error(error?.message ?? `Error deleting column "${columnName}" from table "${selectedTable}"`);
+        toast.error(error?.message ?? `从表"${selectedTable}" 删除列 "${columnName}" 出错`);
         return;
       }
       await fetchTableMetadata();
-      toast.success(`Deleted ${columnName} from table "${selectedTable}"`);
+      toast.success(`已从 "${selectedTable}" 删除列 ${columnName}  `);
     }
   };
 
@@ -200,7 +200,7 @@ const Table = ({ openCreateRowDrawer }) => {
                 fill="#FF6972"
               />
             </svg>
-            &nbsp; Delete records
+            &nbsp; 删除所选行
           </button>
         </div>
       )}
