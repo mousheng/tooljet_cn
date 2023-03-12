@@ -791,7 +791,7 @@
             "description": "长文本输入框"
         },
         "DateRangePicker": {
-            "displayName": "范围选择器",
+            "displayName": "日期范围选择器",
             "description": "选择日期范围"
         },
         "Text": {

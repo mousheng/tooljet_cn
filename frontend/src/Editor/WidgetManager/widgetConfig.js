@@ -1823,10 +1823,10 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        defaultStartDate: { value: '01/04/2022' },
-        defaultEndDate: { value: '10/04/2022' },
+        defaultStartDate: { value: '{{moment().format("yyyy/MM/DD")}}' },
+        defaultEndDate: { value: '{{moment().format("yyyy/MM/DD")}}' },
 
-        format: { value: 'DD/MM/YYYY' },
+        format: { value: 'YYYY/MM/DD' },
       },
       events: [],
       styles: {
