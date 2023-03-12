@@ -969,10 +969,10 @@ export const widgets = [
       customRule: { type: 'code', displayName: 'Custom validation' },
     },
     events: {
-      onChange: { displayName: 'On change' },
-      onEnterPressed: { displayName: 'On Enter Pressed' },
-      onFocus: { displayName: 'On focus' },
-      onBlur: { displayName: 'On blur' },
+      onChange: { displayName: '修改内容时' },
+      onEnterPressed: { displayName: '按下回车键时' },
+      onFocus: { displayName: '获取焦点时' },
+      onBlur: { displayName: '失去焦点时' },
     },
     styles: {
       textColor: {
@@ -992,7 +992,7 @@ export const widgets = [
       },
       errTextColor: {
         type: 'color',
-        displayName: 'Error Text Color',
+        displayName: '错误文本颜色',
         validation: { schema: { type: 'string' } },
       },
       borderRadius: {
