@@ -496,6 +496,7 @@
             "invalidWidgetName": "无效的组件名称。应该是唯一的，只包括字母、数字和下划线。"
         },
         "commonProperties": {
+            "rotateButton":"旋转按钮",
             "renderOnlyActiveTab":"仅渲染活动页",
             "triggerButtonBackgroundColor":"触发按钮背景色",
             "triggerButtonTextColor":"触发按钮文本颜色",
@@ -585,7 +586,7 @@
             "alternativeText": "替代文本",
             "zoomButton": "缩放按钮",
             "borderType": "边框类型",
-            "imageFit": "图像贴合",
+            "imageFit": "图片缩放",
             "optionsLoadingState": "选项加载状态",
             "selectedTextColor": "所选文本颜色",
             "select": "选择",

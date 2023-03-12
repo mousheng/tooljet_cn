@@ -2059,17 +2059,17 @@ export const widgets = [
       },
     },
     events: {
-      onClick: { displayName: 'On click' },
+      onClick: { displayName: '单击时' },
     },
     styles: {
       borderType: {
         type: 'select',
         displayName: 'Border type',
         options: [
-          { name: 'None', value: 'none' },
-          { name: 'Rounded', value: 'rounded' },
-          { name: 'Circle', value: 'rounded-circle' },
-          { name: 'Thumbnail', value: 'img-thumbnail' },
+          { name: '无', value: 'none' },
+          { name: '圆角', value: 'rounded' },
+          { name: '圆形', value: 'rounded-circle' },
+          { name: '缩略图', value: 'img-thumbnail' },
         ],
         validation: {
           schema: { type: 'string' },
@@ -2107,10 +2107,10 @@ export const widgets = [
         type: 'select',
         displayName: 'Image fit',
         options: [
-          { name: 'fill', value: 'fill' },
-          { name: 'contain', value: 'contain' },
-          { name: 'cover', value: 'cover' },
-          { name: 'scale-down', value: 'scale-down' },
+          { name: '填充', value: 'fill' },
+          { name: '覆盖', value: 'contain' },
+          { name: '包含', value: 'cover' },
+          { name: '缩小', value: 'scale-down' },
         ],
         validation: {
           schema: { type: 'string' },
@@ -2549,7 +2549,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        placeholder: { value: 'Placeholder text' },
+        placeholder: { value: '富文本框' },
         defaultValue: { value: '' },
       },
       events: [],
@@ -2826,7 +2826,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        label: { value: 'Select your rating' },
+        label: { value: '选择您的评分' },
         maxRating: { value: '5' },
         defaultSelected: { value: '5' },
         allowHalfStar: { value: '{{false}}' },
@@ -2989,11 +2989,11 @@ export const widgets = [
         type: 'select',
         displayName: 'File type',
         options: [
-          { name: 'Autodetect from extension', value: 'auto-detect' },
+          { name: '从扩展自动检测', value: 'auto-detect' },
           { name: 'CSV', value: 'csv' },
-          { name: 'Microsoft Excel - xls', value: 'vnd.ms-excel' },
+          { name: 'Excel - xls', value: 'vnd.ms-excel' },
           {
-            name: 'Microsoft Excel - xlsx',
+            name: 'Excel - xlsx',
             value: 'vnd.openxmlformats-officedocument.spreadsheetml.sheet',
           },
         ],
@@ -3005,9 +3005,9 @@ export const widgets = [
       },
     },
     events: {
-      onFileSelected: { displayName: 'On File Selected' },
-      onFileLoaded: { displayName: 'On File Loaded' },
-      onFileDeselected: { displayName: 'On File Deselected' },
+      onFileSelected: { displayName: '选定文件时' },
+      onFileLoaded: { displayName: '加载文件时' },
+      onFileDeselected: { displayName: '取消选择文件时' },
     },
     styles: {
       visibility: {
@@ -3049,7 +3049,7 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        instructionText: { value: 'Drag and Drop some files here, or click to select files' },
+        instructionText: { value: '将一些文件拖放到此处，或单击以选择文件' },
         enableDropzone: { value: '{{true}}' },
         enablePicker: { value: '{{true}}' },
         maxFileCount: { value: '{{2}}' },
