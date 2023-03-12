@@ -3651,7 +3651,7 @@ export const widgets = [
       },
     },
     events: {
-      onRowClicked: { displayName: 'Row clicked' },
+      onRowClicked: { displayName: '当点击行' },
     },
     styles: {
       backgroundColor: {
