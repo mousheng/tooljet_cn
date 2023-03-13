@@ -4365,7 +4365,7 @@ export const widgets = [
       properties: {
         rawHtml: {
           value: `<body><main><section class="hero" style="height:306px;display: flex;
-          justify-content: center;padding:0 1px;align-items: center;text-align:center">You can build your custom HTML-CSS template here</section></main></body>`,
+          justify-content: center;padding:0 1px;align-items: center;text-align:center">您可以在此处创建自定义的html-css模板</section></main></body>`,
         },
       },
       events: [],
@@ -4427,8 +4427,8 @@ export const widgets = [
     description: 'Visual representation of a sequence of events',
     component: 'CustomComponent',
     properties: {
-      data: { type: 'code', displayName: 'Data', validation: { schema: { type: 'object' } } },
-      code: { type: 'code', displayName: 'Code' },
+      data: { type: 'code', displayName: '数据', validation: { schema: { type: 'object' } } },
+      code: { type: 'code', displayName: '代码' },
     },
     defaultSize: {
       width: 20,
@@ -4457,7 +4457,7 @@ export const widgets = [
       properties: {
         visible: { value: '{{true}}' },
         data: {
-          value: `{{{ title: 'Hi! There', buttonText: 'Update Title'}}}`,
+          value: `{{{ title: '看这里！！', buttonText: '更新标题'}}}`,
         },
         code: {
           value: `import React from 'https://cdn.skypack.dev/react';
@@ -4469,7 +4469,7 @@ const MyCustomComponent = ({data, updateData, runQuery}) => (
       <Button
         color="primary"
         variant="outlined"
-        onClick={() => {updateData({title: 'Hello World!!'})}}
+        onClick={() => {updateData({title: '我变了！'})}}
       >
         {data.buttonText}
       </Button>
@@ -4547,7 +4547,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
     events: {
-      onClick: { displayName: 'On click' },
+      onClick: { displayName: '单击时' },
     },
     styles: {
       backgroundColor: {
@@ -4610,7 +4610,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        label: { value: `Button group` },
+        label: { value: `按钮组` },
         defaultSelected: { value: '{{[1]}}' },
         values: { value: '{{[1,2,3]}}' },
         labels: { value: '{{[]}}' },
