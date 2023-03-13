@@ -4262,7 +4262,7 @@ export const widgets = [
       properties: {
         data: {
           value:
-            "{{ [ \n\t\t{ title: 'Product Launched', subTitle: 'First version of our product released to public', date: '20/10/2021', iconBackgroundColor: '#4d72fa'},\n\t\t { title: 'First Signup', subTitle: 'Congratulations! We got our first signup', date: '22/10/2021', iconBackgroundColor: '#4d72fa'}, \n\t\t { title: 'First Payment', subTitle: 'Hurray! We got our first payment', date: '01/11/2021', iconBackgroundColor: '#4d72fa'} \n] }}",
+            "{{ [ \n\t\t{ title: '产品发布', subTitle: '我们产品的第一个版本向公众发布', date: '2021/01/03', iconBackgroundColor: '#4d72fa'},\n\t\t { title: '首次注册', subTitle: '祝贺我们第一次注册', date: '2021/10/22', iconBackgroundColor: '#4d72fa'}, \n\t\t { title: '首次付款', subTitle: '万岁！我们拿到了第一笔付款', date: '2022/07/09', iconBackgroundColor: '#4d72fa'} \n] }}",
         },
         hideDate: { value: '{{false}}' },
       },
