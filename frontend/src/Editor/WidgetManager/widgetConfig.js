@@ -4748,9 +4748,9 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         type: 'select',
         displayName: 'Theme',
         options: [
-          { name: 'titles', value: 'titles' },
-          { name: 'numbers', value: 'numbers' },
-          { name: 'plain', value: 'plain' },
+          { name: '标题', value: 'titles' },
+          { name: '数字', value: 'numbers' },
+          { name: '简洁', value: 'plain' },
         ],
         validation: {
           schema: { type: 'string' },
@@ -4774,7 +4774,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
       properties: {
         steps: {
-          value: `{{ [{ name: 'step 1', tooltip: 'some tooltip', id: 1},{ name: 'step 2', tooltip: 'some tooltip', id: 2},{ name: 'step 3', tooltip: 'some tooltip', id: 3},{ name: 'step 4', tooltip: 'some tooltip', id: 4},{ name: 'step 5', tooltip: 'some tooltip', id: 5}]}}`,
+          value: `{{ [{ name: '步骤1', tooltip: '这是步骤1', id: 1},{ name: '步骤2', tooltip: '这是步骤2', id: 2},{ name: '步骤3', tooltip: '这是步骤3', id: 3},{ name: '步骤4', tooltip: '这是步骤4', id: 4},{ name: '步骤5', tooltip: '这是步骤5', id: 5}]}}`,
         },
         currentStep: { value: '{{3}}' },
         stepsSelectable: { value: true },
