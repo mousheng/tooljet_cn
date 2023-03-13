@@ -4639,7 +4639,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       pageControls: { type: 'toggle', displayName: 'Show page controls', validation: { schema: { type: 'boolean' } } },
       showDownloadOption: {
         type: 'toggle',
-        displayName: 'Show the Download',
+        displayName: '显示下载按钮',
         validation: { schema: { type: 'boolean' } },
       },
     },

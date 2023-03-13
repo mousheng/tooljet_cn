@@ -175,7 +175,7 @@ export const PDF = React.memo(({ styles, properties, width, height, component, d
                   style={downloadIconImgStyle}
                   className="mx-1"
                 />
-                <span className="mx-1">Download PDF</span>
+                <span className="mx-1">下载PDF</span>
               </div>
             )}
           </div>
