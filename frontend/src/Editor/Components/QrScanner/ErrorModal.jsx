@@ -13,7 +13,7 @@ export default function ErrorModal() {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">QR Scanner is not working</h5>
+              <h5 className="modal-title">二维码扫描器不工作</h5>
               <button
                 type="button"
                 className="btn-close"
@@ -27,7 +27,7 @@ export default function ErrorModal() {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn" data-bs-dismiss="modal" onClick={close}>
-                Close
+                关闭
               </button>
             </div>
           </div>

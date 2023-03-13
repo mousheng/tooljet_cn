@@ -2700,7 +2700,7 @@ export const widgets = [
     },
     properties: {},
     events: {
-      onDetect: { displayName: 'On detect' },
+      onDetect: { displayName: '检测到时' },
     },
     styles: {
       visibility: {
@@ -3104,10 +3104,10 @@ export const widgets = [
       },
     },
     events: {
-      onCalendarEventSelect: { displayName: 'On Event Select' },
-      onCalendarSlotSelect: { displayName: 'On Slot Select' },
-      onCalendarNavigate: { displayName: 'On Date Navigate' },
-      onCalendarViewChange: { displayName: 'On View Change' },
+      onCalendarEventSelect: { displayName: '事件选择时' },
+      onCalendarSlotSelect: { displayName: '插槽选择时' },
+      onCalendarNavigate: { displayName: '日期导航时' },
+      onCalendarViewChange: { displayName: '视图更改时' },
     },
     styles: {
       visibility: { type: 'toggle', displayName: 'Visibility' },
@@ -3137,14 +3137,14 @@ export const widgets = [
       },
       properties: {
         dateFormat: {
-          value: 'MM-DD-YYYY HH:mm:ss A Z',
+          value: 'YYYY-DD-MM HH:mm:ss A Z',
         },
         defaultDate: {
-          value: '{{moment().format("MM-DD-YYYY HH:mm:ss A Z")}}',
+          value: '{{moment().format("YYYY-DD-MM HH:mm:ss A Z")}}',
         },
         events: {
           value:
-            "{{[\n\t\t{\n\t\t\t title: 'Sample event',\n\t\t\t start: `${moment().startOf('day').format('MM-DD-YYYY HH:mm:ss A Z')}`,\n\t\t\t end: `${moment().endOf('day').format('MM-DD-YYYY HH:mm:ss A Z')}`,\n\t\t\t allDay: false,\n\t\t\t color: '#4D72DA'\n\t\t}\n]}}",
+            "{{[\n\t\t{\n\t\t\t title: '示例事件',\n\t\t\t start: `${moment().startOf('day').format('YYYY-DD-MM HH:mm:ss A Z')}`,\n\t\t\t end: `${moment().endOf('day').format('YYYY-DD-MM HH:mm:ss A Z')}`,\n\t\t\t allDay: false,\n\t\t\t color: '#4D72DA'\n\t\t}\n]}}",
         },
         resources: {
           value: '{{[]}}',
@@ -3153,10 +3153,10 @@ export const widgets = [
           value: "{{'month'}}",
         },
         startTime: {
-          value: "{{moment().startOf('day').format('MM-DD-YYYY HH:mm:ss A Z')}}",
+          value: "{{moment().startOf('day').format('YYYY-DD-MM HH:mm:ss A Z')}}",
         },
         endTime: {
-          value: "{{moment().endOf('day').format('MM-DD-YYYY HH:mm:ss A Z')}}",
+          value: "{{moment().endOf('day').format('YYYY-DD-MM HH:mm:ss A Z')}}",
         },
         displayToolbar: {
           value: true,

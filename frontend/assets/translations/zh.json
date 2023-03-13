@@ -627,7 +627,7 @@
             "endTimeOnWeekAndDayView": "周和日视图的结束时间",
             "showToolbar": "显示工具条",
             "showViewSwitcher": "显示视图切换器",
-            "highlightToday": "今日亮点",
+            "highlightToday": "高亮显示今天",
             "showPopoverWhenEventIsClicked": "单击事件时显示弹出框",
             "cellSizeInViewsClassifiedByResource": "按资源分类的视图中的像元大小",
             "headerDateFormatOnWeekView": "周视图上的标题日期格式",
