@@ -667,7 +667,7 @@
             "min": "最小值",
             "max": "最大值",
             "value": "值",
-            "twoHandles": "两个手柄",
+            "twoHandles": "两个滑块",
             "lineColor": "线条颜色",
             "handleColor": "手柄颜色",
             "trackColor": "轨迹颜色",
