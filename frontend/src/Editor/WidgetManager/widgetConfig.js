@@ -4048,9 +4048,12 @@ export const widgets = [
       },
       secondaryValue: { type: 'code', displayName: 'Secondary value', validation: { schema: { type: 'string' } } },
       secondarySignDisplay: {
-        type: 'code',
+        type: 'select',
         displayName: 'Secondary sign display',
-
+        options: [
+          { name: '上升', value: 'positive' },
+          { name: '下降', value: 'negative' },
+        ],
         validation: { schema: { type: 'string' } },
       },
       loadingState: { type: 'toggle', displayName: 'Loading State', validation: { schema: { type: 'boolean' } } },
@@ -4089,9 +4092,9 @@ export const widgets = [
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        primaryValueLabel: { value: 'This months earnings' },
+        primaryValueLabel: { value: '本月收入' },
         primaryValue: { value: '682.3' },
-        secondaryValueLabel: { value: 'Last month' },
+        secondaryValueLabel: { value: '上个月' },
         secondaryValue: { value: '2.85' },
         secondarySignDisplay: { value: 'positive' },
         loadingState: { value: `{{false}}` },
