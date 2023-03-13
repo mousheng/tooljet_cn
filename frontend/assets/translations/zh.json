@@ -653,7 +653,7 @@
             "counterClockwise": "逆时针",
             "circleRatio": "圆比率",
             "colour": "颜色",
-            "size": "大小",
+            "size": "尺寸",
             "primaryValueLabel": "主要值标签",
             "primaryValue": "主要值",
             "hideSecondaryValue": "隐藏次要值",

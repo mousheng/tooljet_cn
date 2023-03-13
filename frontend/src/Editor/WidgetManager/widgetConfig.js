@@ -3993,8 +3993,8 @@ export const widgets = [
         type: 'select',
         displayName: 'Size',
         options: [
-          { name: 'small', value: 'sm' },
-          { name: 'large', value: 'lg' },
+          { name: '小', value: 'sm' },
+          { name: '大', value: 'lg' },
         ],
         validation: {
           schema: { type: 'string' },
