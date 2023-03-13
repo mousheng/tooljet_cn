@@ -3513,8 +3513,8 @@ export const widgets = [
         type: 'select',
         displayName: 'Timer type',
         options: [
-          { name: 'Count Up', value: 'countUp' },
-          { name: 'Count Down', value: 'countDown' },
+          { name: '秒表', value: 'countUp' },
+          { name: '倒计时', value: 'countDown' },
         ],
         validation: {
           schema: { type: 'string' },
@@ -3523,11 +3523,11 @@ export const widgets = [
     },
     validation: {},
     events: {
-      onStart: { displayName: 'On Start' },
-      onResume: { displayName: 'On Resume' },
-      onPause: { displayName: 'On Pause' },
-      onCountDownFinish: { displayName: 'On Count Down Finish' },
-      onReset: { displayName: 'On Reset' },
+      onStart: { displayName: '启动时' },
+      onResume: { displayName: '恢复时' },
+      onPause: { displayName: '暂停时' },
+      onCountDownFinish: { displayName: '倒计时完成时' },
+      onReset: { displayName: '重置时' },
     },
     styles: {
       visibility: {
