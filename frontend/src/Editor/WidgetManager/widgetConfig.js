@@ -3809,7 +3809,7 @@ export const widgets = [
     },
     validation: {},
     events: {
-      onPageChange: { displayName: 'On Page Change' },
+      onPageChange: { displayName: '页码改变时' },
     },
     styles: {
       visibility: {
