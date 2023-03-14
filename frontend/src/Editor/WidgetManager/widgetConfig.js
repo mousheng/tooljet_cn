@@ -4966,13 +4966,13 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        label: { value: 'Countries' },
+        label: { value: '国家列表' },
         data: {
           value:
-            '{{[{"label":"Asia","value":"asia","children":[{"label":"China","value":"china","children":[{"label":"Beijing","value":"beijing"},{"label":"Shanghai","value":"shanghai"}]},{"label":"Japan","value":"japan"},{"label":"India","value":"india","children":[{"label":"Delhi","value":"delhi"},{"label":"Mumbai","value":"mumbai"},{"label":"Bengaluru","value":"bengaluru"}]}]},{"label":"Europe","value":"europe","children":[{"label":"France","value":"france"},{"label":"Spain","value":"spain"},{"label":"England","value":"england"}]},{"label":"Africa","value":"africa"}]}}',
+            '{{[{"label":"亚洲","value":"asia","children":[{"label":"中国","value":"china","children":[{"label":"北京","value":"beijing"},{"label":"上海","value":"shanghai"}]},{"label":"日本","value":"japan"},{"label":"印度","value":"india","children":[{"label":"德里","value":"delhi"},{"label":"孟买","value":"mumbai"},{"label":"班加罗尔","value":"bengaluru"}]}]},{"label":"欧洲","value":"europe","children":[{"label":"法国","value":"france"},{"label":"西班牙","value":"spain"},{"label":"英格兰","value":"england"}]},{"label":"非洲","value":"africa"}]}}',
         },
-        checkedData: { value: '{{["asia"]}}' },
-        expandedData: { value: '{{["asia"]}}' },
+        checkedData: { value: '{{["亚洲"]}}' },
+        expandedData: { value: '{{["亚洲"]}}' },
       },
       events: [],
       styles: {
@@ -4999,7 +4999,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     properties: {
       linkTarget: {
         type: 'code',
-        displayName: 'Link Target',
+        displayName: '链接目标',
         validation: {
           schema: { type: 'string' },
         },
@@ -5015,8 +5015,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         type: 'select',
         displayName: 'Target Type',
         options: [
-          { name: 'New Tab', value: 'new' },
-          { name: 'Same Tab', value: 'same' },
+          { name: '新建页面', value: 'new' },
+          { name: '当前页面', value: 'same' },
         ],
         validation: {
           schema: { type: 'string' },
@@ -5046,9 +5046,9 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         type: 'select',
         displayName: 'Underline',
         options: [
-          { name: 'Never', value: 'no-underline' },
-          { name: 'On Hover', value: 'on-hover' },
-          { name: 'Always', value: 'underline' },
+          { name: '从不', value: 'no-underline' },
+          { name: '悬停时', value: 'on-hover' },
+          { name: '始终', value: 'underline' },
         ],
         validation: {
           schema: { type: 'string' },
@@ -5075,8 +5075,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        linkTarget: { value: 'https://dev.to/' },
-        linkText: { value: 'Click here' },
+        linkTarget: { value: 'https://www.baidu.com/' },
+        linkText: { value: '点我' },
         targetType: { value: 'new' },
       },
       events: [],

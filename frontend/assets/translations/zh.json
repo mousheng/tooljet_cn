@@ -697,8 +697,8 @@
             "defaultColor": "默认颜色",
             "setColor": "设置颜色",
             "structure": "结构",
-            "checkedValues": "检查的值",
-            "expandedValues": "扩大的值",
+            "checkedValues": "默认选中的值",
+            "expandedValues": "默认展开的值",
             "enableNextButton": "启用下一页按钮",
             "totalRecords": "服务器端总记录数",
             "enabledSort": "启用排序",
@@ -716,7 +716,10 @@
             "letterSpacing": "字符间距",
             "wordSpacing": "词间距",
             "fontVariant": "字体变体",
-            "disabledState": "禁用状态"
+            "disabledState": "禁用状态",
+            "targetType": "打开方式",
+            "linkText": "链接文本",
+            "underline": "下划线"
         },
         "Table": {
             "displayName": "表格",
