@@ -5349,8 +5349,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   },
   {
     name: 'BoundedBox',
-    displayName: 'Bounded Box',
-    description: 'An infinitely customizable image annotation widget',
+    displayName: '图片标注组件',
+    description: '图像标注组件',
     component: 'BoundedBox',
     defaultSize: {
       width: 30,
@@ -5363,17 +5363,17 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     properties: {
       imageUrl: {
         type: 'code',
-        displayName: 'Image Url',
+        displayName: '图片地址',
         validation: {
           schema: { type: 'string' },
         },
       },
       selector: {
         type: 'select',
-        displayName: 'Selector',
+        displayName: '标注方式',
         options: [
-          { name: 'Recatangle', value: 'RECTANGLE' },
-          { name: 'Point', value: 'POINT' },
+          { name: '矩形', value: 'RECTANGLE' },
+          { name: '点位', value: 'POINT' },
         ],
         validation: {
           schema: { type: 'string' },
@@ -5381,7 +5381,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
       labels: {
         type: 'code',
-        displayName: 'List of labels',
+        displayName: '标签列表',
         validation: {
           schema: { type: 'array' },
           element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] },
@@ -5423,7 +5423,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
           value: `https://burst.shopifycdn.com/photos/three-cars-are-parked-on-stone-paved-street.jpg?width=746&format=pjpg&exif=1&iptc=1`,
         },
         selector: { value: `RECTANGLE` },
-        labels: { value: `{{['Tree', 'Car', 'Stree light']}}` },
+        labels: { value: `{{['树', '车', '路灯']}}` },
       },
       events: [],
       styles: {
