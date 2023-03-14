@@ -5159,8 +5159,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   },
   {
     name: 'Form',
-    displayName: 'Form',
-    description: 'Wrapper for multiple components',
+    displayName: '表单',
+    description: '提交表单',
     defaultSize: {
       width: 13,
       height: 330,
@@ -5177,7 +5177,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         properties: ['text'],
         styles: ['fontWeight', 'textSize', 'textColor'],
         defaultValue: {
-          text: 'User Details',
+          text: '用户详细信息',
           fontWeight: 'bold',
           textSize: 20,
           textColor: '#000',
@@ -5192,7 +5192,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         },
         properties: ['text'],
         defaultValue: {
-          text: 'Name',
+          text: '姓名',
         },
       },
       {
@@ -5204,7 +5204,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         },
         properties: ['text'],
         defaultValue: {
-          text: 'Age',
+          text: '年龄',
         },
       },
       {
@@ -5217,7 +5217,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         },
         properties: ['placeholder'],
         defaultValue: {
-          placeholder: 'Enter your name',
+          placeholder: '输入您的姓名',
         },
       },
       {
@@ -5245,7 +5245,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         },
         properties: ['text'],
         defaultValue: {
-          text: 'Submit',
+          text: '提交',
         },
       },
     ],
@@ -5257,8 +5257,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     properties: {
       buttonToSubmit: {
         type: 'select',
-        displayName: 'Button To Submit Form',
-        options: [{ name: 'None', value: 'none' }],
+        displayName: '提交表单的按钮',
+        options: [{ name: '无', value: 'none' }],
         validation: {
           schema: { type: 'string' },
         },
@@ -5272,8 +5272,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
     events: {
-      onSubmit: { displayName: 'On submit' },
-      onInvalid: { displayName: 'On invalid' },
+      onSubmit: { displayName: '提交时' },
+      onInvalid: { displayName: '无效时' },
     },
     styles: {
       backgroundColor: {

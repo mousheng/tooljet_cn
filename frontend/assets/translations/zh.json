@@ -719,7 +719,8 @@
             "disabledState": "禁用状态",
             "targetType": "打开方式",
             "linkText": "链接文本",
-            "underline": "下划线"
+            "underline": "下划线",
+            "iconColor": "图标颜色"
         },
         "Table": {
             "displayName": "表格",
