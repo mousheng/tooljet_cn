@@ -24,7 +24,7 @@ function Board({ height, state, colStyles, setState, fireEvent, setExposedVariab
   const addNewItem = (state, keyIndex) => {
     const newItem = {
       id: uuidv4(),
-      title: 'New card',
+      title: '新添加项',
       columnId: state[keyIndex].id,
     };
     const newState = [...state];

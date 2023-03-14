@@ -130,7 +130,7 @@ export const CardEventPopover = function ({
                 <p>
                   {['', undefined].includes(card.description) ? (
                     <a style={{ color: 'grey' }} onClick={() => setDescriptionEditMode(true)}>
-                      Add description
+                      添加说明
                     </a>
                   ) : (
                     card.description

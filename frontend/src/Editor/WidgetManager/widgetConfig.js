@@ -4807,11 +4807,11 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       enableAddCard: { type: 'toggle', displayName: 'Enable Add Card' },
     },
     events: {
-      onCardAdded: { displayName: 'Card added' },
-      onCardRemoved: { displayName: 'Card removed' },
-      onCardMoved: { displayName: 'Card moved' },
-      onCardSelected: { displayName: 'Card selected' },
-      onCardUpdated: { displayName: 'Card updated' },
+      onCardAdded: { displayName: '卡片添加时' },
+      onCardRemoved: { displayName: '卡片删除时' },
+      onCardMoved: { displayName: '卡片移动时' },
+      onCardSelected: { displayName: '卡片选择时' },
+      onCardUpdated: { displayName: '卡片更新时' },
     },
     styles: {
       disabledState: { type: 'toggle', displayName: 'Disable' },
@@ -4834,11 +4834,11 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
       properties: {
         columns: {
-          value: '{{[{ "id": "1", "title": "to do" },{ "id": "2", "title": "in progress" }]}}',
+          value: '{{[{ "id": "1", "title": "待办" },{ "id": "2", "title": "办理中" },{ "id": "3", "title": "已完成" }]}}',
         },
         cardData: {
           value:
-            '{{[{ id: "01", title: "one", columnId: "1" },{ id: "02", title: "two", columnId: "1" },{ id: "03", title: "three", columnId: "2" }]}}',
+            '{{[{ id: "01", title: "待办1", columnId: "1" },{ id: "02", title: "待办2", columnId: "1" },{ id: "03", title: "待办3", columnId: "2" },{ id: "03", title: "待办4", columnId: "3" }]}}',
         },
         enableAddCard: {
           value: `{{true}}`,

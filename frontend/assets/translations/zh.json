@@ -690,7 +690,7 @@
             "theme": "主题",
             "columns": "列",
             "cardData": "卡片数据",
-            "enableAddCard": "启用添加卡",
+            "enableAddCard": "允许添加卡片",
             "width": "宽度",
             "minWidth": "最小宽度",
             "accentColor": "强调文字颜色",
