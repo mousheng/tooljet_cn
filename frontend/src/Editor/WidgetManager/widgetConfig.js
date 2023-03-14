@@ -277,15 +277,15 @@ export const widgets = [
       height: 300,
     },
     events: {
-      onRowHovered: { displayName: 'Row hovered' },
-      onRowClicked: { displayName: 'Row clicked' },
-      onBulkUpdate: { displayName: 'Save changes' },
-      onPageChanged: { displayName: 'Page changed' },
-      onSearch: { displayName: 'Search' },
-      onCancelChanges: { displayName: 'Cancel changes' },
-      onSort: { displayName: 'Sort applied' },
-      onCellValueChanged: { displayName: 'Cell value changed' },
-      onFilterChanged: { displayName: 'Filter changed' },
+      onRowHovered: { displayName: '鼠标悬停在行时' },
+      onRowClicked: { displayName: '点击行时' },
+      onBulkUpdate: { displayName: '保存更改时' },
+      onPageChanged: { displayName: '页码改变时' },
+      onSearch: { displayName: '搜索时' },
+      onCancelChanges: { displayName: '取消修改时' },
+      onSort: { displayName: '排序时' },
+      onCellValueChanged: { displayName: '单元格值修改时' },
+      onFilterChanged: { displayName: '过滤条件改变时' },
     },
     styles: {
       textColor: {
@@ -398,7 +398,7 @@ export const widgets = [
         loadingState: { value: '{{false}}' },
         data: {
           value:
-            "{{ [ \n\t\t{ id: 1, name: 'Sarah', email: 'sarah@example.com'}, \n\t\t{ id: 2, name: 'Lisa', email: 'lisa@example.com'}, \n\t\t{ id: 3, name: 'Sam', email: 'sam@example.com'}, \n\t\t{ id: 4, name: 'Jon', email: 'jon@example.com'} \n] }}",
+            "{{ [ \n\t\t{ id: 1, name: '张三', email: 'zhangsan@example.com'}, \n\t\t{ id: 2, name: '李四', email: 'lisi@example.com'}, \n\t\t{ id: 3, name: '王五', email: 'wang@example.com'}, \n\t\t{ id: 4, name: '赵六', email: 'zhao@example.com'} \n] }}",
         },
         rowsPerPage: { value: '{{10}}' },
         serverSidePagination: { value: '{{false}}' },
