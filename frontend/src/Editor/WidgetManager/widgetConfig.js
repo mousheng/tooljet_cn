@@ -3086,7 +3086,14 @@ export const widgets = [
       defaultDate: { type: 'code', displayName: 'Default date' },
       events: { type: 'code', displayName: 'Events' },
       resources: { type: 'code', displayName: 'Resources' },
-      defaultView: { type: 'code', displayName: 'Default view' },
+      defaultView: {
+        type: 'select', displayName: 'Default view', options: [
+          { name: '月视图', value: 'month' },
+          { name: '周视图', value: 'week' },
+          { name: '日视图', value: 'day' },
+          { name: '日程列表', value: 'agenda' },
+        ]
+      },
       startTime: {
         type: 'code',
         displayName: 'Start time on week and day view',
@@ -3115,8 +3122,8 @@ export const widgets = [
         type: 'select',
         displayName: 'Cell size in views classified by resource',
         options: [
-          { name: 'Compact', value: 'compact' },
-          { name: 'Spacious', value: 'spacious' },
+          { name: '紧凑', value: 'compact' },
+          { name: '宽松', value: 'spacious' },
         ],
       },
       weekDateFormat: {
@@ -3137,26 +3144,26 @@ export const widgets = [
       },
       properties: {
         dateFormat: {
-          value: 'YYYY-DD-MM HH:mm:ss A Z',
+          value: 'YYYY-DD-MM HH:mm:ss',
         },
         defaultDate: {
-          value: '{{moment().format("YYYY-DD-MM HH:mm:ss A Z")}}',
+          value: '{{moment().format("YYYY-DD-MM HH:mm:ss")}}',
         },
         events: {
           value:
-            "{{[\n\t\t{\n\t\t\t title: '示例事件',\n\t\t\t start: `${moment().startOf('day').format('YYYY-DD-MM HH:mm:ss A Z')}`,\n\t\t\t end: `${moment().endOf('day').format('YYYY-DD-MM HH:mm:ss A Z')}`,\n\t\t\t allDay: false,\n\t\t\t color: '#4D72DA'\n\t\t}\n]}}",
+            "{{[\n\t\t{\n\t\t\t title: '晨会',\n\t\t\t start: `${moment().startOf('day').format('YYYY-DD-MM HH:mm:ss')}`,\n\t\t\t end: `${moment().startOf('day').hour(6).format('YYYY-DD-MM HH:mm:ss')}`,\n\t\t\t allDay: false,\n\t\t\t color: '#8D72DA',\n\t\tresourceId: 1},{\n\t\t\t title: '会议1',\n\t\t\t start: `${moment().startOf('day').add(9,'hour').format('YYYY-DD-MM HH:mm:ss')}`,\n\t\t\t end: `${moment().endOf('day').format('YYYY-DD-MM HH:mm:ss')}`,\n\t\t\t allDay: false,\n\t\t\t color: '#4D72DA',\n\t\tresourceId: 2}\n]}}",
         },
         resources: {
-          value: '{{[]}}',
+          value: "{{[{resourceId: 1, title: '会议室1'},{resourceId: 2, title: '会议室2'}]}}",
         },
         defaultView: {
           value: "{{'month'}}",
         },
         startTime: {
-          value: "{{moment().startOf('day').format('YYYY-DD-MM HH:mm:ss A Z')}}",
+          value: "{{moment().startOf('day').format('YYYY-DD-MM HH:mm:ss')}}",
         },
         endTime: {
-          value: "{{moment().endOf('day').format('YYYY-DD-MM HH:mm:ss A Z')}}",
+          value: "{{moment().endOf('day').format('YYYY-DD-MM HH:mm:ss')}}",
         },
         displayToolbar: {
           value: true,
@@ -3174,8 +3181,8 @@ export const widgets = [
       events: [],
       styles: {
         visibility: { value: '{{true}}' },
-        cellSizeInViewsClassifiedByResource: { value: 'spacious' },
-        weekDateFormat: { value: 'DD MMM' },
+        cellSizeInViewsClassifiedByResource: { value: 'compact' },
+        weekDateFormat: { value: 'D' },
       },
     },
   },

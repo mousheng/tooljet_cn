@@ -7,10 +7,10 @@ import moment from 'moment';
 import CommentActions from './CommentActions';
 import { hightlightMentionedUserInComment } from '@/_helpers/utils';
 
-moment.updateLocale('en', {
+moment.updateLocale('zh-cn', {
   relativeTime: {
     past: '%s',
-    s: 'just now',
+    s: '刚刚',
   },
 });
 
