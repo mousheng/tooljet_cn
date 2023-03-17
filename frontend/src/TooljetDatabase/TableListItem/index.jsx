@@ -16,16 +16,16 @@ export const ListItem = ({ active, onClick, text = '', onDeleteCallback }) => {
   const darkMode = localStorage.getItem('darkMode') === 'true';
 
   const handleDeleteTable = async () => {
-    const shouldDelete = confirm(`Are you sure you want to delete the table "${text}"?`);
+    const shouldDelete = confirm(`你确定要删除表"${text}"吗？?`);
     if (shouldDelete) {
       const { error } = await tooljetDatabaseService.deleteTable(organizationId, text);
 
       if (error) {
-        toast.error(error?.message ?? `Failed to delete table "${text}"`);
+        toast.error(error?.message ?? `删除表"${text}"失败`);
         return;
       }
 
-      toast.success(`Table "${text}" deleted successfully`);
+      toast.success(`表"${text}"删除成功`);
       onDeleteCallback && onDeleteCallback();
     }
   };

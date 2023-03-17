@@ -25,7 +25,7 @@ export const ListItemPopover = ({ onEdit, onDelete, darkMode }) => {
               onEdit();
             }}
           >
-            Edit
+            编辑
           </div>
         </div>
         {/* <div className="row mt-3">
@@ -39,7 +39,7 @@ export const ListItemPopover = ({ onEdit, onDelete, darkMode }) => {
             <DeleteIcon />
           </div>
           <div className="col text-truncate" data-cy="delete-option" onClick={onDelete}>
-            Delete
+            删除
           </div>
         </div>
       </Popover.Content>
