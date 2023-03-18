@@ -72,7 +72,7 @@ const CommentHeader = ({ socket, count = 0, threadId, isResolved, isThreadOwner,
   return (
     <div className="card-header">
       <div className="card-subtitle mt-1">
-        {getIcon()} {pluralize(count, 'comment')}
+        {getIcon()} {`${count}条评论`}
       </div>
       <div className="ms-auto d-flex">
         <span
