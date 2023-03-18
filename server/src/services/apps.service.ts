@@ -98,7 +98,7 @@ export class AppsService {
     return await dbTransactionWrap(async (manager: EntityManager) => {
       const app = await manager.save(
         manager.create(App, {
-          name: 'Untitled app',
+          name: '未命名的程序',
           createdAt: new Date(),
           updatedAt: new Date(),
           organizationId: user.organizationId,
