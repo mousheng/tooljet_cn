@@ -26,7 +26,6 @@ export const Multiselect = function Multiselect({
   const { label, value, values, display_values, showAllOption } = properties;
   const { borderRadius, visibility, disabledState } = styles;
   const [selected, setSelected] = useState([]);
-
   let selectOptions = [];
   try {
     selectOptions = [
@@ -125,6 +124,18 @@ export const Multiselect = function Multiselect({
     [selected, setSelected]
   );
 
+  const overrideStrings ={
+    "allItemsAreSelected": "所有项目都已选中.",
+    "clearSearch": "清除搜索",
+    "clearSelected": "清除选择",
+    "noOptions": "清除已选",
+    "search": "搜索",
+    "selectAll": "选择所有",
+    "selectAllFiltered": "选择所有 (筛选项)",
+    "selectSomeItems": "请选择...",
+    "create": "创建",
+  }
+
   return (
     <div
       className="multiselect-widget row g-0"
@@ -153,6 +164,7 @@ export const Multiselect = function Multiselect({
           disabled={disabledState}
           className={`multiselect-box${darkMode ? ' dark dark-multiselectinput' : ''}`}
           ItemRenderer={ItemRenderer}
+          overrideStrings={overrideStrings}
         />
       </div>
     </div>
