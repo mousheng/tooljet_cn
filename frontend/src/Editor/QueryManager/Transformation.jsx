@@ -19,12 +19,12 @@ export const Transformation = ({ changeOption, currentState, options, darkMode, 
   const [lang, setLang] = React.useState(options?.transformationLanguage ?? 'javascript');
 
   const defaultValue = {
-    javascript: `// write your code here
-// return value will be set as data and the original data will be available as rawData
+    javascript: `// 在这里添加JavaScript代码
+// 转换后的数据将设置为data,源数据为rawData，具体数据结构可在检查器中查看
 return data.filter(row => row.amount > 1000);
     `,
-    python: `# write your code here
-# return value will be set as data and the original data will be available as rawData
+    python: `# 在这里添加Python代码
+# 转换后的数据将设置为data,源数据为rawData，具体数据结构可在检查器中查看
 return [row for row in data if row['amount'] > 1000]
     `,
   };
