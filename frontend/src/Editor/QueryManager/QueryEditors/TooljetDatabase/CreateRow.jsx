@@ -84,7 +84,7 @@ export const CreateRow = React.memo(({ currentState, optionchanged, options, dar
           <div className="field col-4">
             <Select
               useMenuPortal={true}
-              placeholder="Select column"
+              placeholder="选择列"
               value={column}
               options={displayColumns}
               onChange={handleColumnChange}
@@ -98,7 +98,7 @@ export const CreateRow = React.memo(({ currentState, optionchanged, options, dar
               className="codehinter-plugins"
               theme={darkMode ? 'monokai' : 'default'}
               height={'32px'}
-              placeholder="key"
+              placeholder="键"
               onChange={(newValue) => handleValueChange(newValue)}
             />
           </div>

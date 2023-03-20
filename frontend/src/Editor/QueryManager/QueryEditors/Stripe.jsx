@@ -226,7 +226,7 @@ class StripeComponent extends React.Component {
                                 type="text"
                                 value={param.name}
                                 className="form-control border-0"
-                                placeholder="key"
+                                placeholder="键"
                               />
                             </div>
                             <div className="col field overflow-hidden">
@@ -282,7 +282,7 @@ class StripeComponent extends React.Component {
                                 type="text"
                                 value={param.name}
                                 className="form-control"
-                                placeholder="key"
+                                placeholder="键"
                                 disabled
                               />
                             </div>
@@ -341,7 +341,7 @@ class StripeComponent extends React.Component {
                         <div className="input-group-wrapper" key={param.name}>
                           <div className="input-group">
                             <div className="col-auto field field-width-179">
-                              <input type="text" value={param} className="form-control" placeholder="key" disabled />
+                              <input type="text" value={param} className="form-control" placeholder="键" disabled />
                             </div>
                             <div className="col field overflow-hidden">
                               <CodeHinter

@@ -185,7 +185,7 @@ export function Page0({ formData, setFormData, setPage, page, setCompleted, isLo
       <OnBoardingInput
         {...props}
         fieldType="companyName"
-        placeholder="Enter company name"
+        placeholder="输入公司名字"
         autoFocus={true}
         dataCy="company-name-input-field"
       />

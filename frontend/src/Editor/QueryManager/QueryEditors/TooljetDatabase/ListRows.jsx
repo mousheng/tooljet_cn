@@ -108,7 +108,7 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
           <div className="field col">
             <Select
               useMenuPortal={true}
-              placeholder="Select column"
+              placeholder="选择列"
               value={column}
               options={displayColumns}
               onChange={handleColumnChange}
@@ -117,7 +117,7 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
           <div className="field col mx-1">
             <Select
               useMenuPortal={true}
-              placeholder="Select operation"
+              placeholder=""
               value={operator}
               options={operators}
               onChange={handleOperatorChange}
@@ -130,7 +130,7 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
               className="codehinter-plugins"
               theme={darkMode ? 'monokai' : 'default'}
               height={'32px'}
-              placeholder="key"
+              placeholder="键"
               onChange={(newValue) => handleValueChange(newValue)}
             />
           </div>
@@ -187,7 +187,7 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
           <div className="field col-4">
             <Select
               useMenuPortal={true}
-              placeholder="Select column"
+              placeholder="选择列"
               value={column}
               options={displayColumns}
               onChange={handleColumnChange}
@@ -196,7 +196,7 @@ export const ListRows = React.memo(({ currentState, darkMode }) => {
           <div className="field col-4">
             <Select
               useMenuPortal={true}
-              placeholder="Select direction"
+              placeholder="选择方向"
               value={order}
               options={orders}
               onChange={handleDirectionChange}

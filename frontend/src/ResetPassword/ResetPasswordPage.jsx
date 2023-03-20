@@ -90,7 +90,7 @@ class ResetPasswordComponent extends React.Component {
                           onChange={this.handleChange}
                           name="password"
                           type={showPassword ? 'text' : 'password'}
-                          placeholder="Password"
+                          placeholder="密码"
                           autoComplete="off"
                           className="tj-text-input reset-password-input"
                           autoFocus

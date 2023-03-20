@@ -81,7 +81,7 @@ const EditRowForm = ({ onEdit, onClose }) => {
             <div className="col-auto">
               <Select
                 useMenuPortal={false}
-                placeholder="Select a row to edit"
+                placeholder="选择要编辑的行"
                 value={selectedRow}
                 options={options}
                 onChange={handleOnSelect}

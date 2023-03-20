@@ -725,7 +725,7 @@ class TableComponent extends React.Component {
                 this.onActionButtonPropertyChanged(index, 'position', value);
               }}
               filterOptions={fuzzySearch}
-              placeholder="Select position"
+              placeholder="选择位置"
             />
           </div>
           <Color

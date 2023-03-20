@@ -61,7 +61,7 @@ const ColumnsForm = ({ columns, setColumns }) => {
                   value={columns[index].column_name}
                   type="text"
                   className="form-control"
-                  placeholder="Enter name"
+                  placeholder="输入列名"
                   data-cy={`name-input-field-${columns[index].column_name}`}
                   disabled={columns[index].constraint === 'PRIMARY KEY'}
                 />
@@ -93,7 +93,7 @@ const ColumnsForm = ({ columns, setColumns }) => {
                   type="text"
                   className="form-control"
                   data-cy="default-input-field"
-                  placeholder="NULL"
+                  placeholder="空值"
                   disabled={columns[index].constraint === 'PRIMARY KEY' || columns[index].data_type === 'serial'}
                 />
               </div>
@@ -103,7 +103,7 @@ const ColumnsForm = ({ columns, setColumns }) => {
                     className={`badge badge-outline ${darkMode ? 'text-white' : 'text-indigo'}`}
                     data-cy="primary-key-text"
                   >
-                    Primary Key
+                    主键
                   </span>
                 </div>
               )}

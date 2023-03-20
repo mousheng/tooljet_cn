@@ -141,7 +141,7 @@ class Restapi extends React.Component {
               }}
               value={currentValue}
               defaultValue={{ label: 'GET', value: 'get' }}
-              placeholder="Method"
+              placeholder="请求方式"
               width={100}
               height={32}
               styles={this.customSelectStyles(this.props.darkMode, 91)}

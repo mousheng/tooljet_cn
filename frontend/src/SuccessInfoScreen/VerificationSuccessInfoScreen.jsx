@@ -241,7 +241,7 @@ export const VerificationSuccessInfoScreen = function VerificationSuccessInfoScr
                             name="password"
                             type={showPassword ? 'text' : 'password'}
                             className="tj-text-input"
-                            placeholder="Enter password"
+                            placeholder="输入密码"
                             autoComplete="new-password"
                             data-cy="password-input-field"
                           />
