@@ -361,30 +361,30 @@ export const widgets = [
     actions: [
       {
         handle: 'setPage',
-        displayName: 'Set page',
+        displayName: '设置页码',
         params: [
           {
             handle: 'page',
-            displayName: 'Page',
+            displayName: '页码',
             defaultValue: '{{1}}',
           },
         ],
       },
       {
         handle: 'selectRow',
-        displayName: 'Select row',
+        displayName: '选择行',
         params: [
-          { handle: 'key', displayName: 'Key' },
-          { handle: 'value', displayName: 'Value' },
+          { handle: 'key', displayName: '键' },
+          { handle: 'value', displayName: '值' },
         ],
       },
       {
         handle: 'deselectRow',
-        displayName: 'Deselect row',
+        displayName: '取消选择行',
       },
       {
         handle: 'discardChanges',
-        displayName: 'Discard Changes',
+        displayName: '放弃修改',
       },
     ],
     definition: {
@@ -546,27 +546,27 @@ export const widgets = [
     actions: [
       {
         handle: 'click',
-        displayName: 'Click',
+        displayName: '点击',
       },
       {
         handle: 'setText',
-        displayName: 'Set Text',
-        params: [{ handle: 'text', displayName: 'Text', defaultValue: 'New Text' }],
+        displayName: '设置文本',
+        params: [{ handle: 'text', displayName: '文本', defaultValue: 'New Text' }],
       },
       {
         handle: 'disable',
-        displayName: 'Disable',
-        params: [{ handle: 'disable', displayName: 'Value', defaultValue: `{{false}}`, type: 'toggle' }],
+        displayName: '禁用',
+        params: [{ handle: 'disable', displayName: '值', defaultValue: `{{false}}`, type: 'toggle' }],
       },
       {
         handle: 'visibility',
-        displayName: 'Visibility',
-        params: [{ handle: 'visible', displayName: 'Value', defaultValue: `{{false}}`, type: 'toggle' }],
+        displayName: '是否显示',
+        params: [{ handle: 'visible', displayName: '值', defaultValue: `{{false}}`, type: 'toggle' }],
       },
       {
         handle: 'loading',
-        displayName: 'Loading',
-        params: [{ handle: 'loading', displayName: 'Value', defaultValue: `{{false}}`, type: 'toggle' }],
+        displayName: '载入状态',
+        params: [{ handle: 'loading', displayName: '值', defaultValue: `{{false}}`, type: 'toggle' }],
       },
     ],
     definition: {
@@ -897,11 +897,11 @@ export const widgets = [
     actions: [
       {
         handle: 'open',
-        displayName: 'Open',
+        displayName: '打开',
       },
       {
         handle: 'close',
-        displayName: 'Close',
+        displayName: '关闭',
       },
     ],
     definition: {
@@ -1009,30 +1009,30 @@ export const widgets = [
     actions: [
       {
         handle: 'setText',
-        displayName: 'Set text',
-        params: [{ handle: 'text', displayName: 'text', defaultValue: 'New Text' }],
+        displayName: '设置文本',
+        params: [{ handle: 'text', displayName: '文本', defaultValue: 'New Text' }],
       },
       {
         handle: 'clear',
-        displayName: 'Clear',
+        displayName: '清除',
       },
       {
         handle: 'setFocus',
-        displayName: 'Set focus',
+        displayName: '获取焦点',
       },
       {
         handle: 'setBlur',
-        displayName: 'Set blur',
+        displayName: '失去焦点',
       },
       {
         handle: 'disable',
-        displayName: 'Disable',
-        params: [{ handle: 'disable', displayName: 'Value', defaultValue: '{{false}}', type: 'toggle' }],
+        displayName: '禁用',
+        params: [{ handle: 'disable', displayName: '值', defaultValue: '{{false}}', type: 'toggle' }],
       },
       {
         handle: 'visibility',
-        displayName: 'Visibility',
-        params: [{ handle: 'visibility', displayName: 'Value', defaultValue: '{{false}}', type: 'toggle' }],
+        displayName: '是否可见',
+        params: [{ handle: 'visibility', displayName: '值', defaultValue: '{{false}}', type: 'toggle' }],
       },
     ],
     definition: {
@@ -1378,8 +1378,8 @@ export const widgets = [
     actions: [
       {
         handle: 'setChecked',
-        displayName: 'Set checked',
-        params: [{ handle: 'status', displayName: 'status' }],
+        displayName: '设置选中状态',
+        params: [{ handle: 'status', displayName: '状态' }],
       },
     ],
     others: {
@@ -1536,11 +1536,11 @@ export const widgets = [
     actions: [
       {
         handle: 'selectOption',
-        displayName: 'Select Option',
+        displayName: '选择选项',
         params: [
           {
             handle: 'option',
-            displayName: 'Option',
+            displayName: '选项',
           },
         ],
       },
@@ -1710,12 +1710,12 @@ export const widgets = [
     actions: [
       {
         handle: 'setText',
-        displayName: 'Set Text',
-        params: [{ handle: 'text', displayName: 'text', defaultValue: 'New Text' }],
+        displayName: '设置文本',
+        params: [{ handle: 'text', displayName: '文本', defaultValue: 'New Text' }],
       },
       {
         handle: 'clear',
-        displayName: 'Clear',
+        displayName: '清除',
       },
     ],
     definition: {
@@ -1970,13 +1970,13 @@ export const widgets = [
     actions: [
       {
         handle: 'setText',
-        displayName: 'Set Text',
-        params: [{ handle: 'text', displayName: 'Text', defaultValue: 'New text' }],
+        displayName: '设置文本',
+        params: [{ handle: 'text', displayName: '文本', defaultValue: 'New text' }],
       },
       {
         handle: 'visibility',
-        displayName: 'Set Visibility',
-        params: [{ handle: 'visibility', displayName: 'Value', defaultValue: `{{false}}`, type: 'toggle' }],
+        displayName: '是否可见',
+        params: [{ handle: 'visibility', displayName: '值', defaultValue: `{{false}}`, type: 'toggle' }],
       },
     ],
     definition: {
@@ -2336,8 +2336,8 @@ export const widgets = [
     actions: [
       {
         handle: 'selectOption',
-        displayName: 'Select option',
-        params: [{ handle: 'select', displayName: 'Select' }],
+        displayName: '选择设置',
+        params: [{ handle: 'select', displayName: '选择' }],
       },
     ],
     definition: {
@@ -2381,27 +2381,27 @@ export const widgets = [
     actions: [
       {
         handle: 'selectOption',
-        displayName: 'Select Option',
+        displayName: '选择选项',
         params: [
           {
             handle: 'option',
-            displayName: 'Option',
+            displayName: '选项',
           },
         ],
       },
       {
         handle: 'deselectOption',
-        displayName: 'Deselect Option',
+        displayName: '取消选择选项',
         params: [
           {
             handle: 'option',
-            displayName: 'Option',
+            displayName: '选项',
           },
         ],
       },
       {
         handle: 'clearSelections',
-        displayName: 'Clear selections',
+        displayName: '清除已选择',
       },
     ],
     properties: {
@@ -2631,10 +2631,10 @@ export const widgets = [
     actions: [
       {
         handle: 'setLocation',
-        displayName: 'Set Location',
+        displayName: '设置位置',
         params: [
-          { handle: 'lat', displayName: 'Latitude' },
-          { handle: 'lng', displayName: 'Longitude' },
+          { handle: 'lat', displayName: '维度' },
+          { handle: 'lng', displayName: '经度' },
         ],
       },
     ],
@@ -2905,7 +2905,7 @@ export const widgets = [
     actions: [
       {
         handle: 'clearFiles',
-        displayName: 'Clear Files',
+        displayName: '清除文件',
       },
     ],
     properties: {
@@ -3462,7 +3462,7 @@ export const widgets = [
     actions: [
       {
         handle: 'setTab',
-        displayName: 'Set current tab',
+        displayName: '设置选项卡',
         params: [
           {
             handle: 'id',
@@ -4875,9 +4875,9 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     },
     actions: [
       {
-        displayName: 'Set Color',
+        displayName: '设置颜色',
         handle: 'setColor',
-        params: [{ handle: 'color', displayName: 'color', defaultValue: '#ffffff', type: 'color' }],
+        params: [{ handle: 'color', displayName: '颜色', defaultValue: '#ffffff', type: 'color' }],
       },
     ],
     others: {
@@ -5073,7 +5073,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     actions: [
       {
         handle: 'click',
-        displayName: 'Click',
+        displayName: '点击',
       },
     ],
     definition: {
@@ -5141,7 +5141,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     actions: [
       {
         handle: 'click',
-        displayName: 'Click',
+        displayName: '点击',
       },
       {
         displayName: 'Set Visibility',
@@ -5329,11 +5329,11 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     actions: [
       {
         handle: 'submitForm',
-        displayName: 'Submit Form',
+        displayName: '提交表单',
       },
       {
         handle: 'resetForm',
-        displayName: 'Reset Form',
+        displayName: '重置表单',
       },
     ],
     definition: {
@@ -5544,8 +5544,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     actions: [
       {
         handle: 'setText',
-        displayName: 'Set Text',
-        params: [{ handle: 'text', displayName: 'text', defaultValue: 'New Text' }],
+        displayName: '设置文本',
+        params: [{ handle: 'text', displayName: '文本', defaultValue: 'New Text' }],
       },
     ],
     definition: {

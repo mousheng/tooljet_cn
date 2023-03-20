@@ -538,7 +538,7 @@
             "transformation": "文本变换",
             "tableType": "表格样式",
             "cellSize": "行间距",
-            "setPage": "设置页面",
+            "setPage": "设置页码",
             "page": "页",
             "buttonText": "按钮文本",
             "click": "点击",
