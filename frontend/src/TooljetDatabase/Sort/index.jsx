@@ -98,7 +98,7 @@ const Sort = ({ filters, setFilters, handleBuildSortQuery, resetSortQuery }) => 
         </svg>
         &nbsp;&nbsp;排序
         {areFiltersApplied && (
-          <span>ed by {pluralize(Object.values(filters).filter(checkIsFilterObjectEmpty).length, 'column')}</span>
+          <span>&nbsp;根据 {pluralize(Object.values(filters).filter(checkIsFilterObjectEmpty).length, '列')}</span>
         )}
       </button>
     </OverlayTrigger>

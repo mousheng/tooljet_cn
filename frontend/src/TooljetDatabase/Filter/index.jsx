@@ -95,7 +95,7 @@ const Filter = ({ filters, setFilters, handleBuildFilterQuery, resetFilterQuery 
           </svg>
           &nbsp;&nbsp;过滤
           {areFiltersApplied && (
-            <span>ed by {pluralize(Object.values(filters).filter(checkIsFilterObjectEmpty).length, 'column')}</span>
+            <span>&nbsp;根据 {pluralize(Object.values(filters).filter(checkIsFilterObjectEmpty).length, '列')}</span>
           )}
         </button>
       </OverlayTrigger>

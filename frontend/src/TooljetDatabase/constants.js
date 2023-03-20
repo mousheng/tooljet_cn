@@ -1,8 +1,8 @@
 export const dataTypes = [
-  { value: 'character varying', label: 'varchar' },
-  { value: 'integer', label: 'int' },
-  { value: 'double precision', label: 'float' },
-  { value: 'boolean', label: 'boolean' },
+  { value: 'character varying', label: '字符串' },
+  { value: 'integer', label: '整数' },
+  { value: 'double precision', label: '浮点数' },
+  { value: 'boolean', label: '布尔值' },
 ];
 
 export const primaryKeydataTypes = [{ value: 'serial', label: 'serial' }];
@@ -16,7 +16,7 @@ export const operators = [
   { value: 'neq', label: '不等于' },
   { value: 'like', label: 'like' },
   { value: 'ilike', label: 'ilike' },
-  { value: 'match', label: 'match' },
-  { value: 'imatch', label: 'imatch' },
+  { value: 'match', label: '匹配' },
+  { value: 'imatch', label: '不匹配' },
   { value: 'in', label: 'in' },
 ];

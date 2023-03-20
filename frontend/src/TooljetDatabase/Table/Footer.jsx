@@ -120,7 +120,7 @@ const Footer = ({ darkMode, openCreateRowDrawer, dataLoading, tableDataLength })
                 <Skeleton count={1} height={3} className="mt-3" />
               ) : (
                 <span className="animation-fade" data-cy={`${pageRange}-of-${totalRecords}-records-text}`}>
-                  {pageRange} of {totalRecords} Records
+                  {pageRange} 共 {totalRecords} 条记录
                 </span>
               )}
             </div>
