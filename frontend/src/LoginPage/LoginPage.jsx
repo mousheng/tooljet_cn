@@ -1,7 +1,7 @@
 import React from 'react';
 import { authenticationService } from '@/_services';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import queryString from 'query-string';
 import GoogleSSOLoginButton from '@ee/components/LoginPage/GoogleSSOLoginButton';
 import GitSSOLoginButton from '@ee/components/LoginPage/GitSSOLoginButton';
@@ -15,6 +15,7 @@ import EyeHide from '../../assets/images/onboardingassets/Icons/EyeHide';
 import EyeShow from '../../assets/images/onboardingassets/Icons/EyeShow';
 import Spinner from '@/_ui/Spinner';
 import { getCookie, eraseCookie, setCookie } from '@/_helpers/cookie';
+import { withRouter } from '@/_hoc/withRouter';
 class LoginPageComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -24,9 +25,10 @@ class LoginPageComponent extends React.Component {
       isGettingConfigs: true,
       configs: undefined,
       emailError: false,
+      navigateToLogin: false,
     };
     this.single_organization = window.public_config?.DISABLE_MULTI_WORKSPACE === 'true';
-    this.organizationId = props.match.params.organizationId;
+    this.organizationId = props.params.organizationId;
   }
   darkMode = localStorage.getItem('darkMode') === 'true';
 
@@ -37,10 +39,7 @@ class LoginPageComponent extends React.Component {
       (!this.organizationId && authenticationService.currentUserValue) ||
       (this.organizationId && authenticationService?.currentUserValue?.organization_id === this.organizationId)
     ) {
-      // redirect to home if already logged in
-      // set redirect path for sso login
-      const redirectPath = this.eraseRedirectUrl();
-      return this.props.history.push(redirectPath ? redirectPath : '/');
+      return this.setState({ navigateToLogin: true });
     }
     if (this.organizationId || this.single_organization)
       authenticationService.saveLoginOrganizationId(this.organizationId);
@@ -51,7 +50,7 @@ class LoginPageComponent extends React.Component {
       },
       (response) => {
         if (response.data.statusCode !== 404) {
-          return this.props.history.push({
+          return this.props.navigate({
             pathname: '/',
             state: { errorMessage: '登录时出错，请重试' },
           });
@@ -59,7 +58,7 @@ class LoginPageComponent extends React.Component {
         // If there is no organization found for single organization setup
         // show form to sign up
         // redirected here for self hosted version
-        this.props.history.push('/setup');
+        this.props.navigate('/setup');
 
         this.setState({
           isGettingConfigs: false,
@@ -130,7 +129,7 @@ class LoginPageComponent extends React.Component {
     const params = queryString.parse(this.props.location.search);
     const { from } = params.redirectTo ? { from: { pathname: params.redirectTo } } : { from: { pathname: '/' } };
     const redirectPath = from.pathname === '/confirm' ? '/' : from;
-    this.props.history.push(redirectPath);
+    this.props.navigate(redirectPath);
     this.setState({ isLoading: false });
     this.eraseRedirectUrl();
   };
@@ -143,8 +142,13 @@ class LoginPageComponent extends React.Component {
     this.setState({ isLoading: false });
   };
 
+  redirectToUrl = () => {
+    const redirectPath = this.eraseRedirectUrl();
+    return redirectPath ? redirectPath : '/';
+  };
+
   render() {
-    const { isLoading, configs, isGettingConfigs } = this.state;
+    const { isLoading, configs, isGettingConfigs, navigateToLogin } = this.state;
     return (
       <>
         <div className="common-auth-section-whole-wrapper page">
@@ -186,13 +190,13 @@ class LoginPageComponent extends React.Component {
                               className="text-center-onboard workspace-login-description"
                               data-cy="workspace-sign-in-sub-header"
                             >
-                              登录到您的工作区 - {configs?.name}
+                              Sign in to your workspace - {configs?.name}
                             </p>
                           )}
                           <div className="tj-text-input-label">
                             {!this.organizationId && (configs?.form?.enable_sign_up || configs?.enable_sign_up) && (
                               <div className="common-auth-sub-header sign-in-sub-header" data-cy="sign-in-sub-header">
-                                {this.props.t('newToTooljet', '没账户?')}
+                                {this.props.t('newToTooljet', 'New to ToolJet?')}
                                 <Link
                                   to={'/signup'}
                                   tabIndex="-1"
@@ -240,7 +244,7 @@ class LoginPageComponent extends React.Component {
                               name="email"
                               type="email"
                               className="tj-text-input"
-                              placeholder={this.props.t('loginSignupPage.enterWorkEmail', '输入您的邮箱')}
+                              placeholder={this.props.t('loginSignupPage.enterWorkEmail', 'Enter your email')}
                               style={{ marginBottom: '0px' }}
                               data-cy="work-email-input"
                               autoFocus
@@ -273,47 +277,47 @@ class LoginPageComponent extends React.Component {
                                 name="password"
                                 type={this.state?.showPassword ? 'text' : 'password'}
                                 className="tj-text-input"
-                                placeholder={this.props.t('loginSignupPage.EnterPassword', '输入密码')}
+                                placeholder={this.props.t('loginSignupPage.EnterPassword', 'Enter password')}
                                 data-cy="password-input-field"
                                 autoComplete="new-password"
                               />
 
-                              <div
-                                className="login-password-hide-img"
-                                onClick={this.handleOnCheck}
-                                data-cy="show-password-icon"
-                              >
-                                {this.state?.showPassword ? (
-                                  <EyeHide
-                                    fill={
-                                      this.darkMode
-                                        ? this.state?.password?.length
-                                          ? '#D1D5DB'
-                                          : '#656565'
-                                        : this.state?.password?.length
-                                        ? '#384151'
-                                        : '#D1D5DB'
-                                    }
-                                  />
-                                ) : (
-                                  <EyeShow
-                                    fill={
-                                      this.darkMode
-                                        ? this.state?.password?.length
-                                          ? '#D1D5DB'
-                                          : '#656565'
-                                        : this.state?.password?.length
-                                        ? '#384151'
-                                        : '#D1D5DB'
-                                    }
-                                  />
-                                )}
+                                <div
+                                  className="login-password-hide-img"
+                                  onClick={this.handleOnCheck}
+                                  data-cy="show-password-icon"
+                                >
+                                  {this.state?.showPassword ? (
+                                    <EyeHide
+                                      fill={
+                                        this.darkMode
+                                          ? this.state?.password?.length
+                                            ? '#D1D5DB'
+                                            : '#656565'
+                                          : this.state?.password?.length
+                                          ? '#384151'
+                                          : '#D1D5DB'
+                                      }
+                                    />
+                                  ) : (
+                                    <EyeShow
+                                      fill={
+                                        this.darkMode
+                                          ? this.state?.password?.length
+                                            ? '#D1D5DB'
+                                            : '#656565'
+                                          : this.state?.password?.length
+                                          ? '#384151'
+                                          : '#D1D5DB'
+                                      }
+                                    />
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </>
-                      )}
-                    </div>
+                          </>
+                        )}
+                      </div>
 
                     <div className={` d-flex flex-column align-items-center ${!configs?.form?.enabled ? 'mt-0' : ''}`}>
                       {configs?.form?.enabled && (
@@ -351,7 +355,7 @@ class LoginPageComponent extends React.Component {
                             .toLowerCase()
                             .replace(/\s+/g, '-')}`}
                         >
-                          返回到&nbsp; <Link to="/">{authenticationService?.currentUserValue?.organization}</Link>
+                          back to&nbsp; <Link to="/">{authenticationService?.currentUserValue?.organization}</Link>
                         </div>
                       )}
                     </div>
@@ -366,4 +370,4 @@ class LoginPageComponent extends React.Component {
   }
 }
 
-export const LoginPage = withTranslation()(LoginPageComponent);
+export const LoginPage = withTranslation()(withRouter(LoginPageComponent));

@@ -8,7 +8,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { Color } from '../Elements/Color';
-import SelectSearch, { fuzzySearch } from 'react-select-search';
+import SelectSearch from 'react-select-search';
 import { v4 as uuidv4 } from 'uuid';
 import { EventManager } from '../EventManager';
 import { CodeHinter } from '../../CodeBuilder/CodeHinter';
@@ -168,13 +168,13 @@ class TableComponent extends React.Component {
     ];
     return (
       <Popover id="popover-basic-2" className={`${this.props.darkMode && 'popover-dark-themed theme-dark'} shadow`}>
-        <Popover.Content>
+        <Popover.Body>
           <div className="field mb-2" data-cy={`dropdown-column-type`}>
             <label data-cy={`label-column-type`} className="form-label">
               {this.props.t('widget.Table.columnType', 'Column type')}
             </label>
             <SelectSearch
-              className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
+              className={`${this.props.darkMode ? 'select-search' : 'select-search'}`}
               options={[
                 { name: '默认(文本)', value: 'default' },
                 { name: '文本', value: 'string' },
@@ -196,7 +196,7 @@ class TableComponent extends React.Component {
               onChange={(value) => {
                 this.onColumnItemChange(index, 'columnType', value);
               }}
-              filterOptions={fuzzySearch}
+              fuzzySearch
               placeholder={this.props.t('globals.select', 'Select') + '...'}
               defaultValue={column.columnType}
             />
@@ -222,7 +222,7 @@ class TableComponent extends React.Component {
                 {this.props.t('widget.Table.overflow', 'Overflow')}
               </label>
               <SelectSearch
-                className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
+                className={'select-search'}
                 options={[
                   { name: '换行', value: 'wrap' },
                   { name: '滚动条', value: 'scroll' },
@@ -234,7 +234,7 @@ class TableComponent extends React.Component {
                 onChange={(value) => {
                   this.onColumnItemChange(index, 'textWrap', value);
                 }}
-                filterOptions={fuzzySearch}
+                fuzzySearch
                 placeholder={this.props.t('globals.select', 'Select') + '...'}
               />
             </div>
@@ -552,7 +552,7 @@ class TableComponent extends React.Component {
               </label>
               <div data-cy={`input-parse-timezone`} className="field mb-2">
                 <SelectSearch
-                  className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
+                  className={'select-search'}
                   options={timeZoneOptions}
                   value={column.timeZoneValue}
                   search={true}
@@ -560,7 +560,7 @@ class TableComponent extends React.Component {
                   onChange={(value) => {
                     this.onColumnItemChange(index, 'timeZoneValue', value);
                   }}
-                  filterOptions={fuzzySearch}
+                  fuzzySearch
                   placeholder="选择.."
                 />
               </div>
@@ -569,7 +569,7 @@ class TableComponent extends React.Component {
               </label>
               <div ata-cy={`input-display-time-zone`} className="field mb-2">
                 <SelectSearch
-                  className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
+                  className={'select-search'}
                   options={timeZoneOptions}
                   value={column.timeZoneDisplay}
                   search={true}
@@ -577,7 +577,7 @@ class TableComponent extends React.Component {
                   onChange={(value) => {
                     this.onColumnItemChange(index, 'timeZoneDisplay', value);
                   }}
-                  filterOptions={fuzzySearch}
+                  fuzzySearch
                   placeholder="选择.."
                 />
               </div>
@@ -643,7 +643,7 @@ class TableComponent extends React.Component {
               <div data-cy={`input-and-label-object-fit`} className="field mb-2">
                 <label className="form-label">{this.props.t('widget.Table.objectFit', 'Object fit')}</label>
                 <SelectSearch
-                  className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
+                  className={'select-search'}
                   options={[
                     { name: 'Cover', value: 'cover' },
                     { name: 'Contain', value: 'contain' },
@@ -655,7 +655,7 @@ class TableComponent extends React.Component {
                   onChange={(value) => {
                     this.onColumnItemChange(index, 'objectFit', value);
                   }}
-                  filterOptions={fuzzySearch}
+                  fuzzySearch
                   placeholder={this.props.t('Select') + '...'}
                 />
               </div>
@@ -676,7 +676,7 @@ class TableComponent extends React.Component {
               </span>
             </div>
           )}
-        </Popover.Content>
+        </Popover.Body>
       </Popover>
     );
   };
@@ -692,7 +692,7 @@ class TableComponent extends React.Component {
 
     return (
       <Popover id="popover-basic" className={`${this.props.darkMode && 'popover-dark-themed theme-dark'} shadow`}>
-        <Popover.Content>
+        <Popover.Body>
           <div className="field mb-2">
             <label data-cy={`label-action-button-text`} className="form-label">
               {this.props.t('widget.Table.buttonText', 'Button Text')}
@@ -713,7 +713,7 @@ class TableComponent extends React.Component {
               {this.props.t('widget.Table.buttonPosition', 'Button Position')}
             </label>
             <SelectSearch
-              className={`${this.props.darkMode ? 'select-search-dark' : 'select-search'}`}
+              className={'select-search'}
               options={[
                 { name: '左', value: 'left' },
                 { name: '右', value: 'right' },
@@ -724,7 +724,7 @@ class TableComponent extends React.Component {
               onChange={(value) => {
                 this.onActionButtonPropertyChanged(index, 'position', value);
               }}
-              filterOptions={fuzzySearch}
+              fuzzySearch
               placeholder="选择位置"
             />
           </div>
@@ -762,7 +762,7 @@ class TableComponent extends React.Component {
           <button className="btn btn-sm btn-outline-danger mt-2 col" onClick={() => this.removeAction(index)}>
             {this.props.t('widget.Table.remove', 'Remove')}
           </button>
-        </Popover.Content>
+        </Popover.Body>
       </Popover>
     );
   };
