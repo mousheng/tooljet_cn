@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { componentTypes } from '../WidgetManager/components';
 import { Table } from './Components/Table/Table.jsx';
 import { Chart } from './Components/Chart';
+import { Echarts } from './Components/Echarts';
 import { Form } from './Components/Form';
 import { renderElement } from './Utils';
 import { toast } from 'react-hot-toast';
@@ -496,6 +497,9 @@ const GetAccordion = React.memo(
 
       case 'Chart':
         return <Chart {...restProps} />;
+
+      case 'Echarts':
+        return <Echarts {...restProps} />;
 
       case 'FilePicker':
         return <FilePicker {...restProps} />;

@@ -16,6 +16,7 @@ import { DaterangePicker } from './Components/DaterangePicker';
 import { Multiselect } from './Components/Multiselect';
 import { Modal } from './Components/Modal';
 import { Chart } from './Components/Chart';
+import {Echarts} from './Components/Echarts/Echarts'
 import { Map } from './Components/Map/Map';
 import { QrScanner } from './Components/QrScanner/QrScanner';
 import { ToggleSwitch } from './Components/Toggle';
@@ -122,6 +123,7 @@ const AllComponents = {
   QrCode,
   Form,
   BoundedBox,
+  Echarts,
 };
 
 export const Box = function Box({

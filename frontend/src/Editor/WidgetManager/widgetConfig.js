@@ -5738,4 +5738,237 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+  {
+    name: 'Echarts',
+    displayName: 'Echarts',
+    description: 'Display Echarts',
+    component: 'Echarts',
+    defaultSize: {
+      width: 20,
+      height: 400,
+    },
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      title: {
+        type: 'code',
+        displayName: 'Title',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      subTitle: {
+        type: 'code',
+        displayName: '副标题',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      data: {
+        type: 'json',
+        displayName: 'Data',
+        validation: {
+          schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'array' }] },
+        },
+      },
+      loadingState: {
+        type: 'toggle',
+        displayName: 'Loading State',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      markerColor: {
+        type: 'color',
+        displayName: 'Marker color',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      showXAxes: {
+        type: 'toggle',
+        displayName: '显示X轴',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      showYAxes: {
+        type: 'toggle',
+        displayName: '显示Y轴',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      showGridLines: {
+        type: 'toggle',
+        displayName: 'Show grid lines',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      type: {
+        type: 'select',
+        displayName: 'Chart type',
+        options: [
+          { name: '折线图', value: 'line' },
+          { name: '柱状图', value: 'bar' },
+          { name: '饼状图', value: 'pie' },
+        ],
+        validation: {
+          schema: {
+            type: 'union',
+            schemas: [{ type: 'string' }, { type: 'boolean' }, { type: 'number' }],
+          },
+        },
+      },
+      jsonDescription: {
+        type: 'json',
+        displayName: 'Json Description',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      plotFromJson: {
+        type: 'toggle',
+        displayName: 'Use Plotly JSON schema',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    events: {onClick: { displayName: '点击时' },},
+    actions: [
+      {
+        handle: 'click',
+        displayName: '点击',
+      },
+    ],
+    styles: {
+      padding: {
+        type: 'code',
+        displayName: 'Padding',
+        validation: {
+          schema: {
+            type: 'union',
+            schemas: [{ type: 'number' }, { type: 'string' }],
+          },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: 'Disable',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    exposedVariables: {
+      show: null,
+    },
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        title: { value: '可修改标题' },
+        subTitle: {value: '副标题'},
+        markerColor: { value: '#CDE1F8' },
+        showXAxes: { value: '{{true}}' },
+        showYAxes: { value: '{{true}}' },
+        showGridLines: { value: '{{true}}' },
+        plotFromJson: { value: '{{false}}' },
+        loadingState: { value: `{{false}}` },
+        jsonDescription: {
+          value: `{
+            title: {
+              text: '南丁格尔图'
+            },
+            tooltip: {
+              trigger: 'item'
+            },
+            legend: {
+              top: 'bottom'
+            },
+            backgroundColor:'white',
+            toolbox: {
+              show: true,
+              feature: {
+                mark: { show: true },
+                dataView: { show: true, readOnly: false },
+                restore: { show: true },
+                saveAsImage: { show: true }
+              }
+            },
+            series: [
+              {
+                name: '南丁格尔图',
+                type: 'pie',
+                radius: [50, 150],
+                center: ['50%', '50%'],
+                roseType: 'area',
+                itemStyle: {
+                  borderRadius: 8
+                },
+                data: [
+                  { value: 50, name: '花瓣 1' },
+                  { value: 43, name: '花瓣 2' },
+                  { value: 35, name: '花瓣 3' },
+                  { value: 27, name: '花瓣 4' },
+                  { value: 21, name: '花瓣 5' },
+          
+                ]
+              }
+            ]
+          }`,
+        },
+        type: { value: `line` },
+        data: {
+          value: `[
+  { "x": "一月", "y": 100},
+  { "x": "二月", "y": 80},
+  { "x": "三月", "y": 40},
+  { "x": "四月", "y": 60},
+  { "x": "五月", "y": 30},
+  { "x": "六月", "y": 70}
+]`,
+        },
+      },
+      events: [],
+      styles: {
+        padding: { value: 'auto' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
 ];
