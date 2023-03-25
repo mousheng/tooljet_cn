@@ -3356,7 +3356,7 @@ export const widgets = [
         tab: 1,
         properties: ['text'],
         defaultValue: {
-          text: 'Open-source low-code framework to build & deploy internal tools within minutes.',
+          text: '开源低代码框架，可在几分钟内构建和部署内部工具.',
         },
       },
       {
