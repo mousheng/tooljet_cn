@@ -2039,7 +2039,7 @@ class EditorComponent extends React.Component {
                                   this.handleAddNewQuery(setSaveConfirmation, setCancelData);
                                 }}
                                 data-tooltip-id="tooltip-for-add-query"
-                                data-tooltip-content="Add new query"
+                                data-tooltip-content="添加新查询"
                               >
                                 <span
                                   className={` d-flex query-manager-btn-svg-wrapper align-items-center query-icon-wrapper`}

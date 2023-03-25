@@ -190,13 +190,13 @@ class LoginPageComponent extends React.Component {
                               className="text-center-onboard workspace-login-description"
                               data-cy="workspace-sign-in-sub-header"
                             >
-                              Sign in to your workspace - {configs?.name}
+                              登录到您的工作区 - {configs?.name}
                             </p>
                           )}
                           <div className="tj-text-input-label">
                             {!this.organizationId && (configs?.form?.enable_sign_up || configs?.enable_sign_up) && (
                               <div className="common-auth-sub-header sign-in-sub-header" data-cy="sign-in-sub-header">
-                                {this.props.t('newToTooljet', 'New to ToolJet?')}
+                                {this.props.t('loginSignupPage.newToTooljet', 'New to ToolJet?')}
                                 <Link
                                   to={'/signup'}
                                   tabIndex="-1"
@@ -277,7 +277,7 @@ class LoginPageComponent extends React.Component {
                                 name="password"
                                 type={this.state?.showPassword ? 'text' : 'password'}
                                 className="tj-text-input"
-                                placeholder={this.props.t('loginSignupPage.EnterPassword', 'Enter password')}
+                                placeholder={this.props.t('loginSignupPage.enterPassword', 'Enter password')}
                                 data-cy="password-input-field"
                                 autoComplete="new-password"
                               />

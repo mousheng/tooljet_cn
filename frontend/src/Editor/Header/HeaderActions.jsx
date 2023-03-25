@@ -77,7 +77,7 @@ function HeaderActions({ handleUndo, canUndo, handleRedo, canRedo, currentLayout
         strokeLinecap="round"
         strokeLinejoin="round"
         data-tooltip-id="tooltip-for-undo"
-        data-tooltip-content="Undo"
+        data-tooltip-content="撤销"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none">
           <title>undo</title>
@@ -102,7 +102,7 @@ function HeaderActions({ handleUndo, canUndo, handleRedo, canRedo, currentLayout
         strokeLinecap="round"
         strokeLinejoin="round"
         data-tooltip-id="tooltip-for-redo"
-        data-tooltip-content="Redo"
+        data-tooltip-content="重做"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none">
           <title>redo</title>

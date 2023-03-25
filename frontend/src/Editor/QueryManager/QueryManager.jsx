@@ -699,7 +699,7 @@ class QueryManagerComponent extends React.Component {
               onClick={this.props.toggleQueryEditor}
               className={`cursor-pointer m-3 toggle-query-editor-svg d-flex`}
               data-tooltip-id="tooltip-for-hide-query-editor"
-              data-tooltip-content="Hide query editor"
+              data-tooltip-content="隐藏查询编辑器"
             >
               <svg width="5.58" height="10.25" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

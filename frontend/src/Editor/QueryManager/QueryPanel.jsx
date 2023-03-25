@@ -98,7 +98,7 @@ const QueryPanel = ({ children, computeCurrentQueryPanelHeight }) => {
           onClick={toggleQueryEditor}
           className="cursor-pointer m-1  d-flex"
           data-tooltip-id="tooltip-for-show-query-editor"
-          data-tooltip-content="Show query editor"
+          data-tooltip-content="显示查询编辑器"
         >
           {isExpanded ? (
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

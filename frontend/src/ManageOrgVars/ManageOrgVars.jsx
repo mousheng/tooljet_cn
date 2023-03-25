@@ -129,7 +129,7 @@ class ManageOrgVarsComponent extends React.Component {
         orgEnvironmentVariableService
           .update(this.state.selectedVariableId, this.state.fields.variable_name, this.state.fields.value)
           .then(() => {
-            toast.success('Variable has been updated', {
+            toast.success('变量已更新', {
               position: 'top-center',
             });
             this.fetchVariables();
@@ -153,7 +153,7 @@ class ManageOrgVarsComponent extends React.Component {
             this.state.fields.encryption
           )
           .then(() => {
-            toast.success('Variable has been created', {
+            toast.success('变量已创建', {
               position: 'top-center',
             });
             this.fetchVariables();
@@ -183,7 +183,7 @@ class ManageOrgVarsComponent extends React.Component {
     orgEnvironmentVariableService
       .deleteVariable(id)
       .then(() => {
-        toast.success('The variable has been deleted', {
+        toast.success('变量已删除', {
           position: 'top-center',
         });
         this.setState({

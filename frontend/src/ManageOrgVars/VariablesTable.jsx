@@ -131,7 +131,7 @@ class VariablesTable extends React.Component {
                                     .toLowerCase()
                                     .replace(/\s+/g, '-')}-workspace-variable-edit-button`}
                                   data-tooltip-id="tooltip-for-update"
-                                  data-tooltip-content="Update"
+                                  data-tooltip-content="修改"
                                 >
                                   <div>
                                     <img
@@ -157,7 +157,7 @@ class VariablesTable extends React.Component {
                                     .toLowerCase()
                                     .replace(/\s+/g, '-')}-workspace-variable-delete-button`}
                                   data-tooltip-id="tooltip-for-delete"
-                                  data-tooltip-content="Delete"
+                                  data-tooltip-content="删除"
                                 >
                                   <div>
                                     <img
