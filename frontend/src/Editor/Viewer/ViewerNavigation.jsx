@@ -11,10 +11,11 @@ export const ViewerNavigation = ({ isMobileDevice, pages, currentPageId, switchP
   if (isMobileDevice) {
     return null;
   }
+  debugger;
   //统计需要显示的导航条的数量
-  const showNavigationCount = _.size(_.filter(pages, (item) => item[1].hidden === false));
+  const showNavigationCount = _.size(_.filter(pages, (item) => item[1]?.hidden))== pages.length;
   return (
-    showNavigationCount==0?"":
+    showNavigationCount?"":
     (<div
       className={`navigation-area ${darkMode && 'dark'}`}
       style={{
