@@ -221,7 +221,7 @@ export function CodeHinter({
               )}
             </div>
             {/* 超过500个字符则不显示 */}
-            {typeof content==='string' && content.length>500? content.substring(0,500):content+' ...'}
+            {typeof content === 'string' && content.length > 500 ? content.substring(0, 500) + ' ...' : content}
           </div>
         </div>
       </animated.div>
