@@ -660,6 +660,34 @@ export function safelyParseJSON(json) {
   return;
 }
 
+export function smartParseJSON(jsonString,defaultRet=null) {
+  let parsedData = defaultRet;
+  try {
+    parsedData = JSON.parse(jsonString);
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      // 如果捕获到语法错误，则尝试自动修复 JSON 字符串
+      try {
+        const fixedJSON = jsonString
+          // 替换掉行末的逗号
+          .replace(/,(?=\s*?[}\]])/g, '')
+          // 替换掉属性名的引号
+          .replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2":')
+          // 替换掉单引号
+          .replace(/'/g, '"');
+        parsedData = JSON.parse(fixedJSON);
+      } catch (err) {
+        console.error(err);
+        throw new Error('JSON 语法错误，且无法自动修复。');
+      }
+    } else {
+      console.error(error);
+      throw new Error('JSON 解析错误。');
+    }
+  }
+  return parsedData;
+}
+
 export const getuserName = (formData) => {
   let nameArray = formData?.name?.trim().split(' ');
   if (nameArray?.length > 0)
