@@ -62,7 +62,7 @@ export function ManageSSO({ darkMode }) {
       })
       .catch(() => {
         setIsloading(false);
-        toast.error('Failed to fetch SSO details');
+        toast.error('无法获取SSO详细信息');
       });
   }, []);
 

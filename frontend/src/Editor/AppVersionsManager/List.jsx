@@ -55,7 +55,7 @@ export const AppVersionsManager = function ({
   };
 
   const deleteAppVersion = (versionId, versionName) => {
-    const deleteingToastId = toast.loading('Deleting version...');
+    const deleteingToastId = toast.loading('正在删除版本...');
     appVersionService
       .del(appId, versionId)
       .then(() => {
@@ -68,7 +68,7 @@ export const AppVersionsManager = function ({
       })
       .catch((error) => {
         toast.dismiss(deleteingToastId);
-        toast.error(error?.error ?? 'Oops, something went wrong');
+        toast.error(error?.error ?? '哎呀，出了问题');
         resetDeleteModal();
       });
   };

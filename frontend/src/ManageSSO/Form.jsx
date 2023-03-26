@@ -15,11 +15,11 @@ export function Form({ settings, updateData, darkMode }) {
         const enabled_tmp = !enabled;
         setEnabled(enabled_tmp);
         updateData('form', { id: data.id, enabled: enabled_tmp });
-        toast.success(`${enabled_tmp ? 'Enabled' : 'Disabled'} Password login`, { position: 'top-center' });
+        toast.success(`${enabled_tmp ? '开启' : '关闭'} 密码登录`, { position: 'top-center' });
         setShowDisablingPasswordConfirmation(false);
       },
       () => {
-        toast.error('Error while saving SSO configurations', {
+        toast.error('保存SSO配置时出错', {
           position: 'top-center',
         });
       }

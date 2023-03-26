@@ -29,14 +29,14 @@ export const BlankPage = function BlankPage({
 
   function deployApp(id) {
     if (!deploying) {
-      const loadingToastId = toast.loading('Deploying app...');
+      const loadingToastId = toast.loading('正在部署应用程序...');
       setDeploying(true);
       libraryAppService
         .deploy(id)
         .then((data) => {
           setDeploying(false);
           toast.dismiss(loadingToastId);
-          toast.success('App created.');
+          toast.success('应用程序已创建.');
           navigate(`/apps/${data.id}`);
         })
         .catch((e) => {

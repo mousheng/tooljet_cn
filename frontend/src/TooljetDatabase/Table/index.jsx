@@ -33,7 +33,7 @@ const Table = ({ openCreateRowDrawer }) => {
   const fetchTableMetadata = () => {
     tooljetDatabaseService.viewTable(organizationId, selectedTable).then(({ data = [], error }) => {
       if (error) {
-        toast.error(error?.message ?? `Error fetching metadata for table "${selectedTable}"`);
+        toast.error(error?.message ?? `获取表 "${selectedTable}" 的元数据时出错`);
         return;
       }
 
@@ -59,7 +59,7 @@ const Table = ({ openCreateRowDrawer }) => {
     tooljetDatabaseService.findOne(organizationId, selectedTable, params).then(({ headers, data = [], error }) => {
       setLoading(false);
       if (error) {
-        toast.error(error?.message ?? `Error fetching table "${selectedTable}" data`);
+        toast.error(error?.message ?? `获取表 "${selectedTable}" 时出错`);
         return;
       }
       const totalContentRangeRecords = headers['content-range'].split('/')[1] || 0;

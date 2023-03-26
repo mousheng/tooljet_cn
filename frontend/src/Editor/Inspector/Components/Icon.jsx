@@ -48,7 +48,7 @@ export function Icon({ componentMeta, darkMode, ...restProps }) {
         className={`${darkMode && 'popover-dark-themed theme-dark'} shadow icon-widget-popover`}
       >
         <Popover.Header>
-          <SearchBox onSubmit={searchIcon} width="100%" />
+          <SearchBox onSubmit={searchIcon} width="100%" placeholder='搜索'/>
         </Popover.Header>
         <Popover.Body>
           <div className="row">
@@ -76,6 +76,7 @@ export function Icon({ componentMeta, darkMode, ...restProps }) {
                         stroke={1.5}
                         strokeLinejoin="miter"
                         style={{ width: '24px', height: '24px' }}
+                        alt='fg'
                       />
                     </div>
                   );
@@ -95,7 +96,7 @@ export function Icon({ componentMeta, darkMode, ...restProps }) {
     return (
       <>
         <div className="mb-2 field">
-          <label className="form-label">Icon</label>
+          <label className="form-label">图标</label>
         </div>
         <div className="card mb-3">
           <div className="card-body p-0">
@@ -130,12 +131,12 @@ export function Icon({ componentMeta, darkMode, ...restProps }) {
   let items = [];
 
   items.push({
-    title: 'Properties',
+    title: '属性',
     children: renderIconPicker(),
   });
 
   items.push({
-    title: 'Events',
+    title: '事件处理',
     isOpen: false,
     children: (
       <EventManager
@@ -153,7 +154,7 @@ export function Icon({ componentMeta, darkMode, ...restProps }) {
   });
 
   items.push({
-    title: 'General',
+    title: '常规',
     isOpen: false,
     children: (
       <>
@@ -172,7 +173,7 @@ export function Icon({ componentMeta, darkMode, ...restProps }) {
   });
 
   items.push({
-    title: 'Layout',
+    title: '布局',
     isOpen: false,
     children: (
       <>

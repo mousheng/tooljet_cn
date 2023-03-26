@@ -93,7 +93,7 @@ class OrganizationInvitationPageComponent extends React.Component {
     if (isSetPassword) {
       if (!password || !password.trim()) {
         this.setState({ isLoading: false });
-        toast.error("Password shouldn't be empty or contain white space(s)", {
+        toast.error("密码不应为空或包含空格", {
           position: 'top-center',
         });
         return;
@@ -108,7 +108,7 @@ class OrganizationInvitationPageComponent extends React.Component {
       .then((response) => {
         this.setState({ isLoading: false });
         if (!response.ok) {
-          return toast.error('Error while setting up your account.', { position: 'top-center' });
+          return toast.error('设置帐户时出错.', { position: 'top-center' });
         }
         if (response.status == 201) {
           toast.success(`Added to the workspace${isSetPassword ? ' and password has been set ' : ' '}successfully.`);

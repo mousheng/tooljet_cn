@@ -16,7 +16,7 @@ export default function ExportAppModal({ title, show, closeModal, customClassNam
         const { versions } = await fetchVersions;
         getVersions(versions);
       } catch (error) {
-        toast.error('Could not fetch the versions.', {
+        toast.error('无法获取版本.', {
           position: 'top-center',
         });
         closeModal();
@@ -45,7 +45,7 @@ export default function ExportAppModal({ title, show, closeModal, customClassNam
         closeModal();
       })
       .catch(() => {
-        toast.error('Could not export the app.', {
+        toast.error('无法导出应用程序.', {
           position: 'top-center',
         });
         closeModal();

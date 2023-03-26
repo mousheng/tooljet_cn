@@ -27,7 +27,7 @@ export const MarketplaceCard = ({ id, name, repo, description, version, isInstal
     setInstalling(false);
 
     if (error) {
-      toast.error(error?.message || `Unable to install ${name}`);
+      toast.error(error?.message || `无法安装 ${name}`);
       return;
     }
     toast.success(`${capitalizeFirstLetter(name)} installed`);

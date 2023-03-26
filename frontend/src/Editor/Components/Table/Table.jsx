@@ -670,7 +670,7 @@ export function Table({
                     className="btn btn-light btn-sm p-1 mx-1"
                     onClick={() => showFilters()}
                     data-tooltip-id="tooltip-for-filter-data"
-                    data-tooltip-content="Filter data"
+                    data-tooltip-content="筛选数据"
                   >
                     <img src="assets/images/icons/filter.svg" width="15" height="15" />
                     {tableDetails.filterDetails.filters.length > 0 && (
@@ -686,7 +686,7 @@ export function Table({
                     <span
                       className="btn btn-light btn-sm p-1"
                       data-tooltip-id="tooltip-for-download"
-                      data-tooltip-content="Download"
+                      data-tooltip-content="下载"
                     >
                       <img src="assets/images/icons/download.svg" width="15" height="15" />
                     </span>
@@ -839,7 +839,7 @@ export function Table({
 
           {!loadingState && page.length === 0 && (
             <center className="w-100">
-              <div className="py-5"> no data </div>
+              <div className="py-5"> 无数据 </div>
             </center>
           )}
 
@@ -904,6 +904,10 @@ export function Table({
                         cellValue,
                         rowData,
                       });
+                      const isEditable = resolveReferences(cell.column?.isEditable ?? false, currentState, '', {
+                        cellValue,
+                        rowData,
+                      });
                       return (
                         // Does not require key as its already being passed by react-table via cellProps
                         // eslint-disable-next-line react/jsx-key
@@ -913,7 +917,7 @@ export function Table({
                           )}${String(cellValue ?? '').toLocaleLowerCase()}-cell-${index}`}
                           className={cx(`${wrapAction ? wrapAction : 'wrap'}-wrapper`, {
                             'has-actions': cell.column.id === 'rightActions' || cell.column.id === 'leftActions',
-                            'has-text': cell.column.columnType === 'text' || cell.column.isEditable,
+                            'has-text': cell.column.columnType === 'text' || isEditable,
                             'has-dropdown': cell.column.columnType === 'dropdown',
                             'has-multiselect': cell.column.columnType === 'multiselect',
                             'has-datepicker': cell.column.columnType === 'datepicker',
@@ -931,9 +935,9 @@ export function Table({
                             <GenerateEachCellValue
                               cellValue={cellValue}
                               globalFilter={state.globalFilter}
-                              cellRender={cell.render('Cell')}
+                              cellRender={cell.render('Cell', { cell, isEditable })}
                               rowChangeSet={rowChangeSet}
-                              isEditable={cell.column.isEditable}
+                              isEditable={isEditable}
                               columnType={cell.column.columnType}
                               isColumnTypeAction={['rightActions', 'leftActions'].includes(cell.column.id)}
                               cellTextColor={cellTextColor}

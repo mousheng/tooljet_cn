@@ -569,7 +569,7 @@ export const generateAppActions = (_ref, queryId, mode, editorState, isPreview =
 
   const generateFile = (fileName, fileType, data) => {
     if (!fileName || !fileType || !data) {
-      return toast.error('Action failed: fileName, fileType and data are required');
+      return toast.error('操作失败：需要文件名、文件类型和数据');
     }
 
     const event = {
@@ -666,3 +666,30 @@ export const getuserName = (formData) => {
     return `${nameArray?.[0][0]}${nameArray?.[1] != undefined && nameArray?.[1] != '' ? nameArray?.[1][0] : ''} `;
   return '';
 };
+
+export function isExpectedDataType(data, expectedDataType) {
+  function getCurrentDataType(node) {
+    return Object.prototype.toString.call(node).slice(8, -1).toLowerCase();
+  }
+
+  const currentDataType = getCurrentDataType(data);
+
+  if (currentDataType !== expectedDataType) {
+    switch (expectedDataType) {
+      case 'string':
+        return String(data) ? data : undefined;
+      case 'number':
+        return Object.prototype.toString.call(data).slice(8, -1).toLowerCase() === 'number' ? data : undefined;
+      case 'boolean':
+        return Boolean();
+      case 'array':
+        return Object.prototype.toString.call(data).slice(8, -1).toLowerCase() === 'array' ? data : [];
+      case 'object':
+        return Object.prototype.toString.call(data).slice(8, -1).toLowerCase() === 'object' ? data : {};
+      default:
+        return null;
+    }
+  }
+
+  return data;
+}

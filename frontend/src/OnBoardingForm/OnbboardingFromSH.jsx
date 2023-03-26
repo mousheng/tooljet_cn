@@ -11,6 +11,9 @@ import { getuserName } from '@/_helpers/utils';
 import { ON_BOARDING_SIZE, ON_BOARDING_ROLES } from '@/_helpers/constants';
 import LogoLightMode from '@assets/images/Logomark.svg';
 import LogoDarkMode from '@assets/images/Logomark-dark-mode.svg';
+import startsWith from 'lodash.startswith';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 function OnbboardingFromSH({ darkMode }) {
   const Logo = darkMode ? LogoDarkMode : LogoLightMode;
@@ -27,6 +30,7 @@ function OnbboardingFromSH({ darkMode }) {
     email: '',
     password: '',
     workspace: '',
+    phoneNumber: '',
   });
 
   const pageProps = {
@@ -50,17 +54,19 @@ function OnbboardingFromSH({ darkMode }) {
           name: formData?.name,
           email: formData?.email,
           workspace: formData?.workspace,
+          phoneNumber: formData?.phoneNumber,
         })
         .then((user) => {
           authenticationService.updateUser(user);
           authenticationService.deleteLoginOrganizationId();
           setIsLoading(false);
           navigate('/');
+          setCompleted(false);
         })
         .catch((res) => {
           setIsLoading(false);
           setCompleted(false);
-          toast.error(res.error || 'Something went wrong', {
+          toast.error(res.error || '出了问题', {
             id: 'toast-login-auth-error',
             position: 'top-center',
           });
@@ -75,7 +81,8 @@ function OnbboardingFromSH({ darkMode }) {
     `${formData?.name}，你在哪里工作 ?`,
     '您的角色?',
     '您公司的规模?',
-    'What is the size of your company?', //dummy placeholder
+    '输入您的电话号码',
+    'Enter your phone number', //dummy placeholder
   ];
   const FormSubTitles = ['这些信息将帮助我们改进Tool Jet。'];
 
@@ -156,8 +163,8 @@ function OnbboardingFromSH({ darkMode }) {
                 <div
                   className="onboarding-back-button"
                   onClick={() => {
-                    page != 4 && setPage((currPage) => currPage + 1);
-                    if (page == 4) {
+                    page != 5 && setPage((currPage) => currPage + 1);
+                    if (page == 5) {
                       setIsLoading(true);
                       setCompleted(true);
                       return;
@@ -196,8 +203,10 @@ function OnbboardingFromSH({ darkMode }) {
               <Page0 {...pageProps} setIsLoading={setIsLoading} />
             ) : page == 3 ? (
               <Page1 {...pageProps} setIsLoading={setIsLoading} />
-            ) : (
+            ) : page == 4 ? (
               <Page2 {...pageProps} setIsLoading={setIsLoading} />
+            ) : (
+              <Page3 {...pageProps} setIsLoading={setIsLoading} />
             )}
           </div>
         </div>
@@ -260,6 +269,37 @@ export function Page2({ formData, setFormData, setPage, page, setCompleted, isLo
           <OnBoardingRadioInput {...props} field={field} />
         </div>
       ))}
+      <ContinueButtonSelfHost {...btnProps} />
+    </div>
+  );
+}
+export function Page3({ formData, setFormData, setPage, page, setCompleted, isLoading, setIsLoading, darkMode }) {
+  const props = { formData, setFormData };
+  const btnProps = {
+    setPage,
+    page,
+    formData,
+    setCompleted,
+    isLoading,
+    setIsLoading,
+    darkMode,
+  };
+  return (
+    <div className="onboarding-pages-wrapper">
+      <PhoneInput
+        inputProps={{
+          autoFocus: true,
+        }}
+        value={formData?.phoneNumber}
+        inputClass="tj-onboarding-phone-input"
+        containerClass="tj-onboarding-phone-input-wrapper"
+        onChange={(phone) => setFormData({ ...formData, phoneNumber: phone })}
+        isValid={(inputNumber, country, countries) => {
+          return countries.some((country) => {
+            return startsWith(inputNumber, country.dialCode) || startsWith(country.dialCode, inputNumber);
+          });
+        }}
+      />
       <ContinueButtonSelfHost {...btnProps} />
     </div>
   );

@@ -45,12 +45,12 @@ function SettingsPage(props) {
         authenticationService.updateCurrentUserDetails({ avatar_id: avatarData.id });
       }
 
-      toast.success('Details updated!', {
+      toast.success('详细信息已更新!', {
         duration: 3000,
       });
       setUpdateInProgress(false);
     } catch (error) {
-      toast.error('Something went wrong');
+      toast.error('出了问题');
       setUpdateInProgress(false);
     }
   };
@@ -62,19 +62,19 @@ function SettingsPage(props) {
       (confirmPassword.match(/^ *$/) !== null && 'Confirm new password');
 
     if (errorMsg) {
-      toast.error(errorMsg + " can't be empty!", {
+      toast.error(errorMsg + " 不能为空!", {
         duration: 3000,
       });
       return;
     }
     if (currentpassword === newPassword) {
-      toast.error("New password can't be the same as the current one!", {
+      toast.error("新密码不能与当前密码相同!", {
         duration: 3000,
       });
       return;
     }
     if (newPassword !== confirmPassword) {
-      toast.error('New password and confirm new password should be same', {
+      toast.error('新密码和确认密码应相同', {
         duration: 3000,
       });
       return;
@@ -83,14 +83,14 @@ function SettingsPage(props) {
     setPasswordChangeInProgress(true);
     try {
       await userService.changePassword(currentpassword, newPassword);
-      toast.success('Password updated successfully', {
+      toast.success('密码更新成功', {
         duration: 3000,
       });
       setCurrentPassword('');
       setNewPassword('');
       setConfirmPassword('');
     } catch (error) {
-      toast.error('Please verify that you have entered the correct password', {
+      toast.error('请验证您是否输入了正确的密码', {
         duration: 3000,
       });
     }
@@ -198,7 +198,7 @@ function SettingsPage(props) {
                           onChange={(e) => {
                             const file = e.target.files[0];
                             if (Math.round(file.size / 1024) > 2048) {
-                              toast.error('File size cannot exceed more than 2MB');
+                              toast.error('文件大小不能超过2MB');
                               e.target.value = null;
                             } else {
                               setSelectedFile(file);

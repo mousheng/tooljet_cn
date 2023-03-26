@@ -32,7 +32,7 @@ export const ReleaseVersionButton = function DeployVersionButton({
         setIsReleasing(false);
       })
       .catch((_error) => {
-        toast.error('Oops, something went wrong');
+        toast.error('哎呀，出了问题');
         setIsReleasing(false);
       });
   };

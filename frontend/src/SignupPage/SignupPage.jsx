@@ -63,7 +63,7 @@ class SignupPageComponent extends React.Component {
     e.preventDefault();
     const { email, name, password } = this.state;
     if (!password || !password.trim()) {
-      toast.error("Password shouldn't be empty or contain white space(s)", {
+      toast.error("密码不应为空或包含空格", {
         position: 'top-center',
       });
       return;
@@ -84,7 +84,7 @@ class SignupPageComponent extends React.Component {
         this.setState({ isLoading: false, signupSuccess: true });
       },
       (e) => {
-        toast.error(e?.error || 'Something went wrong!', {
+        toast.error(e?.error || '出了问题!', {
           position: 'top-center',
         });
         this.setState({ isLoading: false });

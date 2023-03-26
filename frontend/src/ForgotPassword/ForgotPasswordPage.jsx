@@ -39,13 +39,13 @@ class ForgotPasswordComponent extends React.Component {
     authenticationService
       .forgotPassword(this.state.email)
       .then(() => {
-        toast.success('Please check your email/inbox for the password reset link', {
+        toast.success('请检查您的邮件获取密码重置链接', {
           id: 'toast-forgot-password-confirmation-code',
         });
         this.setState({ responseShow: true, isLoading: false });
       })
       .catch((res) => {
-        toast.error(res.error || 'Something went wrong, please try again', {
+        toast.error(res.error || '出现问题，请重试', {
           id: 'toast-forgot-password-email-error',
         });
         this.setState({ isLoading: false });

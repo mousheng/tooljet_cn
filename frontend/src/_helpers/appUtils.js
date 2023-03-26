@@ -306,7 +306,7 @@ export function onQueryConfirmOrCancel(_ref, queryConfirmationData, isConfirm = 
 export async function copyToClipboard(text) {
   try {
     await navigator.clipboard.writeText(text);
-    toast.success('Copied to clipboard!');
+    toast.success('已复制到剪贴板!');
   } catch (err) {
     console.log('Failed to copy!', err);
   }
@@ -344,7 +344,24 @@ function logoutAction(_ref) {
 
   return Promise.resolve();
 }
-export const executeAction = (_ref, event, mode, customVariables) => {
+
+function debounce(func) {
+  let timer;
+  return (...args) => {
+    const event = args[1] || {};
+    if (event.debounce === undefined) {
+      return func.apply(this, args);
+    }
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, Number(event.debounce));
+  };
+}
+
+export const executeAction = debounce(executeActionWithDebounce);
+
+function executeActionWithDebounce(_ref, event, mode, customVariables) {
   console.log('nopski', customVariables);
   if (event) {
     switch (event.actionId) {
@@ -545,7 +562,7 @@ export const executeAction = (_ref, event, mode, customVariables) => {
       }
     }
   }
-};
+}
 
 export async function onEvent(_ref, eventName, options, mode = 'edit') {
   let _self = _ref;
@@ -709,11 +726,13 @@ export async function onEvent(_ref, eventName, options, mode = 'edit') {
       'onCalendarViewChange',
       'onSearchTextChanged',
       'onPageChange',
+      'onAddCardClick',
       'onCardAdded',
       'onCardRemoved',
       'onCardMoved',
       'onCardSelected',
       'onCardUpdated',
+      'onUpdate',
       'onTabSwitch',
       'onFocus',
       'onBlur',
@@ -862,7 +881,7 @@ export function runQuery(_ref, queryId, queryName, confirmed = undefined, mode =
   if (query) {
     dataQuery = JSON.parse(JSON.stringify(query));
   } else {
-    toast.error('No query has been associated with the action.');
+    toast.error('没有操作与查询关联.');
     return;
   }
 
@@ -1066,7 +1085,7 @@ export function runQuery(_ref, queryId, queryName, confirmed = undefined, mode =
           );
         })
         .catch(({ error }) => {
-          if (mode !== 'view') toast.error(error ?? 'Unknown error');
+          if (mode !== 'view') toast.error(error ?? '未知错误');
           _self.setState(
             {
               currentState: {
@@ -1314,14 +1333,14 @@ export const cloneComponents = (_ref, updateAppDefinition, isCloning = true, isC
   }
   if (isCloning) {
     addComponents(currentPageId, appDefinition, updateAppDefinition, undefined, newComponentObj);
-    toast.success('Component cloned succesfully');
+    toast.success('组件克隆成功');
   } else if (isCut) {
     navigator.clipboard.writeText(JSON.stringify(newComponentObj));
     removeSelectedComponent(currentPageId, newDefinition, selectedComponents);
     updateAppDefinition(newDefinition);
   } else {
     navigator.clipboard.writeText(JSON.stringify(newComponentObj));
-    toast.success('Component copied succesfully');
+    toast.success('组件复制成功');
   }
   _ref.setState({ currentSidebarTab: 2 });
 };
@@ -1427,7 +1446,7 @@ export const addComponents = (pageId, appDefinition, appDefinitionChanged, paren
   buildComponents(pastedComponent, parentComponent, true);
 
   updateNewComponents(pageId, appDefinition, finalComponents, appDefinitionChanged);
-  !isCloning && toast.success('Component pasted succesfully');
+  !isCloning && toast.success('组件粘贴成功');
 };
 
 export const addNewWidgetToTheEditor = (
@@ -1492,7 +1511,7 @@ export const addNewWidgetToTheEditor = (
     componentData.definition.others.showOnMobile.value = true;
   }
 
-  const widgetsWithDefaultComponents = ['Listview', 'Tabs', 'Form'];
+  const widgetsWithDefaultComponents = ['Listview', 'Tabs', 'Form', 'Kanban'];
 
   const newComponent = {
     id: uuidv4(),

@@ -11,7 +11,7 @@ export const CreateOrganization = ({ showCreateOrg, setShowCreateOrg }) => {
 
   const createOrganization = () => {
     if (!(newOrgName && newOrgName.trim())) {
-      toast.error('Workspace name can not be empty.', {
+      toast.error('工作区名称不能为空.', {
         position: 'top-center',
       });
       return;
@@ -26,7 +26,7 @@ export const CreateOrganization = ({ showCreateOrg, setShowCreateOrg }) => {
       },
       () => {
         setIsCreating(false);
-        toast.error('Error while creating workspace', {
+        toast.error('创建工作区时出错', {
           position: 'top-center',
         });
       }

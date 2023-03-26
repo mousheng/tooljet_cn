@@ -104,7 +104,7 @@ const UsersTable = ({
                               <CopyToClipboard text={generateInvitationURL(user)} onCopy={invitationLinkCopyHandler}>
                                 <img
                                   data-tooltip-id="tooltip-for-copy-invitation-link"
-                                  data-tooltip-content="Copy invitation link"
+                                  data-tooltip-content="复制邀请链接"
                                   className="svg-icon cursor-pointer"
                                   src="assets/images/icons/copy.svg"
                                   width="15"

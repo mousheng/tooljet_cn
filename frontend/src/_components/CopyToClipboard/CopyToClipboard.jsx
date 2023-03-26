@@ -18,7 +18,7 @@ export const CopyToClipboardComponent = ({ data, callback }) => {
   }, [copied]);
 
   if (copied) {
-    return <center>Copied</center>;
+    return <center>已复制</center>;
   }
 
   return (

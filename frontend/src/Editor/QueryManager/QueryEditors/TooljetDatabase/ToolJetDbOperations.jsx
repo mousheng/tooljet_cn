@@ -106,7 +106,7 @@ const ToolJetDbOperations = ({ currentState, optionchanged, options, darkMode })
     const { error, data } = await tooljetDatabaseService.findAll(organizationId);
 
     if (error) {
-      toast.error(error?.message ?? 'Failed to fetch tables');
+      toast.error(error?.message ?? '无法获取表');
       return;
     }
 
@@ -124,7 +124,7 @@ const ToolJetDbOperations = ({ currentState, optionchanged, options, darkMode })
     const { error, data } = await tooljetDatabaseService.viewTable(organizationId, table);
 
     if (error) {
-      toast.error(error?.message ?? 'Failed to fetch table information');
+      toast.error(error?.message ?? '无法获取表信息');
       return;
     }
 

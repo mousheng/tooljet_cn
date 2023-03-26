@@ -1,18 +1,19 @@
 import React from 'react';
 import Accordion from '@/_ui/Accordion';
 
-import { renderElement } from '../Utils';
+import { renderElement } from '../../Utils';
 import { computeActionName, resolveReferences } from '@/_helpers/utils';
 // eslint-disable-next-line import/no-unresolved
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
-import { Color } from '../Elements/Color';
+import { Color } from '../../Elements/Color';
 import SelectSearch from 'react-select-search';
 import { v4 as uuidv4 } from 'uuid';
-import { EventManager } from '../EventManager';
-import { CodeHinter } from '../../CodeBuilder/CodeHinter';
+import { EventManager } from '../../EventManager';
+import { CodeHinter } from '../../../CodeBuilder/CodeHinter';
 import { withTranslation } from 'react-i18next';
+import { ProgramaticallyHandleToggleSwitch } from './ProgramaticallyHandleToggleSwitch';
 class TableComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -130,7 +131,6 @@ class TableComponent extends React.Component {
   }
 
   columnPopover = (column, index) => {
-    console.log('columnPopover', column, index);
     const timeZoneOptions = [
       { name: 'UTC', value: 'Etc/UTC' },
       { name: '-12:00', value: 'Etc/GMT+12' },
@@ -167,7 +167,14 @@ class TableComponent extends React.Component {
       { name: '+13:00', value: 'Pacific/Auckland' },
     ];
     return (
-      <Popover id="popover-basic-2" className={`${this.props.darkMode && 'popover-dark-themed theme-dark'} shadow`}>
+      <Popover
+        id="popover-basic-2"
+        className={`${this.props.darkMode && 'popover-dark-themed theme-dark'} shadow`}
+        style={{
+          maxHeight: resolveReferences(column.isEditable, this.state.currentState) ? '100vh' : 'inherit',
+          overflowY: 'auto',
+        }}
+      >
         <Popover.Body>
           <div className="field mb-2" data-cy={`dropdown-column-type`}>
             <label data-cy={`label-column-type`} className="form-label">
@@ -176,7 +183,6 @@ class TableComponent extends React.Component {
             <SelectSearch
               className={`${this.props.darkMode ? 'select-search' : 'select-search'}`}
               options={[
-                { name: '默认(文本)', value: 'default' },
                 { name: '文本', value: 'string' },
                 { name: '数字', value: 'number' },
                 { name: '纯文本', value: 'text' },
@@ -198,7 +204,6 @@ class TableComponent extends React.Component {
               }}
               fuzzySearch
               placeholder={this.props.t('globals.select', 'Select') + '...'}
-              defaultValue={column.columnType}
             />
           </div>
           <div className="field mb-2" data-cy={`input-and-label-column-name`}>
@@ -295,7 +300,7 @@ class TableComponent extends React.Component {
                 />
               </div>
 
-              {column.isEditable && (
+              {resolveReferences(column.isEditable, this.state.currentState) && (
                 <div>
                   <div data-cy={`header-validation`} className="hr-text">
                     {this.props.t('widget.Table.validation', 'Validation')}
@@ -369,7 +374,7 @@ class TableComponent extends React.Component {
             </div>
           )}
 
-          {column.columnType === 'number' && column.isEditable && (
+          {column.columnType === 'number' && resolveReferences(column.isEditable, this.state.currentState) && (
             <div>
               <div className="hr-text" data-cy={`header-validation`}>
                 {this.props.t('widget.Table.validation', 'Validation')}
@@ -485,7 +490,7 @@ class TableComponent extends React.Component {
 
           {column.columnType === 'dropdown' && (
             <>
-              {column.isEditable && (
+              {resolveReferences(column.isEditable, this.state.currentState) && (
                 <div>
                   <div data-cy={`header-validations`} className="hr-text">
                     {this.props.t('widget.Table.validation', 'Validation')}
@@ -523,7 +528,7 @@ class TableComponent extends React.Component {
                   theme={this.props.darkMode ? 'monokai' : 'default'}
                   mode="javascript"
                   lineNumbers={false}
-                  placeholder={'DD-MM-YYYY'}
+                  placeholder={'YYYY/MM/DD'}
                   onChange={(value) => this.onColumnItemChange(index, 'dateFormat', value)}
                   componentName={this.getPopoverFieldSource(column.columnType, 'dateFormat')}
                   popOverCallback={(showing) => {
@@ -544,11 +549,11 @@ class TableComponent extends React.Component {
                     this.onColumnItemChange(index, 'parseDateFormat', e.target.value);
                   }}
                   defaultValue={column.parseDateFormat}
-                  placeholder={'DD-MM-YYYY'}
+                  placeholder={'YYYY/MM/DD'}
                 />
               </div>
               <label data-cy={`label-parse-timezone`} className="form-label">
-                Parse in timezone
+                设置解析时区
               </label>
               <div data-cy={`input-parse-timezone`} className="field mb-2">
                 <SelectSearch
@@ -565,7 +570,7 @@ class TableComponent extends React.Component {
                 />
               </div>
               <label data-cy={`label-display-time-zone`} className="form-label">
-                Display in timezone
+                设置显示时区
               </label>
               <div ata-cy={`input-display-time-zone`} className="field mb-2">
                 <SelectSearch
@@ -645,9 +650,9 @@ class TableComponent extends React.Component {
                 <SelectSearch
                   className={'select-search'}
                   options={[
-                    { name: 'Cover', value: 'cover' },
-                    { name: 'Contain', value: 'contain' },
-                    { name: 'Fill', value: 'fill' },
+                    { name: '包含', value: 'cover' },
+                    { name: '覆盖', value: 'contain' },
+                    { name: '填充', value: 'fill' },
                   ]}
                   value={column.objectFit}
                   search={true}
@@ -656,25 +661,25 @@ class TableComponent extends React.Component {
                     this.onColumnItemChange(index, 'objectFit', value);
                   }}
                   fuzzySearch
-                  placeholder={this.props.t('Select') + '...'}
+                  placeholder={this.props.t('globals.select','select') + '...'}
                 />
               </div>
             </>
           )}
 
           {column.columnType !== 'image' && (
-            <div className="form-check form-switch my-4">
-              <input
-                data-cy={`toggle-make-editable`}
-                className="form-check-input"
-                type="checkbox"
-                onClick={() => this.onColumnItemChange(index, 'isEditable', !column.isEditable)}
-                checked={column.isEditable}
-              />
-              <span data-cy={`label-make-editable`} className="form-check-label">
-                {this.props.t('widget.Table.makeEditable', 'make editable')}
-              </span>
-            </div>
+            <ProgramaticallyHandleToggleSwitch
+              label="使其可编辑"
+              currentState={this.state.currentState}
+              index={index}
+              darkMode={this.props.darkMode}
+              callbackFunction={this.onColumnItemChange}
+              property="isEditable"
+              props={column}
+              component={this.props.component}
+              paramMeta={{ type: 'toggle', displayName: '使其可编辑' }}
+              paramType="properties"
+            />
           )}
         </Popover.Body>
       </Popover>
@@ -729,7 +734,7 @@ class TableComponent extends React.Component {
             />
           </div>
           <Color
-            param={{ name: 'actionButtonBackgroundColor', displayName: '按钮背景色' }}
+            param={{ name: 'actionButtonBackgroundColor' }}
             paramType="properties"
             componentMeta={this.state.componentMeta}
             definition={{ value: action.backgroundColor }}
@@ -738,7 +743,7 @@ class TableComponent extends React.Component {
           />
 
           <Color
-            param={{ name: 'actionButtonTextColor', displayName: '文本颜色' }}
+            param={{ name: 'actionButtonTextColor' }}
             paramType="properties"
             componentMeta={this.state.componentMeta}
             definition={{ value: action.textColor }}
@@ -747,7 +752,7 @@ class TableComponent extends React.Component {
           />
           <EventManager
             component={dummyComponentForActionButton}
-            componentMeta={{ events: { onClick: { displayName: '单击时' } } }}
+            componentMeta={{ events: { onClick: { displayName: '点击时' } } }}
             currentState={this.state.currentState}
             dataQueries={this.props.dataQueries}
             components={this.props.components}
@@ -879,6 +884,7 @@ class TableComponent extends React.Component {
 
   render() {
     const { dataQueries, component, paramUpdated, componentMeta, components, currentState, darkMode } = this.props;
+
     const columns = component.component.definition.properties.columns;
     const actions = component.component.definition.properties.actions || { value: [] };
 

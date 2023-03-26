@@ -17,7 +17,7 @@ export const NotificationCenter = ({ darkMode }) => {
     const { data, error } = await commentNotificationsService.findAll(isRead);
     setLoading(false);
     if (error) {
-      toast.error('Unable to fetch notifications');
+      toast.error('无法获取通知');
       return;
     }
     setCommentNotifications(data);
@@ -28,7 +28,7 @@ export const NotificationCenter = ({ darkMode }) => {
     const { error } = await commentNotificationsService.updateAll(!isRead);
     setLoading(false);
     if (error) {
-      toast.error('Unable to update notifications');
+      toast.error('无法更新通知');
       return;
     }
     fetchData();

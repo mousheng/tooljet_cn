@@ -119,7 +119,7 @@ const MobileNavigationMenu = ({ pages, switchPage, currentPageId, darkMode, chan
               </svg>
             </div>
             <div style={{ marginTop: '2px' }} className="col">
-              <span>Menu</span>
+              <span>菜单</span>
             </div>
           </div>
         </Header>

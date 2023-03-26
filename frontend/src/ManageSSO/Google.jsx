@@ -25,13 +25,13 @@ export function Google({ settings, updateData }) {
         setSaving(false);
         data.id && setConfigId(data.id);
         updateData('google', { id: data.id, configs: { client_id: clientId } });
-        toast.success('updated SSO configurations', {
+        toast.success('更新的sso配置', {
           position: 'top-center',
         });
       },
       () => {
         setSaving(false);
-        toast.error('Error while saving SSO configurations', {
+        toast.error('保存SSO配置时出错', {
           position: 'top-center',
         });
       }
@@ -47,13 +47,13 @@ export function Google({ settings, updateData }) {
         setEnabled(enabled_tmp);
         data.id && setConfigId(data.id);
         updateData('google', { id: data.id, enabled: enabled_tmp });
-        toast.success(`${enabled_tmp ? 'Enabled' : 'Disabled'} Google SSO`, {
+        toast.success(`${enabled_tmp ? '开启' : '关闭'} Google SSO`, {
           position: 'top-center',
         });
       },
       () => {
         setSaving(false);
-        toast.error('Error while saving SSO configurations', {
+        toast.error('保存SSO配置时出错', {
           position: 'top-center',
         });
       }

@@ -33,13 +33,13 @@ export function Git({ settings, updateData }) {
           id: data.id,
           configs: { client_id: clientId, client_secret: clientSecret, host_name: hostName },
         });
-        toast.success('updated SSO configurations', {
+        toast.success('更新的sso配置', {
           position: 'top-center',
         });
       },
       () => {
         setSaving(false);
-        toast.error('Error while saving SSO configurations', {
+        toast.error('保存SSO配置时出错', {
           position: 'top-center',
         });
       }
@@ -55,13 +55,13 @@ export function Git({ settings, updateData }) {
         setEnabled(enabled_tmp);
         data.id && setConfigId(data.id);
         updateData('git', { id: data.id, enabled: enabled_tmp });
-        toast.success(`${enabled_tmp ? 'Enabled' : 'Disabled'} GitHub SSO`, {
+        toast.success(`${enabled_tmp ? '开启' : '关闭'} GitHub SSO`, {
           position: 'top-center',
         });
       },
       () => {
         setSaving(false);
-        toast.error('Error while saving SSO configurations', {
+        toast.error('保存SSO配置时出错', {
           position: 'top-center',
         });
       }

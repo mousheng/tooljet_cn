@@ -6,8 +6,8 @@ export default ({ options, addNewKeyValuePair, removeKeyValuePair, keyValuePairV
       <table className="table table-vcenter">
         <thead>
           <tr>
-            <th>Key</th>
-            <th>Value</th>
+            <th>键</th>
+            <th>值</th>
             <th></th>
           </tr>
         </thead>

@@ -11,7 +11,7 @@ export const EditOrganization = ({ showEditOrg, setShowEditOrg }) => {
 
   const editOrganization = () => {
     if (!(newOrgName && newOrgName.trim())) {
-      toast.error('Workspace name can not be empty.');
+      toast.error('工作区名称不能为空.');
       return;
     }
 
@@ -19,11 +19,11 @@ export const EditOrganization = ({ showEditOrg, setShowEditOrg }) => {
     organizationService.editOrganization({ name: newOrgName }).then(
       () => {
         authenticationService.updateCurrentUserDetails({ organization: newOrgName });
-        toast.success('Workspace updated');
+        toast.success('工作区已更新');
         window.location.reload();
       },
       (err) => {
-        toast.error(err?.data?.message || 'Error while editing workspace');
+        toast.error(err?.data?.message || '编辑工作区时出错');
       }
     );
     setIsCreating(false);

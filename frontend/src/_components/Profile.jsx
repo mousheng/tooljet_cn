@@ -65,7 +65,7 @@ export const Profile = function Header({ switchDarkMode, darkMode }) {
             />
           </svg>
 
-          {darkMode ? 'Light Mode' : 'Dark Mode'}
+          {darkMode ? '明亮模式' : '暗夜模式'}
         </div>
         <Link
           data-testid="logoutBtn"

@@ -18,6 +18,7 @@ import cx from 'classnames';
 // eslint-disable-next-line import/no-unresolved
 import { diff } from 'deep-object-diff';
 import { CustomToggleSwitch } from './CustomToggleSwitch';
+import { ChangeDataSource } from './ChangeDataSource';
 
 const queryNameRegex = new RegExp('^[A-Za-z0-9_-]*$');
 
@@ -58,7 +59,9 @@ class QueryManagerComponent extends React.Component {
     const selectedQuery = props.selectedQuery;
 
     const dataSourceId = selectedQuery?.data_source_id;
-    const source = props.dataSources.find((datasource) => datasource.id === dataSourceId);
+    const source = [...props.dataSources, ...props.globalDataSources].find(
+      (datasource) => datasource.id === dataSourceId
+    );
     const selectedDataSource =
       paneHeightChanged || queryPaneDragged ? this.state.selectedDataSource : props.selectedDataSource;
     const dataSourceMeta = selectedQuery?.pluginId
@@ -73,6 +76,7 @@ class QueryManagerComponent extends React.Component {
       {
         appId: props.appId,
         dataSources: props.dataSources,
+        globalDataSources: props.globalDataSources,
         dataQueries: dataQueries,
         appDefinition: props.appDefinition,
         mode: props.mode,
@@ -117,7 +121,9 @@ class QueryManagerComponent extends React.Component {
         shouldRunQuery: props.mode === 'edit' ? this.state.isFieldsChanged : this.props.isSourceSelected,
       },
       () => {
-        let source = props.dataSources.find((datasource) => datasource.id === selectedQuery?.data_source_id);
+        let source = [...props.dataSources, ...props.globalDataSources].find(
+          (datasource) => datasource.id === selectedQuery?.data_source_id
+        );
         if (selectedQuery?.kind === 'restapi') {
           if (!selectedQuery.data_source_id) {
             source = { kind: 'restapi', id: 'null', name: 'REST API' };
@@ -322,7 +328,7 @@ class QueryManagerComponent extends React.Component {
 
     const isQueryNameValid = this.validateQueryName();
     if (!isQueryNameValid) {
-      toast.error('Invalid query name. Should be unique and only include letters, numbers and underscore.');
+      toast.error('无效的查询名，名称应该是唯一的，并且只接受字母、数字和下划线.');
       return;
     }
 
@@ -340,7 +346,7 @@ class QueryManagerComponent extends React.Component {
           this.props.dataQueriesChanged();
           this.props.setStateOfUnsavedQueries(false);
           localStorage.removeItem('transformation');
-          toast.success('Query Saved');
+          toast.success('查询已保存');
         })
         .catch(({ error }) => {
           this.setState({
@@ -356,7 +362,7 @@ class QueryManagerComponent extends React.Component {
       dataqueryService
         .create(appId, appVersionId, queryName, kind, options, dataSourceId, pluginId)
         .then((data) => {
-          toast.success('Query Added');
+          toast.success('已添加查询');
           this.setState({
             isCreating: shouldRunQuery ? true : false,
             isFieldsChanged: false,
@@ -447,8 +453,8 @@ class QueryManagerComponent extends React.Component {
       component: { component: { definition: { events: dataQueryEvents } } },
       componentMeta: {
         events: {
-          onDataQuerySuccess: { displayName: 'Query Success' },
-          onDataQueryFailure: { displayName: 'Query Failure' },
+          onDataQuerySuccess: { displayName: '查询成功' },
+          onDataQueryFailure: { displayName: '查询失败' },
         },
       },
     };
@@ -475,7 +481,7 @@ class QueryManagerComponent extends React.Component {
           .update(this.state.selectedQuery.id, newName)
           .then(() => {
             this.props.dataQueriesChanged();
-            toast.success('Query Name Updated');
+            toast.success('查询名称已更新');
             this.setState({
               renameQuery: false,
             });
@@ -486,14 +492,37 @@ class QueryManagerComponent extends React.Component {
           });
       }
     } else {
-      if (isNewQueryNameAlreadyExists) toast.error('Query name already exists');
+      if (isNewQueryNameAlreadyExists) toast.error('查询名称已存在');
       this.setState({ renameQuery: false });
     }
+  };
+
+  changeDataSourceQueryAssociation = (selectedDataSource, selectedQuery) => {
+    this.setState({
+      selectedDataSource: selectedDataSource,
+      isUpdating: true,
+    });
+    dataqueryService
+      .changeQueryDataSource(selectedQuery?.id, selectedDataSource.id)
+      .then(() => {
+        this.props.dataQueriesChanged();
+        this.setState({
+          isUpdating: false,
+        });
+        toast.success('数据源已更改');
+      })
+      .catch((error) => {
+        toast.error(error);
+        this.setState({
+          isUpdating: false,
+        });
+      });
   };
 
   render() {
     const {
       dataSources,
+      globalDataSources,
       selectedDataSource,
       mode,
       options,
@@ -733,7 +762,25 @@ class QueryManagerComponent extends React.Component {
                       changeDataSource={this.changeDataSource}
                       handleBackButton={this.handleBackButton}
                       darkMode={this.props.darkMode}
+                      showAddDatasourceBtn={false}
                       dataSourceModalHandler={this.props.dataSourceModalHandler}
+                    />
+                  )}
+                </div>
+              )}
+
+              {dataSources && mode === 'create' && !this.state.isSourceSelected && (
+                <div className="datasource-picker">
+                  {!this.state.isSourceSelected && <label className="form-label col-md-3">全局数据源</label>}{' '}
+                  {!this.state.isSourceSelected && (
+                    <DataSourceLister
+                      dataSources={globalDataSources}
+                      staticDataSources={[]}
+                      changeDataSource={this.changeDataSource}
+                      handleBackButton={this.handleBackButton}
+                      darkMode={this.props.darkMode}
+                      dataSourceModalHandler={this.props.dataSourceModalHandler}
+                      showAddDatasourceBtn={false}
                     />
                   )}
                 </div>
@@ -887,6 +934,25 @@ class QueryManagerComponent extends React.Component {
                     }
                   />
                 </div>
+                {mode === 'edit' && (
+                  <div className="mt-2 pb-4">
+                    <div
+                      className={`border-top query-manager-border-color px-4 hr-text-left py-2 ${
+                        this.props.darkMode ? 'color-white' : 'color-light-slate-12'
+                      }`}
+                    >
+                      更改数据源
+                    </div>
+                    <ChangeDataSource
+                      dataSources={[...globalDataSources, ...this.props.dataSources]}
+                      value={selectedDataSource}
+                      selectedQuery={selectedQuery}
+                      onChange={(selectedDataSource) => {
+                        this.changeDataSourceQueryAssociation(selectedDataSource, selectedQuery);
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             )}
           </div>

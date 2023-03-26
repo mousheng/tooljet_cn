@@ -43,14 +43,14 @@ export const Folders = function Folders({
       folderService
         .create(newFolderName)
         .then(() => {
-          toast.success('Folder created.');
+          toast.success('已创建文件夹.');
           setCreationStatus(false);
           setShowForm(false);
           setNewFolderName('');
           foldersChanged();
         })
         .catch(({ error }) => {
-          toast.error('Error creating folder: ' + error);
+          toast.error('创建文件夹时出错: ' + error);
           setCreationStatus(false);
           setShowForm(false);
           setNewFolderName('');
@@ -79,7 +79,7 @@ export const Folders = function Folders({
     folderService
       .deleteFolder(deletingFolder.id)
       .then(() => {
-        toast.success('Folder has been deleted.');
+        toast.success('文件夹已被删除.');
         setShowDeleteConfirmation(false);
         setDeletionStatus(false);
         foldersChanged();
@@ -98,12 +98,12 @@ export const Folders = function Folders({
 
   function validateName() {
     if (!newFolderName?.trim()) {
-      toast.error('Folder name cannot be empty.');
+      toast.error('文件夹名称不能为空.');
       return false;
     }
 
     if (newFolderName?.trim().length > 25) {
-      toast.error('Folder name cannot be longer than 25 characters.');
+      toast.error('文件夹名称不能超过25个字符.');
       return false;
     }
     return true;
@@ -115,7 +115,7 @@ export const Folders = function Folders({
       folderService
         .updateFolder(newFolderName, updatingFolder.id)
         .then(() => {
-          toast.success('Folder has been updated.');
+          toast.success('文件夹已更新.');
           setUpdationStatus(false);
           setShowUpdateForm(false);
           setNewFolderName('');

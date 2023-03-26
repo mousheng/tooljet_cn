@@ -187,6 +187,7 @@
             "eventManager": {
                 "event": "事件",
                 "action": "操作",
+                "debounce": "防抖",
                 "actionOptions": "操作选项",
                 "message": "消息",
                 "alertType": "警告类型",
@@ -690,7 +691,11 @@
             "theme": "主题",
             "columns": "列",
             "cardData": "卡片数据",
+            "columnData": "列数据",
+            "cardWidth": "卡片宽度",
+            "cardHeight": "卡片高度",
             "enableAddCard": "允许添加卡片",
+            "showDeleteButton": "允许显示删除按钮",
             "width": "宽度",
             "minWidth": "最小宽度",
             "accentColor": "强调文字颜色",
@@ -749,7 +754,11 @@
             "addColumn": "+ 添加列",
             "noActionMessage": "此表没有任何操作按钮",
             "minValue": "最小值",
-            "maxValue": "最大值"
+            "maxValue": "最大值",
+            "objectFit": "图片缩放方式",
+            "height": "高度",
+            "width": "宽度",
+            "borderRadius": "边框圆角半径"
         },
         "Button": {
             "displayName": "按钮",

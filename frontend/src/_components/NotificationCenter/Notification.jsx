@@ -8,7 +8,7 @@ export const Notification = ({ id, creator, comment, updatedAt, commentLink, isR
   const updateMentionedNotification = async () => {
     const { error } = await commentNotificationsService.update(id, !isRead);
     if (error) {
-      toast.error('Unable to update notification');
+      toast.error('无法更新通知');
       return;
     }
     fetchData();

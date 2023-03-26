@@ -153,7 +153,7 @@ export function CodeHinter({
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
-    toast.success('Copied to clipboard');
+    toast.success('已复制到剪贴板');
   };
 
   const getCustomResolvables = () => {
@@ -184,7 +184,7 @@ export function CodeHinter({
           <div ref={heightRef} className="dynamic-variable-preview bg-red-lt px-1 py-1">
             <div>
               <div className="heading my-1">
-                <span>Error</span>
+                <span>错误</span>
               </div>
               {errorMessage}
             </div>
@@ -201,7 +201,6 @@ export function CodeHinter({
       previewType = typeof previewContent;
     }
     const content = getPreviewContent(previewContent, previewType);
-
     return (
       <animated.div
         className={isOpen ? themeCls : null}
@@ -221,7 +220,8 @@ export function CodeHinter({
                 </div>
               )}
             </div>
-            {content}
+            {/* 超过500个字符则不显示 */}
+            {typeof content==='string' && content.length>500? content.substring(0,500):content+' ...'}
           </div>
         </div>
       </animated.div>

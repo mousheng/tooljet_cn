@@ -124,7 +124,7 @@ export const LeftSidebarInspector = ({
   const copyToClipboard = (data) => {
     const stringified = JSON.stringify(data, null, 2).replace(/\\/g, '');
     navigator.clipboard.writeText(stringified);
-    return toast.success('Copied to the clipboard', { position: 'top-center' });
+    return toast.success('已复制到剪贴板', { position: 'top-center' });
   };
 
   const callbackActions = [

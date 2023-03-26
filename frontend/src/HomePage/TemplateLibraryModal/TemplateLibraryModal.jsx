@@ -40,7 +40,7 @@ export default function TemplateLibraryModal(props) {
         }
       })
       .catch(() => {
-        toast.error('Could not fetch library apps', {
+        toast.error('无法获取库应用程序', {
           position: 'top-center',
         });
         setLibraryApps([]);

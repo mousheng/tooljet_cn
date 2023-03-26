@@ -63,7 +63,7 @@ class ManageAppUsersComponent extends React.Component {
       .createAppUser(this.state.app.id, organizationUserId, role)
       .then(() => {
         this.setState({ addingUser: false, newUser: {} });
-        toast.success('Added user successfully');
+        toast.success('已成功添加用户');
         this.fetchAppUsers();
       })
       .catch(({ error }) => {
@@ -218,7 +218,7 @@ class ManageAppUsersComponent extends React.Component {
                       )}
                     </div>
                     <span className="input-group-text">
-                      <CopyToClipboard text={shareableLink} onCopy={() => toast.success('Link copied to clipboard')}>
+                      <CopyToClipboard text={shareableLink} onCopy={() => toast.success('链接已复制到剪贴板')}>
                         <button className="btn btn-secondary btn-sm">
                           {this.props.t('editor.shareModal.copy', 'copy')}
                         </button>
@@ -244,7 +244,7 @@ class ManageAppUsersComponent extends React.Component {
                     <span className="input-group-text">
                       <CopyToClipboard
                         text={embeddableLink}
-                        onCopy={() => toast.success('Embeddable link copied to clipboard')}
+                        onCopy={() => toast.success('链接已复制到剪贴板')}
                       >
                         <button className="btn btn-secondary btn-sm">
                           {this.props.t('editor.shareModal.copy', 'copy')}

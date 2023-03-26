@@ -1482,14 +1482,17 @@ export const widgets = [
         type: 'code',
         displayName: 'Default value',
         validation: {
-          schema: { type: 'boolean' },
+          schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }, { type: 'boolean' }] },
         },
       },
       values: {
         type: 'code',
         displayName: 'Option values',
         validation: {
-          schema: { type: 'array', element: { type: 'boolean' } },
+          schema: {
+            type: 'array',
+            element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }, { type: 'boolean' }] },
+          },
         },
       },
       display_values: {
@@ -3480,7 +3483,7 @@ export const widgets = [
       properties: {
         tabs: {
           value:
-            "{{[ \n\t\t{ title: 'Home', id: '0' }, \n\t\t{ title: 'Profile', id: '1' }, \n\t\t{ title: 'Settings', id: '2' } \n ]}}",
+            "{{[ \n\t\t{ title: '主页', id: '0' }, \n\t\t{ title: '展示', id: '1' }, \n\t\t{ title: '设置', id: '2' } \n ]}}",
         },
         defaultTab: { value: '0' },
         hideTabs: { value: false },
@@ -4858,6 +4861,171 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         width: { value: '{{400}}' },
         minWidth: { value: '{{200}}' },
         textColor: { value: '' },
+      },
+    },
+  },
+  {
+    name: 'Kanban',
+    displayName: '看板',
+    description: '看板控件',
+    component: 'Kanban',
+    defaultSize: {
+      width: 40,
+      height: 490,
+    },
+    defaultChildren: [
+      {
+        componentName: 'Text',
+        layout: {
+          top: 20,
+          left: 4,
+          height: 30,
+        },
+        properties: ['text'],
+        accessorKey: 'text',
+        styles: ['fontWeight', 'textSize', 'textColor'],
+        defaultValue: {
+          text: '{{cardData.title}}',
+          fontWeight: 'bold',
+          textSize: 16,
+          textColor: '#000',
+        },
+      },
+      {
+        componentName: 'Text',
+        layout: {
+          top: 50,
+          left: 4,
+          height: 30,
+        },
+        properties: ['text'],
+        accessorKey: 'text',
+        styles: ['textSize', 'textColor'],
+        defaultValue: {
+          text: '{{cardData.description}}',
+          textSize: 14,
+          textColor: '#000',
+        },
+      },
+    ],
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      columnData: { type: 'code', displayName: 'Column Data' },
+      cardData: { type: 'code', displayName: 'Card Data' },
+      cardWidth: {
+        type: 'code',
+        displayName: 'Card Width',
+        validation: {
+          schema: { type: 'number' },
+        },
+      },
+      cardHeight: {
+        type: 'code',
+        displayName: 'Card Height',
+        validation: {
+          schema: { type: 'number' },
+        },
+      },
+      enableAddCard: { type: 'toggle', displayName: 'Enable Add Card' },
+      showDeleteButton: { type: 'toggle', displayName: 'Show Delete Button' },
+    },
+    events: {
+      onUpdate: { displayName: '更新时' },
+      onAddCardClick: { displayName: '添加卡片时' },
+      onCardRemoved: { displayName: '卡片删除时' },
+      onCardAdded: { displayName: '卡片添加时' },
+      onCardMoved: { displayName: '卡片移动时' },
+      onCardSelected: { displayName: '选择卡片时' },
+    },
+    styles: {
+      disabledState: { type: 'toggle', displayName: 'Disable' },
+      visibility: { type: 'toggle', displayName: 'Visibility' },
+      accentColor: { type: 'color', displayName: 'Accent color' },
+    },
+    actions: [
+      {
+        handle: 'addCard',
+        displayName: '添加卡片',
+        params: [
+          {
+            handle: 'cardDetails',
+            displayName: 'Card Details',
+            defaultValue: `{{{ id: "c11", title: "Title 11", description: "Description 11", columnId: "r3" }}}`,
+          },
+        ],
+      },
+      {
+        handle: 'deleteCard',
+        displayName: '删除卡片',
+        params: [
+          { handle: 'id', displayName: 'Card Id', defaultValue: `{{components.kanban1?.lastSelectedCard?.id}}` },
+        ],
+      },
+      {
+        handle: 'moveCard',
+        displayName: '移动卡片',
+        params: [
+          { handle: 'cardId', displayName: 'Card Id', defaultValue: `{{components.kanban1?.lastSelectedCard?.id}}` },
+          { handle: 'columnId', displayName: 'Destination Column Id', defaultValue: '' },
+        ],
+      },
+      {
+        handle: 'updateCardData',
+        displayName: '更新卡片数据',
+        params: [
+          { handle: 'id', displayName: 'Card Id', defaultValue: `{{components.kanban1?.lastSelectedCard?.id}}` },
+          {
+            handle: 'value',
+            displayName: 'Value',
+            defaultValue: `{{{...components.kanban1?.lastSelectedCard, title: 'New Title'}}}`,
+          },
+        ],
+      },
+    ],
+    exposedVariables: {
+      updatedCardData: {},
+      lastAddedCard: {},
+      lastRemovedCard: {},
+      lastCardMovement: {},
+      lastSelectedCard: {},
+      lastUpdatedCard: {},
+      lastCardUpdate: [],
+    },
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        columnData: {
+          value:
+            '{{[{ "id": "r1", "title": "待办" },{ "id": "r2", "title": "进行中" },{ "id": "r3", "title": "已完成" }]}}',
+        },
+        cardData: {
+          value:
+            '{{[{ id: "c1", title: "标题 1", description: "描述 1", columnId: "r1" },{ id: "c2", title: "标题 2", description: "描述 2", columnId: "r1" },{ id: "c3", title: "标题 3", description: "描述 3",columnId: "r2" },{ id: "c4", title: "标题 4", description: "描述 4",columnId: "r3" },{ id: "c5", title: "标题 5", description: "描述 5",columnId: "r3" }, { id: "c6", title: "标题 6", description: "描述 6", columnId: "r1" },{ id: "c7", title: "标题 7", description: "描述 7", columnId: "r1" },{ id: "c8", title: "标题 8", description: "描述 8",columnId: "r2" },{ id: "c9", title: "标题 9", description: "描述 9",columnId: "r3" },{ id: "c10", title: "标题 10", description: "描述 10",columnId: "r3" }]}}',
+        },
+        cardWidth: {
+          value: '{{295}}',
+        },
+        cardHeight: {
+          value: '{{100}}',
+        },
+        enableAddCard: {
+          value: `{{true}}`,
+        },
+        showDeleteButton: {
+          value: `{{true}}`,
+        },
+      },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        accentColor: { value: '#4d72fa' },
       },
     },
   },

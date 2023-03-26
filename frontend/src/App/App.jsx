@@ -18,6 +18,7 @@ import { SettingsPage } from '../SettingsPage/SettingsPage';
 import { ForgotPassword } from '@/ForgotPassword';
 import { ResetPassword } from '@/ResetPassword';
 import { MarketplacePage } from '@/MarketplacePage';
+import { GlobalDatasources } from '@/GlobalDatasources';
 import { lt } from 'semver';
 import Toast from '@/_ui/Toast';
 import { VerificationSuccessInfoScreen } from '@/SuccessInfoScreen';
@@ -71,7 +72,7 @@ class AppComponent extends React.Component {
   };
 
   render() {
-    const { updateAvailable, darkMode } = this.state;
+    const { updateAvailable, darkMode, currentUser } = this.state;
     let toastOptions = {
       style: {
         wordBreak: 'break-all',
@@ -92,11 +93,11 @@ class AppComponent extends React.Component {
 
     return (
       <>
-        <div className={`main-wrapper ${darkMode ? 'theme-dark' : ''}`} data-cy="main-wrapper">
+        <div className={`main-wrapper ${darkMode ? 'theme-dark dark-theme' : ''}`} data-cy="main-wrapper">
           {updateAvailable && (
             <div className="alert alert-info alert-dismissible" role="alert">
-              <h3 className="mb-1">Update available</h3>
-              <p>A new version of ToolJet has been released.</p>
+              <h3 className="mb-1">可用更新</h3>
+              <p>Tooljet发布了新版本.</p>
               <div className="btn-list">
                 <a
                   href="https://docs.tooljet.io/docs/setup/updating"
@@ -104,7 +105,7 @@ class AppComponent extends React.Component {
                   className="btn btn-info"
                   rel="noreferrer"
                 >
-                  Read release notes & update
+                  阅读更新日志 & 更新
                 </a>
                 <a
                   onClick={() => {
@@ -113,7 +114,7 @@ class AppComponent extends React.Component {
                   }}
                   className="btn"
                 >
-                  Skip this version
+                  跳过此版本
                 </a>
               </div>
             </div>
@@ -216,6 +217,15 @@ class AppComponent extends React.Component {
                 }
               />
             )}
+            <Route
+              exact
+              path="/global-datasources"
+              element={
+                <PrivateRoute>
+                  <GlobalDatasources switchDarkMode={this.switchDarkMode} darkMode={darkMode} />
+                </PrivateRoute>
+              }
+            />
             {window.public_config?.ENABLE_MARKETPLACE_FEATURE === 'true' && (
               <Route
                 exact

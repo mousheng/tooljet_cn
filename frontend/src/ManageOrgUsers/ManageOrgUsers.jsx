@@ -103,7 +103,7 @@ class ManageOrgUsersComponent extends React.Component {
     organizationUserService
       .archive(id)
       .then(() => {
-        toast.success('The user has been archived');
+        toast.success('用户已存档');
         this.setState({ archivingUser: null });
         this.fetchUsers(this.state.currentPage, this.state.options);
       })
@@ -119,7 +119,7 @@ class ManageOrgUsersComponent extends React.Component {
     organizationUserService
       .unarchive(id)
       .then(() => {
-        toast.success('The user has been unarchived');
+        toast.success('用户已被取消注册');
         this.setState({ unarchivingUser: null });
         this.fetchUsers(this.state.currentPage, this.state.options);
       })
@@ -168,7 +168,7 @@ class ManageOrgUsersComponent extends React.Component {
 
     if (this.handleValidation()) {
       if (!this.state.fields.firstName?.trim() || !this.state.fields.lastName?.trim()) {
-        toast.error('First and last name should not be empty');
+        toast.error('名字和姓氏不应为空');
         return;
       }
 
@@ -189,7 +189,7 @@ class ManageOrgUsersComponent extends React.Component {
           this.state.fields.role
         )
         .then(() => {
-          toast.success('User has been created');
+          toast.success('用户已创建');
           this.fetchUsers();
           this.setState({
             creatingUser: false,
@@ -220,7 +220,7 @@ class ManageOrgUsersComponent extends React.Component {
   };
 
   invitationLinkCopyHandler = () => {
-    toast.success('Invitation URL copied');
+    toast.success('已复制邀请链接');
   };
 
   pageChanged = (page) => {
@@ -395,7 +395,7 @@ class ManageOrgUsersComponent extends React.Component {
                                   onChange={(e) => {
                                     const file = e.target.files[0];
                                     if (Math.round(file.size / 1024) > 1024) {
-                                      toast.error('File size cannot exceed more than 1MB');
+                                      toast.error('文件大小不能超过1Mb');
                                       e.target.value = null;
                                     } else {
                                       this.handleFileChange(file);

@@ -17,7 +17,7 @@ const List = () => {
     setLoading(false);
 
     if (error) {
-      toast.error(error?.message ?? 'Failed to fetch tables');
+      toast.error(error?.message ?? '无法获取表');
       return;
     }
 

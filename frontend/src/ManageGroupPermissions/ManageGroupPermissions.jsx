@@ -87,7 +87,7 @@ class ManageGroupPermissionsComponent extends React.Component {
           showNewGroupForm: false,
           newGroupName: null,
         });
-        toast.success('Group has been created');
+        toast.success('已创建组');
         this.fetchGroups();
       })
       .catch(({ error }) => {
@@ -128,7 +128,7 @@ class ManageGroupPermissionsComponent extends React.Component {
     groupPermissionService
       .del(this.state.groupToBeDeleted)
       .then(() => {
-        toast.success('Group deleted successfully');
+        toast.success('组删除成功');
         this.fetchGroups();
       })
       .catch(({ error }) => {
@@ -144,7 +144,7 @@ class ManageGroupPermissionsComponent extends React.Component {
     groupPermissionService
       .update(this.state.groupToBeUpdated?.id, { name: this.state.newGroupName })
       .then(() => {
-        toast.success('Group name updated successfully');
+        toast.success('组名称更新成功');
         this.fetchGroups();
         this.setState({
           isUpdatingGroupName: false,

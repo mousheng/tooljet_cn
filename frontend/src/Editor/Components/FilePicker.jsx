@@ -380,7 +380,7 @@ FilePicker.AcceptedFiles = ({ children, width, height }) => {
   };
   return (
     <aside style={styles}>
-      <span className="text-info">Files</span>
+      <span className="text-info">文件列表</span>
       <div className="row accepted-files">{children}</div>
     </aside>
   );

@@ -276,7 +276,7 @@ class ViewerComponent extends React.Component {
         } else if (statusCode === 401) {
           return <Navigate replace to={`/login?redirectTo=${this.props.location.pathname}`} />;
         } else if (statusCode === 404) {
-          toast.error(errorDetails?.error ?? 'App not found', {
+          toast.error(errorDetails?.error ?? '未找到应用程序', {
             position: 'top-center',
           });
         }

@@ -23,14 +23,17 @@ const EditRowDrawer = ({ isCreateRowDrawerOpen, setIsCreateRowDrawerOpen }) => {
             fill="#3E63DD"
           />
         </svg>
-        &nbsp;&nbsp;<span className="color-primary">编辑行</span>
+        &nbsp;&nbsp;
+        <span className="color-primary" data-cy="edit-row-button-text">
+          编辑行
+        </span>
       </button>
       <Drawer isOpen={isCreateRowDrawerOpen} onClose={() => setIsCreateRowDrawerOpen(false)} position="right">
         <EditRowForm
           onEdit={() => {
             tooljetDatabaseService.findOne(organizationId, selectedTable).then(({ headers, data = [], error }) => {
               if (error) {
-                toast.error(error?.message ?? `Failed to fetch table "${selectedTable}"`);
+                toast.error(error?.message ?? `无法获取表 "${selectedTable}"`);
                 return;
               }
 

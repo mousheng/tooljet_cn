@@ -44,7 +44,7 @@ class ResetPasswordComponent extends React.Component {
     const { password, password_confirmation } = this.state;
 
     if (password !== password_confirmation) {
-      toast.error("Password don't match");
+      toast.error("密码不匹配");
     } else {
       this.setState({
         isLoading: true,
@@ -52,14 +52,14 @@ class ResetPasswordComponent extends React.Component {
       authenticationService
         .resetPassword({ ...this.state, token })
         .then(() => {
-          toast.success('Password reset successfully');
+          toast.success('密码重置成功');
           this.setState({ showResponseScreen: true, isLoading: false });
         })
         .catch((res) => {
           this.setState({
             isLoading: false,
           });
-          toast.error(res.error || 'Something went wrong, please try again');
+          toast.error(res.error || '出现问题，请重试');
         });
     }
   };
@@ -205,7 +205,7 @@ class ResetPasswordComponent extends React.Component {
                           </div>
                         ) : (
                           <>
-                            <span>Reset password</span>
+                            <span>重置密码</span>
 
                             <EnterIcon
                               fill={

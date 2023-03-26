@@ -37,7 +37,7 @@ const Zendesk = ({ optionchanged, createDataSource, options, isSaving, selectedD
     <div>
       <div className="row">
         <div className="col-md-12 mb-3 ">
-          <label className="form-label text-muted mt-3">Zendesk Sub-domain</label>
+          <label className="form-label text-muted mt-3">zendesk子域</label>
           <Input
             type="text"
             className="form-control"
@@ -48,7 +48,7 @@ const Zendesk = ({ optionchanged, createDataSource, options, isSaving, selectedD
         </div>
 
         <div className="col-md-12">
-          <label className="form-label text-muted mt-3">Client ID</label>
+          <label className="form-label text-muted mt-3">客户 ID</label>
           <Input
             type="text"
             className="form-control"
@@ -59,10 +59,10 @@ const Zendesk = ({ optionchanged, createDataSource, options, isSaving, selectedD
         </div>
         <div className="col-md-12 mb-2">
           <label className="form-label text-muted mt-3">
-            Client Secret
+            客户端加密
             <small className="text-green mx-2">
               <img className="mx-2 encrypted-icon" src="assets/images/icons/padlock.svg" width="12" height="12" />
-              Encrypted
+              已加密
             </small>
           </label>
           <Input
@@ -75,24 +75,24 @@ const Zendesk = ({ optionchanged, createDataSource, options, isSaving, selectedD
 
         <div className="col-md-12">
           <div className="mb-3">
-            <div className="form-label">Scope(s)</div>
+            <div className="form-label">权限</div>
             <p>
-              If you want your ToolJet apps to modify your Zendesk resources, make sure to select read and write access
+              如果您希望tool jet应用程序修改zendesk资源，请确保选择读写访问
             </p>
             <div>
               <Radio
                 checked={options?.access_type?.value === 'read'}
                 disabled={authStatus === 'waiting_for_token'}
                 onClick={() => optionchanged('access_type', 'read')}
-                text="Read only"
-                helpText="Your ToolJet apps can only read data from resources"
+                text="只读"
+                helpText="您的tooljet应用程序只能从资源中读取数据"
               />
               <Radio
                 checked={options?.access_type?.value === 'write'}
                 disabled={authStatus === 'waiting_for_token'}
                 onClick={() => optionchanged('access_type', 'write')}
-                text="Read and write"
-                helpText="Your ToolJet apps can read data from resources, modify resources, and more."
+                text="读写"
+                helpText="您的tooljet应用程序可以从资源中读取数据、修改资源等."
               />
             </div>
           </div>
@@ -107,7 +107,7 @@ const Zendesk = ({ optionchanged, createDataSource, options, isSaving, selectedD
                 disabled={isSaving}
                 onClick={() => saveDataSource()}
               >
-                {isSaving ? 'Saving...' : 'Save data source'}
+                {isSaving ? '保存中...' : '保存数据源'}
               </Button>
             </div>
           )}
@@ -118,7 +118,7 @@ const Zendesk = ({ optionchanged, createDataSource, options, isSaving, selectedD
               disabled={isSaving}
               onClick={() => authZendesk()}
             >
-              {selectedDataSource?.id ? 'Reconnect' : 'Connect'} to Zendesk
+              {selectedDataSource?.id ? '重连' : '连接'} 至zendesk
             </Button>
           )}
         </center>

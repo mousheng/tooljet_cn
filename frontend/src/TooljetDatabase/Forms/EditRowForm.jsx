@@ -49,11 +49,11 @@ const EditRowForm = ({ onEdit, onClose }) => {
     const { error } = await tooljetDatabaseService.updateRows(organizationId, selectedTable, rowData, query);
 
     if (error) {
-      toast.error(error?.message ?? `Failed to create a new column table "${selectedTable}"`);
+      toast.error(error?.message ?? `无法创建新的列表 "${selectedTable}"`);
       return;
     }
     setFetching(false);
-    toast.success(`Row created successfully`);
+    toast.success(`已成功创建行`);
     onEdit && onEdit();
   };
 
@@ -69,16 +69,18 @@ const EditRowForm = ({ onEdit, onClose }) => {
   return (
     <div className="card">
       <div className="card-header">
-        <h3 className="card-title">编辑行</h3>
+        <h3 className="card-title" data-cy="edit-row-header">
+          编辑行
+        </h3>
       </div>
       <div className="card-body">
         <div>
           <div className="mb-3 row g-2 align-items-center">
-            <div className="col-2 form-label">
+            <div className="col-2 form-label" data-cy={`${primaryColumn}-column-name-label`}>
               {primaryColumn}&nbsp;
-              <span className="badge badge-outline text-blue"> SERIAL</span>
+              <span className="badge badge-outline text-blue"> 自增序列</span>
             </div>
-            <div className="col-auto">
+            <div className="col-auto" data-cy="select-row-dropdown">
               <Select
                 useMenuPortal={false}
                 placeholder="选择要编辑的行"
@@ -98,9 +100,17 @@ const EditRowForm = ({ onEdit, onClose }) => {
 
               return (
                 <div className="mb-3" key={index}>
-                  <div className="form-label">
+                  <div
+                    className="form-label"
+                    data-cy={`${String(Header).toLocaleLowerCase().replace(/\s+/g, '-')}-column-name-label`}
+                  >
                     {Header}&nbsp;
-                    <span className="badge badge-outline text-blue">{isPrimaryKey ? 'SERIAL' : dataType}</span>
+                    <span
+                      className="badge badge-outline text-blue"
+                      data-cy={`${String(dataType).toLocaleLowerCase().replace(/\s+/g, '-')}-data-type-label`}
+                    >
+                      {isPrimaryKey ? 'SERIAL' : dataType}
+                    </span>
                   </div>
                   <RenderElement
                     columnName={accessor}
@@ -152,6 +162,7 @@ const RenderElement = ({ columnName, dataType, isPrimaryKey, defaultValue, value
           onChange={(e) => setInputValue(e.target.value)}
           placeholder={placeholder}
           className="form-control"
+          data-cy={`${String(columnName).toLocaleLowerCase().replace(/\s+/g, '-')}-input-field`}
           autoComplete="off"
           onFocus={onFocused}
         />

@@ -66,19 +66,19 @@ export const Organization = function Organization({ darkMode }) {
     const organizationNameExists = duplicateOrganizationCheck();
 
     if (!(newOrgName && newOrgName.trim())) {
-      toast.error('Workspace name cannot be empty.', {
+      toast.error('工作区名称不能为空.', {
         position: 'top-center',
       });
       return;
     }
     if (newOrgName.length > 25) {
-      toast.error('Workspace name cannot be longer than 25 characters.', {
+      toast.error('工作区名称不能超过25个字符.', {
         position: 'top-center',
       });
       return;
     }
     if (organizationNameExists) {
-      toast.error(`${newOrgName} already exists.`, {
+      toast.error(`${newOrgName} 已存在.`, {
         position: 'top-center',
       });
       return;
@@ -92,7 +92,7 @@ export const Organization = function Organization({ darkMode }) {
       },
       () => {
         setIsCreating(false);
-        toast.error('Error while creating workspace', {
+        toast.error('创建工作区时出错', {
           position: 'top-center',
         });
       }
@@ -103,19 +103,19 @@ export const Organization = function Organization({ darkMode }) {
     const organizationNameExists = duplicateOrganizationCheck();
 
     if (!(newOrgName && newOrgName.trim())) {
-      toast.error('Workspace name can not be empty.', {
+      toast.error('工作区名称不能为空.', {
         position: 'top-center',
       });
       return;
     }
     if (newOrgName.length > 25) {
-      toast.error('Workspace name cannot be longer than 25 characters.', {
+      toast.error('工作区名称不能超过25个字符.', {
         position: 'top-center',
       });
       return;
     }
     if (organizationNameExists) {
-      toast.error(`The workspace ${newOrgName} already exists.`, {
+      toast.error(`工作区 ${newOrgName} 已存在.`, {
         position: 'top-center',
       });
       return;
@@ -124,14 +124,14 @@ export const Organization = function Organization({ darkMode }) {
     organizationService.editOrganization({ name: newOrgName }).then(
       () => {
         authenticationService.updateCurrentUserDetails({ organization: newOrgName });
-        toast.success('Workspace updated', {
+        toast.success('工作区已更新', {
           position: 'top-center',
         });
         setOrganization(newOrgName);
         getOrganizations();
       },
       () => {
-        toast.error('Error while editing workspace', {
+        toast.error('编辑工作区时出错', {
           position: 'top-center',
         });
       }

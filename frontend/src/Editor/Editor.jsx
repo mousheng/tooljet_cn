@@ -6,6 +6,7 @@ import {
   authenticationService,
   appVersionService,
   orgEnvironmentVariableService,
+  globalDatasourceService,
 } from '@/_services';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -122,6 +123,7 @@ class EditorComponent extends React.Component {
       appId,
       editingVersion: null,
       loadingDataSources: true,
+      loadingGlobalDataSources: true,
       loadingDataQueries: true,
       showLeftSidebar: true,
       showComments: false,
@@ -290,6 +292,23 @@ class EditorComponent extends React.Component {
     );
   };
 
+  fetchGlobalDataSources = () => {
+    this.setState(
+      {
+        loadingGlobalDataSources: true,
+      },
+      () => {
+        const { organization_id: organizationId } = this.state.currentUser;
+        globalDatasourceService.getAll(organizationId).then((data) =>
+          this.setState({
+            globalDataSources: data.data_sources,
+            loadingGlobalDataSources: false,
+          })
+        );
+      }
+    );
+  };
+
   fetchDataQueries = () => {
     this.setState(
       {
@@ -447,6 +466,7 @@ class EditorComponent extends React.Component {
 
       this.fetchDataSources();
       this.fetchDataQueries();
+      this.fetchGlobalDataSources();
       initEditorWalkThrough();
     };
 
@@ -491,6 +511,10 @@ class EditorComponent extends React.Component {
     } else {
       this.fetchDataSources();
     }
+  };
+
+  globalDataSourcesChanged = () => {
+    this.fetchGlobalDataSources();
   };
 
   /**
@@ -650,7 +674,6 @@ class EditorComponent extends React.Component {
     this.setState({ isSaving: true, appDefinition: newDefinition, appDefinitionLocalVersion: uuid() }, () => {
       if (!opts.skipAutoSave) this.autoSave();
     });
-    computeComponentState(this, newDefinition.pages[currentPageId]?.components ?? {});
   };
 
   handleInspectorView = () => {
@@ -876,13 +899,13 @@ class EditorComponent extends React.Component {
       isDeletingDataQuery: true,
     });
     if (this.state.queryToBeDeleted === 'draftQuery') {
-      toast.success('Query Deleted');
+      toast.success('查询已删除');
       return this.clearDraftQuery();
     }
     dataqueryService
       .del(queryToBeDeleted)
       .then(() => {
-        toast.success('Query Deleted');
+        toast.success('查询已删除');
         this.setState({
           isDeletingDataQuery: false,
           isUnsavedQueriesAvailable: queryToBeDeleted === selectedQuery?.id ? false : isUnsavedQueriesAvailable,
@@ -925,7 +948,7 @@ class EditorComponent extends React.Component {
     const isNewQueryNameAlreadyExists = this.state.allDataQueries.some((query) => query.name === newName);
     if (newName && !isNewQueryNameAlreadyExists) {
       if (id === 'draftQuery') {
-        toast.success('Query Name Updated');
+        toast.success('查询名称已更新');
         this.renameQueryNameId.current = null;
         return this.setState({
           draftQuery: { ...this.state.draftQuery, name: newName },
@@ -935,7 +958,7 @@ class EditorComponent extends React.Component {
       dataqueryService
         .update(id, newName)
         .then(() => {
-          toast.success('Query Name Updated');
+          toast.success('查询名称已更新');
           this.setState({
             renameQueryName: false,
           });
@@ -949,7 +972,7 @@ class EditorComponent extends React.Component {
         });
     } else {
       if (isNewQueryNameAlreadyExists) {
-        toast.error('Query name already exists');
+        toast.error('查询名称已存在');
       }
       this.setState({ renameQueryName: false });
       this.renameQueryNameId.current = null;
@@ -1202,7 +1225,7 @@ class EditorComponent extends React.Component {
         })
         .catch(() => {
           this.setState({ saveError: true, isSaving: false }, () => {
-            toast.error('App could not save.');
+            toast.error('应用程序无法保存.');
           });
         });
     }
@@ -1324,7 +1347,7 @@ class EditorComponent extends React.Component {
     const pageExists = Object.values(this.state.appDefinition.pages).some((page) => page.handle === handle);
 
     if (pageExists) {
-      toast.error('Page with same handle already exists');
+      toast.error('具有相同句柄的页面已存在');
       return;
     }
 
@@ -1378,7 +1401,7 @@ class EditorComponent extends React.Component {
     const pageId = this.state.showPageDeletionConfirmation.pageId;
     const isHomePage = this.state.showPageDeletionConfirmation.isHomePage;
     if (Object.keys(this.state.appDefinition.pages).length === 1) {
-      toast.error('You cannot delete the only page in your app.');
+      toast.error('您无法删除应用程序中的唯一页面.');
       return;
     }
 
@@ -1406,7 +1429,7 @@ class EditorComponent extends React.Component {
         isDeletingPage: false,
       },
       () => {
-        toast.success(`${toBeDeletedPage.name} page deleted.`);
+        toast.success(`页面 ${toBeDeletedPage.name} 已删除.`);
 
         this.switchPage(newCurrentPageId);
         this.autoSave();
@@ -1472,12 +1495,12 @@ class EditorComponent extends React.Component {
     const pageExists = Object.values(this.state.appDefinition.pages).some((page) => page.handle === newHandle);
 
     if (pageExists) {
-      toast.error('Page with same handle already exists');
+      toast.error('具有相同句柄的页面已存在');
       return;
     }
 
     if (newHandle.trim().length === 0) {
-      toast.error('Page handle cannot be empty');
+      toast.error('页面句柄不能为空');
       return;
     }
 
@@ -1497,7 +1520,7 @@ class EditorComponent extends React.Component {
         appDefinitionLocalVersion: uuid(),
       },
       () => {
-        toast.success('Page handle updated successfully');
+        toast.success('页面句柄更新成功');
         this.switchPage(pageId);
         this.autoSave();
       }
@@ -1544,7 +1567,7 @@ class EditorComponent extends React.Component {
 
   renamePage = (pageId, newName) => {
     if (newName.trim().length === 0) {
-      toast.error('Page name cannot be empty');
+      toast.error('页面名称不能为空');
       return;
     }
 
@@ -1735,6 +1758,7 @@ class EditorComponent extends React.Component {
       appId,
       slug,
       dataSources,
+      globalDataSources = [],
       loadingDataQueries,
       dataQueries,
       loadingDataSources,
@@ -1769,7 +1793,7 @@ class EditorComponent extends React.Component {
       <div className="editor wrapper">
         <Confirm
           show={queryConfirmationList.length > 0}
-          message={`Do you want to run this query - ${queryConfirmationList[0]?.queryName}?`}
+          message={`是否要运行此查询 - ${queryConfirmationList[0]?.queryName}?`}
           onConfirm={(queryConfirmationData) => onQueryConfirmOrCancel(this, queryConfirmationData, true)}
           onCancel={() => onQueryConfirmOrCancel(this, queryConfirmationList[0])}
           queryConfirmationData={queryConfirmationList[0]}
@@ -1832,8 +1856,10 @@ class EditorComponent extends React.Component {
                 appId={appId}
                 darkMode={this.props.darkMode}
                 dataSources={this.state.dataSources}
+                globalDataSources={globalDataSources}
                 dataSourcesChanged={this.dataSourcesChanged}
                 dataQueriesChanged={this.dataQueriesChanged}
+                globalDataSourcesChanged={this.globalDataSourcesChanged}
                 onZoomChanged={this.onZoomChanged}
                 toggleComments={this.toggleComments}
                 switchDarkMode={this.changeDarkMode}
@@ -2097,6 +2123,7 @@ class EditorComponent extends React.Component {
                                 }
                                 toggleQueryEditor={toggleQueryEditor}
                                 dataSources={dataSources}
+                                globalDataSources={globalDataSources}
                                 dataQueries={dataQueries}
                                 mode={editingQuery ? 'edit' : 'create'}
                                 selectedQuery={selectedQuery}

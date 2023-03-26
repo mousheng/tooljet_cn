@@ -178,7 +178,7 @@ return [row for row in data if row['amount'] > 1000]
         >
           <div className="py-3 px-3 d-flex">
             <div className="d-flex align-items-center border transformation-language-select-wrapper">
-              <span className="px-2">Language</span>
+              <span className="px-2">语言</span>
             </div>
             <Select
               options={[

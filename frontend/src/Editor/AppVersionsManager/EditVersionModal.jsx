@@ -18,7 +18,7 @@ export const EditVersion = ({
 
   const editVersion = () => {
     if (versionName.trim() === '') {
-      toast.error('Version name should not be empty');
+      toast.error('版本名称不应为空');
       return;
     }
 
@@ -26,7 +26,7 @@ export const EditVersion = ({
     appVersionService
       .save(appId, editingVersionId, { name: versionName })
       .then(() => {
-        toast.success('Version name updated');
+        toast.success('版本名称已更新');
         appVersionService.getAll(appId).then((data) => {
           const versions = data.versions;
           setAppVersions(versions);

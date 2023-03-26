@@ -136,7 +136,7 @@ export const VerificationSuccessInfoScreen = function VerificationSuccessInfoScr
       })
       .catch((res) => {
         setIsLoading(false);
-        toast.error(res.error || 'Something went wrong', {
+        toast.error(res.error || '出了问题', {
           id: 'toast-login-auth-error',
           position: 'top-center',
         });

@@ -117,7 +117,7 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
     groupPermissionService
       .update(groupPermissionId, params)
       .then(() => {
-        toast.success('Group permissions updated');
+        toast.success('已更新组权限');
 
         this.fetchGroupPermission(groupPermissionId);
       })
@@ -145,7 +145,7 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
     groupPermissionService
       .updateAppGroupPermission(groupPermissionId, appGroupPermission.id, actionParams)
       .then(() => {
-        toast.success('App permissions updated');
+        toast.success('应用程序权限已更新');
 
         this.fetchAppsInGroup(groupPermissionId);
       })
@@ -201,7 +201,7 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
         this.fetchAppsInGroup(groupPermissionId);
       })
       .then(() => {
-        toast.success('Apps added to the group');
+        toast.success('应用已添加到组中');
       })
       .catch(({ error }) => {
         toast.error(error);
@@ -221,7 +221,7 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
         this.fetchAppsInGroup(groupPermissionId);
       })
       .then(() => {
-        toast.success('App removed from the group');
+        toast.success('已从组中删除应用');
       })
       .catch(({ error }) => {
         toast.error(error);
@@ -244,7 +244,7 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
         this.fetchUsersInGroup(groupPermissionId);
       })
       .then(() => {
-        toast.success('Users added to the group');
+        toast.success('用户已添加到组中');
       })
       .catch(({ error }) => {
         toast.error(error);
@@ -262,7 +262,7 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
         this.fetchUsersInGroup(groupPermissionId);
       })
       .then(() => {
-        toast.success('User removed from the group');
+        toast.success('已从组中删除用户');
       })
       .catch(({ error }) => {
         toast.error(error);
@@ -475,7 +475,7 @@ class ManageGroupPermissionResourcesComponent extends React.Component {
                                               'hideFromDashboard'
                                             )}
                                           />
-                                          <span className="form-check-label">Hide from dashboard</span>
+                                          <span className="form-check-label">从仪表板隐藏</span>
                                         </label>
                                       </div>
                                     )}

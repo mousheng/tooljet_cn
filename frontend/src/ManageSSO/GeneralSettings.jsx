@@ -27,13 +27,13 @@ export function GeneralSettings({ settings, updateData, instanceSettings }) {
       () => {
         setSaving(false);
         updateData('general', { enable_sign_up: enableSignUp, domain, inherit_s_s_o: inheritSSO });
-        toast.success('updated sso configurations', {
+        toast.success('更新的sso配置', {
           position: 'top-center',
         });
       },
       (err) => {
         setSaving(false);
-        toast.error(err?.data?.message || 'Error while saving SSO configurations', {
+        toast.error(err?.data?.message || '保存SSO配置时出错', {
           position: 'top-center',
         });
       }

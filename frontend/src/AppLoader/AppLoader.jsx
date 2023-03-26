@@ -50,7 +50,7 @@ const AppLoaderComponent = (props) => {
           }
           return router.push('/');
         } else if (statusCode === 404 || statusCode === 422) {
-          toast.error(error?.error ?? 'App not found');
+          toast.error(error?.error ?? '未找到应用程序');
         }
         return router.push('/');
       }
