@@ -53,7 +53,7 @@ const EditRowForm = ({ onEdit, onClose }) => {
       return;
     }
     setFetching(false);
-    toast.success(`已成功创建行`);
+    toast.success(`已成功修改行`);
     onEdit && onEdit();
   };
 
@@ -97,7 +97,13 @@ const EditRowForm = ({ onEdit, onClose }) => {
               const currentValue = selectedTableData.find((row) => row.id === selectedRow)?.[accessor];
 
               if (isPrimaryKey) return null;
-
+              const displayDataType = {
+                'character varying': '字符串',
+                'integer': '整数',
+                'double precision': '浮点数',
+                'boolean': '布尔值'
+              }
+              debugger;
               return (
                 <div className="mb-3" key={index}>
                   <div
@@ -109,7 +115,7 @@ const EditRowForm = ({ onEdit, onClose }) => {
                       className="badge badge-outline text-blue"
                       data-cy={`${String(dataType).toLocaleLowerCase().replace(/\s+/g, '-')}-data-type-label`}
                     >
-                      {isPrimaryKey ? 'SERIAL' : dataType}
+                      {isPrimaryKey ? 'SERIAL' : displayDataType[dataType]}
                     </span>
                   </div>
                   <RenderElement

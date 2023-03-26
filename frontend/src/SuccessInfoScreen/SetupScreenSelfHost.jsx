@@ -45,7 +45,7 @@ function SetupScreenSelfHost({ darkMode }) {
               <br /> 欢迎来到 <br />
               <span>ToolJet!</span>
             </h1>
-            <p data-cy="setup-card-sub-header">开始使用Tool Jet前让我们设置您的工作区</p>
+            <p data-cy="setup-card-sub-header">让我们设置您的工作区</p>
             <ButtonSolid
               className="sh-setup-button"
               onClick={() => setShowSelfHostOboarding(true)}
