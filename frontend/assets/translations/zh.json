@@ -318,6 +318,7 @@
                         "redirectUrl": "重定向URL"
                     },
                     "passwordLogin": "密码登录",
+                    "DisablingPasswordConfirmation":"如果禁用密码登录，用户将无法通过用户名和密码登录。请确保在禁用密码登录之前设置了其他身份验证方法，是否要继续？",
                     "environmentVar": {
                         "noEnvConfig": "你还没有配置任何工作区变量，请按 “添加新变量 ”按钮来创建一个。",
                         "envWillBeDeleted": "变量将被删除，你想继续吗？",

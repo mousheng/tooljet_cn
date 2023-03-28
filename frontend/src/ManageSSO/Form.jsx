@@ -31,7 +31,7 @@ export function Form({ settings, updateData, darkMode }) {
       <ConfirmDialog
         show={showDisablingPasswordConfirmation}
         message={t(
-          'manageSSO.DisablingPasswordConfirmation',
+          'header.organization.menus.manageSSO.DisablingPasswordConfirmation',
           'Users won’t be able to login via username and password if password login is disabled. Please make sure that you have setup other authentication methods before disabling password login, do you want to continue?'
         )}
         onConfirm={() => changeStatus()}
