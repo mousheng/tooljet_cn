@@ -134,6 +134,17 @@ export const widgets = [
         //   },
         // },
       },
+      useDynamicColumn: {
+        type: 'toggle',
+        displayName: '使用动态列',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      columnData: {
+        type: 'code',
+        displayName: '列数据',
+      },
       rowsPerPage: {
         type: 'code',
         displayName: '每页行数',
@@ -399,6 +410,10 @@ export const widgets = [
         data: {
           value:
             "{{ [ \n\t\t{ id: 1, name: '张三', email: 'zhangsan@example.com'}, \n\t\t{ id: 2, name: '李四', email: 'lisi@example.com'}, \n\t\t{ id: 3, name: '王五', email: 'wang@example.com'}, \n\t\t{ id: 4, name: '赵六', email: 'zhao@example.com'} \n] }}",
+        },
+        useDynamicColumn: { value: '{{false}}' },
+        columnData: {
+          value: "{{[{name: 'email', key: 'email'}, {name: 'Full name', key: 'name', isEditable: true}]}}",
         },
         rowsPerPage: { value: '{{10}}' },
         serverSidePagination: { value: '{{false}}' },
