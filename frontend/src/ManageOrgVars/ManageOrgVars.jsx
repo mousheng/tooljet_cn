@@ -82,7 +82,7 @@ class ManageOrgVarsComponent extends React.Component {
     let errors = {};
     //variable name
     if (!fields['variable_name']) {
-      errors['variable_name'] = 'Variable name is required';
+      errors['variable_name'] = '变量必须输入名称';
     }
     //variable value
     if (!fields['value']) {
