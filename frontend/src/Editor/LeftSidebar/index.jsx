@@ -139,7 +139,7 @@ export const LeftSidebar = forwardRef((props, ref) => {
       )}
       <ConfirmDialog
         show={showLeaveDialog}
-        message={'The unsaved changes will be lost if you leave the editor, do you want to leave?'}
+        message={'如果您离开编辑器，未保存的更改将丢失，是否要离开?'}
         onConfirm={() => router.push('/')}
         onCancel={() => setShowLeaveDialog(false)}
         darkMode={darkMode}
