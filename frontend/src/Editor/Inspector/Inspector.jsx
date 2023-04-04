@@ -306,7 +306,7 @@ export const Inspector = ({
     <div className="inspector">
       <ConfirmDialog
         show={showWidgetDeleteConfirmation}
-        message={'Widget will be deleted, do you want to continue?'}
+        message={'控件将被删除，是否要继续？'}
         onConfirm={() => {
           switchSidebarTab(2);
           removeComponent(component);
