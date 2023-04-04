@@ -18,6 +18,7 @@ import { Modal } from './Components/Modal';
 import { Chart } from './Components/Chart';
 import {Echarts} from './Components/Echarts/Echarts'
 import { Map } from './Components/Map/Map';
+import { AMaps } from './Components/AMaps/AMaps';
 import { QrScanner } from './Components/QrScanner/QrScanner';
 import { ToggleSwitch } from './Components/Toggle';
 import { RadioButton } from './Components/RadioButton';
@@ -88,6 +89,7 @@ const AllComponents = {
   Modal,
   Chart,
   Map,
+  AMaps,
   QrScanner,
   ToggleSwitch,
   RadioButton,
