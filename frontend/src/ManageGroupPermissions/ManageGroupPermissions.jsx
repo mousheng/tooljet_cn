@@ -177,7 +177,7 @@ class ManageGroupPermissionsComponent extends React.Component {
         <div className="wrapper org-users-page animation-fade">
           <ConfirmDialog
             show={showGroupDeletionConfirmation}
-            message={'This group will be permanently deleted. Do you want to continue?'}
+            message={'此组将被删除,是否继续?'}
             confirmButtonLoading={isDeletingGroup}
             onConfirm={() => this.executeGroupDeletion()}
             onCancel={() => this.cancelDeleteGroupDialog()}
