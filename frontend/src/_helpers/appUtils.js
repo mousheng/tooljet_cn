@@ -706,6 +706,7 @@ export async function onEvent(_ref, eventName, options, mode = 'edit') {
       'onBoundsChange',
       'onCreateMarker',
       'onMarkerClick',
+      'onMarkerRightClick',
       'onPageChanged',
       'onSearch',
       'onChange',
