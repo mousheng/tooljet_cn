@@ -24,7 +24,7 @@ export const ReleaseVersionButton = function DeployVersionButton({
         current_version_id: editingVersion.id,
       })
       .then(() => {
-        toast(`Version ${editingVersion.name} released`, {
+        toast(`版本 ${editingVersion.name} 已发布`, {
           icon: '🚀',
         });
         fetchApp && fetchApp();

@@ -13,7 +13,7 @@ function EditAppName({ appId, appName, onNameChanged }) {
 
   const saveAppName = async (name) => {
     if (!name.trim()) {
-      toast("App name can't be empty or whitespace", {
+      toast("应用程序名称不能为空", {
         icon: '🚨',
       });
       return;
@@ -24,7 +24,7 @@ function EditAppName({ appId, appName, onNameChanged }) {
         onNameChanged(name);
       })
       .catch(() => {
-        toast('Something went wrong while editing app name', {
+        toast('编辑应用程序名称时出错', {
           icon: '🚨',
         });
       });

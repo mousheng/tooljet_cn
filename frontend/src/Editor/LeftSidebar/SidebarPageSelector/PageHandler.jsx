@@ -193,7 +193,7 @@ export const PageHandler = ({
 export const AddingPageHandler = ({ addNewPage, setNewPageBeingCreated, darkMode }) => {
   const handleAddingNewPage = (pageName) => {
     if (pageName.trim().length === 0) {
-      toast('Page name should have at least 1 character', {
+      toast('页面名称应至少包含1个字符', {
         icon: '⚠️',
       });
     }
