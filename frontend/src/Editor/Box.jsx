@@ -15,7 +15,7 @@ import { Datepicker } from './Components/Datepicker';
 import { DaterangePicker } from './Components/DaterangePicker';
 import { Multiselect } from './Components/Multiselect';
 import { Modal } from './Components/Modal';
-import { Chart } from './Components/Chart';
+// import { Chart } from './Components/Chart';
 import {Echarts} from './Components/Echarts/Echarts'
 // import { Map } from './Components/Map/Map';
 import { AMaps } from './Components/AMaps/AMaps';
@@ -87,7 +87,7 @@ const AllComponents = {
   DaterangePicker,
   Multiselect,
   Modal,
-  Chart,
+  // Chart,
   // Map,
   AMaps,
   QrScanner,
