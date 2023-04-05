@@ -187,7 +187,7 @@
             "eventManager": {
                 "event": "事件",
                 "action": "操作",
-                "debounce": "防抖",
+                "debounce": "防抖(毫秒)",
                 "actionOptions": "操作选项",
                 "message": "消息",
                 "alertType": "警告类型",
