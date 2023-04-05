@@ -91,9 +91,9 @@ class ManageAppUsersComponent extends React.Component {
         });
 
         if (newState) {
-          toast('Application is now public.');
+          toast('应用程序已可以公开访问.');
         } else {
-          toast('Application visibility set to private');
+          toast('应用程序已设置为私有');
         }
       })
       .catch((error) => {
