@@ -2595,7 +2595,7 @@ export const widgets = [
       initialLocation: {
         type: 'code',
         displayName: 'Initial location',
-        tip: 'This location will be the initial center of the map',
+        tip: '这个位置将是地图的初始中心',
         options: {
           mode: 'javascript',
           theme: 'duotone-light',
@@ -2694,6 +2694,221 @@ export const widgets = [
         },
         canSearch: {
           value: `{{true}}`,
+        },
+        addNewMarkers: { value: `{{true}}` },
+      },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
+  {
+    name: 'AMaps',
+    displayName: '高德地图',
+    description: '显示高德地图',
+    component: 'AMaps',
+    defaultSize: {
+      width: 16,
+      height: 420,
+    },
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      initialLocation: {
+        type: 'code',
+        displayName: 'Initial location',
+        tip: '这个位置将是地图的初始中心',
+        options: {
+          mode: 'javascript',
+          theme: 'duotone-light',
+          className: 'map-location-input pr-2',
+        },
+        validation: {
+          schema: {
+            type: 'union',
+            schemas: [{ type: 'array', element: { type: 'object' } }, { type: 'object' }],
+          },
+        },
+      },
+      defaultMarkers: {
+        type: 'code',
+        displayName: 'Default markers',
+        options: {
+          mode: 'javascript',
+          theme: 'duotone-light',
+          className: 'map-location-input pr-2',
+        },
+        validation: {
+          schema: {
+            type: 'union',
+            schemas: [{ type: 'array', element: { type: 'object' } }, { type: 'object' }],
+          },
+        },
+      },
+      addNewMarkers: {
+        type: 'toggle',
+        displayName: 'Add new markers',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      enableDelete: {
+        type: 'toggle',
+        displayName: '允许右键删除标签',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      canSearch: {
+        type: 'toggle',
+        displayName: 'Search for places',
+        tip:"高德默认每天只能调用100次，超过就无法补全",
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        }, 
+      },
+      showScaleControl: {
+        type: 'toggle',
+        displayName: '显示比例尺',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      showCenterMarker: {
+        type: 'toggle',
+        displayName: '显示中心点标记',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      geolocation: {
+        type: 'toggle',
+        displayName: '默认定位到当前位置',
+        tip:'开启后，如果定位成功，则【起始位置】失效',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      zoom: {
+        type: 'number',
+        displayName: '默认缩放级别',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+      mapApiKey:{
+        type: 'code',
+        displayName: '高德地图Akey',
+        tip: '可以到首页->工作区设置->管理工作区变量,添加类型为clint，名称为AMAP_API_KEY的变量，API可以前往高德开放平台申请。',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      mapSecurityKey:{
+        type: 'code',
+        displayName: '高德API密钥',
+        tip: '可以到首页->工作区设置->管理工作区变量,添加类型为clint，名称为AMAP_SECURITY_KEY的变量，不设置密钥无法搜索地点，密钥可以前往高德开放平台申请。',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    events: {
+      onBoundsChange: { displayName: '中心点改变时' },
+      onCreateMarker: { displayName: '创建标记时' },
+      onMarkerClick: { displayName: '左键单击标记时' },
+      onMarkerRightClick: { displayName: '右键删除标记时' },
+    },
+    actions: [
+      {
+        handle: 'setLocation',
+        displayName: '设置位置',
+        params: [
+          { handle: 'lat', displayName: '维度' },
+          { handle: 'lng', displayName: '经度' },
+        ],
+      },
+    ],
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: 'Disable',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    exposedVariables: {
+      center: {},
+    },
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        initialLocation: {
+          value: `{{ {"lat": 30.24887, "lng": 120.202352} }}`,
+        },
+        defaultMarkers: {
+          value: `{{ [{"lat": 30.24887, "lng": 120.288352}] }}`,
+        },
+        mapApiKey:{
+          value:'a7a90e05a37d3f6bf76d4a9032fc9129',
+        },
+        mapSecurityKey:{
+          value:'',
+        },
+        showScaleControl:{
+          value:`{{true}}`
+        },
+        enableDelete:{
+          value:`{{true}}`
+        },
+        showCenterMarker:{
+          value:`{{true}}`
+        },
+        canSearch: {
+          value: `{{true}}`,
+        },
+        geolocation: {
+          value: `{{false}}`,
+        },
+        zoom: {
+          value: 10,
         },
         addNewMarkers: { value: `{{true}}` },
       },

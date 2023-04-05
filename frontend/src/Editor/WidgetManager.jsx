@@ -98,7 +98,7 @@ export const WidgetManager = function WidgetManager({ componentTypes, zoomLevel,
       'FilePicker',
       'StarRating',
     ];
-    const integrationItems = ['Map'];
+    const integrationItems = ['Map','AMaps'];
     const layoutItems = ['Container', 'Listview', 'Tabs', 'Modal'];
 
     filteredComponents.forEach((f) => {
