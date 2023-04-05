@@ -2578,132 +2578,132 @@ export const widgets = [
       },
     },
   },
-  {
-    name: 'Map',
-    displayName: 'Map',
-    description: 'Display Google Maps',
-    component: 'Map',
-    defaultSize: {
-      width: 16,
-      height: 420,
-    },
-    others: {
-      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
-      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
-    },
-    properties: {
-      initialLocation: {
-        type: 'code',
-        displayName: 'Initial location',
-        tip: '这个位置将是地图的初始中心',
-        options: {
-          mode: 'javascript',
-          theme: 'duotone-light',
-          className: 'map-location-input pr-2',
-        },
-        validation: {
-          schema: {
-            type: 'union',
-            schemas: [{ type: 'array', element: { type: 'object' } }, { type: 'object' }],
-          },
-        },
-      },
-      defaultMarkers: {
-        type: 'code',
-        displayName: 'Default markers',
-        options: {
-          mode: 'javascript',
-          theme: 'duotone-light',
-          className: 'map-location-input pr-2',
-        },
-        validation: {
-          schema: {
-            type: 'union',
-            schemas: [{ type: 'array', element: { type: 'object' } }, { type: 'object' }],
-          },
-        },
-      },
-      addNewMarkers: {
-        type: 'toggle',
-        displayName: 'Add new markers',
-        validation: {
-          schema: {
-            type: 'boolean',
-          },
-        },
-      },
-      canSearch: {
-        type: 'toggle',
-        displayName: 'Search for places',
-        validation: {
-          schema: {
-            type: 'boolean',
-          },
-        },
-      },
-    },
-    events: {
-      onBoundsChange: { displayName: 'On bounds change' },
-      onCreateMarker: { displayName: 'On create marker' },
-      onMarkerClick: { displayName: 'On marker click' },
-    },
-    actions: [
-      {
-        handle: 'setLocation',
-        displayName: '设置位置',
-        params: [
-          { handle: 'lat', displayName: '维度' },
-          { handle: 'lng', displayName: '经度' },
-        ],
-      },
-    ],
-    styles: {
-      visibility: {
-        type: 'toggle',
-        displayName: 'Visibility',
-        validation: {
-          schema: {
-            type: 'boolean',
-          },
-        },
-      },
-      disabledState: {
-        type: 'toggle',
-        displayName: 'Disable',
-        validation: {
-          schema: {
-            type: 'boolean',
-          },
-        },
-      },
-    },
-    exposedVariables: {
-      center: {},
-    },
-    definition: {
-      others: {
-        showOnDesktop: { value: '{{true}}' },
-        showOnMobile: { value: '{{false}}' },
-      },
-      properties: {
-        initialLocation: {
-          value: `{{ {"lat": 40.7128, "lng": -73.935242} }}`,
-        },
-        defaultMarkers: {
-          value: `{{ [{"lat": 40.7128, "lng": -73.935242}] }}`,
-        },
-        canSearch: {
-          value: `{{true}}`,
-        },
-        addNewMarkers: { value: `{{true}}` },
-      },
-      events: [],
-      styles: {
-        visibility: { value: '{{true}}' },
-        disabledState: { value: '{{false}}' },
-      },
-    },
-  },
+  // {
+  //   name: 'Map',
+  //   displayName: 'Map',
+  //   description: 'Display Google Maps',
+  //   component: 'Map',
+  //   defaultSize: {
+  //     width: 16,
+  //     height: 420,
+  //   },
+  //   others: {
+  //     showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+  //     showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+  //   },
+  //   properties: {
+  //     initialLocation: {
+  //       type: 'code',
+  //       displayName: 'Initial location',
+  //       tip: '这个位置将是地图的初始中心',
+  //       options: {
+  //         mode: 'javascript',
+  //         theme: 'duotone-light',
+  //         className: 'map-location-input pr-2',
+  //       },
+  //       validation: {
+  //         schema: {
+  //           type: 'union',
+  //           schemas: [{ type: 'array', element: { type: 'object' } }, { type: 'object' }],
+  //         },
+  //       },
+  //     },
+  //     defaultMarkers: {
+  //       type: 'code',
+  //       displayName: 'Default markers',
+  //       options: {
+  //         mode: 'javascript',
+  //         theme: 'duotone-light',
+  //         className: 'map-location-input pr-2',
+  //       },
+  //       validation: {
+  //         schema: {
+  //           type: 'union',
+  //           schemas: [{ type: 'array', element: { type: 'object' } }, { type: 'object' }],
+  //         },
+  //       },
+  //     },
+  //     addNewMarkers: {
+  //       type: 'toggle',
+  //       displayName: 'Add new markers',
+  //       validation: {
+  //         schema: {
+  //           type: 'boolean',
+  //         },
+  //       },
+  //     },
+  //     canSearch: {
+  //       type: 'toggle',
+  //       displayName: 'Search for places',
+  //       validation: {
+  //         schema: {
+  //           type: 'boolean',
+  //         },
+  //       },
+  //     },
+  //   },
+  //   events: {
+  //     onBoundsChange: { displayName: 'On bounds change' },
+  //     onCreateMarker: { displayName: 'On create marker' },
+  //     onMarkerClick: { displayName: 'On marker click' },
+  //   },
+  //   actions: [
+  //     {
+  //       handle: 'setLocation',
+  //       displayName: '设置位置',
+  //       params: [
+  //         { handle: 'lat', displayName: '维度' },
+  //         { handle: 'lng', displayName: '经度' },
+  //       ],
+  //     },
+  //   ],
+  //   styles: {
+  //     visibility: {
+  //       type: 'toggle',
+  //       displayName: 'Visibility',
+  //       validation: {
+  //         schema: {
+  //           type: 'boolean',
+  //         },
+  //       },
+  //     },
+  //     disabledState: {
+  //       type: 'toggle',
+  //       displayName: 'Disable',
+  //       validation: {
+  //         schema: {
+  //           type: 'boolean',
+  //         },
+  //       },
+  //     },
+  //   },
+  //   exposedVariables: {
+  //     center: {},
+  //   },
+  //   definition: {
+  //     others: {
+  //       showOnDesktop: { value: '{{true}}' },
+  //       showOnMobile: { value: '{{false}}' },
+  //     },
+  //     properties: {
+  //       initialLocation: {
+  //         value: `{{ {"lat": 40.7128, "lng": -73.935242} }}`,
+  //       },
+  //       defaultMarkers: {
+  //         value: `{{ [{"lat": 40.7128, "lng": -73.935242}] }}`,
+  //       },
+  //       canSearch: {
+  //         value: `{{true}}`,
+  //       },
+  //       addNewMarkers: { value: `{{true}}` },
+  //     },
+  //     events: [],
+  //     styles: {
+  //       visibility: { value: '{{true}}' },
+  //       disabledState: { value: '{{false}}' },
+  //     },
+  //   },
+  // },
   {
     name: 'AMaps',
     displayName: '高德地图',

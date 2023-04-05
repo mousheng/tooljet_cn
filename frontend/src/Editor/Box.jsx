@@ -17,7 +17,7 @@ import { Multiselect } from './Components/Multiselect';
 import { Modal } from './Components/Modal';
 import { Chart } from './Components/Chart';
 import {Echarts} from './Components/Echarts/Echarts'
-import { Map } from './Components/Map/Map';
+// import { Map } from './Components/Map/Map';
 import { AMaps } from './Components/AMaps/AMaps';
 import { QrScanner } from './Components/QrScanner/QrScanner';
 import { ToggleSwitch } from './Components/Toggle';
@@ -88,7 +88,7 @@ const AllComponents = {
   Multiselect,
   Modal,
   Chart,
-  Map,
+  // Map,
   AMaps,
   QrScanner,
   ToggleSwitch,
