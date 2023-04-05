@@ -11,10 +11,11 @@ export const Breadcrumbs = () => {
           <Link to={'/'}>程序列表</Link>
         </li>
       )}
-      {breadcrumbs.map(({ breadcrumb, dataCy }) => {
+      {breadcrumbs.map(({ breadcrumb, dataCy, beta }) => {
         return (
           <li key={breadcrumb.key} className="breadcrumb-item font-weight-500" data-cy={dataCy ?? ''}>
-            <Link to={breadcrumb.key}>{breadcrumb}</Link>
+            <span to={breadcrumb.key}>{breadcrumb}</span>
+            {beta && <span class="badge bg-color-primary mx-3">beta</span>}
           </li>
         );
       })}
@@ -28,4 +29,5 @@ const routes = [
   { path: '/database', breadcrumb: '数据表', props: { dataCy: 'tables-page-header' } },
   { path: '/workspace-settings', breadcrumb: '工作区设置' },
   { path: '/global-datasources', breadcrumb: '全局数据源' },
+  { path: '/integrations', breadcrumb: '集成/插件', props: { beta: true } },
 ];
