@@ -6103,10 +6103,6 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     },
     events: {onClick: { displayName: '点击时' },},
     actions: [
-      {
-        handle: 'click',
-        displayName: '点击',
-      },
     ],
     styles: {
       padding: {
