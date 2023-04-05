@@ -18,9 +18,9 @@ export const SignupInfoScreen = function SignupInfoScreen({ email, backtoSignup,
       if (timeLeft == -1) {
         clearTimeout(timerId);
         setResetBtn(false);
-        elem.innerHTML = 'Resend verification mail ';
+        elem.innerHTML = '重新发送验证邮件 ';
       } else {
-        elem.innerHTML = 'Resend verification mail in ' + timeLeft + ' s';
+        elem.innerHTML = '重新发送验证邮件 ' + timeLeft + ' 秒';
         timeLeft--;
       }
     }
@@ -59,14 +59,13 @@ export const SignupInfoScreen = function SignupInfoScreen({ email, backtoSignup,
           data-cy="email-image"
         />
         <h1 className="common-auth-section-header" data-cy="onboarding-page-header">
-          Check your mail
+          检查您的邮箱
         </h1>
         <p className="info-screen-description" data-cy="onboarding-page-description">
-          We’ve sent an email to <span className="signup-email-name">{email} </span>with a verification link. Please use
-          that to verify your email address.
+          我们已向<span className="signup-email-name">{email} </span>发送了一封带有验证链接的电子邮件请查收。
         </p>
         <p className="info-screen-spam-msg" data-cy="email-page-spam-msg">
-          Did not receive an email? Check your spam folder.
+          没有收到电子邮件？请检查垃圾邮件文件夹
         </p>
         <div className="separator-onboarding">
           <div className="separator">
@@ -94,7 +93,7 @@ export const SignupInfoScreen = function SignupInfoScreen({ email, backtoSignup,
               disabled={resendBtn || isLoading}
               data-cy="resend-email-button"
             >
-              Resend verification mail in 30s
+              30秒后重新发送验证邮件
             </ButtonSolid>
           )}
           {!single_organization && (
@@ -105,7 +104,7 @@ export const SignupInfoScreen = function SignupInfoScreen({ email, backtoSignup,
               className="signup-info-edit-btn signup-info-btn"
               data-cy="edit-email-button"
             >
-              Edit email address
+              编辑电子邮箱地址
             </ButtonSolid>
           )}
         </>
