@@ -5988,7 +5988,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   {
     name: 'Echarts',
     displayName: 'Echarts',
-    description: 'Display Echarts',
+    description: '显示Echarts',
     component: 'Echarts',
     defaultSize: {
       width: 20,
