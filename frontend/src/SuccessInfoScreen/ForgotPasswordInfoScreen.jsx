@@ -18,13 +18,13 @@ export const ForgotPasswordInfoScreen = function ForgotPasswordInfoScreen({ emai
           data-cy="email-image"
         />
         <h1 className="common-auth-section-header" data-cy="onboarding-page-header">
-          Check your mail
+          验证您的邮件
         </h1>
         <p className="info-screen-description" data-cy="onboarding-page-description">
-          We’ve sent an email to {email} with a password reset link. Please click on that link to reset your password.
+          我们已向 {email} 发送了一封带有密码重置链接的电子邮件。请单击该链接重置您的密码。
         </p>
         <p className="info-screen-spam-msg" data-cy="email-page-spam-msg">
-          Did not receive an email? Check your spam folder.
+          没有收到电子邮件？请检查垃圾邮件文件夹.
         </p>
         <div className="separator-onboarding">
           <div className="separator">
@@ -39,7 +39,7 @@ export const ForgotPasswordInfoScreen = function ForgotPasswordInfoScreen({ emai
           onClick={() => navigate('/login')}
           data-cy="back-to-login-button"
         >
-          Back to log in
+          返回登录
         </ButtonSolid>
       </div>
     </div>
