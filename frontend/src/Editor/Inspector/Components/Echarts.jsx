@@ -3,6 +3,7 @@ import { renderElement } from '../Utils';
 import { CodeHinter } from '../../CodeBuilder/CodeHinter';
 import Accordion from '@/_ui/Accordion';
 import { resolveReferences } from '@/_helpers/utils';
+import { EventManager } from '../EventManager';
 
 class Echarts extends React.Component {
   constructor(props) {
@@ -107,7 +108,7 @@ class Echarts extends React.Component {
     }
 
     items.push({
-          title: '绘制图表架构',
+          title: '绘制图表方式',
           children: renderElement(
             component,
             componentMeta,
@@ -203,6 +204,23 @@ class Echarts extends React.Component {
           });
         }
       }
+
+      items.push({
+        title: '事件处理',
+        isOpen: true,
+        children: (
+          <EventManager
+            component={component}
+            componentMeta={componentMeta}
+            currentState={currentState}
+            dataQueries={dataQueries}
+            components={components}
+            eventsChanged={this.props.eventsChanged}
+            apps={this.props.apps}
+            pages={this.props.pages}
+          />
+        ),
+      });
 
       items.push({
         title: '布局',

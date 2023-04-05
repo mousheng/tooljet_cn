@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { isJson, smartParseJSON } from '@/_helpers/utils';
 //引入echats-for-react
 import ReactEcharts from 'echarts-for-react';
@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 
 
-export const Echarts = function Echarts({ width, height, darkMode, properties, styles, dataCy }) {
+export const Echarts = function Echarts({ width, height, darkMode, properties, styles, dataCy, onComponentOptionChanged, onEvent, component, fireEvent }) {
 
   const [loadingState, setLoadingState] = useState(false);
 
@@ -116,15 +116,20 @@ export const Echarts = function Echarts({ width, height, darkMode, properties, s
         subtext: subTitle,
         left: 'center'
       },
+      // animation: mode == 'edit' ? false : true,
     };
     return _.assign(option, newData);
   };
-
   const memoizedChartData = useMemo(
     () => computeChartData(data, dataString),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [data, dataString, chartType, markerColor, title, padding, showXAxes, showYAxes, showGridLines, darkMode, subTitle]
   );
+
+  const handleEvents = useCallback((params) => {
+    fireEvent('onClick');
+    onComponentOptionChanged(component, 'clickItem', _.pick(params,params.$vars)).then(() => onEvent('onClock', { component }));
+  }, []);
 
   return (
     <div data-disabled={disabledState} style={computedStyles} data-cy={dataCy}>
@@ -137,11 +142,13 @@ export const Echarts = function Echarts({ width, height, darkMode, properties, s
       ) : (
         <ReactEcharts
           option={plotFromJson ? jsonChartData : memoizedChartData}      // option：图表配置项
-          onChange={() => { }}
           notMerge={true}
           lazyUpdate={true}
           style={{ height: `${height}px` }}
           theme={darkMode ? 'dark' : 'auto'}
+          onEvents={{
+            'click': handleEvents,
+          }}
         ></ReactEcharts>
       )}
     </div>
