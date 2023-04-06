@@ -3,7 +3,7 @@ FROM node:18.3.0-buster AS builder
 # Fix for JS heap limit allocation issue
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
-RUN npm i -g npm@8.11.0
+RUN npm i -g npm@8.11.0 && npm config set registry https://registry.npm.taobao.org
 RUN mkdir -p /app
 
 WORKDIR /app
@@ -29,14 +29,15 @@ ENV NODE_ENV=production
 
 # Build server
 COPY ./server/package.json ./server/package-lock.json ./server/
-RUN npm --prefix server install
+RUN npm cache clean --force && npm --prefix server install
 COPY ./server/ ./server/
 RUN npm install -g @nestjs/cli 
 RUN npm --prefix server run build
 
 FROM debian:11
 
-RUN apt-get update -yq \
+RUN sed -i "s/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
+    && apt-get update -yq \
     && apt-get install curl gnupg zip -yq \
     && apt-get install -yq build-essential \
     && apt-get clean -y
