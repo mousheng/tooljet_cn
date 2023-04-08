@@ -52,7 +52,7 @@ export const EditModal = ({ slug, page, show, handleClose, updatePageHandle, dar
     >
       <Modal.Header>
         <Modal.Title style={{ fontSize: '16px', fontWeight: '400' }} data-cy={'title-edit-page-handle'}>
-          Edit page handle
+          编辑页面路径
         </Modal.Title>
         <span className="cursor-pointer" size="sm" onClick={() => handleClose()}>
           <svg
@@ -88,7 +88,7 @@ export const EditModal = ({ slug, page, show, handleClose, updatePageHandle, dar
 
         <div className="alert-container">
           <Alert svg="alert-info" cls="page-handler-alert" data-cy={`page-handle-alert-info`}>
-            Changing the page handle will break any existing apps that are using this page.
+            更改页面路径将影响正在使用此页面的应用程序
           </Alert>
         </div>
       </Modal.Body>
@@ -100,7 +100,7 @@ export const EditModal = ({ slug, page, show, handleClose, updatePageHandle, dar
           disabled={isSaving}
           data-cy={'button-cancel'}
         >
-          <Button.Content title="Cancel" />
+          <Button.Content title="取消" />
         </Button>
         <Button
           darkMode={darkMode}
@@ -110,7 +110,7 @@ export const EditModal = ({ slug, page, show, handleClose, updatePageHandle, dar
           isLoading={isSaving}
           data-cy={'button-save'}
         >
-          <Button.Content title="Save" iconSrc="assets/images/icons/save.svg" direction="left" />
+          <Button.Content title="保存" iconSrc="assets/images/icons/save.svg" direction="left" />
         </Button>
       </Modal.Footer>
     </Modal>
