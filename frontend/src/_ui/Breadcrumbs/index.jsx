@@ -29,5 +29,5 @@ const routes = [
   { path: '/database', breadcrumb: '数据表', props: { dataCy: 'tables-page-header' } },
   { path: '/workspace-settings', breadcrumb: '工作区设置' },
   { path: '/global-datasources', breadcrumb: '全局数据源' },
-  { path: '/integrations', breadcrumb: '集成/插件', props: { beta: true } },
+  { path: '/integrations', breadcrumb: 'Integrations / plugins', props: { beta: true } },
 ];

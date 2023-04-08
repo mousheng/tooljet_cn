@@ -133,7 +133,7 @@ class OrganizationInvitationPageComponent extends React.Component {
                           className="common-auth-section-header org-invite-header"
                           data-cy="workspace-invite-page-header"
                         >
-                          Join {this.state?.configs?.name ? this.state?.configs?.name : 'ToolJet'}
+                          加入 {this.state?.configs?.name ? this.state?.configs?.name : 'ToolJet'}
                         </h2>
 
                         <div className="invite-sub-header" data-cy="workspace-invite-page-sub-header">
@@ -149,10 +149,10 @@ class OrganizationInvitationPageComponent extends React.Component {
                           <p className="tj-text-input">{userDetails?.name}</p>
                         </div>
 
-                        <div className="signup-inputs-wrap">
-                          <label className="tj-text-input-label">邮箱</label>
-                          <p className="tj-text-input">{userDetails?.email}</p>
-                        </div>
+                          <div className="signup-inputs-wrap">
+                            <label className="tj-text-input-label">邮箱</label>
+                            <p className="tj-text-input">{userDetails?.email}</p>
+                          </div>
 
                         {userDetails?.onboarding_details?.password && (
                           <div className="mb-3">
