@@ -6083,12 +6083,10 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         },
       },
       jsonDescription: {
-        type: 'json',
+        type: 'code',
         displayName: 'Json Description',
         validation: {
-          schema: {
-            type: 'string',
-          },
+          schemas: [{ type: 'string' }, { type: 'object' }],
         },
       },
       plotFromJson: {

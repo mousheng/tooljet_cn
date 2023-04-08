@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { isJson, smartParseJSON } from '@/_helpers/utils';
+import { isJson, smartParseJSON, resolveReferences } from '@/_helpers/utils';
+import "echarts-gl";
 //引入echats-for-react
 import ReactEcharts from 'echarts-for-react';
 import _ from 'lodash';
 
-
-
-export const Echarts = function Echarts({ width, height, darkMode, properties, styles, dataCy, onComponentOptionChanged, onEvent, component, fireEvent }) {
+export const Echarts = function Echarts({ width, height, darkMode, properties, styles, dataCy, onComponentOptionChanged, onEvent, component, fireEvent, currentState }) {
 
   const [loadingState, setLoadingState] = useState(false);
-
+  const darkModeStyleInJson= {backgroundColor: darkMode ? '#1f2936' : 'white'}
   const { padding, visibility, disabledState } = styles;
   const { subTitle, title, markerColor, showGridLines, type, data, jsonDescription, plotFromJson, showXAxes, showYAxes } = properties;
   //载入状态
@@ -32,12 +31,26 @@ export const Echarts = function Echarts({ width, height, darkMode, properties, s
   //图表类型
   const chartType = type;
 
-  const isDescriptionJson = isJson(jsonDescription);
+  const parseJsonData = () => {
+    if (plotFromJson) {
+      const isDescriptionJson = isJson(jsonDescription);
+      if (isDescriptionJson) {
+        return _.assign(smartParseJSON(jsonDescription, {}),darkModeStyleInJson)
+      } else {
+        let parseTemp = resolveReferences(component.definition.properties.jsonDescription.value, currentState)
+        if (parseTemp === '') {
+          return darkModeStyleInJson
+        }
+        else {
+          return _.assign(parseTemp,darkModeStyleInJson)
+        }
+      }
+    } else {
+      return _.assign(memoizedChartData,darkModeStyleInJson)
+    }
+  }
 
-  const jsonChartData = isDescriptionJson ? smartParseJSON(jsonDescription, {}) : {};
-
-  // const fontColor = darkMode ? '#c3c3c3' : null;
-
+  // 计算预制图表类型
   const computeChartData = (data, dataString) => {
     let rawData = data;
     if (typeof rawData === 'string') {
@@ -120,17 +133,17 @@ export const Echarts = function Echarts({ width, height, darkMode, properties, s
     };
     return _.assign(option, newData);
   };
+
   const memoizedChartData = useMemo(
     () => computeChartData(data, dataString),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [data, dataString, chartType, markerColor, title, padding, showXAxes, showYAxes, showGridLines, darkMode, subTitle]
   );
 
   const handleEvents = useCallback((params) => {
     fireEvent('onClick');
-    onComponentOptionChanged(component, 'clickItem', _.pick(params,params.$vars)).then(() => onEvent('onClock', { component }));
+    onComponentOptionChanged(component, 'clickItem', _.pick(params, params.$vars)).then(() => onEvent('onClock', { component }));
   }, []);
-
+  
   return (
     <div data-disabled={disabledState} style={computedStyles} data-cy={dataCy}>
       {loadingState === true ? (
@@ -141,7 +154,7 @@ export const Echarts = function Echarts({ width, height, darkMode, properties, s
         </div>
       ) : (
         <ReactEcharts
-          option={plotFromJson ? jsonChartData : memoizedChartData}      // option：图表配置项
+          option={parseJsonData()}      // option：图表配置项
           notMerge={true}
           lazyUpdate={true}
           style={{ height: `${height}px` }}
