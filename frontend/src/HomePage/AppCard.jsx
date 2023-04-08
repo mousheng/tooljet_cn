@@ -9,6 +9,7 @@ import configs from './Configs/AppIcon.json';
 import { Link, useNavigate } from 'react-router-dom';
 import urlJoin from 'url-join';
 import { useTranslation } from 'react-i18next';
+import { getPrivateRoute } from '@/_helpers/routes';
 const { defaultIcon } = configs;
 
 // 设置语言环境
@@ -216,8 +217,12 @@ export default function AppCard({
         <Fade visible={focused} className="row mt-2">
           {canUpdate && (
             <div className="col-6">
-              <ToolTip message={t('homePage.appCard.openInAppBuilder', 'Open in app builder')}>
-                <Link to={`/apps/${app.id}`}>
+              <ToolTip message="应用生成器内打开">
+                <Link
+                  to={getPrivateRoute('editor', {
+                    id: app.id,
+                  })}
+                >
                   <button
                     type="button"
                     className="btn btn-sm btn-primary w-100 rounded-2 edit-button"

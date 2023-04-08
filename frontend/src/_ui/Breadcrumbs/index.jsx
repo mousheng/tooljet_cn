@@ -25,7 +25,7 @@ export const Breadcrumbs = () => {
 
 // define some custom breadcrumbs for certain routes (optional)
 const routes = [
-  // { path: '/', breadcrumb: 'Apps' },
+  { path: '/:worspace_id', breadcrumb: 'Apps' },
   { path: '/database', breadcrumb: '数据表', props: { dataCy: 'tables-page-header' } },
   { path: '/workspace-settings', breadcrumb: '工作区设置' },
   { path: '/global-datasources', breadcrumb: '全局数据源' },
