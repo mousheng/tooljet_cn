@@ -15,6 +15,7 @@ import { Datepicker } from './Components/Datepicker';
 import { DaterangePicker } from './Components/DaterangePicker';
 import { Multiselect } from './Components/Multiselect';
 import { Modal } from './Components/Modal';
+import {VideoPlayer} from './Components/VideoPlayer'
 // import { Chart } from './Components/Chart';
 import {Echarts} from './Components/Echarts/Echarts'
 // import { Map } from './Components/Map/Map';
@@ -126,6 +127,7 @@ const AllComponents = {
   Form,
   BoundedBox,
   Echarts,
+  VideoPlayer,
 };
 
 export const Box = function Box({

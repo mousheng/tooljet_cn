@@ -709,10 +709,10 @@ export async function onEvent(_ref, eventName, options, mode = 'edit') {
       'onDetect',
       'onCheck',
       'onUnCheck',
-      'onBoundsChange',
-      'onCreateMarker',
-      'onMarkerClick',
-      'onMarkerRightClick',
+      'onBoundsChange',     //地图中心点被移动时
+      'onCreateMarker',     //地图标记被创建时
+      'onMarkerClick',      //地图标记被点左键点击
+      'onMarkerRightClick',//地图标记右键点击事件
       'onPageChanged',
       'onSearch',
       'onChange',
@@ -728,6 +728,7 @@ export async function onEvent(_ref, eventName, options, mode = 'edit') {
       'onResume',
       'onReset',
       'onPause',
+      'onEnded',
       'onCountDownFinish',
       'onCalendarNavigate',
       'onCalendarViewChange',

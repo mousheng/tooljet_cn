@@ -6212,4 +6212,134 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+  {
+    name: 'VideoPlayer',
+    displayName: '播放器',
+    description: '用于播放视频的播放器',
+    component: 'VideoPlayer',
+    defaultSize: {
+      width: 20,
+      height: 300,
+    },
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      url: {
+        type: 'code',
+        displayName: '视频地址',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      poster: {
+        type: 'code',
+        displayName: '视频海报',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      autoPlay: {
+        type: 'toggle',
+        displayName: '自动播放',
+        'tip':"设置自动播放后，会覆盖静音设置，强制静音播放。别问为啥，因为这个问题我也调试了一天才解决(ಥ﹏ಥ)",
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      muted: {
+        type: 'toggle',
+        displayName: '默认静音',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      loop: {
+        type: 'toggle',
+        displayName: '循环播放',
+        tip:'设置循环播放后，将无法激发视频播放结束事件',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      autoHide: {
+        type: 'toggle',
+        displayName: '控制条自动隐藏',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+    },
+    events: {
+      onStart: { displayName: '播放时' },
+      onPause: { displayName: '暂停时' },
+      onEnded: { displayName: '结束时' },
+    },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    exposedVariables: {},
+    actions: [
+      {
+        handle: 'setURL',
+        displayName: '设置视频地址',
+        params: [{ handle: 'setURL', displayName: '设置视频地址', defaultValue: ``}],
+      },
+      {
+        handle: 'setPlayerState',
+        displayName: '播放状态',
+        params: [{ handle: 'setPlayerState', displayName: '播放状态', defaultValue: `{{true}}`, type: 'toggle' }],
+      },
+      {
+        handle: 'toggleFullscreen',
+        displayName: '切换全屏',
+      },
+    ],
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        url: { value: `https://assets.appsmith.com/widgets/bird.mp4` },
+        poster: { value: `https://video-react.js.org/assets/poster.png` },
+        loadingState: { value: `{{false}}` },
+        autoPlay: { value: `{{false}}` },
+        autoHide:{value:`{{true}}`},
+        loop:{value:`{{false}}`},
+        muted:{value:`{{false}}`},
+      },
+      events: [],
+      styles: {
+        visibility:{value:`{{true}}`},
+      },
+      general:{
+        tooltip:{
+          value:`快捷键：
+播放/暂停 k/空格键
+返回5秒   左箭头
+返回10秒  j
+前进5秒   右箭头
+前进10秒  l
+重启视频	home
+跳到最后	end
+全屏模式	f
+退出全屏  esc
+音量+5%	  向上箭头
+音量-5%	  向下箭头
+加速播放	shift +>
+降低速度	shift +<`
+        }
+      }
+    },
+  },
 ];
