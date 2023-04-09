@@ -16,6 +16,7 @@ import { DaterangePicker } from './Components/DaterangePicker';
 import { Multiselect } from './Components/Multiselect';
 import { Modal } from './Components/Modal';
 import {VideoPlayer} from './Components/VideoPlayer'
+import {AudioPlayer} from './Components/AudioPlayer'
 // import { Chart } from './Components/Chart';
 import {Echarts} from './Components/Echarts/Echarts'
 // import { Map } from './Components/Map/Map';
@@ -72,6 +73,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+  AudioPlayer,
   Button,
   Image,
   Text,

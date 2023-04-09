@@ -6214,7 +6214,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   },
   {
     name: 'VideoPlayer',
-    displayName: '播放器',
+    displayName: '视频播放器',
     description: '用于播放视频的播放器',
     component: 'VideoPlayer',
     defaultSize: {
@@ -6296,8 +6296,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
       {
         handle: 'setPlayerState',
-        displayName: '播放状态',
-        params: [{ handle: 'setPlayerState', displayName: '播放状态', defaultValue: `{{true}}`, type: 'toggle' }],
+        displayName: '设置播放状态',
+        params: [{ handle: 'setPlayerState', displayName: '设置播放状态', defaultValue: `{{true}}`, type: 'toggle' }],
       },
       {
         handle: 'toggleFullscreen',
@@ -6338,6 +6338,103 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
 音量-5%	  向下箭头
 加速播放	shift +>
 降低速度	shift +<`
+        }
+      }
+    },
+  },
+  {
+    name: 'AudioPlayer',
+    displayName: '音频播放器',
+    description: '用于播放音频的播放器',
+    component: 'AudioPlayer',
+    defaultSize: {
+      width: 10,
+      height: 35,
+    },
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      url: {
+        type: 'code',
+        displayName: '音频地址',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      autoPlay: {
+        type: 'toggle',
+        displayName: '自动播放',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      muted: {
+        type: 'toggle',
+        displayName: '默认静音',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      loop: {
+        type: 'toggle',
+        displayName: '循环播放',
+        tip:'设置循环播放后，将无法激发视音频放结束事件',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+    },
+    events: {
+      onStart: { displayName: '播放时' },
+      onPause: { displayName: '暂停时' },
+      onEnded: { displayName: '结束时' },
+    },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    exposedVariables: {},
+    actions: [
+      {
+        handle: 'setURL',
+        displayName: '设置音频地址',
+        params: [{ handle: 'setURL', displayName: '设置音频地址', defaultValue: ``}],
+      },
+      {
+        handle: 'setPlayerState',
+        displayName: '设置播放状态',
+        params: [{ handle: 'setPlayerState', displayName: '设置播放状态', defaultValue: `{{true}}`, type: 'toggle' }],
+      },
+    ],
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        url: { value: `https://assets.appsmith.com/widgets/birds_chirping.mp3` },
+        loadingState: { value: `{{false}}` },
+        autoPlay: { value: `{{false}}` },
+        autoHide:{value:`{{true}}`},
+        loop:{value:`{{false}}`},
+        muted:{value:`{{false}}`},
+      },
+      events: [],
+      styles: {
+        visibility:{value:`{{true}}`},
+      },
+      general:{
+        tooltip:{
+          value:``
         }
       }
     },
