@@ -22,11 +22,12 @@ export const List = () => {
       .then(() => {
         setLoading(false);
       })
-      .catch((e) => {
+      .catch(() => {
         setLoading(false);
         toast.error('无法获取数据源');
         return;
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteDataSource = (selectedSource) => {
