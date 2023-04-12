@@ -12,9 +12,15 @@ export const Breadcrumbs = () => {
         </li>
       )}
       {breadcrumbs.map(({ breadcrumb, dataCy, beta }) => {
+        let breadOfChinese = {
+          'Apps': '首页',
+          'Database': '数据库',
+          'Workspace settings': '工作区设置',
+          'Global datasources': '全局数据源'
+        }
         return (
           <li key={breadcrumb.key} className="breadcrumb-item font-weight-500" data-cy={dataCy ?? ''}>
-            <span to={breadcrumb.key}>{breadcrumb}</span>
+            <span to={breadcrumb.key}>{breadcrumb?.props?.children in breadOfChinese?breadOfChinese[breadcrumb.props.children]:breadcrumb}</span>
             {beta && <span class="badge bg-color-primary mx-3">beta</span>}
           </li>
         );
