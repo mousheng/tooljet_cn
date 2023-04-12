@@ -605,186 +605,186 @@ export const widgets = [
       },
     },
   },
-//   {
-//     name: 'Chart',
-//     displayName: 'Chart',
-//     description: 'Display charts',
-//     component: 'Chart',
-//     defaultSize: {
-//       width: 20,
-//       height: 400,
-//     },
-//     others: {
-//       showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
-//       showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
-//     },
-//     properties: {
-//       title: {
-//         type: 'code',
-//         displayName: 'Title',
-//         validation: {
-//           schema: {
-//             type: 'string',
-//           },
-//         },
-//       },
-//       data: {
-//         type: 'json',
-//         displayName: 'Data',
-//         validation: {
-//           schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'array' }] },
-//         },
-//       },
-//       loadingState: {
-//         type: 'toggle',
-//         displayName: 'Loading State',
-//         validation: {
-//           schema: { type: 'boolean' },
-//         },
-//       },
-//       markerColor: {
-//         type: 'color',
-//         displayName: 'Marker color',
-//         validation: {
-//           schema: {
-//             type: 'string',
-//           },
-//         },
-//       },
-//       showAxes: {
-//         type: 'toggle',
-//         displayName: 'Show axes',
-//         validation: {
-//           schema: {
-//             type: 'boolean',
-//           },
-//         },
-//       },
-//       showGridLines: {
-//         type: 'toggle',
-//         displayName: 'Show grid lines',
-//         validation: {
-//           schema: {
-//             type: 'boolean',
-//           },
-//         },
-//       },
-//       type: {
-//         type: 'select',
-//         displayName: 'Chart type',
-//         options: [
-//           { name: 'Line', value: 'line' },
-//           { name: 'Bar', value: 'bar' },
-//           { name: 'Pie', value: 'pie' },
-//         ],
-//         validation: {
-//           schema: {
-//             type: 'union',
-//             schemas: [{ type: 'string' }, { type: 'boolean' }, { type: 'number' }],
-//           },
-//         },
-//       },
-//       jsonDescription: {
-//         type: 'json',
-//         displayName: 'Json Description',
-//         validation: {
-//           schema: {
-//             type: 'string',
-//           },
-//         },
-//       },
-//       plotFromJson: {
-//         type: 'toggle',
-//         displayName: 'Use Plotly JSON schema',
-//         validation: {
-//           schema: {
-//             type: 'boolean',
-//           },
-//         },
-//       },
-//     },
-//     events: {},
-//     styles: {
-//       padding: {
-//         type: 'code',
-//         displayName: 'Padding',
-//         validation: {
-//           schema: {
-//             type: 'union',
-//             schemas: [{ type: 'number' }, { type: 'string' }],
-//           },
-//         },
-//       },
-//       visibility: {
-//         type: 'toggle',
-//         displayName: 'Visibility',
-//         validation: {
-//           schema: {
-//             type: 'boolean',
-//           },
-//         },
-//       },
-//       disabledState: {
-//         type: 'toggle',
-//         displayName: 'Disable',
-//         validation: {
-//           schema: {
-//             type: 'boolean',
-//           },
-//         },
-//       },
-//     },
-//     exposedVariables: {
-//       show: null,
-//     },
-//     definition: {
-//       others: {
-//         showOnDesktop: { value: '{{true}}' },
-//         showOnMobile: { value: '{{false}}' },
-//       },
-//       properties: {
-//         title: { value: '可修改标题' },
-//         markerColor: { value: '#CDE1F8' },
-//         showAxes: { value: '{{true}}' },
-//         showGridLines: { value: '{{true}}' },
-//         plotFromJson: { value: '{{false}}' },
-//         loadingState: { value: `{{false}}` },
-//         jsonDescription: {
-//           value: `{
-//             "data": [
-//                 {
-//                     "x": [
-//                         "Jan",
-//                         "Feb",
-//                         "Mar"
-//                     ],
-//                     "y": [
-//                         100,
-//                         80,
-//                         40
-//                     ],
-//                     "type": "bar"
-//                 }
-//             ]
-//         }`,
-//         },
-//         type: { value: `line` },
-//         data: {
-//           value: `[
-//   { "x": "Jan", "y": 100},
-//   { "x": "Feb", "y": 80},
-//   { "x": "Mar", "y": 40}
-// ]`,
-//         },
-//       },
-//       events: [],
-//       styles: {
-//         padding: { value: '50' },
-//         visibility: { value: '{{true}}' },
-//         disabledState: { value: '{{false}}' },
-//       },
-//     },
-//   },
+  //   {
+  //     name: 'Chart',
+  //     displayName: 'Chart',
+  //     description: 'Display charts',
+  //     component: 'Chart',
+  //     defaultSize: {
+  //       width: 20,
+  //       height: 400,
+  //     },
+  //     others: {
+  //       showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+  //       showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+  //     },
+  //     properties: {
+  //       title: {
+  //         type: 'code',
+  //         displayName: 'Title',
+  //         validation: {
+  //           schema: {
+  //             type: 'string',
+  //           },
+  //         },
+  //       },
+  //       data: {
+  //         type: 'json',
+  //         displayName: 'Data',
+  //         validation: {
+  //           schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'array' }] },
+  //         },
+  //       },
+  //       loadingState: {
+  //         type: 'toggle',
+  //         displayName: 'Loading State',
+  //         validation: {
+  //           schema: { type: 'boolean' },
+  //         },
+  //       },
+  //       markerColor: {
+  //         type: 'color',
+  //         displayName: 'Marker color',
+  //         validation: {
+  //           schema: {
+  //             type: 'string',
+  //           },
+  //         },
+  //       },
+  //       showAxes: {
+  //         type: 'toggle',
+  //         displayName: 'Show axes',
+  //         validation: {
+  //           schema: {
+  //             type: 'boolean',
+  //           },
+  //         },
+  //       },
+  //       showGridLines: {
+  //         type: 'toggle',
+  //         displayName: 'Show grid lines',
+  //         validation: {
+  //           schema: {
+  //             type: 'boolean',
+  //           },
+  //         },
+  //       },
+  //       type: {
+  //         type: 'select',
+  //         displayName: 'Chart type',
+  //         options: [
+  //           { name: 'Line', value: 'line' },
+  //           { name: 'Bar', value: 'bar' },
+  //           { name: 'Pie', value: 'pie' },
+  //         ],
+  //         validation: {
+  //           schema: {
+  //             type: 'union',
+  //             schemas: [{ type: 'string' }, { type: 'boolean' }, { type: 'number' }],
+  //           },
+  //         },
+  //       },
+  //       jsonDescription: {
+  //         type: 'json',
+  //         displayName: 'Json Description',
+  //         validation: {
+  //           schema: {
+  //             type: 'string',
+  //           },
+  //         },
+  //       },
+  //       plotFromJson: {
+  //         type: 'toggle',
+  //         displayName: 'Use Plotly JSON schema',
+  //         validation: {
+  //           schema: {
+  //             type: 'boolean',
+  //           },
+  //         },
+  //       },
+  //     },
+  //     events: {},
+  //     styles: {
+  //       padding: {
+  //         type: 'code',
+  //         displayName: 'Padding',
+  //         validation: {
+  //           schema: {
+  //             type: 'union',
+  //             schemas: [{ type: 'number' }, { type: 'string' }],
+  //           },
+  //         },
+  //       },
+  //       visibility: {
+  //         type: 'toggle',
+  //         displayName: 'Visibility',
+  //         validation: {
+  //           schema: {
+  //             type: 'boolean',
+  //           },
+  //         },
+  //       },
+  //       disabledState: {
+  //         type: 'toggle',
+  //         displayName: 'Disable',
+  //         validation: {
+  //           schema: {
+  //             type: 'boolean',
+  //           },
+  //         },
+  //       },
+  //     },
+  //     exposedVariables: {
+  //       show: null,
+  //     },
+  //     definition: {
+  //       others: {
+  //         showOnDesktop: { value: '{{true}}' },
+  //         showOnMobile: { value: '{{false}}' },
+  //       },
+  //       properties: {
+  //         title: { value: '可修改标题' },
+  //         markerColor: { value: '#CDE1F8' },
+  //         showAxes: { value: '{{true}}' },
+  //         showGridLines: { value: '{{true}}' },
+  //         plotFromJson: { value: '{{false}}' },
+  //         loadingState: { value: `{{false}}` },
+  //         jsonDescription: {
+  //           value: `{
+  //             "data": [
+  //                 {
+  //                     "x": [
+  //                         "Jan",
+  //                         "Feb",
+  //                         "Mar"
+  //                     ],
+  //                     "y": [
+  //                         100,
+  //                         80,
+  //                         40
+  //                     ],
+  //                     "type": "bar"
+  //                 }
+  //             ]
+  //         }`,
+  //         },
+  //         type: { value: `line` },
+  //         data: {
+  //           value: `[
+  //   { "x": "Jan", "y": 100},
+  //   { "x": "Feb", "y": 80},
+  //   { "x": "Mar", "y": 40}
+  // ]`,
+  //         },
+  //       },
+  //       events: [],
+  //       styles: {
+  //         padding: { value: '50' },
+  //         visibility: { value: '{{true}}' },
+  //         disabledState: { value: '{{false}}' },
+  //       },
+  //     },
+  //   },
   {
     name: 'Modal',
     displayName: 'Modal',
@@ -2770,12 +2770,12 @@ export const widgets = [
       canSearch: {
         type: 'toggle',
         displayName: 'Search for places',
-        tip:"高德默认每天只能调用100次，超过就无法补全",
+        tip: "高德默认每天只能调用100次，超过就无法补全",
         validation: {
           schema: {
             type: 'boolean',
           },
-        }, 
+        },
       },
       showScaleControl: {
         type: 'toggle',
@@ -2798,7 +2798,7 @@ export const widgets = [
       geolocation: {
         type: 'toggle',
         displayName: '默认定位到当前位置',
-        tip:'开启后，如果定位成功，则【起始位置】失效',
+        tip: '开启后，如果定位成功，则【起始位置】失效',
         validation: {
           schema: {
             type: 'boolean',
@@ -2814,7 +2814,7 @@ export const widgets = [
           },
         },
       },
-      mapApiKey:{
+      mapApiKey: {
         type: 'code',
         displayName: '高德地图Akey',
         tip: '可以到首页->工作区设置->管理工作区变量,添加类型为clint，名称为AMAP_API_KEY的变量，API可以前往高德开放平台申请。',
@@ -2824,7 +2824,7 @@ export const widgets = [
           },
         },
       },
-      mapSecurityKey:{
+      mapSecurityKey: {
         type: 'code',
         displayName: '高德API密钥',
         tip: '可以到首页->工作区设置->管理工作区变量,添加类型为clint，名称为AMAP_SECURITY_KEY的变量，不设置密钥无法搜索地点，密钥可以前往高德开放平台申请。',
@@ -2886,20 +2886,20 @@ export const widgets = [
         defaultMarkers: {
           value: `{{ [{"lat": 30.24887, "lng": 120.288352}] }}`,
         },
-        mapApiKey:{
-          value:'a7a90e05a37d3f6bf76d4a9032fc9129',
+        mapApiKey: {
+          value: 'a7a90e05a37d3f6bf76d4a9032fc9129',
         },
-        mapSecurityKey:{
-          value:'',
+        mapSecurityKey: {
+          value: '',
         },
-        showScaleControl:{
-          value:`{{true}}`
+        showScaleControl: {
+          value: `{{true}}`
         },
-        enableDelete:{
-          value:`{{true}}`
+        enableDelete: {
+          value: `{{true}}`
         },
-        showCenterMarker:{
-          value:`{{true}}`
+        showCenterMarker: {
+          value: `{{true}}`
         },
         canSearch: {
           value: `{{true}}`,
@@ -6099,7 +6099,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         },
       },
     },
-    events: {onClick: { displayName: '点击时' },},
+    events: { onClick: { displayName: '点击时' }, },
     actions: [
     ],
     styles: {
@@ -6142,7 +6142,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
       properties: {
         title: { value: '可修改标题' },
-        subTitle: {value: '副标题'},
+        subTitle: { value: '副标题' },
         markerColor: { value: '#CDE1F8' },
         showXAxes: { value: '{{true}}' },
         showYAxes: { value: '{{true}}' },
@@ -6243,7 +6243,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       autoPlay: {
         type: 'toggle',
         displayName: '自动播放',
-        'tip':"设置自动播放后，会覆盖静音设置，强制静音播放。别问为啥，因为这个问题我也调试了一天才解决(ಥ﹏ಥ)",
+        'tip': "设置自动播放后，会覆盖静音设置，强制静音播放。别问为啥，因为这个问题我也调试了一天才解决(ಥ﹏ಥ)",
         validation: {
           schema: { type: 'boolean' },
         },
@@ -6258,7 +6258,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       loop: {
         type: 'toggle',
         displayName: '循环播放',
-        tip:'设置循环播放后，将无法激发视频播放结束事件',
+        tip: '设置循环播放后，将无法激发视频播放结束事件',
         validation: {
           schema: { type: 'boolean' },
         },
@@ -6292,7 +6292,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       {
         handle: 'setURL',
         displayName: '设置视频地址',
-        params: [{ handle: 'setURL', displayName: '设置视频地址', defaultValue: ``}],
+        params: [{ handle: 'setURL', displayName: '设置视频地址', defaultValue: `` }],
       },
       {
         handle: 'setPlayerState',
@@ -6314,17 +6314,17 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         poster: { value: `https://video-react.js.org/assets/poster.png` },
         loadingState: { value: `{{false}}` },
         autoPlay: { value: `{{false}}` },
-        autoHide:{value:`{{true}}`},
-        loop:{value:`{{false}}`},
-        muted:{value:`{{false}}`},
+        autoHide: { value: `{{true}}` },
+        loop: { value: `{{false}}` },
+        muted: { value: `{{false}}` },
       },
       events: [],
       styles: {
-        visibility:{value:`{{true}}`},
+        visibility: { value: `{{true}}` },
       },
-      general:{
-        tooltip:{
-          value:`快捷键：
+      general: {
+        tooltip: {
+          value: `快捷键：
 播放/暂停 k/空格键
 返回5秒   左箭头
 返回10秒  j
@@ -6380,7 +6380,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       loop: {
         type: 'toggle',
         displayName: '循环播放',
-        tip:'设置循环播放后，将无法激发视音频放结束事件',
+        tip: '设置循环播放后，将无法激发视音频放结束事件',
         validation: {
           schema: { type: 'boolean' },
         },
@@ -6407,7 +6407,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       {
         handle: 'setURL',
         displayName: '设置音频地址',
-        params: [{ handle: 'setURL', displayName: '设置音频地址', defaultValue: ``}],
+        params: [{ handle: 'setURL', displayName: '设置音频地址', defaultValue: `` }],
       },
       {
         handle: 'setPlayerState',
@@ -6424,19 +6424,110 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         url: { value: `https://assets.appsmith.com/widgets/birds_chirping.mp3` },
         loadingState: { value: `{{false}}` },
         autoPlay: { value: `{{false}}` },
-        autoHide:{value:`{{true}}`},
-        loop:{value:`{{false}}`},
-        muted:{value:`{{false}}`},
+        autoHide: { value: `{{true}}` },
+        loop: { value: `{{false}}` },
+        muted: { value: `{{false}}` },
       },
       events: [],
       styles: {
-        visibility:{value:`{{true}}`},
+        visibility: { value: `{{true}}` },
       },
-      general:{
-        tooltip:{
-          value:``
+      general: {
+        tooltip: {
+          value: ``
         }
       }
+    },
+  },
+  {
+    name: 'Signature',
+    displayName: '签字板',
+    description: '签字板组件',
+    component: 'Signature',
+    defaultSize: {
+      width: 15,
+      height: 300,
+    },
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      tipText: {
+        type: 'code',
+        displayName: '提示文字',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      showUndo: {
+        type: 'toggle',
+        displayName: '显示撤销图标',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      showClean: {
+        type: 'toggle',
+        displayName: '显示清除图标',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      penColor: {
+        type: 'color',
+        displayName: '铅笔颜色',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    actions: [],
+    events: {
+      onChange: { displayName: '内容改变时' },
+    },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: 'Disable',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        tipText: { value: '此处签名' },
+        showUndo: { value: '{{true}}' },
+        showClean: { value: '{{true}}' },
+        penColor: { value: '#000000' },
+      },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
     },
   },
 ];

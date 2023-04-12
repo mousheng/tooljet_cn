@@ -17,6 +17,7 @@ import { Multiselect } from './Components/Multiselect';
 import { Modal } from './Components/Modal';
 import {VideoPlayer} from './Components/VideoPlayer'
 import {AudioPlayer} from './Components/AudioPlayer'
+import {Signature} from './Components/Signature';
 // import { Chart } from './Components/Chart';
 import {Echarts} from './Components/Echarts/Echarts'
 // import { Map } from './Components/Map/Map';
@@ -130,6 +131,7 @@ const AllComponents = {
   BoundedBox,
   Echarts,
   VideoPlayer,
+  Signature,
 };
 
 export const Box = function Box({

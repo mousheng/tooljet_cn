@@ -1480,6 +1480,23 @@ button {
   filter: brightness(0) invert(1);
 }
 
+// 签字板
+.signatureContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.singnatureTip {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(184, 185, 191);
+  pointer-events: none;
+}
+
 /**
  * Input
  */
@@ -7483,24 +7500,24 @@ tbody {
 }
 
 @keyframes up-and-down {
-  to{
-      opacity: 0.2;
-      transform: translateY(-20px);
-      
+  to {
+    opacity: 0.2;
+    transform: translateY(-20px);
+
   }
 }
 
-.spin-loader {  
+.spin-loader {
   position: fixed;
   width: 100%;
-  
-  .load{
+
+  .load {
     display: flex;
     justify-content: center;
     margin: 200px auto;
   }
 
-  .load div{
+  .load div {
     width: 20px;
     height: 20px;
     background-color: #3E63DD;
@@ -7512,11 +7529,11 @@ tbody {
     animation-direction: alternate;
   }
 
-  .load .two{
+  .load .two {
     animation-delay: 0.3s;
   }
 
-  .load .three{
+  .load .three {
     animation-delay: 0.6s;
   }
 }
@@ -7524,13 +7541,13 @@ tbody {
 .organization-switch-modal {
   font-family: 'IBM Plex Sans';
 
-  .modal-dialog{
+  .modal-dialog {
     width: 376px;
   }
 
-  .modal-content{
+  .modal-content {
     background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
-    linear-gradient(0deg, #DFE3E6, #DFE3E6);
+      linear-gradient(0deg, #DFE3E6, #DFE3E6);
   }
 
   .modal-header {
@@ -7551,7 +7568,7 @@ tbody {
       font-weight: 400;
       font-size: 14px;
       line-height: 20px;
-      color:#687076;
+      color: #687076;
       text-align: Center;
       margin-bottom: 0px;
     }
@@ -7559,12 +7576,12 @@ tbody {
 
   .modal-body {
     padding: 18px 32px;
-    
+
     .org-list {
       display: flex;
       flex-direction: column;
 
-      .org-item{
+      .org-item {
         height: 50px;
         display: flex;
         align-items: center;
@@ -7617,9 +7634,11 @@ tbody {
 }
 
 .organization-switch-modal.dark-mode {
+
   .modal-footer,
   .modal-header {
     border-color: #232e3c !important;
+
     p {
       color: rgba(255, 255, 255, 0.5) !important;
     }
@@ -7638,8 +7657,8 @@ tbody {
   }
 
 
-  .modal-body { 
-    .org-list{ 
+  .modal-body {
+    .org-list {
       span {
         color: white;
       }
@@ -7650,6 +7669,7 @@ tbody {
     }
   }
 }
+
 .datasources-category {
   color: var(--slate10);
 }
