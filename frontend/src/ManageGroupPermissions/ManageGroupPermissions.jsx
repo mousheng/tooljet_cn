@@ -68,9 +68,9 @@ class ManageGroupPermissionsComponent extends React.Component {
   humanizeifDefaultGroupName = (groupName) => {
     switch (groupName) {
       case 'all_users':
-        return 'All Users';
+        return '所有用户';
       case 'admin':
-        return 'Admin';
+        return '管理员';
       default:
         return groupName;
     }
