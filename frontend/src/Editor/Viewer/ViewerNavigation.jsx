@@ -11,7 +11,6 @@ export const ViewerNavigation = ({ isMobileDevice, pages, currentPageId, switchP
   if (isMobileDevice) {
     return null;
   }
-  debugger;
   //统计需要显示的导航条的数量
   const showNavigationCount = _.size(_.filter(pages, (item) => item[1]?.hidden))== pages.length;
   return (
@@ -34,7 +33,9 @@ export const ViewerNavigation = ({ isMobileDevice, pages, currentPageId, switchP
               >
                 <div className={`card mb-1  ${id === currentPageId ? 'active' : ''}`}>
                   <div className="card-body">
-                    <span data-cy={`pages-name-${String(page.name).toLowerCase()}`} className="mx-3 text-wrap">{_.truncate(page.name, { length: 18 })}</span>
+                    <span data-cy={`pages-name-${String(page.name).toLowerCase()}`} className="mx-3 text-wrap">
+                      {_.truncate(page.name, { length: 18 })}
+                    </span>
                   </div>
                 </div>
               </div>

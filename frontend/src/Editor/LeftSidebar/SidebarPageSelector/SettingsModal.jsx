@@ -65,7 +65,7 @@ export const SettingsModal = ({
                 },
               },
             }}
-            componentMeta={{ events: { onPageLoad: { displayName: '页面载入时' } } }}
+            componentMeta={{ events: { onPageLoad: { displayName: '页面载入时' } }, name: 'page' }}
             currentState={currentState}
             dataQueries={dataQueries}
             components={components}
