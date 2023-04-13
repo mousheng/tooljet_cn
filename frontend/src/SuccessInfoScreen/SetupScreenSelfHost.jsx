@@ -41,7 +41,7 @@ function SetupScreenSelfHost({ darkMode }) {
               data-cy="setup-card-image"
             />
             <h1 data-cy="setup-card-header">
-              Hi好,
+              你好,
               <br /> 欢迎来到 <br />
               <span>ToolJet!</span>
             </h1>
