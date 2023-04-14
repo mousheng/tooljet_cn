@@ -1,8 +1,8 @@
 export const widgets = [
   {
     name: 'Table',
-    displayName: 'Table',
-    description: 'Display paginated tabular data',
+    displayName: '表格',
+    description: '显示分页的表格数据',
     component: 'Table',
     properties: {
       title: {
@@ -468,8 +468,8 @@ export const widgets = [
   },
   {
     name: 'Button',
-    displayName: 'Button',
-    description: 'Trigger actions: queries, alerts etc',
+    displayName: 'displayName',
+    description: '用户点击触发查询、提示信息等操作',
     component: 'Button',
     defaultSize: {
       width: 3,
@@ -787,8 +787,8 @@ export const widgets = [
   //   },
   {
     name: 'Modal',
-    displayName: 'Modal',
-    description: 'Modal triggered by events',
+    displayName: '弹窗',
+    description: '由事件触发的弹窗',
     component: 'Modal',
     defaultSize: {
       width: 10,
@@ -948,8 +948,8 @@ export const widgets = [
   },
   {
     name: 'TextInput',
-    displayName: 'Text Input',
-    description: 'Text field for forms',
+    displayName: '文本框',
+    description: '表单的文本字段',
     component: 'TextInput',
     defaultSize: {
       width: 6,
@@ -1079,8 +1079,8 @@ export const widgets = [
   },
   {
     name: 'NumberInput',
-    displayName: 'Number Input',
-    description: 'Number field for forms',
+    displayName: '数字框',
+    description: '表单的数字字段',
     component: 'NumberInput',
     defaultSize: {
       width: 4,
@@ -1189,8 +1189,8 @@ export const widgets = [
   },
   {
     name: 'PasswordInput',
-    displayName: 'Password Input',
-    description: 'Password input field for forms',
+    displayName: '密码框',
+    description: '表单的密码输入字段',
     component: 'PasswordInput',
     defaultSize: {
       width: 4,
@@ -1276,8 +1276,8 @@ export const widgets = [
   },
   {
     name: 'Datepicker',
-    displayName: 'Date Picker',
-    description: 'Select a date and time',
+    displayName: '日期选择器',
+    description: '选择日期和时间',
     component: 'Datepicker',
     defaultSize: {
       width: 5,
@@ -1383,8 +1383,8 @@ export const widgets = [
   },
   {
     name: 'Checkbox',
-    displayName: 'Checkbox',
-    description: 'A single checkbox',
+    displayName: '复选框',
+    description: '单个复选框',
     component: 'Checkbox',
     defaultSize: {
       width: 5,
@@ -1474,8 +1474,8 @@ export const widgets = [
   },
   {
     name: 'Radio-button',
-    displayName: 'Radio Button',
-    description: 'Radio buttons',
+    displayName: '单选按钮',
+    description: '单选按钮',
     component: 'RadioButton',
     defaultSize: {
       width: 6,
@@ -1587,8 +1587,8 @@ export const widgets = [
   },
   {
     name: 'ToggleSwitch',
-    displayName: 'Toggle Switch',
-    description: 'Toggle Switch',
+    displayName: '拨动开关',
+    description: '拨动开关',
     component: 'ToggleSwitch',
     defaultSize: {
       width: 6,
@@ -1670,8 +1670,8 @@ export const widgets = [
   },
   {
     name: 'Textarea',
-    displayName: 'Textarea',
-    description: 'Text area form field',
+    displayName: '长文本输入框',
+    description: '长文本输入框',
     component: 'TextArea',
     defaultSize: {
       width: 6,
@@ -1758,8 +1758,8 @@ export const widgets = [
   },
   {
     name: 'DateRangePicker',
-    displayName: 'Range Picker',
-    description: 'Select a date range',
+    displayName: '日期范围选取器',
+    description: '选择日期范围',
     component: 'DaterangePicker',
     defaultSize: {
       width: 10,
@@ -1856,8 +1856,8 @@ export const widgets = [
   },
   {
     name: 'Text',
-    displayName: 'Text',
-    description: 'Display markdown or HTML',
+    displayName: '文本',
+    description: '显示markdown或HTML',
     component: 'Text',
     others: {
       showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
@@ -2028,8 +2028,8 @@ export const widgets = [
   },
   {
     name: 'Image',
-    displayName: 'Image',
-    description: 'Display an Image',
+    displayName: '图片框',
+    description: '显示图像picture',
     defaultSize: {
       width: 3,
       height: 100,
@@ -2162,8 +2162,8 @@ export const widgets = [
   },
   {
     name: 'Container',
-    displayName: 'Container',
-    description: 'Wrapper for multiple components',
+    displayName: '容器',
+    description: '多个组件的封装器',
     defaultSize: {
       width: 5,
       height: 200,
@@ -2236,8 +2236,8 @@ export const widgets = [
   },
   {
     name: 'Dropdown',
-    displayName: 'Dropdown',
-    description: 'Select one value from options',
+    displayName: '单选下拉框',
+    description: '从选项中选择一个值',
     defaultSize: {
       width: 8,
       height: 30,
@@ -2386,8 +2386,8 @@ export const widgets = [
   },
   {
     name: 'Multiselect',
-    displayName: 'Multiselect',
-    description: 'Select multiple values from options',
+    displayName: '多选框',
+    description: '从选项中选择多个值',
     defaultSize: {
       width: 12,
       height: 30,
@@ -2511,8 +2511,8 @@ export const widgets = [
   },
   {
     name: 'RichTextEditor',
-    displayName: 'Text Editor',
-    description: 'Rich text editor',
+    displayName: '富文本编辑器',
+    description: '可编辑富文本的编辑器',
     component: 'RichTextEditor',
     defaultSize: {
       width: 16,
@@ -2921,8 +2921,8 @@ export const widgets = [
   },
   {
     name: 'QrScanner',
-    displayName: 'QR Scanner',
-    description: 'Scan QR codes and hold its data',
+    displayName: '二维码扫描器',
+    description: '扫描二维码并读取数据',
     component: 'QrScanner',
     defaultSize: {
       width: 10,
@@ -2970,8 +2970,8 @@ export const widgets = [
   },
   {
     name: 'StarRating',
-    displayName: 'Rating',
-    description: 'Star rating',
+    displayName: '评分',
+    description: '评定等级',
     component: 'StarRating',
     defaultSize: {
       width: 10,
@@ -3078,8 +3078,8 @@ export const widgets = [
   },
   {
     name: 'Divider',
-    displayName: 'Divider',
-    description: 'Separator between components',
+    displayName: '分割线',
+    description: '组件之间的分隔线',
     component: 'Divider',
     defaultSize: {
       width: 10,
@@ -3125,8 +3125,8 @@ export const widgets = [
   },
   {
     name: 'FilePicker',
-    displayName: 'File Picker',
-    description: 'File Picker',
+    displayName: '文件选择器',
+    description: '用于上传文件的文本选择器',
     component: 'FilePicker',
     defaultSize: {
       width: 15,
@@ -3304,8 +3304,8 @@ export const widgets = [
   },
   {
     name: 'Calendar',
-    displayName: 'Calendar',
-    description: 'Calendar',
+    displayName: '日历',
+    description: '日历',
     component: 'Calendar',
     defaultSize: {
       width: 30,
@@ -3423,7 +3423,7 @@ export const widgets = [
   {
     name: 'Iframe',
     displayName: 'Iframe',
-    description: 'Display an Iframe',
+    description: '显示一个框架',
     defaultSize: {
       width: 10,
       height: 310,
@@ -3478,8 +3478,8 @@ export const widgets = [
   },
   {
     name: 'CodeEditor',
-    displayName: 'Code Editor',
-    description: 'Code Editor',
+    displayName: '代码编辑器',
+    description: '用于常用代码编辑',
     component: 'CodeEditor',
     defaultSize: {
       width: 15,
@@ -3559,8 +3559,8 @@ export const widgets = [
   },
   {
     name: 'Tabs',
-    displayName: 'Tabs',
-    description: 'Tabs component',
+    displayName: '选项卡',
+    description: '选项卡组件',
     defaultSize: {
       width: 30,
       height: 300,
@@ -3731,8 +3731,8 @@ export const widgets = [
   },
   {
     name: 'Timer',
-    displayName: 'Timer',
-    description: 'timer',
+    displayName: '定时器',
+    description: '像秒表的定时器',
     component: 'Timer',
     defaultSize: {
       width: 11,
@@ -3824,8 +3824,8 @@ export const widgets = [
   },
   {
     name: 'Listview',
-    displayName: 'List View',
-    description: 'Wrapper for multiple components',
+    displayName: '列表视图',
+    description: '多个组件的包装器',
     defaultSize: {
       width: 20,
       height: 300,
@@ -3981,8 +3981,8 @@ export const widgets = [
   },
   {
     name: 'Tags',
-    displayName: 'Tags',
-    description: 'Content can be shown as tags',
+    displayName: '标签',
+    description: '内容可以显示为标签',
     component: 'Tags',
     defaultSize: {
       width: 8,
@@ -4037,8 +4037,8 @@ export const widgets = [
   },
   {
     name: 'Pagination',
-    displayName: 'Pagination',
-    description: 'Pagination ',
+    displayName: '分页',
+    description: '分页组件 ',
     component: 'Pagination',
     defaultSize: {
       width: 10,
@@ -4111,8 +4111,8 @@ export const widgets = [
   },
   {
     name: 'CircularProgressbar',
-    displayName: 'Circular Progressbar',
-    description: 'Show the progress using circular progressbar',
+    displayName: '圆形进度条',
+    description: '使用圆形进度条显示进度',
     component: 'CircularProgressBar',
     defaultSize: {
       width: 7,
@@ -4218,8 +4218,8 @@ export const widgets = [
   },
   {
     name: 'Spinner',
-    displayName: 'Spinner',
-    description: 'Spinner can be used to display loading status',
+    displayName: '加载态',
+    description: '可用于显示加载状态',
     component: 'Spinner',
     defaultSize: {
       width: 4,
@@ -4275,8 +4275,8 @@ export const widgets = [
   },
   {
     name: 'Statistics',
-    displayName: 'Statistics',
-    description: 'Statistics can be used to display different statistical information',
+    displayName: '统计数据',
+    description: '用于显示不同的统计信息',
     component: 'Statistics',
     defaultSize: {
       width: 9.2,
@@ -4368,8 +4368,8 @@ export const widgets = [
   },
   {
     name: 'RangeSlider',
-    displayName: 'Range Slider',
-    description: 'Can be used to show slider with a range',
+    displayName: '范围滑块',
+    description: '可用于显示有范围的滑块',
     component: 'RangeSlider',
     defaultSize: {
       width: 9,
@@ -4473,8 +4473,8 @@ export const widgets = [
   },
   {
     name: 'Timeline',
-    displayName: 'Timeline',
-    description: 'Visual representation of a sequence of events',
+    displayName: '时间线',
+    description: '时间序列的可视化显示',
     component: 'Timeline',
     properties: {
       data: {
@@ -4531,8 +4531,8 @@ export const widgets = [
   },
   {
     name: 'SvgImage',
-    displayName: 'Svg Image',
-    description: 'Svg image',
+    displayName: 'Svg图标',
+    description: '显示SVG图标',
     component: 'SvgImage',
     properties: {
       data: {
@@ -4583,8 +4583,8 @@ export const widgets = [
   },
   {
     name: 'Html',
-    displayName: 'HTML Viewer',
-    description: 'HTML Viewer',
+    displayName: 'HTML查看器',
+    description: 'HTML查看器',
     component: 'Html',
     defaultSize: {
       width: 10,
@@ -4633,8 +4633,8 @@ export const widgets = [
   },
   {
     name: 'VerticalDivider',
-    displayName: 'Vertical Divider',
-    description: 'Vertical Separator between components',
+    displayName: '垂直分隔线',
+    description: '组件之间的垂直分隔线',
     component: 'VerticalDivider',
     defaultSize: {
       width: 2,
@@ -4680,8 +4680,8 @@ export const widgets = [
   },
   {
     name: 'CustomComponent',
-    displayName: 'Custom Component',
-    description: 'Visual representation of a sequence of events',
+    displayName: '自定义组件',
+    description: '添加您的自定义组件',
     component: 'CustomComponent',
     properties: {
       data: { type: 'code', displayName: '数据', validation: { schema: { type: 'object' } } },
@@ -4745,8 +4745,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   },
   {
     name: 'ButtonGroup',
-    displayName: 'Button Group',
-    description: 'ButtonGroup',
+    displayName: '按钮组',
+    description: '按钮组',
     component: 'ButtonGroup',
     properties: {
       label: {
@@ -4888,7 +4888,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   {
     name: 'PDF',
     displayName: 'PDF',
-    description: 'Embed PDF file',
+    description: '嵌入pdf文件',
     component: 'PDF',
     properties: {
       url: { type: 'code', displayName: 'File URL', validation: { schema: { type: 'string' } } },
@@ -4946,8 +4946,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
 
   {
     name: 'Steps',
-    displayName: 'Steps',
-    description: 'Steps',
+    displayName: '步骤',
+    description: '步骤',
     component: 'Steps',
     properties: {
       steps: {
@@ -5047,8 +5047,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   },
   {
     name: 'KanbanBoard',
-    displayName: 'Kanban Board',
-    description: 'Kanban Board',
+    displayName: '看板',
+    description: '看板组件',
     component: 'KanbanBoard',
     defaultSize: {
       width: 40,
@@ -5114,7 +5114,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   {
     name: 'Kanban',
     displayName: '看板',
-    description: '看板控件',
+    description: '看板组件',
     component: 'Kanban',
     defaultSize: {
       width: 40,
@@ -5278,8 +5278,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   },
   {
     name: 'ColorPicker',
-    displayName: 'Color Picker',
-    description: 'Color Picker Palette',
+    displayName: '颜色选择器',
+    description: '颜色选择器调色板',
     component: 'ColorPicker',
     properties: {
       defaultColor: { type: 'color', displayName: 'Default Color' },
@@ -5328,8 +5328,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   },
   {
     name: 'TreeSelect',
-    displayName: 'Tree Select',
-    description: 'Select values from a tree view',
+    displayName: '树形选择',
+    description: '从树视图中选择值',
     defaultSize: {
       width: 12,
       height: 200,
@@ -5407,8 +5407,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   },
   {
     name: 'Link',
-    displayName: 'Link',
-    description: 'Add link to the text',
+    displayName: '链接',
+    description: '向文本添加链接',
     defaultSize: {
       width: 6,
       height: 30,
@@ -5512,8 +5512,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
   },
   {
     name: 'Icon',
-    displayName: 'Icon',
-    description: 'Icon',
+    displayName: '图标',
+    description: '图标组件',
     defaultSize: {
       width: 5,
       height: 48,

@@ -795,8 +795,8 @@
             "description": "单个复选框"
         },
         "Radio-button": {
-            "displayName": "单选框",
-            "description": "单选按框"
+            "displayName": "单选按钮",
+            "description": "单选按钮"
         },
         "ToggleSwitch": {
             "displayName": "拨动开关",
@@ -815,7 +815,7 @@
             "description": "显示markdown或HTML"
         },
         "Image": {
-            "displayName": "图像框",
+            "displayName": "图片框",
             "description": "显示图像"
         },
         "Container": {

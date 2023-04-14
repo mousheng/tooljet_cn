@@ -18,7 +18,7 @@ export const WidgetManager = function WidgetManager({ componentTypes, zoomLevel,
 
   function filterComponents(value) {
     if (value !== '') {
-      const fuse = new Fuse(componentTypes, { keys: ['component'] });
+      const fuse = new Fuse(componentTypes, { keys: ['component','displayName','description'] });
       const results = fuse.search(value);
       setFilteredComponents(results.map((result) => result.item));
     } else {
