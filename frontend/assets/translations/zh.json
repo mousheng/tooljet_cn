@@ -551,7 +551,7 @@
             "showGridLines": "显示网格线",
             "chartType": "图表类型",
             "jsonDescription": "JSON描述",
-            "usePlotlyJsonSchema": "使用绘图JSON模式",
+            "usePlotlyJsonSchema": "使用JSON制图",
             "padding": "内边距",
             "hideTitleBar": "隐藏标题栏",
             "hideCloseButton": "隐藏关闭按钮",

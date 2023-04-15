@@ -101,6 +101,17 @@ class Echarts extends React.Component {
                 components,
                 this.props.darkMode
               )}
+              {renderElement(
+                component,
+                componentMeta,
+                paramUpdated,
+                dataQueries,
+                'loadingState',
+                'properties',
+                currentState,
+                components,
+                this.props.darkMode
+              )}
             </>
           )
         }
@@ -227,15 +238,6 @@ class Echarts extends React.Component {
         isOpen: false,
         children: (
           <>
-            {renderElement(
-              component,
-              componentMeta,
-              paramUpdated,
-              dataQueries,
-              'loadingState',
-              'properties',
-              currentState
-            )}
             {renderElement(
               component,
               componentMeta,
