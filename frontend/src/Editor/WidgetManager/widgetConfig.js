@@ -2369,9 +2369,9 @@ export const widgets = [
       },
       properties: {
         label: { value: '单选下拉框' },
-        value: { value: '{{2}}' },
+        value: { value: '{{1}}' },
         values: { value: '{{[1,2,3]}}' },
-        display_values: { value: '{{["one", "two", "three"]}}' },
+        display_values: { value: '{{["上海", "北京", "广州"]}}' },
         visible: { value: '{{true}}' },
         loadingState: { value: '{{false}}' },
       },

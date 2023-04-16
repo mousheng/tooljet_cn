@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import cnchar from 'cnchar';
 export const DropDown = function DropDown({
   height,
   validate,
@@ -141,23 +142,23 @@ export const DropDown = function DropDown({
     option: (provided, state) => {
       const styles = darkMode
         ? {
-            color: 'white',
-            backgroundColor: state.value === currentValue ? '#3650AF' : 'rgb(31,40,55)',
-            ':hover': {
-              backgroundColor: state.value === currentValue ? '#1F2E64' : '#323C4B',
-            },
-            maxWidth: 'auto',
-            minWidth: 'max-content',
-          }
+          color: 'white',
+          backgroundColor: state.value === currentValue ? '#3650AF' : 'rgb(31,40,55)',
+          ':hover': {
+            backgroundColor: state.value === currentValue ? '#1F2E64' : '#323C4B',
+          },
+          maxWidth: 'auto',
+          minWidth: 'max-content',
+        }
         : {
-            backgroundColor: state.value === currentValue ? '#7A95FB' : 'white',
-            color: state.value === currentValue ? 'white' : 'black',
-            ':hover': {
-              backgroundColor: state.value === currentValue ? '#3650AF' : '#d8dce9',
-            },
-            maxWidth: 'auto',
-            minWidth: 'max-content',
-          };
+          backgroundColor: state.value === currentValue ? '#7A95FB' : 'white',
+          color: state.value === currentValue ? 'white' : 'black',
+          ':hover': {
+            backgroundColor: state.value === currentValue ? '#3650AF' : '#d8dce9',
+          },
+          maxWidth: 'auto',
+          minWidth: 'max-content',
+        };
       return {
         ...provided,
         justifyContent,
@@ -172,6 +173,16 @@ export const DropDown = function DropDown({
       ...provided,
       backgroundColor: darkMode ? 'rgb(31,40,55)' : 'white',
     }),
+  };
+
+  const selectPinYin = (option, input) => {
+    if (input.charCodeAt() >= 32 && input.charCodeAt() <= 126) {
+      if(option.label.spell('first').toLowerCase().indexOf(input.toLowerCase()) >= 0)return true
+      else if(option.label.spell().toLowerCase().indexOf(input.toLowerCase()) >= 0) return true
+      else return false
+    } else {
+      return option.label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+    }
   };
 
   return (
@@ -207,6 +218,9 @@ export const DropDown = function DropDown({
             onInputChange={onSearchTextChange}
             onFocus={(event) => onComponentClick(event, component, id)}
             menuPortalTarget={document.body}
+            filterOption={selectPinYin}
+            placeholder={'请选择..'}
+            noOptionsMessage={()=>'未找到'}
           />
         </div>
       </div>
