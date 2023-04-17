@@ -124,17 +124,31 @@ export const Multiselect = function Multiselect({
     [selected, setSelected]
   );
 
-  const overrideStrings ={
-    "allItemsAreSelected": "所有项目都已选中.",
+  const overrideStrings = {
+    "allItemsAreSelected": "项目已全选.",
     "clearSearch": "清除搜索",
     "clearSelected": "清除选择",
-    "noOptions": "清除已选",
+    "noOptions": "未找到",
     "search": "搜索",
-    "selectAll": "选择所有",
-    "selectAllFiltered": "选择所有 (筛选项)",
+    "selectAll": "全选",
+    "selectAllFiltered": "全选 (筛选项)",
     "selectSomeItems": "请选择...",
     "create": "创建",
   }
+  const selectPinYin = (option, input) => {
+    if (input === '') return option;
+    else if (input && (input.charCodeAt() >= 32 && input.charCodeAt() <= 126)) {
+      return option.filter(item => {
+        if (item.label.spell('first').toLowerCase().indexOf(input.toLowerCase()) >= 0) return true
+        else if (item.label.spell().toLowerCase().indexOf(input.toLowerCase()) >= 0) return true
+        else return false
+      })
+    } else {
+      return option.filter(item => {
+        return item.label.toLowerCase().indexOf(input.toLowerCase())>=0
+      })
+    }
+  };
 
   return (
     <div
@@ -165,6 +179,7 @@ export const Multiselect = function Multiselect({
           className={`multiselect-box${darkMode ? ' dark dark-multiselectinput' : ''}`}
           ItemRenderer={ItemRenderer}
           overrideStrings={overrideStrings}
+          filterOptions={selectPinYin}
         />
       </div>
     </div>

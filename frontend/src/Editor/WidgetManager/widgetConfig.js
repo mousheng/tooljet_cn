@@ -2498,7 +2498,7 @@ export const widgets = [
         label: { value: '多选下拉框' },
         value: { value: '{{[2,3]}}' },
         values: { value: '{{[1,2,3]}}' },
-        display_values: { value: '{{["one", "two", "three"]}}' },
+        display_values: { value: '{{["北京", "上海", "杭州"]}}' },
         visible: { value: '{{true}}' },
       },
       events: [],
