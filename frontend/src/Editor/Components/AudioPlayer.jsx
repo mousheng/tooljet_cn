@@ -20,10 +20,10 @@ export const AudioPlayer = function AudioPlayer({
     dataCy,
 }) {
     const { visibility } = styles;
-    const { url, poster, muted, loop, autoHide, autoPlay } = properties;
+    const { url, poster, muted, loop, autoPlay } = properties;
     // // 音频地址
     const [AudioURL, setAudioURL] = useState(url)
-    const [PlayAutoPlay, setPlayAutoPlay] = useState(autoPlay)
+    const [PlayAutoPlay, setPlayAutoPlay] = useState(false)
     const [playerMuted, setMuted] = useState(muted)
     // const [playerPoster, setPlayerPoster] = useState(poster)
 
@@ -31,39 +31,20 @@ export const AudioPlayer = function AudioPlayer({
     var playerRef = useRef(null)
     useEffect(() => {
         setPlayAutoPlay(autoPlay);
+        if (autoPlay) playerRef.audioEl.current.load()
     }, [autoPlay]);
+    // 是否静音
     useEffect(() => {
         setMuted(muted);
     }, [muted]);
-    // // url修改后动作
-    // useEffect(() => {
-    //     // 设置订阅函数
-    //     playerRef.current.subscribeToStateChange(handleStateChange)
-    //     setVideoURL(url);
-    //     playerRef.current.load()
-    // }, [url]);
-    // // 订阅状态更新
-    // const handleStateChange = (state, prevState) => {
-    //     if (prevState.readyState === 0 && state.readyState === 1) {
-    //         // 视频载入完成
-    //     }
-    //     onComponentOptionsChanged(component, [['currentSrc', state.currentSrc], ['duration', state.duration], ['paused', state.paused], ['volume', state.volume], ['readyState', state.readyState]])
-    //     if (state.ended && state.ended != prevState.ended) {
-    //         // 视频结束事件
-    //         onEvent('onEnded', { component })
-    //     } else if (state.paused != prevState.paused) {
-    //         if (state.paused) {
-    //             // 暂停事件
-    //             onEvent('onPause', { component })
-    //         } else {
-    //             // 播放事件
-    //             onEvent('onStart', { component })
-    //         }
-    //     }
-    // };
+
+    useEffect(() => {
+        // 响应音频地址更新
+        setAudioURL(url);
+        playerRef.audioEl.current.load()
+    }, [url]);
     // 注册控制播放动作
     registerAction('setPlayerState', async function (state) {
-        debugger
         if (state)
             playerRef.audioEl.current.play()
         else
@@ -73,7 +54,6 @@ export const AudioPlayer = function AudioPlayer({
     registerAction('setURL', async function (URL) {
         setAudioURL(URL)
     });
-
     return (
         <div
             style={{ display: visibility ? '' : 'none' }}
@@ -87,16 +67,17 @@ export const AudioPlayer = function AudioPlayer({
                 muted={playerMuted}
                 loop={loop}
                 onPlay={() => {
-                    onEvent('onStart', { component })
+                    onComponentOptionChanged(component, 'playerStatus', 'started').then(onEvent('onStart', { component }))
                 }}
                 onPause={() => {
-                    onEvent('onPause', { component })
+                    onComponentOptionChanged(component, 'playerStatus', 'paused').then(onEvent('onPause', { component }))
+                    // onEvent('onPause', { component })
                 }}
                 onEnded={() => {
-                    onEvent('onEnded', { component })
+                    onComponentOptionChanged(component, 'playerStatus', 'Ended').then(onEvent('onEnded', { component }))
+                    // onEvent('onEnded', { component })
                 }}
             >
-
             </ReactAudioPlayer>
         </div >
     )

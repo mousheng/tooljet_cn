@@ -6404,7 +6404,9 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         },
       },
     },
-    exposedVariables: {},
+    exposedVariables: {
+      playerStatus:''
+    },
     actions: [
       {
         handle: 'setURL',
