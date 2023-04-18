@@ -1,9 +1,9 @@
-
 ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快速构建和部署内部工具。ToolJet的拖放式前端构建器允许您在几分钟内构建复杂的响应式前端。您还可以连接到数据源，如数据库（PostgreSQL、MongoDB、Elasticsearch等）、API端点（ToolJet支持导入OpenAPI规范和OAuth2授权）、SaaS工具（Stripe、Slack、Google Sheets、Airtable、Notion等）和对象存储服务（S3、GCS、Minio等），以获取和写入数据。
 
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/tooljet/tooljet-ce)
 [![GitHub license](https://img.shields.io/github/license/ToolJet/ToolJet)](https://github.com/ToolJet/ToolJet)
 
+### **因本人精力和能力有限，兼容性暂未作测试，不建议将本软件用作生产环境**
 
 <p align="center">
     <img src="docs/static/img/temp/index.png"/>
@@ -41,15 +41,37 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 <hr>
 
-## 主要修改
-- **拼音搜索:** 单选框、多选框添加全拼、首拼搜索的支持
-- **组件面板模糊:** 组件面板支持描述的搜索
-- **添加签字组件:** 添加签字组件
-- **添加音频播放器组件:** 添加音频播放器组件,支持设置自动播放(浏览器需打开允许媒体自动播放选项)、循环以及代码加载新的音频源、代码控制播放状态
-- **添加视频播放器组件:** 添加视频播放器组件，支持海报显示、自动播放（因Google浏览器限制，播放器多次自动播放后将无法自动播放，需设置默认静音才能自动播放）、循环播放等设置，以及播放、暂停、结束时事件响应
+# 主要修改
+- **拼音检索:** 单选框、多选框添加全拼、首拼搜索的支持
+<p align="center">
+    <img src="docs/static/img/temp/拼音检索.gif"/>
+</p>
+
+- **组件面板搜索描述:** 组件面板支持描述的搜索
+
+- **添加签字组件:** 添加签字组件，支持裁剪、自定义钢笔颜色、单步撤销
+<p align="center">
+    <img src="docs/static/img/temp/签字.gif"/>
+</p>
+
+- **添加音频播放器组件:** 添加音频播放器组件,支持设置自动播放(因Google浏览器限制，浏览器需打开允许媒体自动播放选项)、循环以及代码加载新的音频源、代码控制播放状态
+- **添加视频播放器组件:** 添加视频播放器组件，支持海报显示、自动播放（因Google浏览器限制，自动播放收到限制，可设置自动播放且默认静音）、循环播放，可代码控制播放状态、全屏、加载视频，以及播放、暂停、结束时事件响应
+<p align="center">
+    <img src="docs/static/img/temp/videoplay.gif"/>
+</p>
+
 - **添加二维码生成组件:** 添加二维码生成组件，支持渲染类型、纠错等级、填充颜色等属性的设置
 - **添加Echarts组件:** 添加Echarts组件，支持3D图表，支持响应鼠标点击事件
+
+<p align="center">
+    <img src="docs/static/img/temp/echart.gif"/>
+</p>
+
 - **添加高德地图组件:** 复刻原Google地图组件所有功能，并添加比例尺、定位当前位置、右键删除标记事件等功能，(地名搜索补全没反应的话，是因为免费API调用上限只有100次/天，请更换自己的api即可正常使用)
+<p align="center">
+    <img src="docs/static/img/temp/amap.gif"/>
+</p>
+
 - **导航栏隐藏:** 当所有页面都为隐藏时，导航栏自动隐藏
 
 
@@ -76,7 +98,8 @@ docker-compose up -d
 ## 一键二次开发
 使用Docker镜像二次开发，可避免本机软件环境造成启动或者安装失败，复制以下代码即可快速开始
 ```bash
-git clone --depth 1 
+#克隆代码到本地，切换到代码根目录，运行develop_tooljet_in_ubuntu_by_mou.sh即可
+./develop_tooljet_in_ubuntu_by_mou.sh
 ```
 
 
