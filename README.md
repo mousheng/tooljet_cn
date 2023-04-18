@@ -41,44 +41,60 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 <hr>
 
+## 主要修改
+- **拼音搜索:** 单选框、多选框添加全拼、首拼搜索的支持
+- **组件面板模糊:** 组件面板支持描述的搜索
+- **添加签字组件:** 添加签字组件
+- **添加音频播放器组件:** 添加音频播放器组件,支持设置自动播放(浏览器需打开允许媒体自动播放选项)、循环以及代码加载新的音频源、代码控制播放状态
+- **添加视频播放器组件:** 添加视频播放器组件，支持海报显示、自动播放（因Google浏览器限制，播放器多次自动播放后将无法自动播放，需设置默认静音才能自动播放）、循环播放等设置，以及播放、暂停、结束时事件响应
+- **添加二维码生成组件:** 添加二维码生成组件，支持渲染类型、纠错等级、填充颜色等属性的设置
+- **添加Echarts组件:** 添加Echarts组件，支持3D图表，支持响应鼠标点击事件
+- **添加高德地图组件:** 复刻原Google地图组件所有功能，并添加比例尺、定位当前位置、右键删除标记事件等功能，(地名搜索补全没反应的话，是因为免费API调用上限只有100次/天，请更换自己的api即可正常使用)
+- **导航栏隐藏:** 当所有页面都为隐藏时，导航栏自动隐藏
+
+
+
+
+- **汉化:** 对绝大部分界面、组件做了深度汉化
+- **符合国内习惯:** 修改npm国内源、日期格式改为YYYY/mm/dd
+- **符合国内习惯:** 修改npm国内源、日期格式改为YYYY/mm/dd
+
+
 ## 快速试用
-[ToolJet_cn](http://yun.mousheng.top:8082/)<br>
+[ToolJet_cn](http://124.222.215.115:8082/)<br>
 
-## 快速私有部署
+## 一键私有部署
 
-请确保安装了Docker，如果没有请自行百度一下如何安装docker
+请确保安装了Docker，如果没有请自行百度一下如何安装docker,在linux下或window的WSL模式下输入以下代码
 
 ```bash
-docker run \
-  --name tooljet_cn \
-  --restart unless-stopped \
-  -p 80:80 \
-  -v tooljet_data:/var/lib/postgresql/13/main \
-  tooljet/try:latest
+# 配置环境变量
+wget -O autoConfigure.sh https://yun.mousheng.top/tooljet/autoConfigure.sh && chmod 755 autoConfigure.sh && bash autoConfigure.sh
+# 运行镜像
+docker-compose up -d
+```
+## 一键二次开发
+使用Docker镜像二次开发，可避免本机软件环境造成启动或者安装失败，复制以下代码即可快速开始
+```bash
+git clone --depth 1 
 ```
 
-## Tutorials and examples
-
-[GitHub contributor leaderboard using ToolJet](https://blog.tooljet.io/building-a-github-contributor-leaderboard-using-tooljet/)<br>
-[Cryptocurrency dashboard using ToolJet](https://blog.tooljet.com/how-to-build-a-cryptocurrency-dashboard-in-10-minutes/)<br>
-[WhatsApp CRM using ToolJet](https://blog.tooljet.com/build-a-whatsapp-crm-using-tooljet-within-10-mins/)<br>
-[AWS S3 file explorer](https://blog.tooljet.com/building-an-app-to-view-and-upload-files-in-aws-s3-bucket/)<br>
 
 ## 文档
-[官方英文文档](https://docs.tooljet.com)<br>
 [HuangWanddy翻译的中文文档](https://tdoc.xhrjy.cn/docs/contributing-guide/setup/docker)<br>
+[官方英文文档](https://docs.tooljet.com)<br>
 
+<hr>
+#############################以下均为英文社区###############################
+## 社区支持
+有关使用tooljet的一般帮助，请参阅官方网站 [文档](https://docs.tooljet.com/docs/). 要获得更多帮助，您可以使用其中一个渠道提问:
 
+- [Slack](https://tooljet.com/slack) - 与社区和团队的讨论
+- [GitHub](https://github.com/ToolJet/ToolJet/issues) - 用于错误报告和功能请求.
+- [Twitter](https://twitter.com/ToolJet) - 轻松获取产品更新.
 
-## Community support
-For general help using ToolJet, please refer to the official [documentation](https://docs.tooljet.com/docs/). For additional help, you can use one of these channels to ask a question:
-
-- [Slack](https://tooljet.com/slack) - Discussions with the community and the team.
-- [GitHub](https://github.com/ToolJet/ToolJet/issues) - For bug reports and feature requests.
-- [Twitter](https://twitter.com/ToolJet) - Get the product updates easily.
-
-## Roadmap
-Check out our [roadmap](https://github.com/ToolJet/ToolJet/projects/2) to get informed of the latest features released and the upcoming ones.
+## 路线图
+查看我们的[roadmap](https://github.com/ToolJet/ToolJet/projects/2) 了解发布的最新功能和即将推出的功能
 
 
 ## 贡献者
