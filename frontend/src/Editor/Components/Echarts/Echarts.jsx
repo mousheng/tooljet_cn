@@ -140,8 +140,8 @@ export const Echarts = function Echarts({ width, height, darkMode, properties, s
   );
 
   const handleEvents = useCallback((params) => {
-    fireEvent('onClick');
     onComponentOptionChanged(component, 'clickItem', _.pick(params, params.$vars)).then(() => onEvent('onClock', { component }));
+    fireEvent('onClick');
   }, []);
   
   return (

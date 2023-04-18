@@ -6135,7 +6135,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
     exposedVariables: {
-      show: null,
+      clickItem: {},
     },
     definition: {
       others: {
