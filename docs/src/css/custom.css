@@ -7,7 +7,6 @@
 
 /* You can override the default Infima variables here. */
 
-/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap'); */
 
 :root {
   --ifm-color-primary: #4d72fa;
@@ -107,7 +106,6 @@ svg[class^='iconExternalLink'] {
 }
 
 /*
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
   font-family: 'Roboto', sans-serif;
