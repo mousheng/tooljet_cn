@@ -68,6 +68,6 @@ docker-compose run --rm  plugins npm run build:plugins
 docker-compose up
 
 # 打包生产模式的镜像命令
-# docker build -f ./docker/production.Dockerfile -t moushengkoo/tooljet_cn:v1 .
+# docker build -f ./docker/production.Dockerfile -t moushengkoo/tooljet_cn:latest .
 
 
