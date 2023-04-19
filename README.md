@@ -93,7 +93,9 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 # 配置环境变量
 wget -O autoConfigure.sh http://yun.mousheng.top/tooljet/autoConfigure.sh && chmod 755 autoConfigure.sh && bash autoConfigure.sh
 # 运行镜像
-docker-compose up -d
+cd ~/tooljet_cn && docker-compose up
+# 如需后台运行，可运行以下命令
+cd ~/tooljet_cn && docker-compose up -d
 ```
 ## 一键二次开发
 使用Docker镜像二次开发，可避免本机软件环境造成启动或者安装失败，复制以下代码即可快速开始
