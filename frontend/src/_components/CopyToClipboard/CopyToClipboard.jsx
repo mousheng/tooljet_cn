@@ -6,8 +6,8 @@ import { ToolTip } from '@/_components/ToolTip';
 export const CopyToClipboardComponent = ({ data, callback }) => {
   const [copied, setCopied] = React.useState(false);
   const dataToCopy = callback(data);
-  const message = 'Path copied to clipboard';
-  const tip = 'Copy path to clipboard';
+  const message = '路径已复制到剪切板';
+  const tip = '复制路径到剪切板';
 
   //clears the clipboard after 2 seconds
   React.useEffect(() => {
