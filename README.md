@@ -83,7 +83,7 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 
 ## 快速试用
-[ToolJet_cn](http://124.222.215.115:8082/)<br>
+[ToolJet_cn](https://tooljet.mousheng.top/)<br>
 
 ## 一键私有部署
 
@@ -91,9 +91,7 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 ```bash
 # 配置环境变量
-wget -O autoConfigure.sh http://yun.mousheng.top/tooljet/autoConfigure.sh && chmod 755 autoConfigure.sh && bash autoConfigure.sh
-# 运行镜像
-cd ~/tooljet_cn && docker-compose up
+wget -O autoConfigure.sh https://yun.mousheng.top/tooljet/autoConfigure.sh && chmod 755 autoConfigure.sh && bash autoConfigure.sh
 # 如需后台运行，可运行以下命令
 cd ~/tooljet_cn && docker-compose up -d
 ```
