@@ -17,7 +17,7 @@ export const GlobalSettings = ({ darkMode, showHideViewerNavigationControls, sho
           <Popover.Body bsPrefix="popover-body">
             <div className="card-body">
               <label htmlFor="pin" className="form-label" data-cy={`page-settings-header`}>
-                Settings
+                设置
               </label>
               <hr style={{ margin: '0.75rem 0' }} />
               <div className="menu-options mb-0">
@@ -49,12 +49,12 @@ const Toggle = ({ onChange, value = true }) => {
         checked={value}
       />
       <span className="form-check-label" data-cy={`disable-page-menu-label`}>
-        Disable Menu
+        隐藏导航侧边栏
       </span>
 
       <div className="toggle-info">
         <small className="secondary-text" data-cy={`disable-page-menu-description`}>
-          To hide the page navigation sidebar in viewer mode, set this option to on.
+          想要要在发布后隐藏页面导航侧边栏，请将此选项设置为打开（如果您将所有页面设置隐藏，侧边栏页将自动隐藏）.
         </small>
       </div>
     </div>
