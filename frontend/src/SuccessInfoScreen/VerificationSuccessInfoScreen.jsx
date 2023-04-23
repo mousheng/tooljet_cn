@@ -158,13 +158,13 @@ export const VerificationSuccessInfoScreen = function VerificationSuccessInfoScr
                 ) : (
                   <div className="common-auth-container-wrapper">
                     <h2 className="common-auth-section-header org-invite-header" data-cy="invite-page-header">
-                      Join {configs?.name ? configs?.name : 'ToolJet'}
+                      加入 {configs?.name ? configs?.name : 'ToolJet'}
                     </h2>
 
                     <div className="invite-sub-header" data-cy="invite-page-sub-header">
-                      {`You are invited to ${
+                      {`您被邀请参加 ${
                         configs?.name
-                          ? `a workspace ${configs?.name}. Accept the invite to join the workspace.`
+                          ? `工作空间 ${configs?.name}. 接受并加入工作区的邀请.`
                           : 'ToolJet.'
                       }`}
                     </div>
@@ -294,16 +294,16 @@ export const VerificationSuccessInfoScreen = function VerificationSuccessInfoScr
                       </ButtonSolid>
                     </div>
                     <p className="verification-terms" data-cy="signup-terms-helper">
-                      By signing up you are agreeing to the
+                      注册即表示您同意
                       <br />
                       <span>
                         <a href="https://www.tooljet.com/terms" data-cy="terms-of-service-link">
-                          Terms of Service{' '}
+                          服务条款{' '}
                         </a>
                         &
                         <a href="https://www.tooljet.com/privacy" data-cy="privacy-policy-link">
                           {' '}
-                          Privacy Policy
+                          隐私政策
                         </a>
                       </span>
                     </p>
