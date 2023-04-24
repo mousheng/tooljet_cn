@@ -4,6 +4,7 @@ import TemplateLibraryModal from './TemplateLibraryModal/';
 import { useTranslation } from 'react-i18next';
 import { libraryAppService } from '@/_services';
 import EmptyIllustration from '@assets/images/no-apps.svg';
+import { ButtonSolid } from '@/_ui/AppButton/AppButton';
 import { getWorkspaceId } from '../_helpers/utils';
 import { useNavigate } from 'react-router-dom';
 
@@ -25,7 +26,7 @@ export const BlankPage = function BlankPage({
   const staticTemplates = [
     { id: 's3-file-explorer', name: 's3文件资源管理器' },
     { id: 'job-application-tracker', name: '工作申请跟踪' },
-    { id: 'whatsapp-and-sms-crm', name: 'WhatsApp and SMS CRM' },
+    { id: 'whatsapp-and-sms-crm', name: 'whats应用程序和sms crm' },
   ];
 
   function deployApp(id) {
@@ -50,21 +51,17 @@ export const BlankPage = function BlankPage({
 
   return (
     <div>
-      <div className="page-wrapper">
+      <div className="page-wrapper blank-page-wrapper">
         <div className="container-xl"></div>
         <div>
           <div className="container-xl d-flex flex-column justify-content-center">
             <div>
               <div className="row homepage-empty-container">
                 <div className="col-6">
-                  <h3
-                    className="empty-welcome-header"
-                    style={{ color: darkMode && '#ffffff' }}
-                    data-cy="empty-homepage-welcome-header"
-                  >
+                  <h3 className="empty-welcome-header" data-cy="empty-homepage-welcome-header">
                     {t('blankPage.welcomeToToolJet', '欢迎进入您的ToolJet工作区')}
                   </h3>
-                  <p className={`empty-title ${darkMode && 'text-white-50'}`} data-cy="empty-homepage-description">
+                  <p className={`empty-title`} data-cy="empty-homepage-description">
                     {t(
                       'blankPage.getStartedCreateNewApp',
                       '您可以通过创建新应用程序或使用tooljet库中的模板创建应用程序.'
@@ -92,34 +89,23 @@ export const BlankPage = function BlankPage({
                             fill="#FDFDFE"
                           />
                         </svg>
-                        创建的新应用
+                        全新应用程序
                       </a>
                     </div>
                     <div className="col">
-                      <a
-                        className={`btn empty-import-button ${isImportingApp ? 'btn-loading' : ''}`}
+                      <ButtonSolid
+                        leftIcon="folderdownload"
                         onChange={handleImportApp}
+                        isLoading={isImportingApp}
+                        data-cy="create-new-application"
+                        className="col"
+                        variant="tertiary"
                       >
                         <label
                           className="cursor-pointer"
                           style={{ visibility: isImportingApp ? 'hidden' : 'visible' }}
                           data-cy="import-an-application"
                         >
-                          <svg
-                            className="icon"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M9.59145 1.77401C9.84513 1.63132 10.1549 1.63132 10.4086 1.77401L17.0752 5.52401C17.3376 5.67161 17.5 5.94926 17.5 6.25033V10.0003C17.5 10.4606 17.1269 10.8337 16.6667 10.8337C16.2064 10.8337 15.8333 10.4606 15.8333 10.0003V7.6752L10.8333 10.4877V17.5003C10.8333 17.7964 10.6763 18.0702 10.4207 18.2197C10.1651 18.3691 9.84948 18.3718 9.59145 18.2266L2.92478 14.4766C2.66238 14.329 2.5 14.0514 2.5 13.7503V6.25033C2.5 5.94926 2.66238 5.67161 2.92478 5.52401L9.59145 1.77401ZM10 9.0442L14.9669 6.25033L10 3.45645L5.03311 6.25033L10 9.0442ZM4.16667 7.6752V13.263L9.16667 16.0755V10.4877L4.16667 7.6752ZM15.5893 11.9111C15.9147 12.2365 15.9147 12.7641 15.5893 13.0896L14.5118 14.167H18.3333C18.7936 14.167 19.1667 14.5401 19.1667 15.0003C19.1667 15.4606 18.7936 15.8337 18.3333 15.8337H14.5118L15.5893 16.9111C15.9147 17.2365 15.9147 17.7641 15.5893 18.0896C15.2638 18.415 14.7362 18.415 14.4107 18.0896L11.9107 15.5896C11.5853 15.2641 11.5853 14.7365 11.9107 14.4111L14.4107 11.9111C14.7362 11.5856 15.2638 11.5856 15.5893 11.9111Z"
-                              fill="#C1C8CD"
-                            />
-                          </svg>
                           &nbsp;{t('blankPage.importApplication', '导入应用程序')}
                           <input
                             type="file"
@@ -128,11 +114,11 @@ export const BlankPage = function BlankPage({
                             data-cy="import-option-input"
                           />
                         </label>
-                      </a>
+                      </ButtonSolid>
                     </div>
                   </div>
                 </div>
-                <div className="col-6" data-cy="empty-home-page-image">
+                <div className="col-6 empty-home-page-image" data-cy="empty-home-page-image">
                   <EmptyIllustration />
                 </div>
               </div>
@@ -142,19 +128,19 @@ export const BlankPage = function BlankPage({
               <div className="row" data-cy="app-template-row">
                 {staticTemplates.map(({ id, name }) => {
                   return (
-                    <div key={id} className="col-4" onClick={() => deployApp(id)}>
+                    <div key={id} className="col-4 app-template-card-wrapper" onClick={() => deployApp(id)}>
                       <div
-                        className="card cursor-pointer"
+                        className="template-card cursor-pointer"
                         data-cy={`${name.toLowerCase().replace(/\s+/g, '-')}-app-template-card`}
                       >
                         <div
-                          className="img-responsive img-responsive-21x9 card-img-top"
+                          className="img-responsive img-responsive-21x9 card-img-top template-card-img"
                           style={{ backgroundImage: `url(assets/images/templates/${id}.png)` }}
                           data-cy={`${name.toLowerCase().replace(/\s+/g, '-')}-app-template-image`}
                         />
                         <div className="card-body">
                           <h3
-                            className="card-title"
+                            className="tj-text-md font-weight-500"
                             data-cy={`${name.toLowerCase().replace(/\s+/g, '-')}-app-template-title`}
                           >
                             {name}
@@ -167,7 +153,7 @@ export const BlankPage = function BlankPage({
               </div>
               <div className="m-auto text-center mt-4">
                 <span
-                  className="btn btn-link text-decoration-none"
+                  className="see-all-temlplates-link tj-text-sm font-weight-600"
                   onClick={viewTemplateLibraryModal}
                   data-cy="see-all-apps-template-buton"
                 >

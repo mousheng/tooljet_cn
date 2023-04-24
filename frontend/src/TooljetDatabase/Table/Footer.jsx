@@ -86,7 +86,7 @@ const Footer = ({ darkMode, openCreateRowDrawer, dataLoading, tableDataLength })
             size="sm"
             styles={{ width: '118px', fontSize: '12px', fontWeight: 700, borderColor: darkMode && 'transparent' }}
           >
-            <Button.Content title={'添加行'} iconSrc={'assets/images/icons/add-row.svg'} direction="left" />
+            <Button.Content title={'插入行'} iconSrc={'assets/images/icons/add-row.svg'} direction="left" />
           </Button>
             
         </div>
@@ -105,7 +105,7 @@ const Footer = ({ darkMode, openCreateRowDrawer, dataLoading, tableDataLength })
             <div className="col mx-2" data-cy="records-dropdown-field">
               <Select
                 isLoading={dataLoading}
-                className={`${darkMode ? 'select-search-dark' : 'select-search'}`}
+                customWrap={true}
                 options={selectOptions}
                 value={selectOptions.find((option) => option.value === pageSize)}
                 search={false}

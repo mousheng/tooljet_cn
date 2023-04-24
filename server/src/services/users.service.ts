@@ -197,7 +197,7 @@ export class UsersService {
     if (removeGroups) {
       await this.throwErrorIfRemovingLastActiveAdmin(user, removeGroups, orgId);
       if (removeGroups.includes('all_users')) {
-        throw new BadRequestException('Cannot remove user from default group.');
+        throw new BadRequestException('无法从默认组中删除用户.');
       }
 
       await dbTransactionWrap(async (manager: EntityManager) => {

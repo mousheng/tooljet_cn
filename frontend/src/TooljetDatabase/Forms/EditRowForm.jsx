@@ -67,8 +67,8 @@ const EditRowForm = ({ onEdit, onClose }) => {
   });
 
   return (
-    <div className="card">
-      <div className="card-header">
+    <div className="">
+      <div className="drawer-card-title">
         <h3 className="card-title" data-cy="edit-row-header">
           编辑行
         </h3>
@@ -76,17 +76,18 @@ const EditRowForm = ({ onEdit, onClose }) => {
       <div className="card-body">
         <div>
           <div className="mb-3 row g-2 align-items-center">
-            <div className="col-2 form-label" data-cy={`${primaryColumn}-column-name-label`}>
+            <div className="col-2" data-cy={`${primaryColumn}-column-name-label`}>
               {primaryColumn}&nbsp;
               <span className="badge badge-outline text-blue"> 自增序列</span>
             </div>
-            <div className="col-auto" data-cy="select-row-dropdown">
+            <div className="col-auto row-edit-select-container" data-cy="select-row-dropdown">
               <Select
                 useMenuPortal={false}
                 placeholder="选择要编辑的行"
                 value={selectedRow}
                 options={options}
                 onChange={handleOnSelect}
+                customWrap={true}
               />
             </div>
           </div>
@@ -103,7 +104,6 @@ const EditRowForm = ({ onEdit, onClose }) => {
                 'double precision': '浮点数',
                 'boolean': '布尔值'
               }
-              debugger;
               return (
                 <div className="mb-3" key={index}>
                   <div

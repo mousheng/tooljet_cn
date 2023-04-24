@@ -32,13 +32,13 @@ export class GroupPermissionsService {
 
   async create(user: User, group: string, manager?: EntityManager): Promise<void> {
     if (!group || group === '') {
-      throw new BadRequestException('Cannot create group without name');
+      throw new BadRequestException('无法创建没有名称的组');
     }
 
-    const reservedGroups = ['All Users', 'Admin'];
+    const reservedGroups = ['所有用户', '管理员'];
 
     if (reservedGroups.includes(group)) {
-      throw new BadRequestException('Group name already exist');
+      throw new BadRequestException('组名称已存在');
     }
 
     const groupToFind = await this.groupPermissionsRepository.findOne({
@@ -49,7 +49,7 @@ export class GroupPermissionsService {
     });
 
     if (groupToFind) {
-      throw new ConflictException('Group name already exist');
+      throw new ConflictException('组名称已存在');
     }
 
     await dbTransactionWrap(async (manager: EntityManager) => {
@@ -70,7 +70,7 @@ export class GroupPermissionsService {
     });
 
     if (groupPermission.group == 'admin' || groupPermission.group == 'all_users') {
-      throw new BadRequestException('Cannot delete default group');
+      throw new BadRequestException('无法删除默认组');
     }
     await dbTransactionWrap(async (manager: EntityManager) => {
       const relationalEntitiesToBeDeleted = [AppGroupPermission, UserGroupPermission];
@@ -115,7 +115,7 @@ export class GroupPermissionsService {
       throw new BadRequestException();
     }
     if (groupPermission.group == 'admin') {
-      throw new BadRequestException('Cannot update admin group');
+      throw new BadRequestException('无法更新管理组');
     }
 
     await dbTransactionWrap(async (manager: EntityManager) => {
@@ -152,16 +152,16 @@ export class GroupPermissionsService {
       if (name) {
         const newName = name.trim();
         if (!newName) {
-          throw new BadRequestException('Group name should not be empty');
+          throw new BadRequestException('组名称不应为空');
         }
 
         const reservedGroups = ['admin', 'all_users'];
         if (reservedGroups.includes(groupPermission.group)) {
-          throw new BadRequestException('Cannot update a default group name');
+          throw new BadRequestException('无法更新默认组名');
         }
 
         if (reservedGroups.includes(newName.replace(/ /g, '_').toLowerCase())) {
-          throw new BadRequestException('Group name already exists');
+          throw new BadRequestException('组名称已存在');
         }
 
         const groupToFind = await this.groupPermissionsRepository.findOne({
@@ -172,7 +172,7 @@ export class GroupPermissionsService {
         });
 
         if (groupToFind && groupToFind.id !== groupPermission.id) {
-          throw new ConflictException('Group name already exists');
+          throw new ConflictException('组名称已存在');
         } else if (!groupToFind) {
           await manager.update(GroupPermission, groupPermissionId, { group: newName });
         }
@@ -202,7 +202,7 @@ export class GroupPermissionsService {
       // update app group permissions
       if (remove_apps) {
         if (groupPermission.group == 'admin') {
-          throw new BadRequestException('Cannot update admin group');
+          throw new BadRequestException('无法更新管理组');
         }
         for (const appId of remove_apps) {
           await manager.delete(AppGroupPermission, {
@@ -214,7 +214,7 @@ export class GroupPermissionsService {
 
       if (add_apps) {
         if (groupPermission.group == 'admin') {
-          throw new BadRequestException('Cannot update admin group');
+          throw new BadRequestException('无法更新管理组');
         }
         for (const appId of add_apps) {
           await manager.save(

@@ -285,7 +285,7 @@ export const widgets = [
     },
     defaultSize: {
       width: 20,
-      height: 300,
+      height: 358,
     },
     events: {
       onRowHovered: { displayName: '鼠标悬停在行时' },
@@ -297,6 +297,7 @@ export const widgets = [
       onSort: { displayName: '排序时' },
       onCellValueChanged: { displayName: '单元格值修改时' },
       onFilterChanged: { displayName: '过滤条件改变时' },
+      onNewRowsAdded: { displayName: '添加新行时' },
     },
     styles: {
       textColor: {

@@ -50,14 +50,14 @@ const ColumnForm = ({ onCreate, onClose }) => {
   };
 
   return (
-    <div className="card">
-      <div className="card-header">
-        <h3 className="card-title" data-cy="create-new-column-header">
-        创建新列
+    <div className="drawer-card-wrapper ">
+      <div className="drawer-card-title ">
+        <h3 className="" data-cy="create-new-column-header">
+        插入列
         </h3>
       </div>
       <div className="card-body">
-        <div className="mb-3">
+        <div className="mb-3 tj-app-input">
           <div className="form-label" data-cy="column-name-input-field-label">
             列名
           </div>
@@ -69,9 +69,10 @@ const ColumnForm = ({ onCreate, onClose }) => {
             data-cy="column-name-input-field"
             autoComplete="off"
             onChange={(e) => setColumnName(e.target.value)}
+            autoFocus
           />
         </div>
-        <div className="mb-3" data-cy="data-type-dropdown-section">
+        <div className="mb-3 data-type-dropdown-section" data-cy="data-type-dropdown-section">
           <div className="form-label" data-cy="data-type-input-field-label">
             数据类型
           </div>
@@ -81,9 +82,10 @@ const ColumnForm = ({ onCreate, onClose }) => {
             value={dataType}
             options={dataTypes}
             onChange={handleTypeChange}
+            customWrap={true}
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3 tj-app-input">
           <div className="form-label" data-cy="default-value-input-field-label">
             默认值
           </div>
