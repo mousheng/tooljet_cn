@@ -19,8 +19,8 @@ import cx from 'classnames';
 import { diff } from 'deep-object-diff';
 import { CustomToggleSwitch } from './CustomToggleSwitch';
 import { ChangeDataSource } from './ChangeDataSource';
-
-const queryNameRegex = new RegExp('^[A-Za-z0-9_-]*$');
+// 允许中文查询名
+const queryNameRegex = new RegExp('^[\u4e00-\u9fa5A-Za-z0-9_-]*$');
 
 const staticDataSources = [
   { kind: 'tooljetdb', id: 'null', name: 'Tooljet数据库' },
