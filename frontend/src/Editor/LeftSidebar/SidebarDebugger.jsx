@@ -156,8 +156,8 @@ function ErrorLogsComponent({ errorProps, idx, darkMode }) {
   const errorTitle = ` [${_.capitalize(errorProps.type)} ${errorProps.key}]`;
   const errorMessage =
     errorProps.type === 'component'
-      ? `Invalid property detected: ${errorProps.message}.`
-      : `${_.startCase(errorProps.type)} failed: ${errorProps.message ?? ''}`;
+      ? `检测到无效属性: ${errorProps.message}.`
+      : `${_.startCase(errorProps.type)} 失败: ${errorProps.message ?? ''}`;
 
   const defaultStyles = {
     transform: open ? 'rotate(90deg)' : 'rotate(0deg)',
