@@ -219,10 +219,10 @@ export const FilePicker = ({
     const fileSize = formatFileSize(rejectedFileSize);
 
     if (code === errorType.MIN_SIZE) {
-      return `File size ${fileSize} is too small. Minimum size is ${formatFileSize(parsedMinSize)}`;
+      return `文件 ${fileSize} 太小. 最小文件大小为 ${formatFileSize(parsedMinSize)}`;
     }
     if (code === errorType.MAX_SIZE) {
-      return `File size ${fileSize} is too large. Maximum size is ${formatFileSize(parsedMaxSize)}`;
+      return `文件 ${fileSize} 太大. 最大文件大小为 ${formatFileSize(parsedMaxSize)}`;
     }
 
     return message;
