@@ -107,7 +107,7 @@ export const Tabs = function Tabs({
     },
     [setCurrentTab]
   );
-
+  // TODO：画布重新计算长宽
   const renderTabContent = (id, tab) => (
     <div
       className={`tab-pane active`}
@@ -129,20 +129,21 @@ export const Tabs = function Tabs({
       />
     </div>
   );
+  var vertical = true
 
   return (
     <div
       data-disabled={parsedDisabledState}
       className="jet-tabs card"
-      style={{ height, display: parsedWidgetVisibility ? 'flex' : 'none', backgroundColor: bgColor }}
+      style={{ height, display: parsedWidgetVisibility ? 'flex' : 'none', backgroundColor: bgColor, 'flex-direction': vertical ? 'row' : 'none' }}
       data-cy={dataCy}
     >
       <ul
-        className="nav nav-tabs"
+        className={`nav nav-tabs ${vertical ? 'nav-tabs-vertical':''}`}
         data-bs-toggle="tabs"
         style={{
           zIndex: 1,
-          display: parsedHideTabs && 'none',
+          display: !parsedHideTabs && (vertical ? 'flex':'none'),
           backgroundColor: darkMode ? '#324156' : '#fff',
           margin: '-1px',
         }}

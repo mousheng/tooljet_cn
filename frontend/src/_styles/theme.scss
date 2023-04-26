@@ -3452,6 +3452,11 @@ input:focus-visible {
   font-weight: 300;
 }
 
+.nav-tabs-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
 .nav-tabs .nav-link.active {
   border: 0;
   border-bottom: 1px solid $primary;
