@@ -20,6 +20,7 @@ import {AudioPlayer} from './Components/AudioPlayer'
 import {Signature} from './Components/Signature';
 // import { Chart } from './Components/Chart';
 import {Echarts} from './Components/Echarts/Echarts'
+import { VerticalTabs } from './Components/VerticalTabs';
 // import { Map } from './Components/Map/Map';
 import { AMaps } from './Components/AMaps/AMaps';
 import { QrScanner } from './Components/QrScanner/QrScanner';
@@ -132,6 +133,7 @@ const AllComponents = {
   Echarts,
   VideoPlayer,
   Signature,
+  VerticalTabs,
 };
 
 export const Box = function Box({

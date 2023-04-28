@@ -3561,6 +3561,142 @@ export const widgets = [
     },
   },
   {
+    name: 'VerticalTabs',
+    displayName: '垂直选项卡',
+    description: '选项卡组件',
+    component: 'VerticalTabs',
+    defaultSize: {
+      width: 30,
+      height: 300,
+    },
+    defaultChildren: [
+    ],
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      tabs: {
+        type: 'code',
+        displayName: 'Tabs',
+        validation: {
+          schema: {
+            type: 'array',
+            element: {
+              type: 'object',
+              object: {
+                id: {
+                  type: 'union',
+                  schemas: [{ type: 'string' }, { type: 'number' }],
+                },
+              },
+            },
+          },
+        },
+      },
+      defaultTab: {
+        type: 'code',
+        displayName: 'Default tab',
+        validation: {
+          schema: {
+            type: 'union',
+            schemas: [{ type: 'string' }, { type: 'number' }],
+          },
+        },
+      },
+      hideTabs: {
+        type: 'toggle',
+        displayName: 'Hide Tabs',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      tabNavWidth: {
+        type: 'number',
+        displayName: '侧边栏宽度',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+      renderOnlyActiveTab: {
+        type: 'toggle',
+        displayName: 'Render only active tab',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    events: { onTabSwitch: { displayName: '选项卡切换时' } },
+    styles: {
+      highlightColor: {
+        type: 'color',
+        displayName: 'Highlight Color',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: 'Disable',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    actions: [
+      {
+        handle: 'setTab',
+        displayName: '设置选项卡',
+        params: [
+          {
+            handle: 'id',
+            displayName: 'Id',
+          },
+        ],
+      },
+    ],
+    exposedVariables: { currentTab: '' },
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        tabs: {
+          value:
+            "{{[ \n\t\t{ title: '主页', id: '0' }, \n\t\t{ title: '展示', id: '1' }, \n\t\t{ title: '设置', id: '2' } \n ]}}",
+        },
+        defaultTab: { value: '0' },
+        hideTabs: { value: false },
+        tabNavWidth: { value: 100 },
+        renderOnlyActiveTab: { value: true },
+      },
+      events: [],
+      styles: {
+        highlightColor: { value: '' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
+  {
     name: 'Tabs',
     displayName: '选项卡',
     description: '选项卡组件',
