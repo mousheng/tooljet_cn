@@ -18,7 +18,15 @@ export const WidgetManager = function WidgetManager({ componentTypes, zoomLevel,
 
   function filterComponents(value) {
     if (value !== '') {
-      const fuse = new Fuse(componentTypes, { keys: ['component','displayName','description'] });
+      // 添加显示名的首全拼音，及描述的首拼搜索
+      let tempValue = componentTypes.map(x => {
+        return _.assign(x, {
+          displayNameFull: x.displayName.spell(),
+          displayNameFirst: x.displayName.spell('first'),
+          descriptionFirst: x.description.spell('first')
+        })
+      })
+      const fuse = new Fuse(tempValue, { keys: ['component', 'displayName', 'description', 'displayNameFull','displayNameFirst','descriptionFirst'] });
       const results = fuse.search(value);
       setFilteredComponents(results.map((result) => result.item));
     } else {
