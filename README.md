@@ -45,6 +45,7 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 <p align="center">
     <img src="docs/static/img/temp/垂直布局选项卡.gif"/>
 </p>
+
 - **拼音检索:** 单选框、多选框添加全拼、首拼搜索的支持
 <p align="center">
     <img src="docs/static/img/temp/拼音检索.gif"/>
