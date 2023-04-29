@@ -107,7 +107,6 @@ export const VerticalTabs = function VerticalTabs({
         },
         [setCurrentTab]
     );
-    // TODO：画布重新计算长宽
     const renderTabContent = (id, tab) => (
         <div
             className={`tab-pane active`}
@@ -117,7 +116,7 @@ export const VerticalTabs = function VerticalTabs({
                 width: parsedHideTabs ? '100%' : (width - parsedtabNavWidth - 5).toString() + 'px',
                 position: 'absolute',
                 left: parsedHideTabs ? '0px' : parsedtabNavWidth.toString() + 'px',
-                borderLeft: '1px solid #dee2e7'
+                // borderLeft: '1px solid #dee2e7'
             }}
         >
             <SubContainer
@@ -135,7 +134,11 @@ export const VerticalTabs = function VerticalTabs({
         <div
             data-disabled={parsedDisabledState}
             className='jet-tabs card nav-tabs-vertical-row'
-            style={{ height, display: parsedWidgetVisibility ? 'flex' : 'none', backgroundColor: bgColor }}
+            style={{
+                height, display: parsedWidgetVisibility ? 'flex' : 'none',
+                backgroundColor: bgColor,
+                borderRadius: '5px',
+            }}
             data-cy={dataCy}
         >
             <ul
@@ -147,7 +150,8 @@ export const VerticalTabs = function VerticalTabs({
                     backgroundColor: darkMode ? '#324156' : '#fff',
                     margin: '-1px',
                     width: parsedtabNavWidth.toString() + 'px',
-                    borderBottom: '0px solid #000'
+                    // borderBottom: '0px solid #000',
+                    borderRight: '1px solid #dee2e7'
                 }}
             >
                 {parsedTabs.map((tab) => (
@@ -164,9 +168,10 @@ export const VerticalTabs = function VerticalTabs({
                             className={`nav-link ${currentTab == tab.id ? 'active' : ''}`}
                             style={{
                                 color: currentTab == tab.id && parsedHighlightColor,
-                                borderRight: currentTab == tab.id && `2px solid ${parsedHighlightColor}`,
-                                borderBottom: `0px solid #000`,
+                                borderRight: currentTab == tab.id ? `2px solid ${parsedHighlightColor}` : '1px solid #dee2e7',
+                                borderBottom: `0px solid #dee2e7`,
                                 overflowWrap: 'anywhere',
+                                // borderRight: '2px solid #dee2e7',
                             }}
                             ref={(el) => {
                                 if (el && currentTab == tab.id) {
