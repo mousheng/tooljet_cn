@@ -28,9 +28,9 @@ export class MetadataController {
 
     if (process.env.NODE_ENV == 'production') {
       if (
-        process.env.CHECK_FOR_UPDATES &&
-        process.env.CHECK_FOR_UPDATES != '0' &&
-        process.env.CHECK_FOR_UPDATES != 'false'
+        process.env.CHECK_FOR_UPDATES === '1' ||
+        process.env.CHECK_FOR_UPDATES === 'true' ||
+        !process.env.CHECK_FOR_UPDATES
       ) {
         const result = await this.metadataService.checkForUpdates(metadata);
         latestVersion = result.latestVersion;
@@ -38,6 +38,7 @@ export class MetadataController {
       }
 
       if (!process.env.DISABLE_TOOLJET_TELEMETRY) {
+        // 关闭遥测上传数据
         // void this.metadataService.sendTelemetryData(metadata);
       }
     }

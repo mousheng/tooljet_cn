@@ -566,6 +566,7 @@ export const Container = ({
             <a href="https://docs.tooljet.com/docs#the-very-quick-quickstart" target="_blank" rel="noreferrer">
             指南
             </a>{' '}
+            关于添加组件.
           </center>
         </div>
       )}
