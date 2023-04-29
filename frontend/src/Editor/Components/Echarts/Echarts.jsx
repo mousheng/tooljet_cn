@@ -6,9 +6,8 @@ import ReactEcharts from 'echarts-for-react';
 import _ from 'lodash';
 
 export const Echarts = function Echarts({ width, height, darkMode, properties, styles, dataCy, onComponentOptionChanged, onEvent, component, fireEvent, currentState }) {
-
-  const [loadingState, setLoadingState] = useState(false);
-  const darkModeStyleInJson= {backgroundColor: darkMode ? '#1f2936' : 'white'}
+  const [loadingState, setLoadingState] = useState(true);
+   const darkModeStyleInJson= {backgroundColor: darkMode ? '#1f2936' : 'white'}
   const { padding, visibility, disabledState } = styles;
   const { subTitle, title, markerColor, showGridLines, type, data, jsonDescription, plotFromJson, showXAxes, showYAxes } = properties;
   //载入状态
