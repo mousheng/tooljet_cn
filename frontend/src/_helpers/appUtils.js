@@ -302,10 +302,8 @@ export function onQueryConfirmOrCancel(_ref, queryConfirmationData, isConfirm = 
     (query) => query.queryId !== queryConfirmationData.queryId
   );
 
-  flushSync(() => {
-    _ref.setState({
-      queryConfirmationList: filtertedQueryConfirmation,
-    });
+  _ref.setState({
+    queryConfirmationList: filtertedQueryConfirmation,
   });
   isConfirm && runQuery(_ref, queryConfirmationData.queryId, queryConfirmationData.queryName, true, mode);
 }
@@ -315,14 +313,14 @@ export async function copyToClipboard(text) {
     await navigator.clipboard.writeText(text);
     toast.success('已复制到剪贴板!');
   } catch (err) {
-    console.log('Failed to copy!', err);
+    console.log('复制失败!', err);
   }
 }
 
 function showModal(_ref, modal, show) {
   const modalId = modal?.id ?? modal;
   if (_.isEmpty(modalId)) {
-    console.log('No modal is associated with this event.');
+    console.log('没有模块与此事件关联.');
     return Promise.resolve();
   }
 
@@ -432,7 +430,7 @@ function executeActionWithDebounce(_ref, event, mode, customVariables) {
         if (mode === 'view') {
           _ref.props.navigate(url);
         } else {
-          if (confirm('The app will be opened in a new tab as the action is triggered from the editor.')) {
+          if (confirm('当编辑器触发操作时，应用程序将在新选项卡中打开.')) {
             window.open(urlJoin(window.public_config?.TOOLJET_HOST, url));
           }
         }
@@ -491,13 +489,11 @@ function executeActionWithDebounce(_ref, event, mode, customVariables) {
         const customAppVariables = { ..._ref.state.currentState.variables };
         customAppVariables[key] = value;
 
-        return flushSync(() => {
-          _ref.setState({
-            currentState: {
-              ..._ref.state.currentState,
-              variables: customAppVariables,
-            },
-          });
+        return _ref.setState({
+          currentState: {
+            ..._ref.state.currentState,
+            variables: customAppVariables,
+          },
         });
       }
 
@@ -506,13 +502,11 @@ function executeActionWithDebounce(_ref, event, mode, customVariables) {
         const customAppVariables = { ..._ref.state.currentState.variables };
         delete customAppVariables[key];
 
-        return flushSync(() => {
-          _ref.setState({
-            currentState: {
-              ..._ref.state.currentState,
-              variables: customAppVariables,
-            },
-          });
+        return _ref.setState({
+          currentState: {
+            ..._ref.state.currentState,
+            variables: customAppVariables,
+          },
         });
       }
 
@@ -524,16 +518,14 @@ function executeActionWithDebounce(_ref, event, mode, customVariables) {
           [key]: value,
         };
 
-        return flushSync(() => {
-          _ref.setState({
-            currentState: {
-              ..._ref.state.currentState,
-              page: {
-                ..._ref.state.currentState.page,
-                variables: customPageVariables,
-              },
+        return _ref.setState({
+          currentState: {
+            ..._ref.state.currentState,
+            page: {
+              ..._ref.state.currentState.page,
+              variables: customPageVariables,
             },
-          });
+          },
         });
       }
 
@@ -541,16 +533,14 @@ function executeActionWithDebounce(_ref, event, mode, customVariables) {
         const key = resolveReferences(event.key, _ref.state.currentState, undefined, customVariables);
         const customPageVariables = _.omit(_ref.state.currentState.page.variables, key);
 
-        return flushSync(() => {
-          _ref.setState({
-            currentState: {
-              ..._ref.state.currentState,
-              page: {
-                ..._ref.state.currentState.page,
-                variables: customPageVariables,
-              },
+        return _ref.setState({
+          currentState: {
+            ..._ref.state.currentState,
+            page: {
+              ..._ref.state.currentState.page,
+              variables: customPageVariables,
             },
-          });
+          },
         });
       }
 
@@ -920,10 +910,8 @@ export function runQuery(_ref, queryId, queryName, confirmed = undefined, mode =
     }
 
     if (confirmed === undefined) {
-      flushSync(() => {
-        _ref.setState({
-          queryConfirmationList,
-        });
+      _ref.setState({
+        queryConfirmationList,
       });
       return;
     }
@@ -1134,7 +1122,7 @@ export function runQuery(_ref, queryId, queryName, confirmed = undefined, mode =
 
 export function setTablePageIndex(_ref, tableId, index) {
   if (_.isEmpty(tableId)) {
-    console.log('没有表与此事件关联.');
+    console.log('没有表格与此事件关联.');
     return Promise.resolve();
   }
 
@@ -1365,7 +1353,7 @@ export const cloneComponents = (_ref, updateAppDefinition, isCloning = true, isC
     updateAppDefinition(newDefinition);
   } else {
     navigator.clipboard.writeText(JSON.stringify(newComponentObj));
-    toast.success('组件复制成功');
+    toast.success('组件已复制成功');
   }
   _ref.setState({ currentSidebarTab: 2 });
 };
