@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
+import Markdown from "react-markdown";
 
 export const Text = function Text({
   height,
@@ -68,7 +69,7 @@ export const Text = function Text({
     backgroundColor,
     color,
     height,
-    display: visibility ? 'flex' : 'none',
+    display: visibility ? (properties.markDownMode ? '' : 'flex') : 'none',
     alignItems: 'center',
     textAlign,
     fontWeight: fontWeight ? fontWeight : fontWeight === '0' ? 0 : 'normal',
@@ -81,21 +82,20 @@ export const Text = function Text({
     letterSpacing: `${letterSpacing}px` ?? '0px',
     wordSpacing: `${wordSpacing}px` ?? '0px',
   };
-
+  //添加Markdown解析
   return (
     <div data-disabled={disabledState} className="text-widget" style={computedStyles} data-cy={dataCy}>
-      {!loadingState && (
-        <div
-          style={{ width: '100%', fontSize: textSize }}
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}
-        />
-      )}
-      {loadingState === true && (
+      {loadingState ? (
         <div style={{ width: '100%' }}>
           <center>
             <div className="spinner-border" role="status"></div>
           </center>
         </div>
+      ) : properties.markDownMode ? (<Markdown>{text}</Markdown>) : (
+        <div
+          style={{ width: '100%', fontSize: textSize }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(properties.parseEnter ? text.replaceAll('\n', '<br>') : text) }}
+        />
       )}
     </div>
   );

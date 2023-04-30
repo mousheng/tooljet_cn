@@ -1881,6 +1881,20 @@ export const widgets = [
           schema: { type: 'boolean' },
         },
       },
+      parseEnter:{
+        type: 'toggle',
+        displayName: '文本模式解析换行',
+        validation: {
+          schema: { type: 'boolean' },
+        }
+      },
+      markDownMode:{
+        type: 'toggle',
+        displayName: '解析Markdown',
+        validation: {
+          schema: { type: 'boolean' },
+        }
+      },
     },
     defaultSize: {
       width: 6,
@@ -2008,6 +2022,8 @@ export const widgets = [
       properties: {
         text: { value: 'Hello, there!' },
         loadingState: { value: `{{false}}` },
+        parseEnter: { value: `{{true}}` },
+        markDownMode: { value: `{{false}}` },
       },
       events: [],
       styles: {
