@@ -1881,14 +1881,14 @@ export const widgets = [
           schema: { type: 'boolean' },
         },
       },
-      parseEnter:{
+      parseEnter: {
         type: 'toggle',
         displayName: '文本模式解析换行',
         validation: {
           schema: { type: 'boolean' },
         }
       },
-      markDownMode:{
+      markDownMode: {
         type: 'toggle',
         displayName: '解析Markdown',
         validation: {
@@ -4655,16 +4655,23 @@ export const widgets = [
       showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
       showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
-    events: {},
+    events: { onClick: { displayName: '单击时' } },
     styles: {
       visibility: {
         type: 'toggle',
         displayName: 'Visibility',
         validation: { schema: { type: 'boolean' } },
       },
+      fontColor: {
+        type: 'color',
+        displayName: '标题字体颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
     },
     exposedVariables: {
-      value: {},
+      clickedItem: {},
     },
     definition: {
       others: {
@@ -4681,6 +4688,7 @@ export const widgets = [
       events: [],
       styles: {
         visibility: { value: '{{true}}' },
+        fontColor: { value: '#000' },
       },
     },
   },
@@ -6558,7 +6566,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
     exposedVariables: {
-      playerStatus:''
+      playerStatus: ''
     },
     actions: [
       {
