@@ -1403,12 +1403,13 @@ class EditorComponent extends React.Component {
     );
   };
 
-  deletePageRequest = (pageId, isHomePage = false) => {
+  deletePageRequest = (pageId, isHomePage = false, pageName = '') => {
     this.setState({
       showPageDeletionConfirmation: {
         isOpen: true,
         pageId,
         isHomePage,
+        pageName,
       },
     });
   };
@@ -1419,6 +1420,7 @@ class EditorComponent extends React.Component {
         isOpen: false,
         pageId: null,
         isHomePage: false,
+        pageName: null,
       },
     });
   };
@@ -1837,7 +1839,7 @@ class EditorComponent extends React.Component {
         <Confirm
           show={this.state.showPageDeletionConfirmation?.isOpen ?? false}
           title={'删除页面'}
-          message={`是否确定要删除此页面?`}
+          message={`是否确定要删除 ${this.state.showPageDeletionConfirmation?.pageName || '这个'} 页面?`}
           confirmButtonLoading={this.state.isDeletingPage}
           onConfirm={() => this.executeDeletepageRequest()}
           onCancel={() => this.cancelDeletePageRequest()}

@@ -79,6 +79,7 @@ export const BlankPage = function BlankPage({
                       全新应用程序
                     </ButtonSolid>
                     <div className="col">
+
                       <ButtonSolid
                         leftIcon="folderdownload"
                         onChange={handleImportApp}
