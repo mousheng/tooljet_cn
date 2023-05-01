@@ -398,7 +398,8 @@ function executeActionWithDebounce(_ref, event, mode, customVariables) {
 
       case 'open-webpage': {
         const url = resolveReferences(event.url, _ref.state.currentState, undefined, customVariables);
-        window.open(url, '_blank');
+        // 根据设置打开本窗口或新窗口
+        window.open(url, event?.urlOpenMethod =='self' ? '_self': '_blank');
         return Promise.resolve();
       }
 

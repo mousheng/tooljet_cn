@@ -299,6 +299,20 @@ export const EventManager = ({
                   onChange={(value) => handlerChanged(index, 'url', value)}
                   usePortalEditor={false}
                 />
+                {/* 添加网页打开方式的设置 */}
+                <label className="form-label mt-1">打开方式</label>
+                <Select
+                    className={`${darkMode ? 'select-search-dark' : 'select-search'} w-100`}
+                    options={[{name:'新窗口打开',value:'new'},{name:'当前窗口打开',value:'self'}]}
+                    value={event?.urlOpenMethod?event?.urlOpenMethod:'new'}
+                    onChange={(value) => {
+                      handlerChanged(index, 'urlOpenMethod', value);
+                    }}
+                    placeholder={t('globals.select', 'Select') + '...'}
+                    styles={styles}
+                    useMenuPortal={false}
+                    useCustomStyles={true}
+                  />
               </div>
             )}
 
