@@ -12,30 +12,32 @@ export const ViewerNavigation = ({ isMobileDevice, pages, currentPageId, switchP
   if (isMobileDevice) {
     return null;
   }
-  //统计需要显示的导航条的数量
-  const showNavigationCount = _.size(_.filter(pages, (item) => item[1]?.hidden))== pages.length;
+  // 统计需要显示的导航条的数量
+  const showNavigationCount = _.size(_.filter(pages, (item) => item[1]?.hidden)) == pages.length;
+  // 检查本页是否需要隐藏导航条
+  const checkPageIsHiden = _.filter(pages, page => { if (page[0] == currentPageId && page[1]?.hidden) return true })
   return (
-    showNavigationCount?"":
-    (<div
-      className={`navigation-area ${darkMode && 'dark'}`}
-      style={{
-        width: 200,
-        // backgroundColor: canvasBackgroundColor,
-      }}
-    >
-      <div className="page-handler-wrapper">
-        {pages.map(
-          ([id, page]) =>
-            !page.hidden && (
-              <FolderList key={page.handle} onClick={() => switchPage(id)} selectedItem={id === currentPageId}>
-                <span data-cy={`pages-name-${String(page.name).toLowerCase()}`} className="mx-3 text-wrap">
-                  {_.truncate(page.name, { length: 18 })}
-                </span>
-              </FolderList>
-            )
-        )}
-      </div>
-    </div>)
+    showNavigationCount || checkPageIsHiden.length > 0 ? "" :
+      (<div
+        className={`navigation-area ${darkMode && 'dark'}`}
+        style={{
+          width: 200,
+          // backgroundColor: canvasBackgroundColor,
+        }}
+      >
+        <div className="page-handler-wrapper">
+          {pages.map(
+            ([id, page]) =>
+              !page.hidden && (
+                <FolderList key={page.handle} onClick={() => switchPage(id)} selectedItem={id === currentPageId}>
+                  <span data-cy={`pages-name-${String(page.name).toLowerCase()}`} className="mx-3 text-wrap">
+                    {_.truncate(page.name, { length: 18 })}
+                  </span>
+                </FolderList>
+              )
+          )}
+        </div>
+      </div>)
   );
 };
 
