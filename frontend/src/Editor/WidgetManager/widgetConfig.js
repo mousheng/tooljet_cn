@@ -1211,6 +1211,13 @@ export const widgets = [
           schema: { type: 'string' },
         },
       },
+      password: {
+        type: 'code',
+        displayName: '默认密码',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
     },
     validation: {
       regex: { type: 'code', displayName: 'Regex' },
