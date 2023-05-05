@@ -89,7 +89,9 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 
 ## 快速试用
-[ToolJet_cn](https://tooljet.mousheng.top/)<br>
+测试账户:test@qq.com<br>
+测试密码:123456<br>
+[点击测试ToolJet_cn](https://tooljet.mousheng.top/)<br>
 
 ## 一键私有部署
 
