@@ -2199,7 +2199,15 @@ export const widgets = [
       showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
       showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
-    properties: {},
+    properties: {
+      showScroll: {
+        type: 'toggle',
+        displayName: '显示滚动条',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+    },
     events: {},
     styles: {
       backgroundColor: {
@@ -2249,6 +2257,7 @@ export const widgets = [
       },
       properties: {
         visible: { value: '{{true}}' },
+        showScroll: { value: '{{true}}' },
       },
       events: [],
       styles: {

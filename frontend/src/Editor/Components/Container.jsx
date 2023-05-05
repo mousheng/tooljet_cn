@@ -14,6 +14,7 @@ export const Container = function Container({
   dataCy,
 }) {
   const { visibility, disabledState, borderRadius, borderColor } = styles;
+  const showScroll = component.definition.properties.showScroll.value == '{{true}}' ? true : false;
   const backgroundColor =
     ['#fff', '#ffffffff'].includes(styles.backgroundColor) && darkMode ? '#232E3C' : styles.backgroundColor;
   const computedStyles = {
@@ -22,7 +23,7 @@ export const Container = function Container({
     border: `1px solid ${borderColor}`,
     height,
     display: visibility ? 'flex' : 'none',
-    overflow: 'hidden auto',
+    overflow: showScroll ? 'hidden auto' : 'hidden',
     position: 'relative',
   };
 
