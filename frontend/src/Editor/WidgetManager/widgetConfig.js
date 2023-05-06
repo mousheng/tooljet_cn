@@ -834,7 +834,7 @@ export const widgets = [
       },
       hideTitleBar: { type: 'toggle', displayName: 'Hide title bar' },
       hideCloseButton: { type: 'toggle', displayName: 'Hide close button' },
-      hideOnEsc: { type: 'toggle', displayName: 'Close on escape key' },
+      hideOnEsc: { type: 'toggle', displayName: '按ESC关闭' },
       closeOnClickingOutside: { type: 'toggle', displayName: 'Close on clicking outside' },
 
       size: {

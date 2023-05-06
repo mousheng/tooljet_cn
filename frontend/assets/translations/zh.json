@@ -565,6 +565,8 @@
             "padding": "内边距",
             "hideTitleBar": "隐藏标题栏",
             "hideCloseButton": "隐藏关闭按钮",
+            "hideOnEsc": "按ESC关闭",
+            "closeOnClickingOutside": "点击外部时关闭",
             "hideOnEscape": "退出时隐藏",
             "modalSize": "弹出框尺寸",
             "open": "打开",
