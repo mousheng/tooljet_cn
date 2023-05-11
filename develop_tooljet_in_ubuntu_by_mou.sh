@@ -39,6 +39,8 @@ sed -i "s/^TOOLJET_DB_PASS=.*/TOOLJET_DB_PASS=postgres/g" $envFile
 sed -i "s/^PGRST_HOST=.*/PGRST_HOST=postgrest:3000\nPGRST_LOG_LEVEL=info\nPGRST_DB_URI=postgres:\/\/postgres:postgres@postgres:5432\/tooljet_db/g" $envFile
 sed -i "s/^PGRST_JWT_SECRET=.*/PGRST_JWT_SECRET=$SECRET_KEY_32/g" $envFile
 # end
+# 默认打开集成/市场
+sed -i "s/^ENABLE_MARKETPLACE_FEATURE=.*/ENABLE_MARKETPLACE_FEATURE=true\nENABLE_MARKETPLACE_DEV_MODE=true/g" $envFile
 
 
 

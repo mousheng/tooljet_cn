@@ -9,6 +9,7 @@ services:
     platform: linux/x86_64
     volumes:
       - ./plugins:/app/plugins
+
     command: npm run --prefix plugins start
 
   client:
@@ -44,6 +45,7 @@ services:
       - /app/server/node_modules/
       - ./.env:/app/.env
       - ./.env.test:/app/.env.test
+      - ./marketplace:/app/marketplace
     ports:
       - 3000:3000
     environment:
