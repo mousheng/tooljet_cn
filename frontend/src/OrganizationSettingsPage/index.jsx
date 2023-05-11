@@ -6,6 +6,7 @@ import { ManageGroupPermissions } from '@/ManageGroupPermissions';
 import { ManageSSO } from '@/ManageSSO';
 import { ManageOrgVars } from '@/ManageOrgVars';
 import { authenticationService } from '@/_services';
+import { CopilotSetting } from '@/CopilotSettings';
 import { BreadCrumbContext } from '../App/App';
 import FolderList from '@/_ui/FolderList/FolderList';
 import { OrganizationList } from '../_components/OrganizationManager/List';
@@ -15,7 +16,7 @@ export function OrganizationSettings(props) {
   const [selectedTab, setSelectedTab] = useState(admin ? 'Users & permissions' : 'manageEnvVars');
   const { updateSidebarNAV } = useContext(BreadCrumbContext);
 
-  const sideBarNavs = ['用户', '用户组', 'SSO', '工作区变量'];
+  const sideBarNavs = ['用户', '用户组', 'SSO', '工作区变量', 'Copilot'];
   const defaultOrgName = (groupName) => {
     switch (groupName) {
       case '用户':
@@ -26,6 +27,8 @@ export function OrganizationSettings(props) {
         return 'manageSSO';
       case '工作区变量':
         return 'manageEnvVars';
+      case 'Copilot':
+        return 'manageCopilot';
       default:
         return groupName;
     }
@@ -78,6 +81,7 @@ export function OrganizationSettings(props) {
               {selectedTab === 'manageGroups' && <ManageGroupPermissions darkMode={props.darkMode} />}
               {selectedTab === 'manageSSO' && <ManageSSO />}
               {selectedTab === 'manageEnvVars' && <ManageOrgVars darkMode={props.darkMode} />}
+              {selectedTab === 'manageCopilot' && <CopilotSetting />}
             </div>
           </div>
         </div>
