@@ -80,11 +80,11 @@ class ResetPasswordComponent extends React.Component {
                       className="common-auth-section-header reset-password-header"
                       data-cy="reset-password-page-header"
                     >
-                      Reset Password
+                      重置密码
                     </h2>
                     <div className="reset-password-input-container">
                       <label className="tj-text-input-label" data-cy="new-password-input-label">
-                        New Password
+                        新密码
                       </label>
                       <div className="login-password">
                         <input
@@ -129,7 +129,7 @@ class ResetPasswordComponent extends React.Component {
                           )}
                         </div>
                         <span className="tj-input-helper-text" data-cy="password-helper-text">
-                          Password must be at least 5 characterss
+                          密码必须至少包含5个字符
                         </span>
 
                         <span></span>
@@ -137,7 +137,7 @@ class ResetPasswordComponent extends React.Component {
                     </div>
                     <div className="reset-password-input-container">
                       <label className="tj-text-input-label" data-cy="confirm-password-input-label">
-                        Re-enter the password
+                        重新输入密码
                       </label>
                       <div className="login-password">
                         <input
@@ -181,7 +181,7 @@ class ResetPasswordComponent extends React.Component {
                           )}
                         </div>
                         <span className="tj-input-helper-text" data-cy="password-helper-text">
-                          Password must be at least 5 characterss
+                          密码必须至少包含5个字符
                         </span>
 
                         <span></span>

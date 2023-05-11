@@ -14,15 +14,16 @@ const breadOfChinese = {
   'Users & permissions':'用户&权限',
   'Settings':'设置'
 }
-export const Breadcrumbs = ({ darkMode }) => {
+export const Breadcrumbs = ({ darkMode, dataCy }) => {
   const { sidebarNav } = useContext(BreadCrumbContext);
   const breadcrumbs = useBreadcrumbs(routes, { excludePaths: ['/'] });
+
   return (
     <ol className="breadcrumb breadcrumb-arrows">
-      {breadcrumbs.map(({ breadcrumb, dataCy, beta }, i) => {
+      {breadcrumbs.map(({ breadcrumb, beta }, i) => {
         if (i == 1 || breadcrumbs?.length == 1) {
           return (
-            <div key={breadcrumb.key} className="tj-dashboard-header-title-wrap" data-cy="breadcrumb-title">
+            <div key={breadcrumb.key} className="tj-dashboard-header-title-wrap" data-cy={dataCy ?? ''}>
               {/* 面包屑中文映射 */}
               <p className=" tj-text-xsm ">{breadcrumb?.props.children in breadOfChinese?breadOfChinese[breadcrumb.props.children]:breadcrumb}</p>
               {sidebarNav?.length > 0 && <SolidIcon name="cheveronright" fill={darkMode ? '#FDFDFE' : '#131620'} />}
@@ -43,7 +44,7 @@ export const Breadcrumbs = ({ darkMode }) => {
 // define some custom breadcrumbs for certain routes (optional)
 const routes = [
   { path: '/:worspace_id', breadcrumb: '程序列表' },
-  { path: '/database', breadcrumb: '数据表', props: { dataCy: 'tables-page-header' } },
+  { path: '/:worspace_id/database', breadcrumb: '数据表', props: { dataCy: 'tables-page-header' } },
   { path: '/workspace-settings', breadcrumb: '工作区设置' },
   { path: '/global-datasources', breadcrumb: '全局数据源' },
   { path: '/integrations', breadcrumb: 'Integrations / plugins', props: { beta: true } },

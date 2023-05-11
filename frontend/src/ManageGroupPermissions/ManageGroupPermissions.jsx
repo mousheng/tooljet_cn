@@ -201,7 +201,9 @@ class ManageGroupPermissionsComponent extends React.Component {
               darkMode={this.props.darkMode}
             />
             <div className="d-flex groups-btn-container">
-              <p className="tj-text">{groups?.length} Groups</p>
+              <p className="tj-text" data-cy="page-title">
+                {groups?.length} 个组
+              </p>
               {!showNewGroupForm && !showGroupNameUpdateForm && (
                 <ButtonSolid
                   className="btn btn-primary create-new-group-button"
@@ -319,6 +321,9 @@ class ManageGroupPermissionsComponent extends React.Component {
                           });
                         }}
                         className="groups-folder-list"
+                        dataCy={this.humanizeifDefaultGroupName(permissionGroup.group)
+                          .toLowerCase()
+                          .replace(/\s+/g, '-')}
                       >
                         <span>{this.humanizeifDefaultGroupName(permissionGroup.group)}</span>
                       </FolderList>
