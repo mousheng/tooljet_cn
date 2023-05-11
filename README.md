@@ -41,6 +41,17 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 <hr>
 
 # 主要修改
+- **添加组件脚手架** 一键添加新组件的脚手架
+```
+# 全局安装脚手架
+npm i tooljet-cn-cli -g
+# 添加组件
+tooljet-cn-cli add
+```
+<p align="center">
+    <img src="docs/static/img/temp/脚手架.gif"/>
+</p>
+
 - **垂直选项卡:** 垂直布局的选项卡
 <p align="center">
     <img src="docs/static/img/temp/垂直布局选项卡.gif"/>
