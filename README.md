@@ -41,6 +41,11 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 <hr>
 
 # 主要修改
+- **进度条组件** 添加进度条组件
+<p align="center">
+    <img src="docs/static/img/temp/进度条.gif"/>
+</p>
+
 - **添加角标** 为按钮控件添加角标显示
 <p align="center">
     <img src="docs/static/img/temp/按钮角标.png"/>

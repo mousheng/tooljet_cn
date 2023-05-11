@@ -605,7 +605,7 @@ export const widgets = [
       properties: {
         text: { value: `Button` },
         loadingState: { value: `{{false}}` },
-        badge: {value: 0 },
+        badge: { value: 0 },
       },
       events: [],
       styles: {
@@ -6722,6 +6722,158 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       styles: {
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
+      },
+    },
+  },
+  {
+    // 组件名称
+    name: 'Progress',
+    // 组件显示名称
+    displayName: '进度条',
+    // 组件描述
+    description: '进度条组件',
+    // 调用的组件名
+    component: 'Progress',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 20,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      progress: {
+        // 输入属性的输入框类型
+        type: 'number',
+        // 显示名称
+        displayName: '进度',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+      showLable: {
+        type: 'toggle',
+        displayName: '显示进度文本',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    events: {},
+    styles: {
+      color: {
+        type: 'select',
+        displayName: '进度条类型',
+        options: [
+          { name: '成功', value: 'success' },
+          { name: '消息', value: 'info' },
+          { name: '警告', value: 'warning' },
+          { name: '危险', value: 'danger' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      backgroundColor: {
+        type: 'color',
+        displayName: '进度条背景色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      striped: {
+        type: 'toggle',
+        displayName: '显示条纹',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      animated: {
+        type: 'toggle',
+        displayName: '始终显示动画',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      enterAnimated: {
+        type: 'toggle',
+        displayName: '鼠标经过显示动画',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setPrograss',
+        displayName: '设置进度',
+        // 参数
+        params: [
+          {
+            handle: 'num',
+            displayName: '进度',
+            defaultValue: '100',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于调用
+    exposedVariables: { progress: 50 },
+    // 定义默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        progress: { value: 50 },
+        showLable: { value: true },
+      },
+      events: [],
+      styles: {
+        color: { value: 'info' },
+        striped: { value: '{{false}}' },
+        animated: { value: '{{false}}' },
+        visibility: { value: '{{true}}' },
+        backgroundColor: { value: '#e6e8e9' },
+        enterAnimated: { value: '{{false}}' },
       },
     },
   },
