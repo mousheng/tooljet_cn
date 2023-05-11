@@ -43,7 +43,7 @@ export const useDataQueriesStore = create(
         dataqueryService
           .del(queryId)
           .then(() => {
-            toast.success('Query Deleted');
+            toast.success('查询已删除.');
             set({
               isDeletingQueryInProcess: false,
             });
@@ -70,7 +70,7 @@ export const useDataQueriesStore = create(
         dataqueryService
           .update(id, newName)
           .then(() => {
-            toast.success('Query Name Updated');
+            toast.success('查询名称已更新.');
             fetchDataQueries(useAppDataStore.getState().editingVersion?.id); // Should be replaced with - get().actions.fetchDataQueries(useAppDataStore.getState().editingVersion?.id);
           })
           .catch(({ error }) => {

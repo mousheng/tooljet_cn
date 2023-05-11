@@ -64,7 +64,7 @@ export const QueryCard = ({
     const isNewQueryNameAlreadyExists = checkExistingQueryName(newName);
     if (newName && !isNewQueryNameAlreadyExists) {
       if (id === 'draftQuery') {
-        toast.success('Query Name Updated');
+        toast.success('查询名称已更新');
         setDraftQuery((query) => ({ ...query, name: newName }));
       } else {
         renameQuery(dataQuery?.id, newName, fetchDataQueries);
@@ -72,7 +72,7 @@ export const QueryCard = ({
       setRenamingQuery(false);
     } else {
       if (isNewQueryNameAlreadyExists) {
-        toast.error('Query name already exists');
+        toast.error('查询名称已存在');
       }
       setRenamingQuery(false);
     }
@@ -81,7 +81,7 @@ export const QueryCard = ({
   const executeDataQueryDeletion = () => {
     setShowDeleteConfirmation(false);
     if (dataQuery?.id === 'draftQuery') {
-      toast.success('Query Deleted');
+      toast.success('查询已删除');
       setDraftQuery(null);
       setSelectedQuery(null);
       setUnSavedChanges(false);
@@ -194,7 +194,7 @@ export const QueryCard = ({
       {showDeleteConfirmation ? (
         <Confirm
           show={showDeleteConfirmation}
-          message={'Do you really want to delete this query?'}
+          message={'是否确定要删除此查询?'}
           confirmButtonLoading={isDeletingQueryInProcess}
           onConfirm={executeDataQueryDeletion}
           onCancel={cancelDeleteDataQuery}
