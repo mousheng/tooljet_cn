@@ -495,6 +495,13 @@ export const widgets = [
           schema: { type: 'boolean' },
         },
       },
+      badge: {
+        type: 'number',
+        displayName: '角标显示值',
+        validation: {
+          schema: { type: 'number' },
+        },
+      },
     },
     events: {
       onClick: { displayName: '单击时' },
@@ -570,6 +577,11 @@ export const widgets = [
         params: [{ handle: 'text', displayName: '文本', defaultValue: 'New Text' }],
       },
       {
+        handle: 'setBadge',
+        displayName: '设置角标',
+        params: [{ handle: 'text', displayName: '角标的值', defaultValue: 1 }],
+      },
+      {
         handle: 'disable',
         displayName: '禁用',
         params: [{ handle: 'disable', displayName: '值', defaultValue: `{{false}}`, type: 'toggle' }],
@@ -593,6 +605,7 @@ export const widgets = [
       properties: {
         text: { value: `Button` },
         loadingState: { value: `{{false}}` },
+        badge: {value: 0 },
       },
       events: [],
       styles: {

@@ -10,6 +10,7 @@ export const Button = function Button(props) {
   const [disable, setDisable] = useState(disabledState);
   const [visibility, setVisibility] = useState(styles.visibility);
   const [loading, setLoading] = useState(properties.loadingState);
+  const [badge, setBadge] = useState(properties?.badge);
 
   useEffect(() => setLabel(properties.text), [properties.text]);
 
@@ -27,6 +28,22 @@ export const Button = function Button(props) {
     loading !== properties.loadingState && setLoading(properties.loadingState);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [properties.loadingState]);
+
+  const handleBadge = (value) => {
+    if (value == undefined || value <= 0) {
+      setBadge('');
+    }
+    else if (value > 99) {
+      setBadge('99+');
+    }
+    else {
+      setBadge(value);
+    }
+  }
+  useEffect(() => {
+    handleBadge(properties?.badge)
+  }, [properties.badge]);
+
 
   const computedStyles = {
     backgroundColor,
@@ -82,6 +99,14 @@ export const Button = function Button(props) {
     [setLoading]
   );
 
+  registerAction(
+    'setBadge',
+    async function (value) {
+      handleBadge(value);
+    },
+    [handleBadge]
+  );
+
   const hasCustomBackground = backgroundColor.charAt() === '#';
   if (hasCustomBackground) {
     computedStyles['--tblr-btn-color-darker'] = tinycolor(backgroundColor).darken(8).toString();
@@ -110,6 +135,9 @@ export const Button = function Button(props) {
         type="default"
       >
         {label}
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{ display: badge === '' ? 'none' : '','zIndex':9999 }}>
+          {badge}
+        </span>
       </button>
     </div>
   );
