@@ -33,6 +33,7 @@ export const Inspector = ({
   switchSidebarTab,
   removeComponent,
   pages,
+  isVersionReleased,
 }) => {
   const dataQueries = useDataQueries();
   const component = {
@@ -85,12 +86,10 @@ export const Inspector = ({
       toast.error(t('widget.common.widgetNameEmptyError', 'Widget name cannot be empty'));
       return setInputFocus();
     }
-
     if (!validateComponentName(newName)) {
       toast.error(t('widget.common.componentNameExistsError', 'Component name already exists'));
       return setInputFocus();
     }
-
     if (validateQueryName(newName)) {
       let newComponent = { ...component };
       newComponent.component.name = newName;
@@ -115,14 +114,12 @@ export const Inspector = ({
 
   function paramUpdated(param, attr, value, paramType) {
     console.log({ param, attr, value, paramType });
-
     let newDefinition = _.cloneDeep(component.component.definition);
     let allParams = newDefinition[paramType] || {};
     const paramObject = allParams[param.name];
     if (!paramObject) {
       allParams[param.name] = {};
     }
-
     if (attr) {
       allParams[param.name][attr] = value;
       const defaultValue = getDefaultValue(value);
@@ -139,15 +136,12 @@ export const Inspector = ({
     } else {
       allParams[param.name] = value;
     }
-
     newDefinition[paramType] = allParams;
-
     let newComponent = _.merge(component, {
       component: {
         definition: newDefinition,
       },
     });
-
     componentDefinitionChanged(newComponent);
   }
 
@@ -318,7 +312,7 @@ export const Inspector = ({
       />
       <div>
         <div className="row inspector-component-title-input-holder">
-          <div className="col-11 p-0">
+          <div className={`col-11 p-0 ${isVersionReleased && 'disabled'}`}>
             <div className="input-icon">
               <input
                 onChange={(e) => setNewComponentName(e.target.value)}
@@ -401,8 +395,10 @@ export const Inspector = ({
           </div>
         </div>
         <hr className="m-0" />
-        {selectedTab === 'properties' && propertiesTab}
-        {selectedTab === 'styles' && stylesTab}
+        <div className={`${isVersionReleased && 'disabled'}`}>
+          {selectedTab === 'properties' && propertiesTab}
+          {selectedTab === 'styles' && stylesTab}
+        </div>
       </div>
 
       <div className="widget-documentation-link p-2">
