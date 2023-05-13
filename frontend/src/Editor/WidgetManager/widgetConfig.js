@@ -6982,4 +6982,201 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+  {
+    // 组件名称
+    name: 'Badges',
+    // 组件显示名称
+    displayName: '角标文本',
+    // 组件描述
+    description: '带角标的文本组件组件',
+    // 调用的组件名
+    component: 'Badges',
+    // 默认组件大小
+    defaultSize: {
+      width: 5,
+      height: 30,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      texts: {
+        type: 'code',
+        displayName: '文本内容',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      title: {
+        type: 'code',
+        displayName: '角标内容',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      handleClick: {
+        type: 'toggle',
+        displayName: '响应鼠标点击',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+    },
+    events: {
+      onClick: { displayName: '点击时' },
+    },
+    styles: {
+      textSize: {
+        type: 'select',
+        displayName: '文本大小',
+        options: [
+          { name: 'H1', value: '1' },
+          { name: 'H2', value: '2' },
+          { name: 'H3', value: '3' },
+          { name: 'H4', value: '4' },
+          { name: 'H5', value: '5' },
+          { name: 'H6', value: '6' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      badgeSize: {
+        type: 'select',
+        displayName: '角标大小',
+        options: [
+          { name: 'H1', value: '1' },
+          { name: 'H2', value: '2' },
+          { name: 'H3', value: '3' },
+          { name: 'H4', value: '4' },
+          { name: 'H5', value: '5' },
+          { name: 'H6', value: '6' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      alignType: {
+        type: 'select',
+        displayName: '角标贴近位置',
+        options: [
+          { name: '顶端', value: 'flex-start' },
+          { name: '底部', value: 'baseline' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      badgeFontColor: {
+        type: 'select',
+        displayName: '角标字体颜色',
+        options: [
+          { name: 'primary', value: 'primary' },
+          { name: 'secondary', value: 'secondary' },
+          { name: 'success', value: 'success' },
+          { name: 'danger', value: 'danger' },
+          { name: 'warning', value: 'warning' },
+          { name: 'info', value: 'info' },
+          { name: 'light', value: 'light' },
+          { name: 'dark', value: 'dark' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      badgeBackgroundColor: {
+        type: 'select',
+        displayName: '角标背景颜色',
+        options: [
+          { name: 'primary', value: 'primary' },
+          { name: 'secondary', value: 'secondary' },
+          { name: 'success', value: 'success' },
+          { name: 'danger', value: 'danger' },
+          { name: 'warning', value: 'warning' },
+          { name: 'info', value: 'info' },
+          { name: 'light', value: 'light' },
+          { name: 'dark', value: 'dark' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      pill: {
+        type: 'toggle',
+        displayName: '椭圆形状',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setText',
+        displayName: '设置文本',
+        params: [
+          {
+            handle: 'texts',
+            displayName: '文本内容',
+            defaultValue: '',
+          },
+        ],
+      },
+      {
+        handle: 'setBadge',
+        displayName: '设置角标',
+        params: [
+          {
+            handle: 'Badge',
+            displayName: '角标内容',
+            defaultValue: '',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      texts:'',
+      Badges:'',
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        texts: { value: "你好", },
+        title: { value: "New", },
+        handleClick: { value: "{{false}}", },
+      },
+      events: [],
+      styles: {
+        textSize: { value: '1' },
+        badgeSize: { value: '6' },
+        alignType: { value: 'flex-start' },
+        badgeBackgroundColor: { value: 'primary' },
+        pill: { value: '{{false}}' },
+        badgeFontColor: { value: 'light' },
+        visibility: { value: '{{true}}' },
+      },
+    },
+  },
 ];

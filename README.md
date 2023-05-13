@@ -41,6 +41,11 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 <hr>
 
 # 主要修改
+- **角标文本组件** 添加带角标的文本组件，支持分开设置文本和角标的大小、背景颜色，支持相应点击动作，支持代码设置文本和角标内容等
+<p align="center">
+    <img src="docs/static/img/temp/文本角标.png"/>
+</p>
+
 - **折叠面板组件** 添加折叠面板组件
 <p align="center">
     <img src="docs/static/img/temp/折叠面板.gif"/>
