@@ -1,3 +1,4 @@
+import { Carousels } from './Components/Carousels';
 import { Badges } from './Components/Badges';
 import { Accordions } from './Components/Accordions';
 import { Progress } from './Components/Progress';
@@ -78,6 +79,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	Carousels,
 	Badges,
 	Accordions,
 	Progress,
