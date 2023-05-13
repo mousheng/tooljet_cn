@@ -6877,4 +6877,109 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+  {
+    // 组件名称
+    name: 'Accordions',
+    // 组件显示名称
+    displayName: '折叠面板',
+    // 组件描述
+    description: '可以折叠的组件',
+    // 调用的组件名
+    component: 'Accordions',
+    // 默认组件大小
+    defaultSize: {
+      width: 20,
+      height: 400,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      tabs: {
+        type: 'code',
+        displayName: 'Default value',
+        validation: {
+          schema: {
+            type: 'array',
+            schemas: [{ type: 'string' }, { type: 'number' }, { type: 'boolean' }],
+          },
+        },
+      },
+      defaultTab: {
+        type: 'code',
+        displayName: 'Default tab',
+        validation: {
+          schema: {
+            type: 'union',
+            schemas: [{ type: 'string' }, { type: 'number' }],
+          },
+        },
+      },
+    },
+    events: { onTabSwitch: { displayName: '选项卡切换时' } },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: 'Disable',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      backgroundColor: {
+        type: 'color',
+        displayName: '折叠体背景色',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      widgetColor: {
+        type: 'color',
+        displayName: '组件背景色',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    actions: [],
+    exposedVariables: { currentIndex: '0' },
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        tabs: {
+          value:
+            "{{[ \n\t\t '主页', \n\t\t '展示', \n\t\t '设置' \n ]}}",
+        },
+        defaultTab: { value: '0' },
+      },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        backgroundColor: { value: '#ffffff' },
+        widgetColor: { value: '#ffffffff' },
+      },
+    },
+  },
 ];

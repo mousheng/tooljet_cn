@@ -41,6 +41,11 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 <hr>
 
 # 主要修改
+- **折叠面板组件** 添加折叠面板组件
+<p align="center">
+    <img src="docs/static/img/temp/折叠面板.gif"/>
+</p>
+
 - **进度条组件** 添加进度条组件
 <p align="center">
     <img src="docs/static/img/temp/进度条.gif"/>

@@ -632,8 +632,9 @@ class EditorComponent extends React.Component {
       // Delete child components when parent is deleted
 
       let childComponents = [];
-
-      if (newDefinition.pages[currentPageId].components?.[component.id].component.component === 'Tabs') {
+      // 删除时包括删除Accordions的子组件
+      if (newDefinition.pages[currentPageId].components?.[component.id].component.component === 'Tabs' ||
+      newDefinition.pages[currentPageId].components?.[component.id].component.component === 'Accordions') {
         childComponents = Object.keys(newDefinition.pages[currentPageId].components).filter((key) =>
           newDefinition.pages[currentPageId].components[key].parent?.startsWith(component.id)
         );
