@@ -27,6 +27,7 @@ export const Carousels = function Carousels({
     const [interval, setInterval] = useState(properties?.interval || 1000);
 
     const [dark, setDark] = useState(styles.dark);
+    const [fillType, setFillType] = useState(styles.fillType);
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
@@ -57,10 +58,12 @@ export const Carousels = function Carousels({
         setVisibility(styles.visibility)
         setDisabledState(styles.disabledState)
         setDark(styles.dark)
+        setFillType(styles.fillType)
     }, [
         styles.visibility,
         styles.disabledState,
-        styles.dark
+        styles.dark,
+        styles.fillType,
 
     ])
 
@@ -78,7 +81,12 @@ export const Carousels = function Carousels({
         setIndex(selectedIndex);
         fireEvent('onTabSwitch')
       };
-
+    const computeFillType=(item)=>{
+        if(item?.fill && ['fill','contain','cover','scale-down'].includes(item.fill))
+            return item.fill
+        else
+            return fillType
+    }
 
     return (<div data-disabled={disabledState} style={{ width: width - 5, height, display: visibility ? '' : 'none' }}>
         <Carousel
@@ -92,7 +100,8 @@ export const Carousels = function Carousels({
                 data.map((item, index) =>
                 (<Carousel.Item>
                     <img
-                        style={{ height }}
+                        style={{ height,
+                        'object-fit': computeFillType(item)}}
                         className="d-block w-100"
                         src={item?.src || ''}
                     />

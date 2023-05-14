@@ -7153,8 +7153,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     ],
     // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
     exposedVariables: {
-      texts:'',
-      Badges:'',
+      texts: '',
+      Badges: '',
     },
     // 定义新建组件时的默认值
     definition: {
@@ -7179,148 +7179,162 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
-	 {
-  // 组件名称
-  name: 'Carousels',
-  // 组件显示名称
-  displayName: '走马灯',
-  // 组件描述
-  description: '循环播放同一类型的图片、文字等内容的跑马灯',
-  // 调用的组件名
-  component: 'Carousels',
-  // 默认组件大小
-  defaultSize: {
-    width: 15,
-    height: 250,
-  },
-  // 默认子组件
-  defaultChildren: [
-  ],
-  // 其他选项,设置显示在桌面系统或移动平台
-  others: {
-    showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
-    showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
-  },
-  // 主属性
-  properties: {
-    // 属性名,传入组件的属性名
-    data: {
-      // 输入属性的输入框类型，code/toggle/color/number/select等
-      type: 'code',
-      // 显示名称
-      displayName: '展示内容',
-      tip:'请按照初始值内容格式填写',
-      validation: {
-        schema: {
-          // string/array/number
-          type: 'array',
-          // 指定子元素类型范围
-          // element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] }
-        },
-      },
+  {
+    // 组件名称
+    name: 'Carousels',
+    // 组件显示名称
+    displayName: '走马灯',
+    // 组件描述
+    description: '循环播放同一类型的图片、文字等内容的跑马灯',
+    // 调用的组件名
+    component: 'Carousels',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 250,
     },
-    fade: {
-      type: 'toggle',
-      displayName: '渐变过渡',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-    defaultIndex: {
-      type: 'number',
-      displayName: '默认初始序号',
-      validation: {
-        schema: {
-          type: 'number',
-        },
-      },
-    },
-    interval: {
-      type: 'number',
-      displayName: '切换间隔时间(毫秒)',
-      validation: {
-        schema: {
-          type: 'number',
-        },
-      },
-    },
-  },
-  events: { onTabSwitch: { displayName: '跑马灯切换时' } },
-  styles: {
-    dark: {
-      type: 'toggle',
-      displayName: '深色模式',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-    visibility: {
-      type: 'toggle',
-      displayName: 'Visibility',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-    disabledState: {
-      type: 'toggle',
-      displayName: '禁用',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-  },
-  // 动作列表，需在组件中注册接受动作
-  actions: [
-    {
-      handle: 'setIndex',
-      displayName: '设置序号',
-      // 参数
-      params: [
-        {
-          handle: 'index',
-          displayName: '序号',
-          type: 'number',
-          defaultValue: 1,
-        },
-      ],
-    },
-  ],
-  // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
-  exposedVariables: {
-    currentIndex: 0,
-  },
-  // 定义新建组件时的默认值
-  definition: {
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
     others: {
-      showOnDesktop: { value: '{{true}}' },
-      showOnMobile: { value: '{{false}}' },
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
+    // 主属性
     properties: {
+      // 属性名,传入组件的属性名
       data: {
-        value:
-          `{{[ 
-            { src: 'https://yun.mousheng.top/tooljet/1.jpg',title:'主标题1',subTitle:'副标题1'},
-            { src: 'https://yun.mousheng.top/tooljet/2.jpg',title:'主标题2',subTitle:'副标题2'},
+        // 输入属性的输入框类型，code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '展示内容',
+        tip: 'src为图片地址;title为主标题;subTitle为副标题;fill为图片填充方式(选填)',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            // element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] }
+          },
+        },
+      },
+      fade: {
+        type: 'toggle',
+        displayName: '渐变过渡',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      defaultIndex: {
+        type: 'number',
+        displayName: '默认初始序号',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+      interval: {
+        type: 'number',
+        displayName: '切换间隔时间(毫秒)',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+    },
+    events: { onTabSwitch: { displayName: '跑马灯切换时' } },
+    styles: {
+      dark: {
+        type: 'toggle',
+        displayName: '深色模式',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      fillType: {
+        type: 'select',
+        displayName: 'Image fit',
+        options: [
+          { name: '填充', value: 'fill' },
+          { name: '覆盖', value: 'contain' },
+          { name: '包含', value: 'cover' },
+          { name: '缩小', value: 'scale-down' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setIndex',
+        displayName: '设置序号',
+        // 参数
+        params: [
+          {
+            handle: 'index',
+            displayName: '序号',
+            type: 'number',
+            defaultValue: 1,
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      currentIndex: 0,
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        data: {
+          value:
+            `{{[ 
+            { src: 'https://yun.mousheng.top/tooljet/1.jpg',title:'主标题1',subTitle:'副标题1',fill:'fill'},
+            { src: 'https://yun.mousheng.top/tooljet/2.jpg',title:'主标题2',subTitle:'副标题2',fill:'scale-down'},
             { src: 'https://yun.mousheng.top/tooljet/3.jpg',title:'主标题3',subTitle:'副标题3'}
           ]}}`,
+        },
+        fade: { value: false },
+        defaultIndex: { value: 0 },
+        interval: { value: 5000 },
       },
-      fade: { value: false },
-      defaultIndex: { value: 0 },
-      interval: { value: 5000 },
-    },
-    events: [],
-    styles: {
-      visibility: { value: '{{true}}' },
-      disabledState: { value: '{{false}}' },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        fillType: { value: '{{fill}}' },
+      },
     },
   },
-},
 ];
