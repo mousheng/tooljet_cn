@@ -72,7 +72,7 @@ export function CodeHinter({
 }) {
   const darkMode = localStorage.getItem('darkMode') === 'true';
   const options = {
-    lineNumbers: lineNumbers ?? false,
+    lineNumbers: false,
     lineWrapping: lineWrapping ?? true,
     singleLine: true,
     mode: mode || 'handlebars',
@@ -329,7 +329,9 @@ export function CodeHinter({
                 key={componentName}
                 customComponent={getPreview}
                 forceUpdate={forceUpdate}
-                optionalProps={{ styles: { height: 300 }, cls: className }}
+                optionalProps={{ styles: { height: 300 }, 
+                // cls: className 
+              }}
                 darkMode={darkMode}
                 selectors={{ className: 'preview-block-portal' }}
                 dragResizePortal={true}
