@@ -27,6 +27,8 @@ export const Carousels = function Carousels({
     const [interval, setInterval] = useState(properties?.interval || 1000);
 
     const [dark, setDark] = useState(styles.dark);
+    const [showControl, setShowControl] = useState(styles.showControl);
+    const [showIndicators, setShowIndicators] = useState(styles.showIndicators);
     const [fillType, setFillType] = useState(styles.fillType);
     const [index, setIndex] = useState(0);
 
@@ -59,10 +61,14 @@ export const Carousels = function Carousels({
         setDisabledState(styles.disabledState)
         setDark(styles.dark)
         setFillType(styles.fillType)
+        setShowControl(styles.showControl)
+        setShowIndicators(styles.showIndicators)
     }, [
         styles.visibility,
         styles.disabledState,
         styles.dark,
+        styles.showControl,
+        styles.showIndicators,
         styles.fillType,
 
     ])
@@ -95,16 +101,18 @@ export const Carousels = function Carousels({
             activeIndex={index}
             onSelect={handleSelect}
             interval={interval}
+            controls={showControl}
+            indicators={showIndicators}
         >
             {
                 data.map((item, index) =>
                 (<Carousel.Item>
-                    <img
+                   {item?.src? (<img
                         style={{ height,
                         'object-fit': computeFillType(item)}}
                         className="d-block w-100"
                         src={item?.src || ''}
-                    />
+                    />):(<div className="d-block w-100" style={{ height}}></div>)}
                     <Carousel.Caption>
                         <h3>{item?.title || ''}</h3>
                         <p>{item?.subTitle || ''}</p>

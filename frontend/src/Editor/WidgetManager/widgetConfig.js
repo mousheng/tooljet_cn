@@ -7271,6 +7271,24 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
           schema: { type: 'string' },
         },
       },
+      showControl: {
+        type: 'toggle',
+        displayName: '显示控制按钮',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      showIndicators: {
+        type: 'toggle',
+        displayName: '显示指示器',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
       visibility: {
         type: 'toggle',
         displayName: 'Visibility',
@@ -7332,6 +7350,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       events: [],
       styles: {
         visibility: { value: '{{true}}' },
+        showControl: { value: '{{true}}' },
+        showIndicators: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
         fillType: { value: '{{fill}}' },
       },
