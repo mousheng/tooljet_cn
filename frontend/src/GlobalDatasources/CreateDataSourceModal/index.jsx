@@ -15,6 +15,7 @@ export const CreateDataSourceModal = ({ updateSelectedDatasource }) => {
             handleModalVisibility();
             setEditing(false);
           }}
+          data-cy="add-new-data-source-button"
         >
           添加新的数据源
         </button>
