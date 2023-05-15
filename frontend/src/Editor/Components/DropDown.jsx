@@ -192,7 +192,8 @@ export const DropDown = function DropDown({
   };
 
   const selectPinYin = (option, input) => {
-    if (input.charCodeAt() >= 32 && input.charCodeAt() <= 126) {
+    if(option.label.indexOf(input)>=0) return true
+    else if (input.charCodeAt() >= 32 && input.charCodeAt() <= 126) {
       if(option.label.spell('first').toLowerCase().indexOf(input.toLowerCase()) >= 0)return true
       else if(option.label.spell().toLowerCase().indexOf(input.toLowerCase()) >= 0) return true
       else return false
