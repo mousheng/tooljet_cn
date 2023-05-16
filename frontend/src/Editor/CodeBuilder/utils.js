@@ -1,6 +1,8 @@
 import _ from 'lodash';
+import moment from 'moment';
 import { copilotService } from '@/_services/copilot.service';
 import { toast } from 'react-hot-toast';
+import axios from 'axios';
 
 export async function getRecommendation(currentContext, query, lang = 'javascript') {
   const words = query.split(' ');
@@ -85,6 +87,56 @@ export function getSuggestionKeys(refState, refSource) {
     'unsetPageVariable',
     'switchPage',
   ];
+  // 自定义提示关键字
+  const customKey = [
+    'console.log()',
+    'alert()',
+    'confirm()',
+    'escape()',
+    'eval()',
+    'isNaN()',
+    'parseFloat()',
+    'parseInt()',
+    'prompt()',
+    'moment()',
+    'Date()',
+    'axios()',
+    'axios.request()',
+    'axios.get()',
+    'axios.post()',
+    'axios.delete()',
+    'axios.put()',
+    'axios.all()',
+    'axios.interceptors.request.use()',
+    'axios.interceptors.response.use()',
+    'function',
+    'return',
+    'let',
+    'const',
+    'await',
+    'async',
+    'if',
+    'new',
+    'break',
+    'delete',
+    'this',
+    'while',
+    'case',
+    'do',
+    'in',
+    'throw',
+    'with',
+    'catch',
+    'else',
+    'instanceof',
+    'try',
+    'continue',
+    'finally',
+    'typeof',
+    'for',
+    'default',
+    'debugger',
+  ]
 
   // eslint-disable-next-line no-unused-vars
   _.forIn(queries, (query, key) => {
@@ -94,11 +146,12 @@ export function getSuggestionKeys(refState, refSource) {
   });
 
   const currentState = _.merge(state, { queries });
-  const suggestionList = [];
+  var suggestionList = [];
   const map = new Map();
 
   const buildMap = (data, path = '') => {
-    const keys = Object.keys(data);
+    // const keys = Object.keys(data);
+    const keys = Object.getOwnPropertyNames(data);
     keys.forEach((key, index) => {
       const value = data[key];
       const _type = Object.prototype.toString.call(value).slice(8, -1);
@@ -127,6 +180,15 @@ export function getSuggestionKeys(refState, refSource) {
   };
 
   buildMap(currentState, '');
+  // JS模式添加自定义代码提示
+  if (refSource === 'Runjs') {
+    buildMap(_, '_')
+    buildMap(window.localStorage, 'window.localStorage')
+    buildMap(moment().constructor.prototype, 'moment()')
+    buildMap(axios.defaults, 'axios.defaults')
+    buildMap(Math, 'Math')
+    suggestionList = _.concat(suggestionList, customKey)
+  }
   map.forEach((__, key) => {
     if (key.endsWith('run') && key.startsWith('queries')) {
       return suggestionList.push(`${key}()`);
