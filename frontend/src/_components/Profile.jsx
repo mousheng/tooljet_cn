@@ -71,7 +71,7 @@ export const Profile = function Header({ darkMode }) {
   return (
     <OverlayTrigger trigger="click" placement={'right'} rootClose={true} overlay={getOverlay()}>
       <div className="user-avatar-nav-item cursor-pointer">
-        <ToolTip message="Profile">
+        <ToolTip message="配置文件">
           <div className="d-xl-block" data-cy="profile-settings">
             <Avatar
               avatarId={currentUser?.avatar_id}

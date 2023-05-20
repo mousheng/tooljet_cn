@@ -144,7 +144,7 @@ function Layout({ children, switchDarkMode, darkMode }) {
 
                 <li className="tj-leftsidebar-icon-items-bottom text-center">
                   <NotificationCenter darkMode={darkMode} />
-                  <ToolTip message="Mode" placement="right">
+                  <ToolTip message="主题模式" placement="right">
                     <div
                       className="cursor-pointer  tj-leftsidebar-icon-items"
                       onClick={() => switchDarkMode(!darkMode)}
