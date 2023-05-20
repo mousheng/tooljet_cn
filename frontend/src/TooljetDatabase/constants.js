@@ -19,4 +19,5 @@ export const operators = [
   { value: 'match', label: '匹配' },
   { value: 'imatch', label: '不匹配' },
   { value: 'in', label: 'in' },
+  { value: 'is', label: 'is' },
 ];

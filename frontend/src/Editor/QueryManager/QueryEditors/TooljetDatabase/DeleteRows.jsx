@@ -4,6 +4,7 @@ import { uniqueId } from 'lodash';
 import { CodeHinter } from '@/Editor/CodeBuilder/CodeHinter';
 import Select from '@/_ui/Select';
 import { operators } from '@/TooljetDatabase/constants';
+import { isOperatorOptions } from './util';
 
 export const DeleteRows = React.memo(({ currentState, darkMode }) => {
   const { columns, deleteOperationLimitOptionChanged, deleteRowsOptions, handleDeleteRowsOptionsChange } =
@@ -83,15 +84,25 @@ export const DeleteRows = React.memo(({ currentState, darkMode }) => {
             />
           </div>
           <div className="field col-4">
-            <CodeHinter
-              currentState={currentState}
-              initialValue={value ? (typeof value === 'string' ? value : JSON.stringify(value)) : value}
-              className="codehinter-plugins"
-              theme={darkMode ? 'monokai' : 'default'}
-              height={'32px'}
-              placeholder="键"
-              onChange={(newValue) => handleValueChange(newValue)}
-            />
+            {operator === 'is' ? (
+              <Select
+                useMenuPortal={true}
+                placeholder="选择值"
+                value={value}
+                options={isOperatorOptions}
+                onChange={handleValueChange}
+              />
+            ) : (
+              <CodeHinter
+                currentState={currentState}
+                initialValue={value ? (typeof value === 'string' ? value : JSON.stringify(value)) : value}
+                className="codehinter-plugins"
+                theme={darkMode ? 'monokai' : 'default'}
+                height={'32px'}
+                placeholder="键"
+                onChange={(newValue) => handleValueChange(newValue)}
+              />
+            )}
           </div>
           <div className="col-1 cursor-pointer m-1 mr-2">
             <svg
