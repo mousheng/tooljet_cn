@@ -61,12 +61,12 @@ export function AddNewRowComponent({
       <div className="card-header row">
         <div className="col">
           <h4 data-cy={`header-filters`} className="font-weight-normal">
-            Add new rows
+            添加新行
           </h4>
         </div>
         <div className="col-auto">
           <button data-cy={`button-close-filters`} onClick={hideAddNewRowPopup} className="btn btn-light btn-sm">
-            x
+            关闭
           </button>
         </div>
       </div>
@@ -134,7 +134,7 @@ export function AddNewRowComponent({
             });
           }}
           data-tooltip-id="tooltip-for-add-new-row"
-          data-tooltip-content="Add another row"
+          data-tooltip-content="添加新行"
         >
           +
         </button>
@@ -150,7 +150,7 @@ export function AddNewRowComponent({
             });
           }}
         >
-          Save
+          保存
         </button>
         <button
           onClick={() => {
@@ -161,7 +161,7 @@ export function AddNewRowComponent({
           }}
           className="btn btn-light btn-sm"
         >
-          Discard
+          取消
         </button>
       </div>
     </div>

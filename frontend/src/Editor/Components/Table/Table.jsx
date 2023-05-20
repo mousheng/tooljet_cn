@@ -790,7 +790,7 @@ export function Table({
                   showAddNewRowPopup();
                 }}
                 data-tooltip-id="tooltip-for-add-new-row"
-                data-tooltip-content="Add new row"
+                data-tooltip-content="添加新行"
                 disabled={tableDetails.addNewRowsDetails.addingNewRows}
               >
                 <img src="assets/images/icons/plus.svg" width="15" height="15" />
