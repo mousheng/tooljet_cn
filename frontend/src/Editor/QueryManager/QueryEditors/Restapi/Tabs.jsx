@@ -16,6 +16,7 @@ function ControlledTabs({
   componentName,
   setBodyToggle,
   bodyToggle,
+  handlePaste,
 }) {
   const [key, setKey] = React.useState('headers');
   const tabs = [
@@ -51,6 +52,7 @@ function ControlledTabs({
                 theme={theme}
                 darkMode={darkMode}
                 componentName={componentName}
+                handlePaste={handlePaste}
               />
             </Tab.Pane>
             <Tab.Pane eventKey="params" bsPrefix="rest-api-tabpanes" transition={false}>
@@ -63,6 +65,7 @@ function ControlledTabs({
                 theme={theme}
                 darkMode={darkMode}
                 componentName={componentName}
+                handlePaste={handlePaste}
               />
             </Tab.Pane>
             <Tab.Pane eventKey="body" bsPrefix="rest-api-tabpanes" transition={false}>
@@ -79,6 +82,7 @@ function ControlledTabs({
                 setBodyToggle={setBodyToggle}
                 darkMode={darkMode}
                 componentName={componentName}
+                handlePaste={handlePaste}
               />
             </Tab.Pane>
           </Tab.Content>

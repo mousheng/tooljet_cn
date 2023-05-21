@@ -10,10 +10,11 @@ export default ({
   addNewKeyValuePair,
   onChange,
   componentName,
+  handlePaste,
 }) => {
   return (
     <>
-      <GroupHeader paramType={'headers'} descText="请求标头" />
+      <GroupHeader paramType={'headers'} descText="请求标头" handlePaste={handlePaste}/>
       <TabContent
         options={options}
         currentState={currentState}

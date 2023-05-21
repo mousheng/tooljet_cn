@@ -86,6 +86,21 @@ class Restapi extends React.Component {
     });
   };
 
+  handlePaste = (paramType, inputText) => {
+    const { options } = this.state;
+    console.log(options, paramType, inputText)
+    if (confirm('确定添加这些吗？\r\n'+inputText) == true) {
+      var lines=inputText.split('\n')
+      var parseLines=[]
+      parseLines=lines.map(l=>l.split(':').map(x=>x.trim()))
+      options[paramType] = parseLines;
+      this.setState({ options }, () => {
+        this.props.optionsChanged(options);
+      });
+    }
+
+  }
+
   handleChange = (key, keyIndex, idx) => (value) => {
     const lastPair = this.state.options[key][idx];
     if (this.state.options[key].length - 1 === idx && (lastPair[0] || lastPair[1])) this.addNewKeyValuePair(key);
@@ -184,6 +199,7 @@ class Restapi extends React.Component {
             componentName={queryName}
             bodyToggle={this.state.options.body_toggle}
             setBodyToggle={this.onBodyToggleChanged}
+            handlePaste={this.handlePaste}
           />
         </div>
       </div>

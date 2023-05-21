@@ -14,10 +14,11 @@ export default ({
   componentName,
   bodyToggle,
   setBodyToggle,
+  handlePaste,
 }) => {
   return (
     <>
-      <GroupHeader paramType={'body'} descText={'JSON原数据'} bodyToggle={bodyToggle} setBodyToggle={setBodyToggle} />
+      <GroupHeader paramType={'body'} descText={'JSON原数据'} bodyToggle={bodyToggle} setBodyToggle={setBodyToggle} handlePaste={handlePaste}/>
       <TabContent
         options={options}
         currentState={currentState}
