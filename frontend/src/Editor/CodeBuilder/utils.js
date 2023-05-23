@@ -87,19 +87,12 @@ export function getSuggestionKeys(refState, refSource) {
     'unsetPageVariable',
     'switchPage',
   ];
-  // 自定义提示关键字
-  const customKey = [
+  // js代码编辑框提示字
+  const customKey2 = [
     'console.log()',
     'alert()',
     'confirm()',
-    'escape()',
-    'eval()',
-    'isNaN()',
-    'parseFloat()',
-    'parseInt()',
     'prompt()',
-    'moment()',
-    'Date()',
     'axios()',
     'axios.request()',
     'axios.get()',
@@ -115,8 +108,6 @@ export function getSuggestionKeys(refState, refSource) {
     'const',
     'await',
     'async',
-    'if',
-    'new',
     'break',
     'delete',
     'this',
@@ -127,15 +118,28 @@ export function getSuggestionKeys(refState, refSource) {
     'throw',
     'with',
     'catch',
-    'else',
-    'instanceof',
     'try',
     'continue',
     'finally',
-    'typeof',
     'for',
     'default',
     'debugger',
+  ]
+  // 通用自定义提示关键字
+  const customKey1 = [
+    'unescape()',
+    'escape()',
+    'eval()',
+    'isNaN()',
+    'parseFloat()',
+    'parseInt()',
+    'moment()',
+    'Date()',
+    'if',
+    'new',
+    'else',
+    'instanceof',
+    'typeof',
   ]
 
   // eslint-disable-next-line no-unused-vars
@@ -181,13 +185,17 @@ export function getSuggestionKeys(refState, refSource) {
 
   buildMap(currentState, '');
   // JS模式添加自定义代码提示
-  if (refSource === 'Runjs') {
+  console.log(refSource)
+  if (refSource === 'Runjs' || refSource.startsWith('widget')) {
     buildMap(_, '_')
     buildMap(window.localStorage, 'window.localStorage')
     buildMap(moment().constructor.prototype, 'moment()')
-    buildMap(axios.defaults, 'axios.defaults')
     buildMap(Math, 'Math')
-    suggestionList = _.concat(suggestionList, customKey)
+    suggestionList = _.concat(suggestionList, customKey1)
+    if(refSource === 'Runjs'){
+      buildMap(axios.defaults, 'axios.defaults')
+      suggestionList = _.concat(suggestionList, customKey2)
+    }
   }
   map.forEach((__, key) => {
     if (key.endsWith('run') && key.startsWith('queries')) {
