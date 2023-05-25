@@ -7547,4 +7547,119 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+	 {
+  // 组件名称
+  name: 'RadioButtonGroup',
+  // 组件显示名称
+  displayName: '单选按钮组',
+  // 组件描述
+  description: '单选按钮组组件',
+  // 调用的组件名
+  component: 'RadioButtonGroup',
+  // 默认组件大小
+  defaultSize: {
+    width: 15,
+    height: 50,
+  },
+  // 默认子组件
+  defaultChildren: [
+  ],
+  // 其他选项,设置显示在桌面系统或移动平台
+  others: {
+    showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+    showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+  },
+  // 主属性
+  properties: {
+    // 属性名,传入组件的属性名
+    radios: {
+      // 输入属性的输入框类型，code/toggle/color/number/select等
+      type: 'code',
+      // 显示名称
+      displayName: '按钮组数据',
+      validation: {
+        schema: {
+          // string/array/number
+          type: 'array',
+          // 指定子元素类型范围
+          // element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] }
+        },
+      },
+    },
+    radioValue: {
+      type: 'code',
+      displayName: '默认选中项',
+      validation: {
+        schema: {
+          type: 'string',
+        },
+      },
+    },
+  },
+  events: { onSelect: { displayName: '选择时' } },
+  styles: {
+    visibility: {
+      type: 'toggle',
+      displayName: 'Visibility',
+      validation: {
+        schema: {
+          type: 'boolean',
+        },
+      },
+    },
+    disabledState: {
+      type: 'toggle',
+      displayName: '禁用',
+      validation: {
+        schema: {
+          type: 'boolean',
+        },
+      },
+    },
+  },
+  // 动作列表，需在组件中注册接受动作
+  actions: [
+    {
+      handle: 'setIndex',
+      displayName: '设置选中序号',
+      // 参数
+      params: [
+        {
+          handle: 'index',
+          displayName: '设置序号',
+          defaultValue: '1',
+        },
+      ],
+    },
+  ],
+  // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+  exposedVariables: {
+    currentValue: '',
+    currentName: ''
+  },
+  // 定义新建组件时的默认值
+  definition: {
+    others: {
+      showOnDesktop: { value: '{{true}}' },
+      showOnMobile: { value: '{{false}}' },
+    },
+    properties: {
+      radios: {
+        value:
+          `{{[
+{ name: '第一', value: '1' },
+{ name: '第二', value: '2' },
+{ name: '第三', value: '3' },
+]}}`,
+      },
+      radioValue: { value: '1' },
+    },
+    events: [],
+    styles: {
+      color: { value: '#CFD1F3' },
+      visibility: { value: '{{true}}' },
+      disabledState: { value: '{{false}}' },
+    },
+  },
+},
 ];

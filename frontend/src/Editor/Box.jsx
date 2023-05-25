@@ -1,3 +1,4 @@
+import { RadioButtonGroup } from './Components/RadioButtonGroup';
 import { Autocomplete } from './Components/Autocomplete';
 import { Carousels } from './Components/Carousels';
 import { Badges } from './Components/Badges';
@@ -80,6 +81,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	RadioButtonGroup,
 	Autocomplete,
 	Carousels,
 	Badges,
