@@ -7357,4 +7357,194 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+  {
+    // 组件名称
+    name: 'Autocomplete',
+    // 组件显示名称
+    displayName: '自动补全',
+    // 组件描述
+    description: '自动补全输入框',
+    // 调用的组件名
+    component: 'Autocomplete',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 50,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      datas: {
+        // 输入属性的输入框类型，code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '自动补全数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+      titleKey: {
+        type: 'code',
+        displayName: '主标题的键名',
+        tip: '必须和自动补全数据中的键对应',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      titleDisplayName: {
+        type: 'code',
+        displayName: '主标题显示名称',
+        tip: '主标题显示的名称，如果不想显示，可设置为-',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      subTitleKey: {
+        type: 'code',
+        displayName: '副标题的键名',
+        tip: '必须和自动补全数据中的键对应',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      subTitleDisplayName: {
+        type: 'code',
+        displayName: '副标题显示名称',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      placeholder: {
+        type: 'code',
+        displayName: '占位符',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      searchFirstPY: {
+        type: 'toggle',
+        displayName: '自动匹配首拼',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      searchAllPY: {
+        type: 'toggle',
+        displayName: '自动匹配全拼',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      maxResults: {
+        type: 'number',
+        displayName: '最多显示数',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+    },
+    events: {
+      onSearchTextChanged: { displayName: '搜索文本改变时' },
+      onSelect: { displayName: '选择选项时' },
+      onFocus: { displayName: '获取焦点时' },
+      onHover: { displayName: '悬停选项时' },
+    },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      searchText: '',
+      selectedItem: {},
+      hoverItem: {},
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        datas: {
+          value:
+            `{{[
+  {
+    title: '上海',
+    subTitle: '上海市，简称“沪”或“申”',
+  },
+  {
+    title: '北京',
+    subTitle: '北京市，简称“京”',
+  },
+  {
+    title: '广东',
+    subTitle: '广东省，简称“粤”',
+  },
+]}}`,
+        },
+        titleKey: { value: 'title' },
+        titleDisplayName: { value: '标题：' },
+        subTitleKey: { value: 'subTitle' },
+        subTitleDisplayName: { value: '副标题：' },
+        maxResults: { value: 10 },
+        placeholder: { value: '搜索' },
+        searchFirstPY: { value: '{{true}}' },
+        searchAllPY: { value: '{{true}}' },
+      },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
 ];

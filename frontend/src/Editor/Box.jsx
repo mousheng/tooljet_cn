@@ -1,3 +1,4 @@
+import { Autocomplete } from './Components/Autocomplete';
 import { Carousels } from './Components/Carousels';
 import { Badges } from './Components/Badges';
 import { Accordions } from './Components/Accordions';
@@ -79,6 +80,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	Autocomplete,
 	Carousels,
 	Badges,
 	Accordions,
