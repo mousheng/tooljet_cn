@@ -552,12 +552,12 @@ function executeActionWithDebounce(_ref, event, mode, customVariables) {
         const component = Object.values(_ref.state.currentState?.components ?? {}).filter(
           (component) => component.id === event.componentId
         )[0];
-        const action = component[event.componentSpecificActionHandle];
+        const action = component?.[event.componentSpecificActionHandle];
         const actionArguments = _.map(event.componentSpecificActionParams, (param) => ({
           ...param,
           value: resolveReferences(param.value, _ref.state.currentState, undefined, customVariables),
         }));
-        const actionPromise = action(...actionArguments.map((argument) => argument.value));
+        const actionPromise = actionArguments?.length && action(...actionArguments.map((argument) => argument.value));
         return actionPromise ?? Promise.resolve();
       }
 
@@ -890,7 +890,7 @@ export function previewQuery(_ref, query, editorState, calledFromQuery = false) 
 }
 
 export function runQuery(_ref, queryId, queryName, confirmed = undefined, mode = 'edit') {
-  const query = useDataQueriesStore.getState().dataQueries.find((query) => query.name === queryName);
+  const query = useDataQueriesStore.getState().dataQueries.find((query) => query.id === queryId);
   let dataQuery = {};
 
   if (query) {
