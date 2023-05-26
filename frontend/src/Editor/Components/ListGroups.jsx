@@ -29,7 +29,10 @@ export const ListGroups = function ListGroups({
     const [badgeStyle, setBadgeStyle] = useState(styles.badgeStyle);
 
     useEffect(() => {
-        setListData(properties.listData)
+        if (properties.listData instanceof Array)
+            setListData(properties.listData)
+        else
+            setListData([])
     }, [properties.listData])
 
     useEffect(() => {
