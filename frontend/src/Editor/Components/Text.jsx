@@ -28,7 +28,7 @@ export const Text = function Text({
     disabledState,
   } = styles;
   const { loadingState } = properties;
-  const [text, setText] = useState(() => computeText());
+  const [text, setText] = useState('');
   const [visibility, setVisibility] = useState(styles.visibility);
   const color = ['#000', '#000000'].includes(textColor) ? (darkMode ? '#fff' : '#000') : textColor;
 
@@ -62,7 +62,12 @@ export const Text = function Text({
   );
 
   function computeText() {
-    return properties.text === 0 || properties.text === false ? properties.text?.toString() : properties.text;
+    if (properties.text instanceof String)
+      return properties.text
+    else if (typeof properties.text == 'object')
+      return JSON.stringify(properties.text)
+    else
+      return properties.text?.toString() || ""
   }
 
   const computedStyles = {
