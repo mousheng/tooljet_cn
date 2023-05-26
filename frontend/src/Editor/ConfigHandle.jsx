@@ -45,8 +45,7 @@ export const ConfigHandle = function ConfigHandle({
             draggable="false"
           />
           <span>{component.name}</span>
-        </div>
-        {!isMultipleComponentsSelected && (
+          {!isMultipleComponentsSelected && (
           <div className="delete-part">
             <img
               style={{ cursor: 'pointer', marginLeft: '5px' }}
@@ -61,6 +60,7 @@ export const ConfigHandle = function ConfigHandle({
             />
           </div>
         )}
+        </div>
       </span>
     </div>
   );
