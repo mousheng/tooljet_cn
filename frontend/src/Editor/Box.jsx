@@ -1,3 +1,4 @@
+import { NavMenu } from './Components/NavMenu';
 import { ListGroups } from './Components/ListGroups';
 import { RadioButtonGroup } from './Components/RadioButtonGroup';
 import { Autocomplete } from './Components/Autocomplete';
@@ -82,6 +83,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	NavMenu,
 	ListGroups,
 	RadioButtonGroup,
 	Autocomplete,

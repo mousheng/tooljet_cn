@@ -7564,290 +7564,526 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
-	 {
-  // 组件名称
-  name: 'RadioButtonGroup',
-  // 组件显示名称
-  displayName: '单选按钮组',
-  // 组件描述
-  description: '单选按钮组组件',
-  // 调用的组件名
-  component: 'RadioButtonGroup',
-  // 默认组件大小
-  defaultSize: {
-    width: 15,
-    height: 50,
-  },
-  // 默认子组件
-  defaultChildren: [
-  ],
-  // 其他选项,设置显示在桌面系统或移动平台
-  others: {
-    showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
-    showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
-  },
-  // 主属性
-  properties: {
-    // 属性名,传入组件的属性名
-    radios: {
-      // 输入属性的输入框类型，code/toggle/color/number/select等
-      type: 'code',
-      // 显示名称
-      displayName: '按钮组数据',
-      validation: {
-        schema: {
-          // string/array/number
-          type: 'array',
-          // 指定子元素类型范围
-          // element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] }
-        },
-      },
+  {
+    // 组件名称
+    name: 'RadioButtonGroup',
+    // 组件显示名称
+    displayName: '单选按钮组',
+    // 组件描述
+    description: '单选按钮组组件',
+    // 调用的组件名
+    component: 'RadioButtonGroup',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 50,
     },
-    radioValue: {
-      type: 'code',
-      displayName: '默认选中项',
-      validation: {
-        schema: {
-          type: 'string',
-        },
-      },
-    },
-  },
-  events: { onSelect: { displayName: '选择时' } },
-  styles: {
-    visibility: {
-      type: 'toggle',
-      displayName: 'Visibility',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-    disabledState: {
-      type: 'toggle',
-      displayName: '禁用',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-  },
-  // 动作列表，需在组件中注册接受动作
-  actions: [
-    {
-      handle: 'setIndex',
-      displayName: '设置选中序号',
-      // 参数
-      params: [
-        {
-          handle: 'index',
-          displayName: '设置序号',
-          defaultValue: '1',
-        },
-      ],
-    },
-  ],
-  // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
-  exposedVariables: {
-    currentValue: '',
-    currentName: ''
-  },
-  // 定义新建组件时的默认值
-  definition: {
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
     others: {
-      showOnDesktop: { value: '{{true}}' },
-      showOnMobile: { value: '{{false}}' },
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
+    // 主属性
     properties: {
+      // 属性名,传入组件的属性名
       radios: {
-        value:
-          `{{[
+        // 输入属性的输入框类型，code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '按钮组数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            // element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] }
+          },
+        },
+      },
+      radioValue: {
+        type: 'code',
+        displayName: '默认选中项',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    events: { onSelect: { displayName: '选择时' } },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setIndex',
+        displayName: '设置选中序号',
+        // 参数
+        params: [
+          {
+            handle: 'index',
+            displayName: '设置序号',
+            defaultValue: '1',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      currentValue: '',
+      currentName: ''
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        radios: {
+          value:
+            `{{[
 { name: '第一', value: '1' },
 { name: '第二', value: '2' },
 { name: '第三', value: '3' },
 ]}}`,
-      },
-      radioValue: { value: '1' },
-    },
-    events: [],
-    styles: {
-      color: { value: '#CFD1F3' },
-      visibility: { value: '{{true}}' },
-      disabledState: { value: '{{false}}' },
-    },
-  },
-},
-	 {
-  // 组件名称
-  name: 'ListGroups',
-  // 组件显示名称
-  displayName: '列表菜单',
-  // 组件描述
-  description: '列表菜单组件',
-  // 调用的组件名
-  component: 'ListGroups',
-  // 默认组件大小
-  defaultSize: {
-    width: 15,
-    height: 250,
-  },
-  // 默认子组件
-  defaultChildren: [
-  ],
-  // 其他选项,设置显示在桌面系统或移动平台
-  others: {
-    showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
-    showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
-  },
-  // 主属性
-  properties: {
-    // 属性名,传入组件的属性名
-    listData: {
-      // 输入属性的输入框类型，code/toggle/color/number/select等
-      type: 'code',
-      // 显示名称
-      displayName: '列表数据',
-      validation: {
-        schema: {
-          // string/array/number
-          type: 'array',
-          // 指定子元素类型范围
-          // element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] }
         },
+        radioValue: { value: '1' },
       },
-    },
-    defaultActivate: {
-      type: 'number',
-      displayName: '默认选中',
-      validation: {
-        schema: {
-          type: 'number',
-        },
-      },
-    },
-    horizontal: {
-      type: 'toggle',
-      displayName: '水平布局',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-    showIndex: {
-      type: 'toggle',
-      displayName: '显示序号',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
+      events: [],
+      styles: {
+        color: { value: '#CFD1F3' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
       },
     },
   },
-  events: { onClick: { displayName: '点击事件' } },
-  styles: {
-    itemStyle: {
-      type: 'select',
-      displayName: '列表样式',
-      options: [
-        { name: '无', value: '' },
-        { name: '主要', value: 'primary' },
-        { name: '次要', value: 'secondary' },
-        { name: '成功', value: 'success' },
-        { name: '危险', value: 'danger' },
-        { name: '警告', value: 'warning' },
-        { name: '消息', value: 'info' },
-        { name: '亮色', value: 'light' },
-        { name: '暗色', value: 'dark' },
-      ],
-      validation: {
-        schema: { type: 'string' },
-      },
+  {
+    // 组件名称
+    name: 'ListGroups',
+    // 组件显示名称
+    displayName: '列表菜单',
+    // 组件描述
+    description: '列表菜单组件',
+    // 调用的组件名
+    component: 'ListGroups',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 250,
     },
-    badgeStyle: {
-      type: 'select',
-      displayName: '徽标样式',
-      options: [
-        { name: '无', value: '' },
-        { name: '主要', value: 'primary' },
-        { name: '次要', value: 'secondary' },
-        { name: '成功', value: 'success' },
-        { name: '危险', value: 'danger' },
-        { name: '警告', value: 'warning' },
-        { name: '消息', value: 'info' },
-        { name: '亮色', value: 'light' },
-        { name: '暗色', value: 'dark' },
-      ],
-      validation: {
-        schema: { type: 'string' },
-      },
-    },
-    visibility: {
-      type: 'toggle',
-      displayName: 'Visibility',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-    disabledState: {
-      type: 'toggle',
-      displayName: '禁用',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-  },
-  // 动作列表，需在组件中注册接受动作
-  actions: [
-    {
-      handle: 'setIndex',
-      displayName: '设置选中序号',
-      // 参数
-      params: [
-        {
-          handle: 'index',
-          displayName: '设置序号',
-          type:'number',
-          defaultValue: 1,
-        },
-      ],
-    },
-  ],
-  // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
-  exposedVariables: {
-    clickIndex: 1
-  },
-  // 定义新建组件时的默认值
-  definition: {
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
     others: {
-      showOnDesktop: { value: '{{true}}' },
-      showOnMobile: { value: '{{false}}' },
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
+    // 主属性
     properties: {
+      // 属性名,传入组件的属性名
       listData: {
-        value:
-          `{{[
+        // 输入属性的输入框类型，code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '列表数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            // element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] }
+          },
+        },
+      },
+      defaultActivate: {
+        type: 'number',
+        displayName: '默认选中',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+      horizontal: {
+        type: 'toggle',
+        displayName: '水平布局',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      showIndex: {
+        type: 'toggle',
+        displayName: '显示序号',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    events: { onClick: { displayName: '点击事件' } },
+    styles: {
+      itemStyle: {
+        type: 'select',
+        displayName: '列表样式',
+        options: [
+          { name: '无', value: '' },
+          { name: '主要', value: 'primary' },
+          { name: '次要', value: 'secondary' },
+          { name: '成功', value: 'success' },
+          { name: '危险', value: 'danger' },
+          { name: '警告', value: 'warning' },
+          { name: '消息', value: 'info' },
+          { name: '亮色', value: 'light' },
+          { name: '暗色', value: 'dark' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      badgeStyle: {
+        type: 'select',
+        displayName: '徽标样式',
+        options: [
+          { name: '无', value: '' },
+          { name: '主要', value: 'primary' },
+          { name: '次要', value: 'secondary' },
+          { name: '成功', value: 'success' },
+          { name: '危险', value: 'danger' },
+          { name: '警告', value: 'warning' },
+          { name: '消息', value: 'info' },
+          { name: '亮色', value: 'light' },
+          { name: '暗色', value: 'dark' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setIndex',
+        displayName: '设置选中序号',
+        // 参数
+        params: [
+          {
+            handle: 'index',
+            displayName: '设置序号',
+            type: 'number',
+            defaultValue: 1,
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      clickIndex: 1
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        listData: {
+          value:
+            `{{[
   { title: '主页',subTitle:'显示主页',num:10},
   { title: '展示',subTitle:'显示内容',num:0},
   { title: '设置',subTitle:'显示设置',disabled:true} \n ]}}`,
+        },
+        defaultActivate: { value: 1 },
+        horizontal: { value: false },
+        showIndex: { value: false },
       },
-      defaultActivate: { value: 1 },
-      horizontal: { value: false },
-      showIndex: { value: false },
-    },
-    events: [],
-    styles: {
-      itemStyle: { value: '' },
-      badgeStyle: { value: 'danger' },
-      visibility: { value: '{{true}}' },
-      disabledState: { value: '{{false}}' },
+      events: [],
+      styles: {
+        itemStyle: { value: '' },
+        badgeStyle: { value: 'danger' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
     },
   },
-},
+  {
+    // 组件名称
+    name: 'NavMenu',
+    // 组件显示名称
+    displayName: '导航菜单',
+    // 组件描述
+    description: '导航菜单组件',
+    // 调用的组件名
+    component: 'NavMenu',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 515,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      menuData: {
+        // 输入属性的输入框类型，code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '菜单数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+      defaultOpenKeys: {
+        type: 'code',
+        displayName: '默认展开项',
+        validation: {
+          schema: {
+            type: 'array',
+          },
+        },
+      },
+      defaultSelectedKeys: {
+        type: 'code',
+        displayName: '默认选中项',
+        validation: {
+          schema: {
+            type: 'array',
+          },
+        },
+      },
+      defaultinlineCollapsed: {
+        type: 'toggle',
+        displayName: '默认收缩垂直菜单',
+        tip: '仅在垂直布局有效',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      onlyOpenOne: {
+        type: 'toggle',
+        displayName: '只展开一个二级菜单',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      menuMode: {
+        type: 'select',
+        displayName: '菜单布局方式',
+        options: [
+          { name: '垂直内嵌', value: 'inline' },
+          { name: '垂直弹出', value: 'vertical' },
+          { name: '水平布局', value: 'horizontal' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+    },
+    events: { onClick: { displayName: '点击时' } },
+    styles: {
+      color: {
+        type: 'color',
+        displayName: '颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setInlineCollapsed',
+        displayName: '内嵌菜单缩起/展开',
+        // 参数
+        params: [
+          {
+            handle: 'status',
+            displayName: '状态',
+            defaultValue: '{{true}}',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      currentKey: '',
+      currentPath: [],
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        menuData: {
+          value:
+            `{{[
+  {
+      label: '首页',
+      key: 'main',
+      icon: 'MailOutlined',
+  },
+  {
+      label: '展示',
+      key: 'show',
+      icon: 'AppstoreOutlined',
+  },
+  {
+      label: '二级菜单1',
+      key: 'submenu',
+      icon: 'AppstoreOutlined',
+      children: [
+          {
+              type: 'group',
+              label: '组1',
+              children: [
+                  {
+                      label: '选项1',
+                      key: 'setting1',
+                      icon: 'AppstoreOutlined',
+                  },
+                  {
+                      label: '选项2',
+                      key: 'setting2',
+                  },
+              ],
+          },
+          {
+              type: 'group',
+              label: '组二',
+              children: [
+                  {
+                      label: '选项3',
+                      key: 'setting3',
+                  },
+                  {
+                      label: '选项4',
+                      key: 'setting4',
+                  },
+              ],
+          },
+      ],
+  },
+  {
+      label: '二级菜单2',
+      key: 'submenu2',
+      icon: 'AppstoreOutlined',
+      children: [
+          {
+              type: 'group',
+              label: '组3',
+              children: [
+                  {
+                      label: '选项5',
+                      key: 'setting5',
+                      icon: 'AppstoreOutlined',
+                  },
+                  {
+                      label: '选项6',
+                      key: 'setting6',
+                  },
+              ],
+          }
+      ]
+  },
+  {
+      label: '图标',
+      key: 'icon',
+      icon: 'AppstoreOutlined',
+  },
+]}}`,
+        },
+        defaultOpenKeys: { value: "{{['submenu']}}" },
+        defaultSelectedKeys: { value: "{{['setting3']}}" },
+        menuMode: { value: 'inline' },
+        onlyOpenOne: { value: true },
+        defaultinlineCollapsed: { value: false },
+      },
+      events: [],
+      styles: {
+        color: { value: '#CFD1F3' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
 ];
