@@ -1,3 +1,4 @@
+import { MentionsInput } from './Components/MentionsInput';
 import { Cascaders } from './Components/Cascaders';
 import { NavMenu } from './Components/NavMenu';
 import { ListGroups } from './Components/ListGroups';
@@ -84,6 +85,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	MentionsInput,
 	Cascaders,
 	NavMenu,
 	ListGroups,

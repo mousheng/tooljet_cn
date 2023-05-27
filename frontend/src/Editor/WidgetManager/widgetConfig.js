@@ -8319,4 +8319,106 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+	 {
+  // 组件名称
+  name: 'MentionsInput',
+  // 组件显示名称
+  displayName: '提及输入框',
+  // 组件描述
+  description: '可响应特定提及按键的输入框',
+  // 调用的组件名
+  component: 'MentionsInput',
+  // 默认组件大小
+  defaultSize: {
+    width: 15,
+    height: 36,
+  },
+  // 默认子组件
+  defaultChildren: [
+  ],
+  // 其他选项,设置显示在桌面系统或移动平台
+  others: {
+    showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+    showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+  },
+  // 主属性
+  properties: {
+    // 属性名,传入组件的属性名
+    options: {
+      // 输入属性的输入框类型，code/toggle/color/number/select等
+      type: 'code',
+      // 显示名称
+      displayName: '提及列表',
+      validation: {
+        schema: {
+          // string/array/number
+          type: 'object',
+        },
+      },
+    },
+    defaultValue: {
+      type: 'code',
+      displayName: '默认值',
+      validation: {
+        schema: {
+          type: 'string',
+        },
+      },
+    },
+  },
+  events: { 
+    onBlur: { displayName: '失去焦点时' },
+    onChange: { displayName: '改变时' },
+    onSelect: { displayName: '选择标签时' },
+  },
+  styles: {
+    visibility: {
+      type: 'toggle',
+      displayName: 'Visibility',
+      validation: {
+        schema: {
+          type: 'boolean',
+        },
+      },
+    },
+    disabledState: {
+      type: 'toggle',
+      displayName: '禁用',
+      validation: {
+        schema: {
+          type: 'boolean',
+        },
+      },
+    },
+  },
+  // 动作列表，需在组件中注册接受动作
+  actions: [
+  ],
+  // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+  exposedVariables: {
+    context: ''
+  },
+  // 定义新建组件时的默认值
+  definition: {
+    others: {
+      showOnDesktop: { value: '{{true}}' },
+      showOnMobile: { value: '{{false}}' },
+    },
+    properties: {
+      options: {
+        value:
+`{{{
+  '@': ['张三', '李四', '王五'],
+  '#': ['1.0', '2.0', '3.0'],
+}}}`
+      },
+      defaultValue: { value: '输入@或#试试' },
+    },
+    events: [],
+    styles: {
+      visibility: { value: '{{true}}' },
+      disabledState: { value: '{{false}}' },
+    },
+  },
+},
 ];
