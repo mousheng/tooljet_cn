@@ -1,3 +1,4 @@
+import { Cascaders } from './Components/Cascaders';
 import { NavMenu } from './Components/NavMenu';
 import { ListGroups } from './Components/ListGroups';
 import { RadioButtonGroup } from './Components/RadioButtonGroup';
@@ -83,6 +84,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	Cascaders,
 	NavMenu,
 	ListGroups,
 	RadioButtonGroup,

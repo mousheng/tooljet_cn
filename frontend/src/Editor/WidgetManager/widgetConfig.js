@@ -8086,4 +8086,237 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+  {
+    // 组件名称
+    name: 'Cascaders',
+    // 组件显示名称
+    displayName: '级联选择',
+    // 组件描述
+    description: '可从一组相关联的数据集合进行选择',
+    // 调用的组件名
+    component: 'Cascaders',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 36,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      options: {
+        // 输入属性的输入框类型，code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '选项数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+      placeholder: {
+        type: 'code',
+        displayName: '占位符',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      defaultValue: {
+        type: 'code',
+        displayName: '默认值',
+        validation: {
+          schema: {
+            type: 'array',
+            element: { type: 'union', schemas: [{ type: 'string' }] }
+          },
+        },
+      },
+      expandTrigger: {
+        type: 'select',
+        displayName: '选项展开方式',
+        options: [
+          { name: '移入展开', value: 'hover' },
+          { name: '点击展开', value: 'click' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      customMap: {
+        type: 'code',
+        displayName: '自定义映射键',
+        validation: {
+          schema: {
+            type: 'object',
+          },
+        },
+      },
+      multiple: {
+        type: 'toggle',
+        displayName: '允许多选',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      searchAllPY: {
+        type: 'toggle',
+        displayName: '允许全拼搜索',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      searchFirstPY: {
+        type: 'toggle',
+        displayName: '允许首拼搜索',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    events: {
+      onSelect: { displayName: '点击事件' },
+      onSearchTextChanged: { displayName: '搜索文本改变时' },
+    },
+    styles: {
+      placement: {
+        type: 'select',
+        displayName: '弹出位置',
+        options: [
+          { name: '下方靠左', value: 'bottomLeft' },
+          { name: '下方靠右', value: 'bottomRight' },
+          { name: '上方靠左', value: 'topLeft' },
+          { name: '上方靠右', value: 'topRight' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      selectedOptions: [],
+      selectValue: [],
+      searchText: '',
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        options: {
+          value: `{{[
+          {
+            value: 'zhejiang',
+            label: '浙江',
+            children: [
+              {
+                value: 'hangzhou',
+                label: '杭州',
+                children: [
+                  {
+                    value: 'xihu',
+                    label: '西湖',
+                  },
+                  {
+                    value: 'xiasha',
+                    label: '下沙',
+                    disabled: true,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: 'jiangsu',
+            label: '江苏',
+            children: [
+              {
+                value: 'nanjing',
+                label: '南京',
+                children: [
+                  {
+                    value: 'zhonghuamen',
+                    label: '中华门',
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: 'bukexuan',
+            label: '不可选的选项',
+            children: [
+              {
+                value: 'test2',
+                label: '测试2',
+                children: [
+                  {
+                    value: 'ceshi3',
+                    label: '测试3',
+                    disabled: true,
+                  },
+                ],
+              }
+            ]
+          }
+        ]}}`
+        },
+        placeholder: { value: '请选择' },
+        expandTrigger: { value: 'hover' },
+        defaultValue: { value: "{{['zhejiang', 'hangzhou', 'xihu']}}" },
+        customMap: { value: "{{{ label: 'label', value: 'value', children: 'children' }}}" },
+        multiple: { value: false },
+        searchAllPY: { value: true },
+        searchFirstPY: { value: true },
+      },
+      events: [],
+      styles: {
+        placement: { value: 'bottomLeft' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
 ];
