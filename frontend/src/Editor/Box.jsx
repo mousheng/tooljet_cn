@@ -1,3 +1,4 @@
+import { AntRadio } from './Components/AntRadio';
 import { MentionsInput } from './Components/MentionsInput';
 import { Cascaders } from './Components/Cascaders';
 import { NavMenu } from './Components/NavMenu';
@@ -85,6 +86,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	AntRadio,
 	MentionsInput,
 	Cascaders,
 	NavMenu,

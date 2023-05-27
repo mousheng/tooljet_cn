@@ -8421,4 +8421,143 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     },
   },
 },
+	 {
+  // 组件名称
+  name: 'AntRadio',
+  // 组件显示名称
+  displayName: '单选按钮组',
+  // 组件描述
+  description: '基于Ant的单选按钮组件',
+  // 调用的组件名
+  component: 'AntRadio',
+  // 默认组件大小
+  defaultSize: {
+    width: 10,
+    height: 36,
+  },
+  // 默认子组件
+  defaultChildren: [
+  ],
+  // 其他选项,设置显示在桌面系统或移动平台
+  others: {
+    showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+    showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+  },
+  // 主属性
+  properties: {
+    // 属性名,传入组件的属性名
+    datas: {
+      // 输入属性的输入框类型，code/toggle/color/number/select等
+      type: 'code',
+      // 显示名称
+      displayName: '单选组数据',
+      validation: {
+        schema: {
+          // string/array/number
+          type: 'array',
+          // 指定子元素类型范围
+          element: { type: 'union', schemas: [{ type: 'object' }] }
+        },
+      },
+    },
+    defaultSelectKey: {
+      type: 'code',
+      displayName: '默认选中的值',
+      validation: {
+        schema: {
+          type: 'string',
+        },
+      },
+    },
+    radioType: {
+      type: 'select',
+      displayName: '按钮类型',
+      options: [
+        { name: '单选', value: 'default' },
+        { name: '按钮', value: 'button' },
+      ],
+      validation: {
+        schema: { type: 'string' },
+      },
+    },
+    buttonSize: {
+      type: 'select',
+      displayName: '按钮大小',
+      options: [
+        { name: '大', value: 'large' },
+        { name: '中', value: 'middle' },
+        { name: '小', value: 'small' },
+      ],
+      validation: {
+        schema: { type: 'string' },
+      },
+    },
+  },
+  events: { 
+    onChange: { displayName: '点击事件' },
+   },
+  styles: {
+    visibility: {
+      type: 'toggle',
+      displayName: 'Visibility',
+      validation: {
+        schema: {
+          type: 'boolean',
+        },
+      },
+    },
+    disabledState: {
+      type: 'toggle',
+      displayName: '禁用',
+      validation: {
+        schema: {
+          type: 'boolean',
+        },
+      },
+    },
+  },
+  // 动作列表，需在组件中注册接受动作
+  actions: [
+    {
+      handle: 'setValue',
+      displayName: '设置选中值',
+      // 参数
+      params: [
+        {
+          handle: 'value',
+          displayName: '选中值',
+          defaultValue: 'A',
+        },
+      ],
+    },
+  ],
+  // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+  exposedVariables: {
+    checkedValue: ''
+  },
+  // 定义新建组件时的默认值
+  definition: {
+    others: {
+      showOnDesktop: { value: '{{true}}' },
+      showOnMobile: { value: '{{false}}' },
+    },
+    properties: {
+      datas: {
+        value:`{{[
+{ label: '选项A' , value: 'A' ,},
+{ label: '选项B' , value: 'B' ,},
+{ label: '选项C' , value: 'C' ,}
+]}}`,
+      },
+      defaultSelectKey: { value: 'B' },
+      radioType: { value: 'default' },
+      buttonSize: { value: 'middle' },
+    },
+    events: [],
+    styles: {
+      visibility: { value: '{{true}}' },
+      disabledState: { value: '{{false}}' },
+    },
+  },
+},
 ];
