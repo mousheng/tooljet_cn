@@ -28,7 +28,7 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 - **私有部署:** (支持 Docker, Kubernetes, Heroku, AWS EC2, Google Cloud Run, 等等).
 - **合作:** 在画布上的任何位置添加评论，并标记您的团队成员.
 - **使用插件进行扩展:** 使用 [commandline tool](https://www.npmjs.com/package/@tooljet/cli) 轻松生成新的扩展.
-- ** 版本控制:** 每个应用程序都有不同的版本，并有适当的发布周期.
+- **版本控制:** 每个应用程序都有不同的版本，并有适当的发布周期.
 - **运行 JS & Python 代码:** 可运行自定义的JS及Python代码.
 - **细粒度访问控制** 组级别和应用程序级别的细粒度访问控制.
 - **低代码:** 几乎在生成器中的任何位置编写js代码例如，文本的颜色属性可以设置为`status === 'success' ? 'green' : 'red'`
@@ -41,6 +41,16 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 <hr>
 
 # 主要修改
+- **列表菜单** 支持显示主副标题、序号、角标，支持单独禁用选项，支持水平及垂直布局切换，支持代码选择
+<p align="center">
+    <img src="docs/static/img/temp/列表菜单.gif"/>
+</p>
+
+- **单选按钮组组件** 添加只能单选的按钮组组件，支持代码设置选择
+<p align="center">
+    <img src="docs/static/img/temp/单选按钮组组件.gif"/>
+</p>
+
 - **自动补全组件** 添加自动补全组件，原生支持全拼、首拼搜索，支持自定义显示主标题和副标题
 <p align="center">
     <img src="docs/static/img/temp/自动完成.gif"/>
