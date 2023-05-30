@@ -35,19 +35,20 @@ export const SelectComponent = ({
     Array.isArray(options) && options.length === 0
       ? options
       : options.map((option) => {
-          if (!option.hasOwnProperty('label')) {
-            return _.mapKeys(option, (value, key) => (key === 'value' ? key : 'label'));
-          }
-          return option;
-        });
+        if (!option.hasOwnProperty('label')) {
+          return _.mapKeys(option, (value, key) => (key === 'value' ? key : 'label'));
+        }
+        return option;
+      });
 
   const currentValue = selectOptions.find((option) => option.value === value) || value;
 
   const selectPinYin = (option, input) => {
-    if(option.label.indexOf(input)>=0) return true
+    if (input === '') return true
+    if (option.label.indexOf(input) >= 0) return true
     else if (input.charCodeAt() >= 32 && input.charCodeAt() <= 126) {
-      if(option.label.spell('first').toLowerCase().indexOf(input.toLowerCase()) >= 0)return true
-      else if(option.label.spell().toLowerCase().indexOf(input.toLowerCase()) >= 0) return true
+      if (option.label.spell('first').toLowerCase().indexOf(input.toLowerCase()) >= 0) return true
+      else if (option.label.spell().toLowerCase().indexOf(input.toLowerCase()) >= 0) return true
       else return false
     } else {
       return option.label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
@@ -89,7 +90,7 @@ export const SelectComponent = ({
       closeMenuOnSelect={closeMenuOnSelect ?? true}
       classNamePrefix={`${darkMode && 'dark-theme'} ${customWrap && 'react-select'}`}
       filterOption={selectPinYin}
-      noOptionsMessage={()=>'未找到'}
+      noOptionsMessage={() => '未找到'}
     />
   );
 };
