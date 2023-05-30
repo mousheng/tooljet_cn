@@ -8319,245 +8319,402 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
-	 {
-  // 组件名称
-  name: 'MentionsInput',
-  // 组件显示名称
-  displayName: '提及输入框',
-  // 组件描述
-  description: '可响应特定提及按键的输入框',
-  // 调用的组件名
-  component: 'MentionsInput',
-  // 默认组件大小
-  defaultSize: {
-    width: 15,
-    height: 36,
-  },
-  // 默认子组件
-  defaultChildren: [
-  ],
-  // 其他选项,设置显示在桌面系统或移动平台
-  others: {
-    showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
-    showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
-  },
-  // 主属性
-  properties: {
-    // 属性名,传入组件的属性名
-    options: {
-      // 输入属性的输入框类型，code/toggle/color/number/select等
-      type: 'code',
-      // 显示名称
-      displayName: '提及列表',
-      validation: {
-        schema: {
-          // string/array/number
-          type: 'object',
-        },
-      },
+  {
+    // 组件名称
+    name: 'MentionsInput',
+    // 组件显示名称
+    displayName: '提及输入框',
+    // 组件描述
+    description: '可响应特定提及按键的输入框',
+    // 调用的组件名
+    component: 'MentionsInput',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 36,
     },
-    defaultValue: {
-      type: 'code',
-      displayName: '默认值',
-      validation: {
-        schema: {
-          type: 'string',
-        },
-      },
-    },
-  },
-  events: { 
-    onBlur: { displayName: '失去焦点时' },
-    onChange: { displayName: '改变时' },
-    onSelect: { displayName: '选择标签时' },
-  },
-  styles: {
-    visibility: {
-      type: 'toggle',
-      displayName: 'Visibility',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-    disabledState: {
-      type: 'toggle',
-      displayName: '禁用',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-  },
-  // 动作列表，需在组件中注册接受动作
-  actions: [
-  ],
-  // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
-  exposedVariables: {
-    context: ''
-  },
-  // 定义新建组件时的默认值
-  definition: {
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
     others: {
-      showOnDesktop: { value: '{{true}}' },
-      showOnMobile: { value: '{{false}}' },
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
+    // 主属性
     properties: {
+      // 属性名,传入组件的属性名
       options: {
-        value:
-`{{{
+        // 输入属性的输入框类型，code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '提及列表',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'object',
+          },
+        },
+      },
+      defaultValue: {
+        type: 'code',
+        displayName: '默认值',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    events: {
+      onBlur: { displayName: '失去焦点时' },
+      onChange: { displayName: '改变时' },
+      onSelect: { displayName: '选择标签时' },
+    },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      context: ''
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        options: {
+          value:
+            `{{{
   '@': ['张三', '李四', '王五'],
   '#': ['1.0', '2.0', '3.0'],
 }}}`
-      },
-      defaultValue: { value: '输入@或#试试' },
-    },
-    events: [],
-    styles: {
-      visibility: { value: '{{true}}' },
-      disabledState: { value: '{{false}}' },
-    },
-  },
-},
-	 {
-  // 组件名称
-  name: 'AntRadio',
-  // 组件显示名称
-  displayName: '单选按钮组',
-  // 组件描述
-  description: '基于Ant的单选按钮组件',
-  // 调用的组件名
-  component: 'AntRadio',
-  // 默认组件大小
-  defaultSize: {
-    width: 10,
-    height: 36,
-  },
-  // 默认子组件
-  defaultChildren: [
-  ],
-  // 其他选项,设置显示在桌面系统或移动平台
-  others: {
-    showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
-    showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
-  },
-  // 主属性
-  properties: {
-    // 属性名,传入组件的属性名
-    datas: {
-      // 输入属性的输入框类型，code/toggle/color/number/select等
-      type: 'code',
-      // 显示名称
-      displayName: '单选组数据',
-      validation: {
-        schema: {
-          // string/array/number
-          type: 'array',
-          // 指定子元素类型范围
-          element: { type: 'union', schemas: [{ type: 'object' }] }
         },
+        defaultValue: { value: '输入@或#试试' },
       },
-    },
-    defaultSelectKey: {
-      type: 'code',
-      displayName: '默认选中的值',
-      validation: {
-        schema: {
-          type: 'string',
-        },
-      },
-    },
-    radioType: {
-      type: 'select',
-      displayName: '按钮类型',
-      options: [
-        { name: '单选', value: 'default' },
-        { name: '按钮', value: 'button' },
-      ],
-      validation: {
-        schema: { type: 'string' },
-      },
-    },
-    buttonSize: {
-      type: 'select',
-      displayName: '按钮大小',
-      options: [
-        { name: '大', value: 'large' },
-        { name: '中', value: 'middle' },
-        { name: '小', value: 'small' },
-      ],
-      validation: {
-        schema: { type: 'string' },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
       },
     },
   },
-  events: { 
-    onChange: { displayName: '点击事件' },
-   },
-  styles: {
-    visibility: {
-      type: 'toggle',
-      displayName: 'Visibility',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
+  {
+    // 组件名称
+    name: 'AntRadio',
+    // 组件显示名称
+    displayName: '单选按钮组',
+    // 组件描述
+    description: '基于Ant的单选按钮组件',
+    // 调用的组件名
+    component: 'AntRadio',
+    // 默认组件大小
+    defaultSize: {
+      width: 10,
+      height: 36,
     },
-    disabledState: {
-      type: 'toggle',
-      displayName: '禁用',
-      validation: {
-        schema: {
-          type: 'boolean',
-        },
-      },
-    },
-  },
-  // 动作列表，需在组件中注册接受动作
-  actions: [
-    {
-      handle: 'setValue',
-      displayName: '设置选中值',
-      // 参数
-      params: [
-        {
-          handle: 'value',
-          displayName: '选中值',
-          defaultValue: 'A',
-        },
-      ],
-    },
-  ],
-  // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
-  exposedVariables: {
-    checkedValue: ''
-  },
-  // 定义新建组件时的默认值
-  definition: {
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
     others: {
-      showOnDesktop: { value: '{{true}}' },
-      showOnMobile: { value: '{{false}}' },
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
+    // 主属性
     properties: {
+      // 属性名,传入组件的属性名
       datas: {
-        value:`{{[
+        // 输入属性的输入框类型，code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '单选组数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+      defaultSelectKey: {
+        type: 'code',
+        displayName: '默认选中的值',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      radioType: {
+        type: 'select',
+        displayName: '按钮类型',
+        options: [
+          { name: '单选', value: 'default' },
+          { name: '按钮', value: 'button' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      buttonSize: {
+        type: 'select',
+        displayName: '按钮大小',
+        options: [
+          { name: '大', value: 'large' },
+          { name: '中', value: 'middle' },
+          { name: '小', value: 'small' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+    },
+    events: {
+      onChange: { displayName: '点击事件' },
+    },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setValue',
+        displayName: '设置选中值',
+        // 参数
+        params: [
+          {
+            handle: 'value',
+            displayName: '选中值',
+            defaultValue: 'A',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      checkedValue: ''
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        datas: {
+          value: `{{[
 { label: '选项A' , value: 'A' ,},
 { label: '选项B' , value: 'B' ,},
 { label: '选项C' , value: 'C' ,}
 ]}}`,
+        },
+        defaultSelectKey: { value: 'B' },
+        radioType: { value: 'default' },
+        buttonSize: { value: 'middle' },
       },
-      defaultSelectKey: { value: 'B' },
-      radioType: { value: 'default' },
-      buttonSize: { value: 'middle' },
-    },
-    events: [],
-    styles: {
-      visibility: { value: '{{true}}' },
-      disabledState: { value: '{{false}}' },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
     },
   },
-},
+  {
+    // 组件名称
+    name: 'Drawers',
+    // 组件显示名称
+    displayName: '侧边抽屉',
+    // 组件描述
+    description: '从屏幕边缘滑出的像抽屉一样的悬浮面板',
+    // 调用的组件名
+    component: 'Drawers',
+    // 默认组件大小
+    defaultSize: {
+      width: 5,
+      height: 36,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      title: {
+        type: 'code',
+        displayName: '抽屉标题',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      showButton: {
+        type: 'toggle',
+        displayName: '显示按钮',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      hiddenOnMouseOut: {
+        type: 'toggle',
+        displayName: '鼠标移出时隐藏(预览时生效)',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      buttonTitle: {
+        type: 'code',
+        displayName: '按钮标题',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      popSize: {
+        type: 'select',
+        displayName: '弹出组件大小',
+        options: [
+          { name: '正常', value: 'default' },
+          { name: '加宽', value: 'large' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      placement: {
+        type: 'select',
+        displayName: '弹出位置',
+        options: [
+          { name: '左', value: 'left' },
+          { name: '右(编辑时在左)', value: 'right' },
+          { name: '上', value: 'top' },
+          { name: '下', value: 'bottom' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onClick: { displayName: '显示时' },
+      onClose: { displayName: '关闭时' },
+    },
+    styles: {
+      color: {
+        type: 'color',
+        displayName: '颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setStatus',
+        displayName: '设置状态',
+        params: [
+          {
+            handle: 'status',
+            displayName: '状态',
+            defaultValue: '{{true}}',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      show: false,
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        title: { value: '标题' },
+        placement: { value: 'left' },
+        popSize: { value: 'default' },
+        buttonTitle: { value: '打开抽屉' },
+        showButton: { value: true },
+        hiddenOnMouseOut: { value: false },
+      },
+      events: [],
+      styles: {
+        color: { value: '#CFD1F3' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
 ];
