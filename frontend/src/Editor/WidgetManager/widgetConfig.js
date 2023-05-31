@@ -398,6 +398,23 @@ export const widgets = [
         handle: 'discardChanges',
         displayName: '放弃修改',
       },
+      {
+        displayName: 'Download table data',
+        handle: 'downloadTableData',
+        params: [
+          {
+            handle: 'type',
+            displayName: 'Type',
+            options: [
+              { name: 'Download as Excel', value: 'xlsx' },
+              { name: 'Download as CSV', value: 'csv' },
+              { name: 'Download as PDF', value: 'pdf' },
+            ],
+            defaultValue: `{{Download as Excel}}`,
+            type: 'select',
+          },
+        ],
+      },
     ],
     definition: {
       others: {

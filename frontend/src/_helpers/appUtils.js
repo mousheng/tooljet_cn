@@ -780,10 +780,19 @@ export function getQueryVariables(options, state) {
   switch (optionsType) {
     case 'string': {
       options = options.replace(/\n/g, ' ');
-      const dynamicVariables = getDynamicVariables(options) || [];
-      dynamicVariables.forEach((variable) => {
-        queryVariables[variable] = resolveReferences(variable, state);
-      });
+      // check if {{var}} and %%var%% are present in the string
+
+      if (options.includes('{{') && options.includes('%%')) {
+        const vars = resolveReferences(options, state);
+        console.log('queryVariables', { options, vars });
+        queryVariables[options] = vars;
+      } else {
+        const dynamicVariables = getDynamicVariables(options) || [];
+        dynamicVariables.forEach((variable) => {
+          queryVariables[variable] = resolveReferences(variable, state);
+        });
+      }
+
       break;
     }
 
@@ -803,6 +812,7 @@ export function getQueryVariables(options, state) {
     default:
       break;
   }
+
   return queryVariables;
 }
 
