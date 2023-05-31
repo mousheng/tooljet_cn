@@ -113,7 +113,7 @@ export const Drawers = function Drawers({
             }}
         >
             <Drawer
-                // title={title}
+                title={title}
                 onClose={onClose}
                 className="jet-container"
                 open={open}
