@@ -1,3 +1,4 @@
+import { Transfers } from './Components/Transfers';
 import { Drawers } from './Components/Drawers';
 import { AntRadio } from './Components/AntRadio';
 import { MentionsInput } from './Components/MentionsInput';
@@ -87,6 +88,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	Transfers,
 	Drawers,
 	AntRadio,
 	MentionsInput,

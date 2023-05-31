@@ -8717,4 +8717,227 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+  {
+    // 组件名称
+    name: 'Transfers',
+    // 组件显示名称
+    displayName: '穿梭框',
+    // 组件描述
+    description: '双栏穿梭选择框',
+    // 调用的组件名
+    component: 'Transfers',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 250,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      datas: {
+        // 输入属性的输入框类型，/code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '源数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'string' }, { type: 'object' }] }
+          },
+        },
+      },
+      datas2: {
+        type: 'code',
+        displayName: '已选择',
+        validation: {
+          schema: {
+            type: 'array',
+            element: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] }
+          },
+        },
+      },
+      titles: {
+        type: 'code',
+        displayName: '标题',
+        validation: {
+          schema: {
+            type: 'array',
+            element: { type: 'union', schemas: [{ type: 'string' }] }
+          },
+        },
+      },
+      showSearch: {
+        type: 'toggle',
+        displayName: '显示搜索框',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      oneWay: {
+        type: 'toggle',
+        displayName: '单向模式',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      pagination: {
+        type: 'toggle',
+        displayName: '允许分页',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      pageSize: {
+        type: 'number',
+        displayName: '分页大小',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onChange: { displayName: '选项变化时' },
+      onSelect: { displayName: '点击项目时' },
+      onSearch: { displayName: '搜索文本改变时' },
+    },
+    styles: {
+      color: {
+        type: 'color',
+        displayName: '背景颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      colorbg: {
+        type: 'color',
+        displayName: '前景颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setTargetKeys',
+        displayName: '设置右边窗口项目',
+        // 参数
+        params: [
+          {
+            handle: 'keys',
+            displayName: 'key值数组',
+            defaultValue: '{{[]}}',
+          },
+        ],
+      },
+      {
+        handle: 'setSourceSelectedKeys',
+        displayName: '勾选选中项',
+        // 参数
+        params: [
+          {
+            handle: 'keys',
+            displayName: 'key值数组',
+            defaultValue: '{{[]}}',
+          },
+        ],
+      },
+      // {
+      //   handle: 'setTargetSelectedKeys',
+      //   displayName: '设置目标窗口选中项',
+      //   // 参数
+      //   params: [
+      //     {
+      //       handle: 'keys',
+      //       displayName: 'key值数组',
+      //       defaultValue: '{{[]}}',
+      //     },
+      //   ],
+      // },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      targetKeys: [],
+      direction: "",
+      movedKeys: [],
+      sourceSelectedKeys: [],
+      targetSelectedKeys: [],
+      searchText: [],
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        datas: {
+          value: `{{[
+{key:1,title:'内容1'},
+{key:2,title:'内容2'},
+{key:'三',title:'内容3'},
+{key:4,title:'内容4'},
+{key:5,title:'内容5'},
+{key:6,title:'内容6'},
+{key:7,title:'内容7'},
+{key:8,title:'内容8'},
+{key:9,title:'内容9'},
+{key:10,title:'内容10'},
+]}}`,
+        },
+        datas2: {
+          value: `{{[1,'三',5]}}`,
+        },
+        titles: { value: "{{['源数据', '目标']}}" },
+        oneWay: { value: false },
+        showSearch: { value: true },
+        pageSize: { value: 10 },
+        pagination: { value: false },
+      },
+      events: [],
+      styles: {
+        color: { value: '#fff' },
+        colorbg: { value: '#fff' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
 ];
