@@ -8940,4 +8940,159 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
   },
+  {
+    // 组件名称
+    name: 'TimePickers',
+    // 组件显示名称
+    displayName: '时间选择框',
+    // 组件描述
+    description: '输入或选择时间的控件',
+    // 调用的组件名
+    component: 'TimePickers',
+    // 默认组件大小
+    defaultSize: {
+      width: 5,
+      height: 36,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      defaultValue: {
+        type: 'code',
+        displayName: '默认时间',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      placeholder: {
+        type: 'code',
+        displayName: '占位符',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      changeOnBlur: {
+        type: 'toggle',
+        displayName: '选择后无需确认',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      timeStep: {
+        type: 'code',
+        displayName: '时/分/秒步长',
+        validation: {
+          schema: {
+            type: 'array',
+            element: { schemas: [{ type: 'number' }] }
+          },
+        },
+      },
+      timeFormat: {
+        type: 'select',
+        displayName: '时间格式',
+        options: [
+          { name: 'HH:mm:ss', value: 'HH:mm:ss' },
+          { name: 'HH:mm:ss a', value: 'HH:mm:ss a' },
+          { name: 'HH:mm', value: 'HH:mm' },
+          { name: 'HH:mm a', value: 'HH:mm a' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      rangePicker: {
+        type: 'toggle',
+        displayName: '时间范围选择器',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onChange: { displayName: '改变时' },
+    },
+    styles: {
+      bordered: {
+        type: 'toggle',
+        displayName: '无边框样式',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      time: '',
+      timeObject: null,
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        datas: {
+          value: `{{[
+{ title: '主页'},
+{ title: '展示' },
+{ title: '设置'}
+]}}`,
+        },
+        defaultValue: { value: "{{moment().format('HH:mm:ss')}}" },
+        value3: { value: 100 },
+        timeFormat: { value: 'HH:mm:ss' },
+        timeStep: { value: '{{[1,1,10]}}' },
+        changeOnBlur: { value: true },
+        rangePicker:{value:false},
+        placeholder:{value:'请选择时间'},
+      },
+      events: [],
+      styles: {
+        bordered: { value: false },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
 ];

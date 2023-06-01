@@ -1,3 +1,4 @@
+import { TimePickers } from './Components/TimePickers';
 import { Transfers } from './Components/Transfers';
 import { Drawers } from './Components/Drawers';
 import { AntRadio } from './Components/AntRadio';
@@ -88,6 +89,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	TimePickers,
 	Transfers,
 	Drawers,
 	AntRadio,
