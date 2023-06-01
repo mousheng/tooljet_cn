@@ -9150,7 +9150,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       counts: {
         type: 'number',
         displayName: '角标数字',
-        tip:'仅允许方形状态显示',
+        tip: '仅允许方形状态显示',
         validation: {
           schema: {
             type: 'number',
@@ -9242,6 +9242,172 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
         cursorPointer: { value: true },
+      },
+    },
+  },
+  {
+    // 组件名称
+    name: 'Description',
+    // 组件显示名称
+    displayName: '描述列表',
+    // 组件描述
+    description: '用于展示多个只读字段',
+    // 调用的组件名
+    component: 'Description',
+    // 默认组件大小
+    defaultSize: {
+      width: 20,
+      height: 230,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      datas: {
+        // 输入属性的输入框类型，/code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '显示数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+      title: {
+        type: 'code',
+        displayName: '标题',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      showEditButton: {
+        type: 'toggle',
+        displayName: '显示编辑按钮',
+        tip:'按钮仅方便调用编辑事件，控件不能编辑',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onClick: { displayName: '点击编辑按钮时' },
+    },
+    styles: {
+      bordered: {
+        type: 'toggle',
+        displayName: '显示边框',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      rowHeight: {
+        type: 'select',
+        displayName: '行高度',
+        options: [
+          { name: '高', value: 'default' },
+          { name: '中', value: 'middle' },
+          { name: '低', value: 'small' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      layout: {
+        type: 'select',
+        displayName: '布局方式',
+        options: [
+          { name: '水平布局', value: 'horizontal' },
+          { name: '垂直布局', value: 'vertical' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      column: {
+        type: 'number',
+        displayName: '每行列数',
+        validation: {
+          schema: { type: 'number' },
+        },
+      },
+      parseEnter: {
+        type: 'toggle',
+        displayName: '解析换行符',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        datas: {
+          value: `{{[
+{ label:'姓名',value:'张三'},
+{ label:'年龄',value:'15'},
+{ label:'家庭住址',value:'浙江省台州市'},
+{ label:'电话',value:'13888888888'},
+{ label:'其他情况',value:'无'},
+]}}`,
+        },
+        title: { value: '描述列表' },
+        showEditButton: { value: true },
+      },
+      events: [],
+      styles: {
+        bordered: { value: '{{true}}' },
+        layout: { value: 'horizontal' },
+        rowHeight: { value: 'default' },
+        column: { value: 2 },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        parseEnter: { value: true },
       },
     },
   },

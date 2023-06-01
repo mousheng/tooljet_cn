@@ -1,3 +1,4 @@
+import { Description } from './Components/Description';
 import { Avatars } from './Components/Avatars';
 import { TimePickers } from './Components/TimePickers';
 import { Transfers } from './Components/Transfers';
@@ -90,6 +91,7 @@ import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
 
 const AllComponents = {
+	Description,
 	Avatars,
 	TimePickers,
 	Transfers,
