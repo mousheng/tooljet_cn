@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Cascader, ConfigProvider } from 'antd';
 import { theme } from 'antd';
+import zhCN from 'antd/locale/zh_CN';
+
 
 const { darkAlgorithm, compactAlgorithm } = theme;
 
@@ -25,7 +27,6 @@ export const Cascaders = function Cascaders({
     const [disabledState, setDisabledState] = useState(styles.disabledState);
     const [placement, setPlacement] = useState(styles.placement);
 
-    var inputRef = useRef(null)
     const [options, setOptions] = useState(properties.options);
     const [multiple, setMultiple] = useState(properties.multiple);
     const [placeholder, setPlaceholder] = useState(properties.placeholder);
@@ -85,6 +86,7 @@ export const Cascaders = function Cascaders({
     return (<div className='text-input' style={{ width: width - 5, height, display: visibility ? '' : 'none' }}>
         <ConfigProvider
             theme={darkMode ? darkTheme : null}
+            locale={zhCN}
         >
             <Cascader
                 options={options}

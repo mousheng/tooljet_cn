@@ -8299,7 +8299,11 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         placeholder: { value: '请选择' },
         expandTrigger: { value: 'hover' },
         defaultValue: { value: "{{['zhejiang', 'hangzhou', 'xihu']}}" },
-        customMap: { value: "{{{ label: 'label', value: 'value', children: 'children' }}}" },
+        customMap: { value: `{{{ 
+label: 'label', 
+value: 'value', 
+children: 'children'
+}}}` },
         multiple: { value: false },
         searchAllPY: { value: true },
         searchFirstPY: { value: true },
