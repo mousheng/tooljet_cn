@@ -148,7 +148,8 @@ export default function AppCard({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHovered]);
 
-  const updated = moment(app.created_at).locale('zh-CN').fromNow(true);
+  const updated_at = app?.editing_version?.updated_at || app?.updated_at;
+  const updated = moment(updated_at).locale('zh-CN').fromNow(true);
   const darkMode = localStorage.getItem('darkMode') === 'true';
 
   let AppIcon;

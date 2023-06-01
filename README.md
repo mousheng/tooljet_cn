@@ -242,7 +242,7 @@ git clone https://github.com/mousheng/tooljet_cn.git && cd tooljet_cn
 
 ## 贡献者
 <a href="https://github.com/tooljet/tooljet/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=tooljet/tooljet&max=300&columns=20" />
+  <img src="https://contrib.rocks/image?repo=tooljet/tooljet&max=360&columns=20" />
   <img src="https://us-central1-tooljet-hub.cloudfunctions.net/github" width="0" height="0" />
 </a>
 
