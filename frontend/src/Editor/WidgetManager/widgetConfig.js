@@ -8648,13 +8648,6 @@ children: 'children'
       onClose: { displayName: '关闭时' },
     },
     styles: {
-      color: {
-        type: 'color',
-        displayName: '颜色',
-        validation: {
-          schema: { type: 'string' },
-        },
-      },
       visibility: {
         type: 'toggle',
         displayName: 'Visibility',
@@ -8708,7 +8701,6 @@ children: 'children'
       },
       events: [],
       styles: {
-        color: { value: '#CFD1F3' },
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
       },
@@ -9390,7 +9382,8 @@ children: 'children'
 { label:'年龄',value:'15'},
 { label:'家庭住址',value:'浙江省台州市'},
 { label:'电话',value:'13888888888'},
-{ label:'其他情况',value:'无'},
+{ label:'其他情况',value:\`演示
+换行\`},
 ]}}`,
         },
         title: { value: '描述列表' },

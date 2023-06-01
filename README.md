@@ -41,6 +41,66 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 <hr>
 
 # 主要修改
+
+- **描述列表** 支持编辑按钮事件回调，支持水平和垂直布局切换，支持设置每行列数，支持解析'\n'换行符
+<p align="center">
+    <img src="docs/static/img/temp/描述列表.gif"/>
+</p>
+
+
+- **头像组件** 支持外部图片、Ant图标、文字显示(渲染顺序图片>图标>文字),允许切换方形、圆形外观，方形外观下支持显示角标，支持回调点击事件
+<p align="center">
+    <img src="docs/static/img/temp/头像框.gif"/>
+</p>
+
+
+- **时间选择框** 支持设置默认时间，支持设置时间格式，支持设置时/分/秒间隔步长，支持切换时间范围选择切换，自动排序起始时间
+<p align="center">
+    <img src="docs/static/img/temp/时间选择框.gif"/>
+</p>
+
+
+- **穿梭框** 支持代码选中，支持搜索，支持单双向模式切换，支持分页和设置分页大小
+<p align="center">
+    <img src="docs/static/img/temp/穿梭框.gif"/>
+</p>
+
+
+- **侧边抽屉** 支持上下左右四个方向弹出，支持两种弹出宽度，支持套娃弹出，支持代码控制弹出、关闭
+<p align="center">
+    <img src="docs/static/img/temp/抽屉组件.gif"/>
+</p>
+
+
+- **单选按钮组** 允许根据列表生成单选按钮组，支持设置选中值，支持单选类型和按钮类型切换
+<p align="center">
+    <img src="docs/static/img/temp/单选按钮组.gif"/>
+</p>
+
+
+- **单选按钮组** 允许根据列表生成单选按钮组，支持设置选中值，支持单选类型和按钮类型切换
+<p align="center">
+    <img src="docs/static/img/temp/单选按钮组.gif"/>
+</p>
+
+
+- **提及输入框** 允许设置自定义提及快捷键与提及内容
+<p align="center">
+    <img src="docs/static/img/temp/提及输入框.gif"/>
+</p>
+
+
+- **级联选择框** 支持设置默认值，支持设置点击展开或移入展开，支持自定义映射key，原生支持全拼、首拼搜索，允许多选，允许设置四个方位弹出
+<p align="center">
+    <img src="docs/static/img/temp/级联选择框.gif"/>
+</p>
+
+
+- **导航菜单** 支持图标、二级菜单渲染，支持动态设置隐藏、禁用，支持默认选中菜单、默认展开菜单，支持垂直收缩布局，支持三种菜单模式，配合抽屉组件，可实现弹出菜单效果
+<p align="center">
+    <img src="docs/static/img/temp/导航菜单.gif"/>
+</p>
+
 - **列表菜单** 支持显示主副标题、序号、角标，支持单独禁用选项，支持水平及垂直布局切换，支持代码选择
 <p align="center">
     <img src="docs/static/img/temp/列表菜单.gif"/>
