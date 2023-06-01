@@ -9084,14 +9084,164 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         timeFormat: { value: 'HH:mm:ss' },
         timeStep: { value: '{{[1,1,10]}}' },
         changeOnBlur: { value: true },
-        rangePicker:{value:false},
-        placeholder:{value:'请选择时间'},
+        rangePicker: { value: false },
+        placeholder: { value: '请选择时间' },
       },
       events: [],
       styles: {
         bordered: { value: false },
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
+      },
+    },
+  },
+  {
+    // 组件名称
+    name: 'Avatars',
+    // 组件显示名称
+    displayName: '头像',
+    // 组件描述
+    description: '头像组件',
+    // 调用的组件名
+    component: 'Avatars',
+    // 默认组件大小
+    defaultSize: {
+      width: 5,
+      height: 150,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      src: {
+        type: 'code',
+        displayName: '图片',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      icon: {
+        type: 'code',
+        displayName: '图标',
+        tip: '渲染顺序：图片>图标>文本',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      title: {
+        type: 'code',
+        displayName: '标题',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      counts: {
+        type: 'number',
+        displayName: '角标数字',
+        tip:'仅允许方形状态显示',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+      shape: {
+        type: 'select',
+        displayName: '头像形状',
+        options: [
+          { name: '圆形', value: 'circle' },
+          { name: '方形', value: 'square' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onClick: { displayName: '点击事件' },
+    },
+    styles: {
+      color: {
+        type: 'color',
+        displayName: '颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      backgroundColor: {
+        type: 'color',
+        displayName: '背景颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      cursorPointer: {
+        type: 'toggle',
+        displayName: '鼠标经过变小手',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        title: { value: '张三' },
+        icon: { value: 'UserOutlined' },
+        src: { value: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg' },
+        counts: { value: 1 },
+        shape: { value: 'square' },
+      },
+      events: [],
+      styles: {
+        color: { value: '#fff' },
+        backgroundColor: { value: '#bfbfbf' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        cursorPointer: { value: true },
       },
     },
   },
