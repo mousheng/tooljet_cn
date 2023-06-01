@@ -7941,13 +7941,6 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     },
     events: { onClick: { displayName: '点击时' } },
     styles: {
-      color: {
-        type: 'color',
-        displayName: '颜色',
-        validation: {
-          schema: { type: 'string' },
-        },
-      },
       visibility: {
         type: 'toggle',
         displayName: 'Visibility',
@@ -8081,7 +8074,6 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
       events: [],
       styles: {
-        color: { value: '#CFD1F3' },
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
       },
