@@ -8003,9 +8003,10 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       icon: 'MailOutlined',
   },
   {
-      label: '展示',
+      label: '我被隐藏了',
       key: 'show',
       icon: 'AppstoreOutlined',
+      hidden:true,
   },
   {
       label: '二级菜单1',
