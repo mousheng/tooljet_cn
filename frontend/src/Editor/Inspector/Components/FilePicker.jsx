@@ -38,7 +38,7 @@ export const FilePicker = ({ componentMeta, darkMode, ...restProps }) => {
     });
 
     accordionItems.push({
-      title: 'Options',
+      title: '选项',
       children: renderOptions,
     });
     return accordionItems;

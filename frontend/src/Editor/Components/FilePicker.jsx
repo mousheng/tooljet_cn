@@ -185,7 +185,7 @@ export const FilePicker = ({
       name: file.name,
       type: file.type,
       content: readFileAsText,
-      dataURL: readFileAsDataURL, // TODO: Fix dataURL to have correct format
+      dataURL: `data:${file.type};base64,${readFileAsDataURL}`, // 合并成Base64字符格式
       base64Data: readFileAsDataURL,
       parsedData: shouldProcessFileParsing
         ? await processFileContent(file.type, { readFileAsDataURL, readFileAsText })
@@ -344,7 +344,7 @@ export const FilePicker = ({
 
         <FilePicker.Signifiers
           signifier={isDragAccept && !(selectedFiles.length === parsedMaxFileCount)}
-          feedback={'All files will be accepted'}
+          feedback={'松开鼠标上传文件.'}
           cls="text-lime mt-3"
         />
         <FilePicker.Signifiers
@@ -353,7 +353,7 @@ export const FilePicker = ({
           cls="text-red mt-3"
         />
 
-        <FilePicker.Signifiers signifier={isDragReject} feedback={'Files will be rejected!'} cls="text-red mt-3" />
+        <FilePicker.Signifiers signifier={isDragReject} feedback={'文件将被拒绝.'} cls="text-red mt-3" />
       </div>
     </section>
   );

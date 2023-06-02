@@ -624,7 +624,7 @@
             "dividerColor": "分隔线颜色",
             "clearFiles": "清除文件",
             "instructionText": "说明文本",
-            "useDropZone": "使用放置区",
+            "useDropZone": "允许文件拖放",
             "useFilePicker": "使用文件选取器",
             "pickMultipleFiles": "选择多个文件",
             "maxFileCount": "最大文件数",

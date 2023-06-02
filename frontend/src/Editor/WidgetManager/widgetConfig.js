@@ -3217,28 +3217,28 @@ export const widgets = [
         },
       },
       enableDropzone: {
-        type: 'code',
+        type: 'toggle',
         displayName: 'Use Drop zone',
         validation: {
           schema: { type: 'boolean' },
         },
       },
       enablePicker: {
-        type: 'code',
+        type: 'toggle',
         displayName: 'Use File Picker',
         validation: {
           schema: { type: 'boolean' },
         },
       },
       enableMultiple: {
-        type: 'code',
+        type: 'toggle',
         displayName: 'Pick multiple files',
         validation: {
           schema: { type: 'boolean' },
         },
       },
       maxFileCount: {
-        type: 'code',
+        type: 'number',
         displayName: 'Max file count',
         validation: {
           schema: {
@@ -3329,7 +3329,7 @@ export const widgets = [
         },
       },
       borderRadius: {
-        type: 'code',
+        type: 'number',
         displayName: 'Border radius',
         validation: {
           schema: {
