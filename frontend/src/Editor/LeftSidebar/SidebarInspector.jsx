@@ -144,15 +144,15 @@ export const LeftSidebarInspector = ({
     {
       for: 'components',
       actions: [
-        { name: 'Select Widget', dispatchAction: handleSelectComponentOnEditor, icon: false, onSelect: true },
-        { name: 'Delete Widget', dispatchAction: handleRemoveComponent, icon: true, iconName: 'trash' },
+        { name: '选择组件', dispatchAction: handleSelectComponentOnEditor, icon: false, onSelect: true },
+        { name: '删除组件', dispatchAction: handleRemoveComponent, icon: true, iconName: 'trash' },
       ],
       enableForAllChildren: false,
       enableFor1stLevelChildren: true,
     },
     {
       for: 'all',
-      actions: [{ name: 'Copy value', dispatchAction: copyToClipboard, icon: false }],
+      actions: [{ name: '复制值', dispatchAction: copyToClipboard, icon: false }],
     },
   ];
 

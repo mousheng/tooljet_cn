@@ -278,11 +278,11 @@ export const JSONNode = ({ data, ...restProps }) => {
             rootClose={true}
             rootCloseEvent="mousedown"
             trigger="click"
-            placement={'right'}
+            placement={'left-start'}  // 其他位置按不到
             overlay={moreActionsPopover(moreActions?.actions)}
           >
             <span>
-              <ToolTip message={'More actions'}>
+              <ToolTip message={'更多操作'}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="icon-tabler icon-tabler-dots-vertical"
