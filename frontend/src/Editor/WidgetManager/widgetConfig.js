@@ -9110,6 +9110,7 @@ children: 'children'
     properties: {
       src: {
         type: 'code',
+        tip: '渲染顺序：图片>图标>标题',
         displayName: '图片',
         validation: {
           schema: {
@@ -9120,7 +9121,6 @@ children: 'children'
       icon: {
         type: 'code',
         displayName: '图标',
-        tip: '渲染顺序：图片>图标>文本',
         validation: {
           schema: {
             type: 'string',

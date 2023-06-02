@@ -6219,6 +6219,21 @@ input.hide-input-arrows {
         border: 1px solid $primary;
       }
     }
+
+    .ant-icon-element {
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: $border-radius;
+
+      &:hover {
+        border: 1px solid $primary;
+      }
+      svg {
+          width: 100%;
+          height: 100%;
+      }
+      
+    }
   }
 }
 

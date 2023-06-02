@@ -235,7 +235,7 @@ class Echarts extends React.Component {
 
       items.push({
         title: '布局',
-        isOpen: false,
+        isOpen: true,
         children: (
           <>
             {renderElement(
