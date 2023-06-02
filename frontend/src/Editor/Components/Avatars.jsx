@@ -75,7 +75,7 @@ export const Avatars = function Avatars({
             >
                 <Avatar
                     size={width - 5}
-                    icon={renderIcon(icon)}
+                    icon={title !== '' ? null : renderIcon(icon)}
                     shape={shape}
                     style={{
                         backgroundColor: backgroundColor,

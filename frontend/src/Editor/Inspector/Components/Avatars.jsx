@@ -162,7 +162,6 @@ export function Avatars({ componentMeta, darkMode, ...restProps }) {
                     currentState,
                     allComponents
                 )}
-                {renderIconPicker()}
                 {renderElement(
                     component,
                     componentMeta,
@@ -173,6 +172,7 @@ export function Avatars({ componentMeta, darkMode, ...restProps }) {
                     currentState,
                     allComponents
                 )}
+                {renderIconPicker()}
                 {renderElement(
                     component,
                     componentMeta,

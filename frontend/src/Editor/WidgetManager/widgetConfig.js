@@ -9095,8 +9095,8 @@ children: 'children'
     component: 'Avatars',
     // 默认组件大小
     defaultSize: {
-      width: 5,
-      height: 150,
+      width: 2,
+      height: 60,
     },
     // 默认子组件
     defaultChildren: [
@@ -9110,7 +9110,7 @@ children: 'children'
     properties: {
       src: {
         type: 'code',
-        tip: '渲染顺序：图片>图标>标题',
+        tip: '属性生效顺序：图片>标题>图标',
         displayName: '图片',
         validation: {
           schema: {
