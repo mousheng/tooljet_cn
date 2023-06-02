@@ -8299,7 +8299,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         placeholder: { value: '请选择' },
         expandTrigger: { value: 'hover' },
         defaultValue: { value: "{{['zhejiang', 'hangzhou', 'xihu']}}" },
-        customMap: { value: `{{{ 
+        customMap: {
+          value: `{{{ 
 label: 'label', 
 value: 'value', 
 children: 'children'
@@ -9285,7 +9286,7 @@ children: 'children'
       showEditButton: {
         type: 'toggle',
         displayName: '显示编辑按钮',
-        tip:'按钮仅方便调用编辑事件，控件不能编辑',
+        tip: '按钮仅方便调用编辑事件，控件不能编辑',
         validation: {
           schema: {
             type: 'boolean',
@@ -9398,6 +9399,236 @@ children: 'children'
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
         parseEnter: { value: true },
+      },
+    },
+  },
+  {
+    // 组件名称
+    name: 'TreeSelects',
+    // 组件显示名称
+    displayName: '树形下拉框',
+    // 组件描述
+    description: '树型下拉选择控件',
+    // 调用的组件名
+    component: 'TreeSelects',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 36,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      datas: {
+        // 输入属性的输入框类型，/code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '树结构',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'string' }, { type: 'object' }] }
+          },
+        },
+      },
+      defaultValue: {
+        // 输入属性的输入框类型，/code/toggle/color/number/select等
+        type: 'code',
+        // 显示名称
+        displayName: '默认选中项',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'string' }] }
+          },
+        },
+      },
+      placeholder: {
+        type: 'code',
+        displayName: '占位符',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      multiple: {
+        type: 'toggle',
+        displayName: '允许多选',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      searchValue: {
+        type: 'toggle',
+        displayName: '搜索标题(默认搜索值)',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      searchFullPY: {
+        type: 'toggle',
+        displayName: '搜索全拼音',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      searchFirstPY: {
+        type: 'toggle',
+        displayName: '搜索首拼',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onChange: { displayName: '选项改变时' },
+      onSearch: { displayName: '搜索文本改变时' },
+    },
+    styles: {
+      treeLine: {
+        type: 'toggle',
+        displayName: '显示结构线',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      bordered: {
+        type: 'toggle',
+        displayName: '显示边框',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      maxHeight: {
+        type: 'number',
+        displayName: '下拉框最大高度',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setValue',
+        displayName: '设置选中值',
+        // 参数
+        params: [
+          {
+            handle: 'values',
+            displayName: '选中值数组',
+            defaultValue: '{{[]}}',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      selected: ''
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        datas: {
+          value: `{{[
+{
+  value: 'china',
+  title: '中国',
+  children: [{
+      value: 'zhejiang',
+      title: '浙江',
+      children: [
+        {
+          value: 'taizhou',
+          title: '台州',
+        },
+        {
+          value: 'hangzhou',
+          title: '杭州',
+        },
+      ],
+    },
+    {
+      value: 'jiangsu',
+      title: '江苏',
+      children: [
+        {
+          value: 'suzhou',
+          title: '苏州',
+        },
+        {
+          value: 'nanjing',
+          title: '南京',
+        },
+      ],
+    },
+  ],
+},]}}`,
+        },
+        defaultValue: { value: "{{['taizhou','suzhou']}}" },
+        placeholder: { value: '点击选择' },
+        multiple: { value: true },
+        searchValue: { value: true },
+        searchFullPY: { value: true },
+        searchFirstPY: { value: true },
+      },
+      events: [],
+      styles: {
+        treeLine: { value: true },
+        bordered: { value: true },
+        maxHeight: { value: 400 },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
       },
     },
   },

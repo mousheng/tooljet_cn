@@ -1,3 +1,4 @@
+import { TreeSelects } from './Components/TreeSelects';
 import { Description } from './Components/Description';
 import { Avatars } from './Components/Avatars';
 import { TimePickers } from './Components/TimePickers';
@@ -89,8 +90,10 @@ import {
 import _ from 'lodash';
 import { EditorContext } from '@/Editor/Context/EditorContextWrapper';
 import { useTranslation } from 'react-i18next';
+import cnchar from 'cnchar';
 
 const AllComponents = {
+	TreeSelects,
 	Description,
 	Avatars,
 	TimePickers,

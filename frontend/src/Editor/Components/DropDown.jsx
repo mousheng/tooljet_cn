@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
-import cnchar from 'cnchar';
 export const DropDown = function DropDown({
   height,
   validate,
