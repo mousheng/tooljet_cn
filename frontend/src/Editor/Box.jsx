@@ -1,3 +1,4 @@
+import { Trees } from './Components/Trees';
 import { TreeSelects } from './Components/TreeSelects';
 import { Description } from './Components/Description';
 import { Avatars } from './Components/Avatars';
@@ -93,6 +94,7 @@ import { useTranslation } from 'react-i18next';
 import cnchar from 'cnchar';
 
 const AllComponents = {
+	Trees,
 	TreeSelects,
 	Description,
 	Avatars,

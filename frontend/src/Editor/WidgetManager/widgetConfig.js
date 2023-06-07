@@ -9632,4 +9632,310 @@ children: 'children'
       },
     },
   },
+  {
+    // 组件名称
+    name: 'Trees',
+    // 组件显示名称
+    displayName: '树形控件',
+    // 组件描述
+    description: '树形控件',
+    // 调用的组件名
+    component: 'Trees',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 250,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      treeData: {
+        type: 'code',
+        displayName: '列表数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            element: { type: 'union', schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+      showSearch: {
+        type: 'toggle',
+        displayName: '显示搜索框',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      placeholder: {
+        type: 'code',
+        displayName: '搜索框占位符',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      defaultExpandedKeys: {
+        type: 'code',
+        displayName: '默认展开的键',
+        validation: {
+          schema: {
+            type: 'array',
+            element: { schemas: [{ type: 'string', type: 'number' }] }
+          },
+        },
+      },
+      defaultSelectKey: {
+        type: 'code',
+        displayName: '默认选择的键',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      checkable: {
+        type: 'toggle',
+        displayName: '允许多选',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      checkedKeys: {
+        type: 'code',
+        displayName: '默认勾选列表（须打开多选）',
+        validation: {
+          schema: {
+            type: 'array',
+          },
+        },
+      },
+      searchAllPY: {
+        type: 'toggle',
+        displayName: '支持搜索全拼',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      searchFirstPY: {
+        type: 'toggle',
+        displayName: '支持搜索首拼',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      // autoExpandParent: {
+      //   type: 'toggle',
+      //   displayName: '自动展开父节点',
+      //   validation: {
+      //     schema: {
+      //       type: 'boolean',
+      //     },
+      //   },
+      // },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onChange: { displayName: '勾选时' },
+      onSelect: { displayName: '选择时' },
+    },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      showLine: {
+        type: 'toggle',
+        displayName: '显示结构线',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      showIcon: {
+        type: 'toggle',
+        displayName: '显示图标',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      blockNode: {
+        type: 'toggle',
+        displayName: '整行选中',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'setSelectKey',
+        displayName: '设置选中键',
+        // 参数
+        params: [
+          {
+            handle: 'key',
+            displayName: 'key',
+            defaultValue: '',
+          },
+        ],
+      },
+      {
+        handle: 'setCheckKeys',
+        displayName: '设置勾选的键列表',
+        // 参数
+        params: [
+          {
+            handle: 'keys',
+            displayName: 'keys',
+            defaultValue: '{{[]}}',
+          },
+        ],
+      },
+      {
+        handle: 'expandKeys',
+        displayName: '展开指定键',
+        params: [
+          {
+            handle: 'keys',
+            displayName: '键列表',
+            defaultValue: '{{[]}}',
+          },
+        ],
+      },
+      {
+        handle: 'expandAll',
+        displayName: '展开/收缩全部',
+        params: [
+          {
+            handle: 'status',
+            displayName: '展开/收缩',
+            defaultValue: '{{true}}',
+          },
+        ],
+      },
+      {
+        handle: 'scrollTo',
+        displayName: '滚动到指定键',
+        params: [
+          {
+            handle: 'key',
+            displayName: '键',
+            defaultValue: '',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      checkedKeys: [],
+      selectedKeys: [],
+      expandedKeys: [],
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        showSearch: { value: true },
+        defaultExpandedKeys: { value: "{{['china','zhejiang']}}" },
+        treeData: {
+          value: `{{[
+          {
+            key: 'china',
+            title: '中国',
+            children: [{
+              key: 'zhejiang',
+                title: '浙江',
+                children: [
+                  {
+                    key: 'taizhou',
+                    title: '台州',
+                    icon: 'HeartFilled',
+                  },
+                  {
+                    key: 'hangzhou',
+                    title: '无法勾选',
+                    disableCheckbox: true,
+                  },
+                  {
+                    key: 'wufaxuanze',
+                    title: '无法选中',
+                    disabled: true,
+                  },
+                ],
+              },
+              {
+                key: 'jiangsu',
+                title: '江苏',
+                children: [
+                  {
+                    key: 'suzhou',
+                    title: '苏州',
+                  },
+                  {
+                    key: 'nanjing',
+                    title: '南京',
+                  },
+                ],
+              },
+            ],
+          },]}}` },
+        placeholder: { value: '搜索' },
+        defaultSelectKey: { value: 'shaoxing' },
+        multiple: { value: true },
+        checkable: { value: true },
+        checkedKeys: { value: "{{['taizhou']}}" },
+        expandedKeys: { value: "{{[]}}" },
+        searchAllPY: { value: true },
+        searchFirstPY: { value: true },
+      },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        showLine: { value: true },
+        showIcon: { value: false },
+        blockNode: { value: true },
+      },
+    },
+  },
 ];
