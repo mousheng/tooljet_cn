@@ -9129,18 +9129,18 @@ children: 'children'
           },
         },
       },
-      icon: {
-        type: 'antIcon',
-        displayName: '图标',
+      title: {
+        type: 'code',
+        displayName: '标题',
         validation: {
           schema: {
             type: 'string',
           },
         },
       },
-      title: {
-        type: 'code',
-        displayName: '标题',
+      icon: {
+        type: 'antIcon',
+        displayName: '图标',
         validation: {
           schema: {
             type: 'string',

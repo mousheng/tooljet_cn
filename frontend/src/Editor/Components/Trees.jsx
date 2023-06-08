@@ -289,8 +289,8 @@ export const Trees = function Trees({
                 onCheck={onCheck}
                 treeData={treeDatas}
                 onExpand={onExpand}
-                style={{ height: showSearch ? height - 32 : height }}
-                height={showSearch ? height - 32 : height}
+                style={{ height: showSearch ? height - 33 : height }}
+                height={showSearch ? height - 33 : height}
                 ref={treeRef}
             ></Tree>
         </ConfigProvider>
