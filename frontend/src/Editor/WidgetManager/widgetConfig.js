@@ -2230,6 +2230,15 @@ export const widgets = [
       showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
     },
     properties: {
+      loadingState: {
+        type: 'toggle',
+        displayName: 'loading state',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+    },
+    properties: {
       showScroll: {
         type: 'toggle',
         displayName: '显示滚动条',
@@ -2287,6 +2296,7 @@ export const widgets = [
       },
       properties: {
         visible: { value: '{{true}}' },
+        loadingState: { value: `{{false}}` },
         showScroll: { value: '{{true}}' },
       },
       events: [],

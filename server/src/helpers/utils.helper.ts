@@ -1,10 +1,10 @@
 import { QueryError } from 'src/modules/data_sources/query.errors';
 import * as sanitizeHtml from 'sanitize-html';
-import { EntityManager, EntityTarget, getManager, Like } from 'typeorm';
+import { EntityManager, getManager } from 'typeorm';
 import { isEmpty } from 'lodash';
+const protobuf = require('protobufjs');
 import { ConflictException } from '@nestjs/common';
 import { DataBaseConstraints } from './db_constraints.constants';
-const protobuf = require('protobufjs');
 
 export function maybeSetSubPath(path) {
   const hasSubPath = process.env.SUB_PATH !== undefined;
@@ -125,17 +125,41 @@ export async function getServiceAndRpcNames(protoDefinition) {
   return serviceNamesAndMethods;
 }
 
-export const generateNextName = async (
-  firstWord: string,
-  entityClass: EntityTarget<unknown>,
-  options = {},
-  manager: EntityManager
-) => {
-  const count = await manager.count(entityClass, {
-    where: {
-      ...options,
-      name: Like(`%${firstWord}%`),
-    },
-  });
-  return `${firstWord} ${count == 0 ? 1 : count + 1}`;
+function formatDateTime(date, format) {
+  const o = {
+    'M+': date.getMonth() + 1, // 月份
+    'd+': date.getDate(), // 日
+    'h+': date.getHours() % 12 === 0 ? 12 : date.getHours() % 12, // 小时
+    'H+': date.getHours(), // 小时
+    'm+': date.getMinutes(), // 分
+    's+': date.getSeconds(), // 秒
+    'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
+    S: date.getMilliseconds(), // 毫秒
+    a: date.getHours() < 12 ? '上午' : '下午', // 上午/下午
+    A: date.getHours() < 12 ? 'AM' : 'PM', // AM/PM
+  };
+  if (/(y+)/.test(format)) {
+    format = format.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+  }
+  for (let k in o) {
+    if (new RegExp('(' + k + ')').test(format)) {
+      format = format.replace(
+        RegExp.$1,
+        RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length)
+      );
+    }
+  }
+  return format;
+}
+
+export const generateNextName = (firstWord: string) => {
+  return `${firstWord} ${formatDateTime(new Date(),'yyyyMMddHHmmss')}`;
+};
+
+export const truncateAndReplace = (name) => {
+  const secondsSinceEpoch = Date.now();
+  if (name.length > 35) {
+    return name.replace(name.substring(35, 50), secondsSinceEpoch);
+  }
+  return name + secondsSinceEpoch;
 };

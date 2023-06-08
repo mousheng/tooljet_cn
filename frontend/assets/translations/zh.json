@@ -39,10 +39,10 @@
         "requestBody": "请求体",
         "page": "页",
         "searchItem": "搜索项目",
-        "workspace-modal":{
-            "wrong-link-desc":"您输入了不正确的工作区链接,请选择活动工作区以继续此会话",
-            "wrong-link":"工作区链接不正确.",
-            "continue-btn":"继续此工作区"
+        "workspace-modal": {
+            "wrong-link-desc": "您输入了不正确的工作区链接,请选择活动工作区以继续此会话",
+            "wrong-link": "工作区链接不正确.",
+            "continue-btn": "继续此工作区"
         }
     },
     "errorBoundary": "出了点问题。",
@@ -150,6 +150,7 @@
             "advanced": "高级",
             "preview": "预览",
             "Save": "保存",
+            "selectGlobalDatasource": "选择全局数据源",
             "selectDatasource": "选择数据源",
             "addDatasource": "添加数据源",
             "eventsHandler": "事件处理程序",
@@ -265,7 +266,7 @@
                     "enterFirstName": "输入姓",
                     "enterLastName": "输入名",
                     "enterEmail": "输入邮箱",
-                    "inviteNewUsers":"邀请新用户",
+                    "inviteNewUsers": "邀请新用户",
                     "fullName": "请输入姓名"
                 },
                 "manageGroups": {
@@ -327,7 +328,7 @@
                         "redirectUrl": "重定向URL"
                     },
                     "passwordLogin": "密码登录",
-                    "DisablingPasswordConfirmation":"如果禁用密码登录，用户将无法通过用户名和密码登录。请确保在禁用密码登录之前设置了其他身份验证方法，是否要继续？",
+                    "DisablingPasswordConfirmation": "如果禁用密码登录，用户将无法通过用户名和密码登录。请确保在禁用密码登录之前设置了其他身份验证方法，是否要继续？",
                     "environmentVar": {
                         "noEnvConfig": "你还没有配置任何工作区变量，请按 “添加新变量 ”按钮来创建一个。",
                         "envWillBeDeleted": "变量将被删除，你想继续吗？",
@@ -508,13 +509,13 @@
             "invalidWidgetName": "无效的组件名称。应该是唯一的，只包括字母、数字和下划线。"
         },
         "commonProperties": {
-            "rotateButton":"旋转按钮",
-            "renderOnlyActiveTab":"仅渲染活动页",
-            "triggerButtonBackgroundColor":"触发按钮背景色",
-            "triggerButtonTextColor":"触发按钮文本颜色",
-            "bodyBackgroundColor":"背景色",
-            "useDefaultButton":"使用默认按钮",
-            "triggerButtonLabel":"触发器按钮标签",
+            "rotateButton": "旋转按钮",
+            "renderOnlyActiveTab": "仅渲染活动页",
+            "triggerButtonBackgroundColor": "触发按钮背景色",
+            "triggerButtonTextColor": "触发按钮文本颜色",
+            "bodyBackgroundColor": "背景色",
+            "useDefaultButton": "使用默认按钮",
+            "triggerButtonLabel": "触发器按钮标签",
             "headerBackgroundColor": "标题背景色",
             "headerTextColor": "标题文本颜色",
             "visibility": "是否显示",
@@ -611,7 +612,7 @@
             "defaultMarkers": "默认标记",
             "addNewMarkers": "允许添加新标记",
             "searchForPlaces": "允许搜索地点",
-            "zoom":"缩放等级",
+            "zoom": "缩放等级",
             "setLocation": "设置地点",
             "latitude": "纬度",
             "longitude": "经度",
