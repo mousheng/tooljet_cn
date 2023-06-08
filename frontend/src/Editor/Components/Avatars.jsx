@@ -34,6 +34,7 @@ export const Avatars = function Avatars({
     const [counts, setCounts] = useState(properties.counts);
     // 样式
     const [color, setColor] = useState(styles.color);
+    const [TransBackground, setTransBackground] = useState(styles.TransBackground);
     const [cursorPointer, setCursorPointer] = useState(styles.cursorPointer);
     const [backgroundColor, setbackgroundColo] = useState(styles.backgroundColor);
 
@@ -50,7 +51,8 @@ export const Avatars = function Avatars({
         setVisibility(styles.visibility)
         setDisabledState(styles.disabledState)
         setCursorPointer(styles.cursorPointer)
-    }, [styles.visibility, styles.disabledState, styles.cursorPointer])
+        setTransBackground(styles.TransBackground)
+    }, [styles.visibility, styles.disabledState, styles.cursorPointer, styles.TransBackground])
 
 
     // 处理点击事件
@@ -78,7 +80,7 @@ export const Avatars = function Avatars({
                     icon={title !== '' ? null : renderIcon(icon)}
                     shape={shape}
                     style={{
-                        backgroundColor: backgroundColor,
+                        backgroundColor: TransBackground ? 'transparent' : backgroundColor,
                         color: color,
                         cursor: cursorPointer ? 'pointer' : '',
                     }}

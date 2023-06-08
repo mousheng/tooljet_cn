@@ -9188,6 +9188,15 @@ children: 'children'
           schema: { type: 'string' },
         },
       },
+      TransBackground: {
+        type: 'toggle',
+        displayName: '透明背景',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
       cursorPointer: {
         type: 'toggle',
         displayName: '鼠标经过变小手',
@@ -9239,6 +9248,7 @@ children: 'children'
       styles: {
         color: { value: '#fff' },
         backgroundColor: { value: '#bfbfbf' },
+        TransBackground: { value: false },
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
         cursorPointer: { value: true },
