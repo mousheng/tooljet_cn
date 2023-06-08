@@ -6,8 +6,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-hot-toast';
 import { VirtuosoGrid } from 'react-virtuoso';
 import { SearchBox } from '@/_components/SearchBox';
-import { Button, ConfigProvider, theme } from 'antd';
-const { darkAlgorithm, compactAlgorithm } = theme;
+
 
 
 export const AntIcon = ({ value, onChange }) => {
@@ -30,9 +29,7 @@ export const AntIcon = ({ value, onChange }) => {
     const onIconSelect = (icon) => {
         onChange(icon)
     };
-    const darkTheme = {
-        algorithm: [darkAlgorithm, compactAlgorithm],
-    };
+
     const eventPopover = () => {
         return (
             <Popover
@@ -116,17 +113,15 @@ export const AntIcon = ({ value, onChange }) => {
                             toast.success('已复制', { position: 'top-center' });
                         }}
                     >
-                        <ConfigProvider
-                            theme={darkMode ? darkTheme : null}
-                        >
-                            <Button size='large' >
-                                复制
-                            </Button>
-                        </ConfigProvider>
-
+                        <button style={{
+                            backgroundColor: darkMode ? '#000' : '#fff',
+                            border: '1px solid #2f3c4c'
+                        }}>
+                            复制
+                        </button>
                     </CopyToClipboard>
                 </div>
-            </div>
+            </div >
         </>
     );
 };
