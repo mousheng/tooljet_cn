@@ -1,3 +1,4 @@
+import { Breadcrumbs } from './Components/Breadcrumbs';
 import { Trees } from './Components/Trees';
 import { TreeSelects } from './Components/TreeSelects';
 import { Description } from './Components/Description';
@@ -94,6 +95,7 @@ import { useTranslation } from 'react-i18next';
 import cnchar from 'cnchar';
 
 const AllComponents = {
+	Breadcrumbs,
 	Trees,
 	TreeSelects,
 	Description,

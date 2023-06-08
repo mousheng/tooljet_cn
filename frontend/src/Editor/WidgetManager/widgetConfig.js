@@ -9949,4 +9949,126 @@ children: 'children'
       },
     },
   },
+  {
+    // 组件名称
+    name: 'Breadcrumbs',
+    // 组件显示名称
+    displayName: '面包屑',
+    // 组件描述
+    description: '面包屑组件',
+    // 调用的组件名
+    component: 'Breadcrumbs',
+    // 默认组件大小
+    defaultSize: {
+      width: 10,
+      height: 30,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      items: {
+        // 输入属性的输入框类型，/code/toggle/color/number/select/json/alignButtons/antIcon等
+        type: 'code',
+        // 显示名称
+        displayName: '列表数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'string' }, { type: 'object' }] }
+          },
+        },
+      },
+      separator: {
+        type: 'code',
+        displayName: '自定义间隔',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onClick: { displayName: '点击事件' },
+    },
+    styles: {
+      TransBackground: {
+        type: 'toggle',
+        displayName: '透明背景',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      backgroundColor: {
+        type: 'color',
+        displayName: '背景颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      clickedItem: '',
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        items: {
+          value: `{{[
+{ title: '主页'},
+{ title: '展示' },
+{ title: '设置'}
+]}}`,
+        },
+        separator: { value: '/' },
+      },
+      events: [],
+      styles: {
+        TransBackground: { value: true },
+        backgroundColor: { value: '#fff' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
 ];
