@@ -10071,4 +10071,178 @@ children: 'children'
       },
     },
   },
+  {
+    // 组件名称
+    name: 'DropdownMenu',
+    // 组件显示名称
+    displayName: '下拉菜单',
+    // 组件描述
+    description: '下拉菜单按钮',
+    // 调用的组件名
+    component: 'DropdownMenu',
+    // 默认组件大小
+    defaultSize: {
+      width: 4,
+      height: 36,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      buttonTitle: {
+        type: 'code',
+        displayName: '按钮标题',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      items: {
+        type: 'code',
+        displayName: '菜单数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+      buttonStatus: {
+        type: 'toggle',
+        displayName: '按钮载入状态',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      dropDownStatus: {
+        type: 'toggle',
+        displayName: '下拉菜单载入状态',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      dropDownIcon: {
+        type: 'antIcon',
+        displayName: '下拉图标',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      trigger: {
+        type: 'select',
+        displayName: '菜单激活方式',
+        options: [
+          { name: '鼠标经过', value: 'hover' },
+          { name: '鼠标点击', value: 'click' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onClick: { displayName: '点击按钮时' },
+      onCheck: { displayName: '点击菜单时' },
+    },
+    styles: {
+      buttonType: {
+        type: 'select',
+        displayName: '按钮样式',
+        options: [
+          { name: '主按钮', value: 'primary' },
+          { name: '次按钮', value: 'default' },
+          { name: '虚线按钮', value: 'dashed' },
+          { name: '文本按钮', value: 'text' },
+          { name: '链接按钮', value: 'link' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      placement: {
+        type: 'select',
+        displayName: '弹出方向',
+        options: [
+          { name: '左下', value: 'bottomLeft' },
+          { name: '下', value: 'bottom' },
+          { name: '右下', value: 'bottomRight' },
+          { name: '左上', value: 'topLeft' },
+          { name: '上', value: 'top' },
+          { name: '右上', value: 'topRight' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      clickedMenu: ''
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        buttonTitle: { value: '下拉按钮' },
+        items: { value: `{{[
+{label:'菜单1',key:'1',icon:'BankOutlined'},
+{label:'菜单2',key:'2'},
+{label:'菜单3',key:'3',danger: true,},
+{label:'菜单4',key:'4',disabled: true,},
+]}}` },
+        buttonStatus: { value: false },
+        dropDownStatus: { value: false },
+        dropDownIcon: { value: 'DownOutlined' },
+        trigger: { value: 'hover' },
+      },
+      events: [],
+      styles: {
+        placement: { value: 'bottomRight' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        buttonType: { value: 'default' },
+      },
+    },
+  },
 ];
