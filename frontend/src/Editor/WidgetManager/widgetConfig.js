@@ -9130,7 +9130,7 @@ children: 'children'
         },
       },
       icon: {
-        type: 'code',
+        type: 'antIcon',
         displayName: '图标',
         validation: {
           schema: {
@@ -9750,15 +9750,6 @@ children: 'children'
           },
         },
       },
-      // autoExpandParent: {
-      //   type: 'toggle',
-      //   displayName: '自动展开父节点',
-      //   validation: {
-      //     schema: {
-      //       type: 'boolean',
-      //     },
-      //   },
-      // },
     },
     // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
     events: {

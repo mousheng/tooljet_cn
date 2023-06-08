@@ -13,7 +13,6 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { DefaultComponent } from './Components/DefaultComponent';
 import { FilePicker } from './Components/FilePicker';
 import { Modal } from './Components/Modal';
-import { Avatars } from './Components/Avatars';
 import { CustomComponent } from './Components/CustomComponent';
 import { Icon } from './Components/Icon';
 import useFocus from '@/_hooks/use-focus';
@@ -505,9 +504,6 @@ const GetAccordion = React.memo(
 
       case 'Modal':
         return <Modal {...restProps} />;
-        
-      case 'Avatars':
-        return <Avatars {...restProps} />;
 
       case 'CustomComponent':
         return <CustomComponent {...restProps} />;

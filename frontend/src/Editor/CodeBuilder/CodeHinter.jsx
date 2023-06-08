@@ -18,6 +18,7 @@ import { resolveReferences, hasCircularDependency, handleCircularStructureToJSON
 import useHeight from '@/_hooks/use-height-transition';
 import usePortal from '@/_hooks/use-portal';
 import { Color } from './Elements/Color';
+import { AntIcon } from './Elements/AntIcon';
 import { Json } from './Elements/Json';
 import { Select } from './Elements/Select';
 import { Toggle } from './Elements/Toggle';
@@ -41,6 +42,7 @@ const AllElements = {
   AlignButtons,
   Number,
   BoxShadow,
+  AntIcon,
 };
 
 export function CodeHinter({
@@ -331,9 +333,10 @@ export function CodeHinter({
                 key={componentName}
                 customComponent={getPreview}
                 forceUpdate={forceUpdate}
-                optionalProps={{ styles: { height: 300 }, 
-                // cls: className 
-              }}
+                optionalProps={{
+                  styles: { height: 300 },
+                  // cls: className 
+                }}
                 darkMode={darkMode}
                 selectors={{ className: 'preview-block-portal' }}
                 dragResizePortal={true}

@@ -74,7 +74,7 @@ export const Avatars = function Avatars({
                 dot={counts > 0 || shape === 'circle' ? false : true}
             >
                 <Avatar
-                    size={width - 5}
+                    size={width < height ? width - 5 : height}
                     icon={title !== '' ? null : renderIcon(icon)}
                     shape={shape}
                     style={{
