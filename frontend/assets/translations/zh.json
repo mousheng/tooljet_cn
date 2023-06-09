@@ -757,6 +757,8 @@
             "customRule": "自定义条件",
             "values": "值",
             "labels": "标签",
+            "actionButtonTextColor": "按钮文字颜色",
+            "actionButtonBackgroundColor": "按钮背景颜色",
             "cellBgColor": "单元格背景颜色",
             "dateDisplayformat": "日期显示格式",
             "dateParseformat": "日期解析格式",

@@ -224,14 +224,14 @@ export const widgets = [
       },
       actionButtonBackgroundColor: {
         type: 'color',
-        displayName: 'Background color',
+        displayName: '按钮背景颜色',
         validation: {
           schema: { type: 'string' },
         },
       },
       actionButtonTextColor: {
         type: 'color',
-        displayName: 'Text color',
+        displayName: '按钮文字颜色',
         validation: {
           schema: { type: 'string' },
         },
@@ -264,6 +264,13 @@ export const widgets = [
           schema: { type: 'boolean' },
         },
       },
+      allowSelection: {
+        type: 'toggle',
+        displayName: '显示选择框',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
       showBulkSelector: {
         type: 'toggle',
         displayName: 'Bulk selection',
@@ -274,6 +281,13 @@ export const widgets = [
       highlightSelectedRow: {
         type: 'toggle',
         displayName: 'Highlight selected row',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      showAddNewRowButton: {
+        type: 'toggle',
+        displayName: '显示添加新行按钮',
         validation: {
           schema: { type: 'boolean' },
         },
@@ -471,6 +485,8 @@ export const widgets = [
         actions: { value: [] },
         enabledSort: { value: '{{true}}' },
         hideColumnSelectorButton: { value: '{{false}}' },
+        showAddNewRowButton: { value: '{{true}}' },
+        allowSelection: { value: '{{true}}' },
       },
       events: [],
       styles: {
@@ -823,7 +839,7 @@ export const widgets = [
     component: 'Modal',
     defaultSize: {
       width: 10,
-      height: 400,
+      height: 34,
     },
     others: {
       showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
@@ -875,6 +891,13 @@ export const widgets = [
           { name: '中', value: 'lg' },
           { name: '大', value: 'xl' },
         ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      modalHeight: {
+        type: 'code',
+        displayName: '弹窗高度',
         validation: {
           schema: { type: 'string' },
         },
@@ -966,6 +989,7 @@ export const widgets = [
         hideCloseButton: { value: '{{false}}' },
         hideOnEsc: { value: '{{true}}' },
         closeOnClickingOutside: { value: '{{false}}' },
+        modalHeight: { value: '400px' },
       },
       events: [],
       styles: {
