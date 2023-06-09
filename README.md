@@ -42,6 +42,26 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 # 主要修改
 
+- **请求头批量导入** 批量添加请求头功能
+<p align="center">
+    <img src="docs/static/img/temp/一键导入请求头.gif"/>
+</p>
+
+- **优化代码提示** 优化JS代码编辑器中，添加对console.log、window.localStorage、lodash、moment等常用函数的代码提示
+<p align="center">
+    <img src="docs/static/img/temp/代码提示.gif"/>
+</p>
+
+- **下拉菜单按钮** 支持载入状态显示，支持设置按钮图标，支持下拉菜单图标、高亮、禁用，支持下拉菜单激活方式切换(鼠标经过激活有失效问题)，支持按钮样式设置，支持弹出方向设置
+<p align="center">
+    <img src="docs/static/img/temp/下拉菜单按钮.gif"/>
+</p>
+
+- **面包屑组件** 添加面包屑组件，支持点击响应，可根据点击值，使用js代码完成想要的动作
+<p align="center">
+    <img src="docs/static/img/temp/面包屑组件.png"/>
+</p>
+
 - **树形控件** 支持高亮显示搜索匹配项，显示或隐藏搜索框，支持代码控制默认展开项，默认选中项，支持单、多选切换，支持拼音搜索，支持渲染图标，支持设置无法勾选或无法选中的子项
 <p align="center">
     <img src="docs/static/img/temp/树形控件.gif"/>
