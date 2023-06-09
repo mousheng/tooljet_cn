@@ -6106,7 +6106,8 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         options: [
           { name: '低', value: 'L' },
           { name: '中', value: 'M' },
-          { name: '高', value: 'H' },
+          { name: '高', value: 'Q' },
+          { name: '极高', value: 'H' },
         ],
         validation: {
           schema: { type: 'string' },
@@ -6115,6 +6116,25 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       value: {
         type: 'code',
         displayName: 'Default value',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      img: {
+        type: 'code',
+        displayName: '图片:URL/base64',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      status: {
+        type: 'select',
+        displayName: '二维码状态',
+        options: [
+          { name: '正常', value: 'active' },
+          { name: '载入中', value: 'loading' },
+          { name: '过期', value: 'expired' },
+        ],
         validation: {
           schema: { type: 'string' },
         },
@@ -6133,8 +6153,17 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
           schema: { type: 'string' },
         },
       },
+      popQR: {
+        type: 'toggle',
+        displayName: '气泡卡片显示二维码',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
     },
-    events: {},
+    events: {
+      onClick: { displayName: '点击刷新时' },
+    },
     styles: {
       visibility: {
         type: 'toggle',
@@ -6143,44 +6172,26 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
           schema: { type: 'boolean' },
         },
       },
-      disabledState: {
-        type: 'toggle',
-        displayName: 'Disable',
-        validation: {
-          schema: { type: 'boolean' },
-        },
-      },
-      borderRadius: {
-        type: 'code',
-        displayName: 'Border Radius',
-        validation: {
-          schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'number' }] },
-        },
-      },
-      padding: {
-        type: 'code',
-        displayName: 'Padding',
-        validation: {
-          schema: {
-            type: 'union',
-            schemas: [{ type: 'number' }, { type: 'string' }],
-          },
-        },
-      },
-      borderColor: {
-        type: 'color',
-        displayName: '边框颜色',
-        validation: { schema: { type: 'string' } },
-      },
     },
     exposedVariables: {
       value: '欢迎使用二维码生成器',
+      status: 'active',
     },
     actions: [
       {
         handle: 'setText',
         displayName: '设置文本',
         params: [{ handle: 'text', displayName: '文本', defaultValue: 'New Text' }],
+      },
+      {
+        handle: 'setStatus',
+        displayName: '设置二维码状态',
+        params: [{ handle: 'status', displayName: '状态', defaultValue: 'active|loading|expired' }],
+      },
+      {
+        handle: 'download',
+        displayName: '下载二维码',
+        params: [{ handle: 'filename', displayName: '文件名', defaultValue: 'qrcode' }],
       },
     ],
     definition: {
@@ -6189,19 +6200,18 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
-        value: { value: '欢迎使用二维码生成器', },
+        value: { value: 'https://tooljet.mousheng.top/', },
         qrColor: { value: '#000000FF' },
         qrBackgroundColor: { value: '#FFFFFFFF' },
         qrType: { value: 'svg' },
+        status: { value: 'active' },
         level: { value: 'M' },
+        popQR: { value: false },
+        img: { value: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE1LjE5OTYgMjUuNDAwMUMxNS4xOTk2IDI0LjIwMDEgMTUuMTk5NiAyMi44MDAxIDE1LjE5OTYgMjEuNjAwMUMxNS4xOTk2IDIxLjQwMDEgMTUuMTk5NiAyMS4yMDAxIDE0Ljk5OTYgMjEuMDAwMUMxMy41OTk2IDE5LjYwMDEgMTIuMzk5NiAxOC40MDAxIDEwLjk5OTYgMTcuMDAwMUMxMC43OTk2IDE2LjgwMDEgMTAuNzk5NiAxNi44MDAxIDEwLjU5OTYgMTYuODAwMUM5LjM5OTYxIDE2LjgwMDEgNy45OTk2MSAxNi44MDAxIDYuNzk5NjEgMTYuODAwMUg2LjU5OTYxQzYuOTk5NjEgMTUuODAwMSA3LjM5OTYxIDE0LjgwMDEgOC4xOTk2MSAxNC4wMDAxQzguNzk5NjEgMTMuMjAwMSA5LjM5OTYxIDEyLjgwMDEgMTAuMzk5NiAxMi42MDAxQzEwLjc5OTYgMTIuNjAwMSAxMC45OTk2IDEyLjYwMDEgMTEuMzk5NiAxMi42MDAxQzExLjk5OTYgMTIuNjAwMSAxMi41OTk2IDEyLjYwMDEgMTIuOTk5NiAxMi42MDAxQzEzLjE5OTYgMTIuNjAwMSAxMy4xOTk2IDEyLjYwMDEgMTMuMzk5NiAxMi40MDAxQzE0Ljk5OTYgMTAuNDAwMSAxNi45OTk2IDguODAwMSAxOS41OTk2IDcuNjAwMUMyMC45OTk2IDcuMDAwMSAyMi4zOTk2IDYuNjAwMSAyMy45OTk2IDYuNjAwMUMyNC41OTk2IDYuNjAwMSAyNS4xOTk2IDYuNjAwMSAyNS43OTk2IDYuNjAwMUMyNS43OTk2IDcuNDAwMSAyNS43OTk2IDguMjAwMSAyNS43OTk2IDkuMjAwMUMyNS43OTk2IDEwLjYwMDEgMjUuMTk5NiAxMi4wMDAxIDI0LjU5OTYgMTMuMjAwMUMyMy41OTk2IDE1LjQwMDEgMjEuOTk5NiAxNy4yMDAxIDIwLjE5OTYgMTguNjAwMUMxOS45OTk2IDE4LjYwMDEgMTkuOTk5NiAxOC44MDAxIDE5Ljk5OTYgMTkuMDAwMUMxOS45OTk2IDE5LjYwMDEgMTkuOTk5NiAyMC4yMDAxIDE5Ljk5OTYgMjEuMDAwMUMxOS45OTk2IDIyLjAwMDEgMTkuNTk5NiAyMy4wMDAxIDE4Ljc5OTYgMjMuNjAwMUMxOC4zOTk2IDI0LjAwMDEgMTcuOTk5NiAyNC4yMDAxIDE3LjM5OTYgMjQuNDAwMUMxNi4zOTk2IDI0LjgwMDEgMTUuNzk5NiAyNS4wMDAxIDE1LjE5OTYgMjUuNDAwMVpNMjAuOTk5NiAxMi40MDAxQzIwLjk5OTYgMTEuNjAwMSAyMC4zOTk2IDExLjAwMDEgMTkuNTk5NiAxMS4wMDAxQzE4Ljc5OTYgMTEuMDAwMSAxNy45OTk2IDExLjYwMDEgMTcuOTk5NiAxMi40MDAxQzE3Ljk5OTYgMTMuMjAwMSAxOC43OTk2IDE0LjAwMDEgMTkuNTk5NiAxNC4wMDAxQzIwLjM5OTYgMTQuMDAwMSAyMC45OTk2IDEzLjIwMDEgMjAuOTk5NiAxMi40MDAxWiIgZmlsbD0iIzNFNjNERCIvPgo8cGF0aCBkPSJNMTIuMDAwNCAyMi40QzEwLjgwMDQgMjMuOCA5LjIwMDM5IDI0LjQgNy40MDAzOSAyNC44QzcuNjAwMzkgMjIuOCA4LjAwMDM5IDIxLjIgOS42MDAzOSAyMEMxMC40MDA0IDIwLjggMTEuMjAwNCAyMS42IDEyLjAwMDQgMjIuNFoiIGZpbGw9IiMzRTYzREQiLz4KPC9zdmc+Cg==" }
       },
       events: [],
       styles: {
         visibility: { value: '{{true}}' },
-        disabledState: { value: '{{false}}' },
-        borderRadius: { value: '{{5}}' },
-        padding: { value: '5' },
-        borderColor: { value: '#00000020' },
       },
     },
   },
@@ -10225,7 +10235,8 @@ children: 'children'
       },
       properties: {
         buttonTitle: { value: '下拉按钮' },
-        items: { value: `{{[
+        items: {
+          value: `{{[
 {label:'菜单1',key:'1',icon:'BankOutlined'},
 {label:'菜单2',key:'2'},
 {label:'菜单3',key:'3',danger: true,},
