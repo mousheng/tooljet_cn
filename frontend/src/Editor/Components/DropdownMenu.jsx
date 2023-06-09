@@ -40,8 +40,6 @@ export const DropdownMenu = function DropdownMenu({
     const [visibility, setVisibility] = useState(styles.visibility);
     const [disabledState, setDisabledState] = useState(styles.disabledState);
 
-    var inputRef = useRef(null)
-
     const [buttonTitle, setButtonTitle] = useState(properties.buttonTitle);
     const [items, setItems] = useState();
     const [buttonStatus, setButtonStatus] = useState(properties.buttonStatus);

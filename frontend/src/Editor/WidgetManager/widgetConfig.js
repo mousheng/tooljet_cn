@@ -10082,7 +10082,7 @@ children: 'children'
     component: 'DropdownMenu',
     // 默认组件大小
     defaultSize: {
-      width: 4,
+      width: 6,
       height: 36,
     },
     // 默认子组件
@@ -10234,7 +10234,7 @@ children: 'children'
         buttonStatus: { value: false },
         dropDownStatus: { value: false },
         dropDownIcon: { value: 'DownOutlined' },
-        trigger: { value: 'hover' },
+        trigger: { value: 'click' },
       },
       events: [],
       styles: {
