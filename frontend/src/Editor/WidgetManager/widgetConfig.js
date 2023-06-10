@@ -10280,4 +10280,223 @@ children: 'children'
       },
     },
   },
+  {
+    // 组件名称
+    name: 'Popconfirms',
+    // 组件显示名称
+    displayName: '气泡确认框',
+    // 组件描述
+    description: '气泡确认框',
+    // 调用的组件名
+    component: 'Popconfirms',
+    // 默认组件大小
+    defaultSize: {
+      width: 3,
+      height: 36,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      icon: {
+        type: 'antIcon',
+        displayName: '确认框图标',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      title: {
+        type: 'code',
+        displayName: '标题',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      description: {
+        type: 'code',
+        displayName: '描述',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      okText: {
+        type: 'code',
+        displayName: '确认按钮文本',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      cancelText: {
+        type: 'code',
+        displayName: '取消按钮文本',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      ButtonText: {
+        type: 'code',
+        displayName: '按钮文本',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      condition: {
+        type: 'toggle',
+        displayName: '弹出气泡确认框',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      closeWithFunc: {
+        type: 'toggle',
+        displayName: '手动关闭',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onClick: { displayName: '确认时' },
+      onCheck: { displayName: '取消时' },
+    },
+    styles: {
+      iconColor: {
+        type: 'color',
+        displayName: '图标颜色',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      buttonDanger: {
+        type: 'toggle',
+        displayName: '红色高亮按钮',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      arrow: {
+        type: 'select',
+        displayName: '弹出方位',
+        options: [
+          { name: '顶部左边', value: 'topLeft' },
+          { name: '顶部右边', value: 'topRight' },
+          { name: '顶部', value: 'top' },
+          { name: '底部左边', value: 'bottomLeft' },
+          { name: '底部右边', value: 'bottomRight' },
+          { name: '底部', value: 'bottom' },
+          { name: '左边顶部', value: 'leftTop' },
+          { name: '左边底部', value: 'leftBottom' },
+          { name: '左边', value: 'left' },
+          { name: '右边顶部', value: 'rightTop' },
+          { name: '右边底部', value: 'rightBottom' },
+          { name: '右边', value: 'right' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'popConfirm',
+        displayName: '弹出或关闭弹出框',
+        // 参数
+        params: [
+          {
+            handle: 'status',
+            displayName: '弹出状态',
+            defaultValue: '{{true}}',
+            type: 'toggle',
+          },
+        ],
+      },
+      {
+        handle: 'close',
+        displayName: '手动关闭',
+        // 参数
+        params: [
+          {
+            handle: 'closePopWindow',
+            displayName: '关闭弹出框',
+            defaultValue: '{{true}}',
+            type: 'toggle',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        title: { value: '警告' },
+        description: { value: '确认要进行操作吗？' },
+        okText: { value: '确认' },
+        cancelText: { value: '取消' },
+        ButtonText: { value: '删除' },
+        condition: { value: true },
+        icon: { value: 'AlertOutlined' },
+        closeWithFunc: { value: false },
+      },
+      events: [],
+      styles: {
+        arrow: { value: 'top' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        iconColor: { value: 'red' },
+        buttonDanger: { value: true },
+      },
+    },
+  },
 ];

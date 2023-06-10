@@ -42,6 +42,11 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 # 主要修改
 
+- **气泡确认框** 支持设置标题、图标、所有文本的自定义，支持设置弹出方向，支持异步关闭
+<p align="center">
+    <img src="docs/static/img/temp/气泡确认框.gif"/>
+</p>
+
 - **请求头批量导入** 批量添加请求头功能
 <p align="center">
     <img src="docs/static/img/temp/一键导入请求头.gif"/>
