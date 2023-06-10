@@ -1,3 +1,4 @@
+import { Images } from './Components/Images';
 import { Popconfirms } from './Components/Popconfirms';
 import { DropdownMenu } from './Components/DropdownMenu';
 import { Breadcrumbs } from './Components/Breadcrumbs';
@@ -97,6 +98,7 @@ import { useTranslation } from 'react-i18next';
 import cnchar from 'cnchar';
 
 const AllComponents = {
+	Images,
 	Popconfirms,
 	DropdownMenu,
 	Breadcrumbs,

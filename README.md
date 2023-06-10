@@ -42,6 +42,11 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 # 主要修改
 
+- **相册组件** 支持设置封面图，支持多图片预览，全屏预览时支持翻转、旋转、放大、缩小，支持载入失败设置占位图
+<p align="center">
+    <img src="docs/static/img/temp/相册.gif"/>
+</p>
+
 - **气泡确认框** 支持设置标题、图标、所有文本的自定义，支持设置弹出方向，支持异步关闭
 <p align="center">
     <img src="docs/static/img/temp/气泡确认框.gif"/>
