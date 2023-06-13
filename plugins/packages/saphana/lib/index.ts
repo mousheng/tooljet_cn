@@ -12,7 +12,7 @@ export default class PostgresqlQueryService implements QueryService {
       result = await this.execute(connection, queryOptions.query);
     } catch (err) {
       console.log(err);
-      throw new QueryError('Query could not be completed', err.message, {});
+      throw new QueryError('无法完成查询，请排查错误!', err.message, {});
     } finally {
       this.disconnect(connection);
     }
@@ -26,7 +26,7 @@ export default class PostgresqlQueryService implements QueryService {
   execute(connection, query): Promise<QueryResult> {
     return new Promise((resolve, reject) => {
       connection.exec(query, function (err, result) {
-        if (err) return reject(new QueryError('Query could not be completed', err.message, {}));
+        if (err) return reject(new QueryError('无法完成查询，请排查错误!', err.message, {}));
         return resolve({
           status: 'ok',
           data: result,

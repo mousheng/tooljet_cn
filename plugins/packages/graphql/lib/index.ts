@@ -43,7 +43,7 @@ export default class GraphqlQueryService implements QueryService {
           code: error.code,
         };
       }
-      throw new QueryError('Query could not be completed', error.message, result);
+      throw new QueryError('无法完成查询，请排查错误!', error.message, result);
     }
 
     return {

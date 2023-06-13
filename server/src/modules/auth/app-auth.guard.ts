@@ -12,11 +12,11 @@ export class AppAuthGuard extends AuthGuard('jwt') {
     const request = context.switchToHttp().getRequest();
 
     if (!request.params.slug) {
-      throw new NotFoundException('App not found. Invalid app id');
+      throw new NotFoundException('应用ID错误，无法打开页面');
     }
     // unauthenticated users should be able to to view public apps
     const app = await this.appsService.findBySlug(request.params.slug);
-    if (!app) throw new NotFoundException('App not found. Invalid app id');
+    if (!app) throw new NotFoundException('应用ID错误，无法打开页面');
 
     request.tj_app = app;
     request.headers['tj-workspace-id'] = app.organizationId;

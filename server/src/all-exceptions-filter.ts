@@ -53,7 +53,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     switch (code) {
       case PostgresErrorCode.UniqueViolation:
-        message = 'Already exists!';
+        message = '已存在!';
         break;
       case PostgresErrorCode.NotNullViolation: {
         const column = (exception as QueryFailedError).driverError.column;

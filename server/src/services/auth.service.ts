@@ -70,7 +70,7 @@ export class AuthService {
     const user = await this.usersService.findByEmail(email, organizationId, WORKSPACE_USER_STATUS.ACTIVE);
 
     if (!user) {
-      throw new UnauthorizedException('Invalid credentials');
+      throw new UnauthorizedException('用户名或密码错误！');
     }
 
     if (user.status !== USER_STATUS.ACTIVE) {
@@ -86,12 +86,12 @@ export class AuthService {
       user.passwordRetryCount >= passwordRetryAllowed
     ) {
       throw new UnauthorizedException(
-        'Maximum password retry limit reached, please reset your password using forgot password option'
+        '已达到密码错误次数上限，请重置密码.'
       );
     }
     if (!(await bcrypt.compare(password, user.password))) {
       await this.usersService.updateUser(user.id, { passwordRetryCount: user.passwordRetryCount + 1 });
-      throw new UnauthorizedException('Invalid credentials');
+      throw new UnauthorizedException('用户名或密码错误！');
     }
 
     return user;
@@ -135,7 +135,7 @@ export class AuthService {
 
         if (!formConfigs?.enabled) {
           // no configurations in organization side or Form login disabled for the organization
-          throw new UnauthorizedException('Password login is disabled for the organization');
+          throw new UnauthorizedException('禁用使用密码登录');
         }
       }
 
@@ -213,7 +213,7 @@ export class AuthService {
     }
     const existingUser = await this.usersService.findByEmail(email);
     if (existingUser?.organizationUsers?.some((ou) => ou.status === WORKSPACE_USER_STATUS.ACTIVE)) {
-      throw new NotAcceptableException('Email already exists');
+      throw new NotAcceptableException('该邮箱已注册');
     }
 
     if (existingUser?.invitationToken) {
@@ -227,7 +227,7 @@ export class AuthService {
   async signup(email: string, name: string, password: string) {
     const existingUser = await this.usersService.findByEmail(email);
     if (existingUser?.organizationUsers?.some((ou) => ou.status === WORKSPACE_USER_STATUS.ACTIVE)) {
-      throw new NotAcceptableException('Email already exists');
+      throw new NotAcceptableException('该邮箱已注册');
     }
 
     if (existingUser?.invitationToken) {

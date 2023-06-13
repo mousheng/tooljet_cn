@@ -127,7 +127,7 @@ export default class MongodbService implements QueryService {
       }
     } catch (err) {
       console.log(err);
-      throw new QueryError('Query could not be completed', err.message, {});
+      throw new QueryError('无法完成查询，请排查错误!', err.message, {});
     } finally {
       await close();
     }

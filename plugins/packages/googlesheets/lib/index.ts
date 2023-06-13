@@ -133,7 +133,7 @@ export default class GooglesheetsQueryService implements QueryService {
       if (error?.response?.statusCode === 401) {
         throw new OAuthUnauthorizedClientError('Query could not be completed', error.message, { ...error });
       }
-      throw new QueryError('Query could not be completed', error.message, {});
+      throw new QueryError('无法完成查询，请排查错误!', error.message, {});
     }
 
     return {
@@ -144,7 +144,7 @@ export default class GooglesheetsQueryService implements QueryService {
 
   async refreshToken(sourceOptions) {
     if (!sourceOptions['refresh_token']) {
-      throw new QueryError('Query could not be completed', 'Refresh token empty', {});
+      throw new QueryError('无法完成查询，请排查错误!', 'Refresh token empty', {});
     }
     const accessTokenUrl = 'https://oauth2.googleapis.com/token';
     const clientId = process.env.GOOGLE_CLIENT_ID;

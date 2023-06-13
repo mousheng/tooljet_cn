@@ -69,7 +69,7 @@ class SignupPageComponent extends React.Component {
     this.setState({ isLoading: true });
 
     if (!validateEmail(email)) {
-      this.setState({ isLoading: false, emailError: 'Invalid email' });
+      this.setState({ isLoading: false, emailError: '无效的邮箱地址' });
       return;
     }
 

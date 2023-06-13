@@ -218,7 +218,7 @@ export default class RestapiQueryService implements QueryService {
       if (requiresOauth && error?.response?.statusCode == 401) {
         throw new OAuthUnauthorizedClientError('Unauthorized status from API server', error.message, result);
       }
-      throw new QueryError('Query could not be completed', error.message, result);
+      throw new QueryError('无法完成查询，请排查错误!', error.message, result);
     }
 
     requestObject['headers'] = cleanSensitiveData(requestObject['headers'], ['authorization']);

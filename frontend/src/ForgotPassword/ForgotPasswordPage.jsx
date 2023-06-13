@@ -30,7 +30,7 @@ class ForgotPasswordComponent extends React.Component {
     event.preventDefault();
 
     if (!validateEmail(this.state.email)) {
-      this.setState({ emailError: 'Invalid Email' });
+      this.setState({ emailError: '无效的邮箱地址' });
       return;
     }
 

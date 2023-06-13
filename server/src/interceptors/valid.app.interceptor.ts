@@ -20,7 +20,7 @@ export class ValidAppInterceptor implements NestInterceptor {
       throw new BadRequestException();
     }
     const app = request.tj_app || (id ? await this.appsService.find(id) : this.appsService.findBySlug(slug));
-    if (!app) throw new NotFoundException('App not found. Invalid app id');
+    if (!app) throw new NotFoundException('应用ID错误，无法打开页面');
     request.tj_app = app;
     return next.handle();
   }

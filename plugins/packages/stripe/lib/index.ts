@@ -46,7 +46,7 @@ export default class StripeQueryService implements QueryService {
 
       result = JSON.parse(response.body);
     } catch (error) {
-      throw new QueryError('Query could not be completed', error.response.body, {});
+      throw new QueryError('无法完成查询，请排查错误!', error.response.body, {});
     }
 
     return {

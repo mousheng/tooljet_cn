@@ -138,7 +138,7 @@ export default class influxdb implements QueryService {
       }
     } catch (error) {
       console.log(error);
-      throw new QueryError('Query could not be completed', error.message, {});
+      throw new QueryError('无法完成查询，请排查错误!', error.message, {});
     }
 
     return {

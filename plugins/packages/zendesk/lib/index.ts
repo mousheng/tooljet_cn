@@ -160,7 +160,7 @@ export default class Zendesk implements QueryService {
       if (error?.response?.statusCode === 401) {
         throw new OAuthUnauthorizedClientError('Query could not be completed', error.message, { ...error });
       }
-      throw new QueryError('Query could not be completed', error.message, {});
+      throw new QueryError('无法完成查询，请排查错误!', error.message, {});
     }
 
     return {

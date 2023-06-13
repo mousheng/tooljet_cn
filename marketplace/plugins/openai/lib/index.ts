@@ -20,10 +20,10 @@ export default class Openai implements QueryService {
           break;
 
         default:
-          throw new QueryError('Query could not be completed', 'Invalid operation', {});
+          throw new QueryError('无法完成查询，请排查错误!', 'Invalid operation', {});
       }
     } catch (error) {
-      throw new QueryError('Query could not be completed', error?.message, {});
+      throw new QueryError('无法完成查询，请排查错误!', error?.message, {});
     }
 
     return {

@@ -16,7 +16,7 @@ export default class RedisQueryService implements QueryService {
       result = await client.call(command, args);
     } catch (err) {
       client.disconnect();
-      throw new QueryError('Query could not be completed', err.message, {});
+      throw new QueryError('无法完成查询，请排查错误!', err.message, {});
     }
 
     return { status: 'ok', data: result };

@@ -66,7 +66,7 @@ export const PagehandlerMenu = ({ page, darkMode, handlePageCallback, showMenu, 
 
                 <Field
                   id="clone-page"
-                  text="Duplicate page"
+                  text="复制页面"
                   iconSrc={`assets/images/icons/clone.svg`}
                   closeMenu={closeMenu}
                   callback={handlePageCallback}

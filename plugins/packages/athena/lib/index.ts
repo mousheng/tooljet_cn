@@ -19,7 +19,7 @@ export default class Athena implements QueryService {
       const data = await athenaClient.query(myQuery);
       result = this.toJson(data);
     } catch (error) {
-      throw new QueryError('Query could not be completed', error.message, {});
+      throw new QueryError('无法完成查询，请排查错误!', error.message, {});
     }
 
     return {

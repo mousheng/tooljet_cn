@@ -29,9 +29,9 @@ export const URL_SSO_SOURCE = 'sso';
 export function getUserErrorMessages(status: any) {
   switch (status) {
     case USER_STATUS.ARCHIVED:
-      return 'The user has been archived, please contact the administrator to activate the account';
+      return '用户已存档，请联系管理员激活帐户';
     default:
-      return 'The user is not active, please use the invite link shared to activate';
+      return '用户还未激活，请通过激活邮件激活';
   }
 }
 

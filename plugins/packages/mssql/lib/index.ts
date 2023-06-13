@@ -39,7 +39,7 @@ export default class MssqlQueryService implements QueryService {
       }
       result = await knexInstance.raw(query);
     } catch (err) {
-      throw new QueryError('Query could not be completed', err.message, {});
+      throw new QueryError('无法完成查询，请排查错误!', err.message, {});
     }
 
     return { status: 'ok', data: result };
