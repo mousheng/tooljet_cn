@@ -275,6 +275,7 @@ export const Trees = function Trees({
                 }}
                 placeholder={placeholder}
                 onChange={onSearch}
+                allowClear
             /> : ''}
             <Tree
                 showIcon={showIcon}
