@@ -103,7 +103,11 @@ export const QueryCard = ({
             setSaveConfirmation(true);
             setCancelData(stateToBeUpdated);
           } else {
-            setSelectedQuery(dataQuery?.id);
+            // 临时解决点击查询后数据无法刷新的问题
+            setSelectedQuery(null);
+            setTimeout(() => {
+              setSelectedQuery(dataQuery?.id);
+            }, 100);
             setDraftQuery(null);
           }
         }}
