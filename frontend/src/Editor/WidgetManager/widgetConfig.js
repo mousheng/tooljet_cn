@@ -7430,7 +7430,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     // 默认组件大小
     defaultSize: {
       width: 15,
-      height: 50,
+      height: 32,
     },
     // 默认子组件
     defaultChildren: [
@@ -7454,45 +7454,6 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
             type: 'array',
             // 指定子元素类型范围
             element: { type: 'union', schemas: [{ type: 'object' }] }
-          },
-        },
-      },
-      titleKey: {
-        type: 'code',
-        displayName: '主标题的键名',
-        tip: '必须和自动补全数据中的键对应',
-        validation: {
-          schema: {
-            type: 'string',
-          },
-        },
-      },
-      titleDisplayName: {
-        type: 'code',
-        displayName: '主标题显示名称',
-        tip: '主标题显示的名称，如果不想显示，可设置为-',
-        validation: {
-          schema: {
-            type: 'string',
-          },
-        },
-      },
-      subTitleKey: {
-        type: 'code',
-        displayName: '副标题的键名',
-        tip: '必须和自动补全数据中的键对应',
-        validation: {
-          schema: {
-            type: 'string',
-          },
-        },
-      },
-      subTitleDisplayName: {
-        type: 'code',
-        displayName: '副标题显示名称',
-        validation: {
-          schema: {
-            type: 'string',
           },
         },
       },
@@ -7523,23 +7484,25 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
           },
         },
       },
-      maxResults: {
-        type: 'number',
-        displayName: '最多显示数',
-        validation: {
-          schema: {
-            type: 'number',
-          },
-        },
-      },
     },
     events: {
       onSearchTextChanged: { displayName: '搜索文本改变时' },
       onSelect: { displayName: '选择选项时' },
       onFocus: { displayName: '获取焦点时' },
-      onHover: { displayName: '悬停选项时' },
     },
     styles: {
+      searchIcon: {
+        type: 'select',
+        displayName: '搜索图标',
+        options: [
+          { name: '无', value: '' },
+          { name: '蓝色', value: 'primary' },
+          { name: '灰色', value: 'secondary' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
       visibility: {
         type: 'toggle',
         displayName: 'Visibility',
@@ -7566,7 +7529,6 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     exposedVariables: {
       searchText: '',
       selectedItem: {},
-      hoverItem: {},
     },
     // 定义新建组件时的默认值
     definition: {
@@ -7579,30 +7541,26 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
           value:
             `{{[
   {
-    title: '上海',
-    subTitle: '上海市，简称“沪”或“申”',
+    label: '上海',
+    value:'上海',
   },
   {
-    title: '北京',
-    subTitle: '北京市，简称“京”',
+    label: '北京',
+    value:'北京',
   },
   {
-    title: '广东',
-    subTitle: '广东省，简称“粤”',
+    label: '广东',
+    value:'广东',
   },
 ]}}`,
         },
-        titleKey: { value: 'title' },
-        titleDisplayName: { value: '标题：' },
-        subTitleKey: { value: 'subTitle' },
-        subTitleDisplayName: { value: '副标题：' },
-        maxResults: { value: 10 },
         placeholder: { value: '搜索' },
         searchFirstPY: { value: '{{true}}' },
         searchAllPY: { value: '{{true}}' },
       },
       events: [],
       styles: {
+        searchIcon: { value: 'primary' },
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
       },

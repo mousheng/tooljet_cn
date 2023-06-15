@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete'
-import { resolveReferences, resolveWidgetFieldValue, isJson } from '@/_helpers/utils';
+import { theme, ConfigProvider, AutoComplete, Input } from 'antd';
+const { darkAlgorithm, compactAlgorithm } = theme;
 
 export const Autocomplete = function Autocomplete({
     id,
@@ -23,68 +23,32 @@ export const Autocomplete = function Autocomplete({
     const [disabledState, setDisabledState] = useState(styles.disabledState);
     const [searchFirstPY, setSearchFirstPY] = useState(properties.searchFirstPY);
     const [searchAllPY, setSearchAllPY] = useState(properties.searchAllPY);
-    const [subTitleKey, setSubTitleKey] = useState(properties.subTitleKey);
-    const [titleKey, setTitleKey] = useState(properties.titleKey);
-    const [datas, setDatas] = useState(properties.datas);
-    const [processedData, setProcessedData] = useState('');
+    const [datas, setDatas] = useState([]);
     const [placeholder, setPlaceholder] = useState(properties.placeholder);
-    const [maxResults, setMaxResults] = useState(properties.maxResults);
-    const [titleDisplayName, setTitleDisplayName] = useState(properties.titleDisplayName);
-    const [subTitleDisplayName, setSubTitleDisplayName] = useState(properties.subTitleDisplayName);
-    const [fuseOptions, setFuseOptions] = useState({})
+    const [searchIcon, setSearchIcon] = useState(styles.searchIcon);
 
     useEffect(() => {
         setDatas(properties.datas)
     }, [properties.datas])
 
     useEffect(() => {
-        const temps = datas.map(i => {
-            return {
-                ...i,
-                _FullPY_: properties.searchAllPY ? i[titleKey]?.spell() + '|' + i[subTitleKey]?.spell() : '',
-                _FirstPY_: properties.searchFirstPY ? i[titleKey]?.spell('first') + '|' + i[subTitleKey]?.spell('first') : '',
-            }
-        })
-        setProcessedData(temps)
         setSearchFirstPY(properties.searchFirstPY)
         setSearchAllPY(properties.searchAllPY)
-        setTitleKey(properties.titleKey)
-        setSubTitleKey(properties.subTitleKey)
-        let FuseKeys = [properties.titleKey, properties.subTitleKey]
-        if (searchAllPY) FuseKeys.push('_FullPY_')
-        if (searchFirstPY) FuseKeys.push('_FirstPY_')
-        setFuseOptions({ keys: FuseKeys })
-    }, [datas, properties.searchAllPY, properties.searchFirstPY, properties.titleKey, properties.subTitleKey])
+    }, [properties.searchAllPY, properties.searchFirstPY])
 
     useEffect(() => {
         setPlaceholder(properties.placeholder)
     }, [properties.placeholder])
 
     useEffect(() => {
-        setMaxResults(properties.maxResults)
-    }, [properties.maxResults])
-
-    useEffect(() => {
-        setTitleDisplayName(properties.titleDisplayName)
-    }, [properties.titleDisplayName])
-
-    useEffect(() => {
-        setSubTitleDisplayName(properties.subTitleDisplayName)
-    }, [properties.subTitleDisplayName])
-    
-    useEffect(() => {
         setVisibility(styles.visibility)
         setDisabledState(styles.disabledState)
-    }, [styles.visibility, styles.disabledState])
+        setSearchIcon(styles.searchIcon)
+    }, [styles.visibility, styles.disabledState, styles.searchIcon])
 
     const handleOnSearch = (string, results) => {
         setExposedVariable('searchText', string)
         fireEvent('onSearchTextChanged');
-    }
-
-    const handleOnHover = (result) => {
-        setExposedVariable('hoverItem', result)
-        fireEvent('onHover');
     }
 
     const handleOnSelect = (item) => {
@@ -96,34 +60,46 @@ export const Autocomplete = function Autocomplete({
         fireEvent('onFocus');
     }
 
-    const formatResult = (item) => {
-        return (
-            <div style={{ borderBottom: '1px solid #A8A8A850' }}>
-                <span style={{ display: 'block', textAlign: 'left' }}>{titleDisplayName}{item.title}</span>
-                {subTitleDisplayName !== '-' ? (<span style={{ display: 'block', textAlign: 'left', color: '#A8A8A8' }}>{subTitleDisplayName} {item.subTitle}</span>) : ''}
-            </div>
-        )
-    }
+    // 计算暗色主题
+    const darkTheme = {
+        algorithm: [darkAlgorithm, compactAlgorithm],
+    };
 
-    return (<div data-disabled={disabledState} style={{ width: width - 5, height, display: visibility ? '' : 'none' }}>
-        <header className="App-header">
-            <div>
-                <ReactSearchAutocomplete
-                    styling={{ width: '100%', height: `${height - 2}px`, backgroundColor: darkMode ? 'rgb(31,40,55)' : 'white', }}
-                    items={processedData}
-                    placeholder={placeholder}
-                    onSearch={handleOnSearch}
-                    onHover={handleOnHover}
-                    onSelect={handleOnSelect}
-                    onFocus={handleOnFocus}
-                    fuseOptions={fuseOptions}
-                    formatResult={formatResult}
-                    resultStringKeyName={titleKey}
-                    showNoResultsText='无结果'
-                    maxResults={maxResults}
-                    showIcon={true}
-                />
-            </div>
-        </header>
+    return (<div style={{ height: height, display: visibility ? '' : 'none' }}>
+        <ConfigProvider
+            theme={darkMode ? darkTheme : {
+                token: {
+                    controlHeight: height,
+                }
+            }}
+        >
+            <AutoComplete
+                disabled={disabledState}
+                style={{
+                    width: width - 3,
+                    justifyContent: 'space-between',
+                }}
+                placeholder={placeholder}
+                options={datas}
+                allowClear={searchIcon === ''}
+                onSelect={handleOnSelect}
+                notFoundContent={(<span style={{ color: '#b3b3b3' }} >未找到</span>)}
+                filterOption={(inputValue, option) => {
+                    if (option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1) return true
+                    if (searchFirstPY && option.value.spell('first').toLowerCase().indexOf(inputValue.toLowerCase()) >= 0) return true
+                    if (searchAllPY && option.value.spell().toLowerCase().indexOf(inputValue.toLowerCase()) >= 0) return true
+                    return false
+
+                }
+                }
+                onSearch={handleOnSearch}
+                onFocus={handleOnFocus}
+            >
+                {searchIcon !== '' ? (<Input.Search
+                    allowClear
+                    enterButton={searchIcon === 'primary'} />) : ''
+                }
+            </AutoComplete>
+        </ConfigProvider>
     </div>)
 }
