@@ -10564,4 +10564,173 @@ children: 'children'
       },
     },
   },
+  {
+    // 组件名称
+    name: 'DatePickerPlus',
+    // 组件显示名称
+    displayName: '日期选择器2',
+    // 组件描述
+    description: '多类型日期选择器',
+    // 调用的组件名
+    component: 'DatePickerPlus',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 32,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      showRangePicker: {
+        type: 'toggle',
+        displayName: '选择日期范围',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      pickerType: {
+        type: 'select',
+        displayName: '日期类型',
+        options: [
+          { name: '时分秒', value: 'time' },
+          { name: '日期', value: 'date' },
+          { name: '周', value: 'week' },
+          { name: '月', value: 'month' },
+          { name: '季', value: 'quarter' },
+          { name: '年', value: 'year' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      showTime: {
+        type: 'toggle',
+        displayName: '日期状态显示时间',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      showTimeFormat: {
+        type: 'code',
+        displayName: '时间格式',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      defaultValue: {
+        type: 'code',
+        displayName: '起始默认值',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      endDefaultValue: {
+        type: 'code',
+        displayName: '结束默认值',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      format: {
+        type: 'code',
+        displayName: '格式列表',
+        validation: {
+          schema: {
+            type: 'object',
+            element: { type: 'union', schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onChange: { displayName: '修改时' },
+    },
+    styles: {
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        tip: '可使用数组分别控制前后日期禁用',
+        validation: {
+          schema: [{
+            type: 'boolean',
+          },
+          { type: 'array' }],
+        },
+      },
+      bordered: {
+        type: 'toggle',
+        displayName: '有边框',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      dateString: '',
+      date: null,
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        pickerType: { value: 'date' },
+        showRangePicker: { value: false },
+        showTime: { value: false },
+        showTimeFormat: { value: ' HH:mm:ss' },
+        endDefaultValue: { value: "{{moment().format('yyyy/MM/DD')}}" },
+        defaultValue: { value: "{{moment().format('yyyy/MM/DD')}}" },
+        format: {
+          value: `{{{
+time:'HH:mm:ss',
+date:'YYYY年M月D日',
+week:'YYYY年w周',
+month:'YYYY年M月',
+quarter:'YYYY年Q季度',
+year:'YYYY年',
+}}}` },
+      },
+      events: [],
+      styles: {
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        bordered: { value: true },
+      },
+    },
+  },
 ];
