@@ -7519,6 +7519,15 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
           },
         },
       },
+      searchFirstPY: {
+        type: 'toggle',
+        displayName: '自动匹配首拼',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
       searchAllPY: {
         type: 'toggle',
         displayName: '自动匹配全拼',
