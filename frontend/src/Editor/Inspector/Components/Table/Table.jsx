@@ -435,6 +435,7 @@ class TableComponent extends React.Component {
                     },
                   },
                 }}
+                hideEmptyEventsAlert={true}
                 componentMeta={{ events: { onChange: { displayName: 'On change' } } }}
                 currentState={this.props.currentState}
                 dataQueries={this.props.dataQueries}
@@ -906,7 +907,7 @@ class TableComponent extends React.Component {
   }
 
   getPopoverFieldSource = (column, field) =>
-    `widget/${this.props.component.component.name}/${column ?? 'default'}::${field}`;
+    `component/${this.props.component.component.name}/${column ?? 'default'}::${field}`;
 
   render() {
     const { dataQueries, component, paramUpdated, componentMeta, components, currentState, darkMode } = this.props;

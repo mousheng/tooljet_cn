@@ -486,23 +486,29 @@ button {
   }
 
   .main {
-    margin-left: 3%;
-    width: 82%;
+    // margin-left: 3%;
+    // width: 82%;
     top: 0;
+    height: calc(100vh - 84px);
+
+    &.hide-scrollbar {
+      .canvas-container::-webkit-scrollbar {
+        height: 0;
+      }
+    }
 
     .canvas-container::-webkit-scrollbar {
       width: 0;
       background: transparent;
-      height: 0;
+      // height: 0;
+    }
+
+    .canvas-container::-webkit-scrollbar-track {
+      background: transparent !important;
     }
 
     .canvas-container {
       scrollbar-width: none;
-    }
-
-    .canvas-container::-webkit-scrollbar {
-      width: 0;
-      background: transparent;
     }
 
     .canvas-container {
@@ -511,8 +517,8 @@ button {
       position: fixed;
       right: 300px;
       left: 48px;
-      overflow-y: auto;
-      overflow-x: scroll;
+      overflow-y: scroll;
+      overflow-x: auto;
       -webkit-box-pack: center;
       justify-content: center;
       -webkit-box-align: center;
@@ -2925,6 +2931,9 @@ input:focus-visible {
   .form-control.is-invalid,
   .was-validated .form-control:invalid {
     border-color: #ffb0b0;
+  }
+  .form-check-input{
+    cursor:pointer;
   }
 }
 
@@ -5565,10 +5574,10 @@ div#driver-page-overlay {
     }
   }
 
-  .action-icons-group {
-    margin-right: 4rem !important;
-    margin-left: 2rem !important;
-  }
+  // .action-icons-group {
+  //   margin-right: 4rem !important;
+  //   margin-left: 2rem !important;
+  // }
 
   .action-icons-group {
     cursor: pointer;
@@ -7648,6 +7657,11 @@ tbody {
 
 .modal-backdrop {
   opacity: 0.5;
+}
+
+.canvas-area>.modal-backdrop {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .ds-delete-btn {
