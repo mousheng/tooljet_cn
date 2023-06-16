@@ -7510,9 +7510,9 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
           },
         },
       },
-      searchFirstPY: {
+      searchLabelOnly: {
         type: 'toggle',
-        displayName: '自动匹配首拼',
+        displayName: '仅搜索可见值(Label)',
         validation: {
           schema: {
             type: 'boolean',
@@ -7586,19 +7586,20 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
             `{{[
   {
     label: '上海',
-    value:'上海',
+    value:'123',
   },
   {
     label: '北京',
-    value:'北京',
+    value:'456',
   },
   {
     label: '广东',
-    value:'广东',
+    value:'789',
   },
 ]}}`,
         },
         placeholder: { value: '搜索' },
+        searchLabelOnly: { value: true },
         searchFirstPY: { value: '{{true}}' },
         searchAllPY: { value: '{{true}}' },
       },

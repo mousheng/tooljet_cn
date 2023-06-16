@@ -25,10 +25,14 @@ export const Autocomplete = function Autocomplete({
     const [searchAllPY, setSearchAllPY] = useState(properties.searchAllPY);
     const [datas, setDatas] = useState([]);
     const [placeholder, setPlaceholder] = useState(properties.placeholder);
+    const [searchLabelOnly, setSearchLabelOnly] = useState(properties.searchLabelOnly);
     const [searchIcon, setSearchIcon] = useState(styles.searchIcon);
 
     useEffect(() => {
-        setDatas(properties.datas)
+        if (Array.isArray(properties.datas))
+            setDatas(properties.datas)
+        else
+            setDatas([])
     }, [properties.datas])
 
     useEffect(() => {
@@ -39,6 +43,10 @@ export const Autocomplete = function Autocomplete({
     useEffect(() => {
         setPlaceholder(properties.placeholder)
     }, [properties.placeholder])
+
+    useEffect(() => {
+        setSearchLabelOnly(properties.searchLabelOnly)
+    }, [properties.searchLabelOnly])
 
     useEffect(() => {
         setVisibility(styles.visibility)
@@ -85,9 +93,14 @@ export const Autocomplete = function Autocomplete({
                 onSelect={handleOnSelect}
                 notFoundContent={(<span style={{ color: '#b3b3b3' }} >未找到</span>)}
                 filterOption={(inputValue, option) => {
-                    if (option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1) return true
-                    if (searchFirstPY && option.value.spell('first').toLowerCase().indexOf(inputValue.toLowerCase()) >= 0) return true
-                    if (searchAllPY && option.value.spell().toLowerCase().indexOf(inputValue.toLowerCase()) >= 0) return true
+                    if (option?.label && option?.label.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1) return true
+                    if (searchFirstPY && option?.label && option.label.spell('first').toLowerCase().indexOf(inputValue.toLowerCase()) >= 0) return true
+                    if (searchAllPY && option?.label && option.label.spell().toLowerCase().indexOf(inputValue.toLowerCase()) >= 0) return true
+                    if (!searchLabelOnly) {
+                        if (option?.value && option?.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1) return true
+                        if (searchFirstPY && option?.value && option.value.spell('first').toLowerCase().indexOf(inputValue.toLowerCase()) >= 0) return true
+                        if (searchAllPY && option?.value && option.value.spell().toLowerCase().indexOf(inputValue.toLowerCase()) >= 0) return true
+                    }
                     return false
 
                 }
