@@ -147,6 +147,7 @@ export function resolveReferences(
   withError = false,
   forPreviewBox = false
 ) {
+  if(typeof object === 'string') object=object.trim();
   if (object === '{{{}}}') return '';
   const reservedKeyword = ['app']; //Keywords that slows down the app
   object = _.clone(object);
