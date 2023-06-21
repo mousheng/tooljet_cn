@@ -1,3 +1,4 @@
+import { Comment } from './Components/Comment';
 import { DatePickerPlus } from './Components/DatePickerPlus';
 import { Images } from './Components/Images';
 import { Popconfirms } from './Components/Popconfirms';
@@ -99,6 +100,7 @@ import { useTranslation } from 'react-i18next';
 import cnchar from 'cnchar';
 
 const AllComponents = {
+	Comment,
 	DatePickerPlus,
 	Images,
 	Popconfirms,

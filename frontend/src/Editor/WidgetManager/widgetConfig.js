@@ -10787,4 +10787,203 @@ year:'YYYY年',
       },
     },
   },
+  {
+    // 组件名称
+    name: 'Comment',
+    // 组件显示名称
+    displayName: '评论',
+    // 组件描述
+    description: '用于显示评论的组件',
+    // 调用的组件名
+    component: 'Comment',
+    // 默认组件大小
+    defaultSize: {
+      width: 15,
+      height: 400,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      datas: {
+        // 输入属性的输入框类型，/code/toggle/color/number/select/json/alignButtons/antIcon等
+        type: 'code',
+        // 显示名称
+        displayName: '评论列表',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+      label: {
+        type: 'code',
+        displayName: '标题',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      placeholder: {
+        type: 'code',
+        displayName: '占位符',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      submitButton: {
+        type: 'code',
+        displayName: '发送标题',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      MentionList: {
+        type: 'code',
+        // 显示名称
+        displayName: '提及列表',
+        validation: {
+          schema: {
+            type: 'object',
+          },
+        },
+      },
+      userInfo: {
+        type: 'code',
+        // 显示名称
+        displayName: '用户信息',
+        validation: {
+          schema: {
+            type: 'object',
+          },
+        },
+      }
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onClick: { displayName: '点击评论时' },
+      onCheck: { displayName: '提交时' },
+      onChange: { displayName: '文本改变时' },
+      onSelect: { displayName: '搜索提及列表时' },
+      onFocus: { displayName: '选择提及列表时' },
+
+    },
+    styles: {
+      colorList: {
+        type: 'code',
+        displayName: '头像颜色列表',
+        validation: {
+          schema: { type: 'array' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      bhColor: {
+        type: 'color',
+        displayName: '背景颜色',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      commentList: [],
+      comment: '',
+      ClickedPosition: '',
+      ClickedItem: '',
+      submitComment: {},
+      mentionName: '',
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        datas: {
+          value: `{{[
+{ user:{name: '张三',avatar:'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'},value:'这个组件干嘛用的呢？',createdAt:'2023-06-15T08:40:41.658Z'},
+{ user:{name: 'mou'},value:'这个组件可以让你发表评论',createdAt:'2023-06-16T08:43:42.658Z'},
+{ user:{name: '王五',displayName:'伍'},value:'那我试试这个组件',createdAt:'2023-06-17T08:49:01.658Z'},
+{ user:{name: 'mou'},value:'你们在输入框中可以输入文字，使用@可以提及聊天中的人。',createdAt:'2023-06-18T08:50:11.658Z'},
+]}}`,
+        },
+        label: { value: '评论共%d条' },
+        placeholder: { value: '请在这里输入评论' },
+        submitButton: { value: '发表' },
+        MentionList: {
+          value: `{{{
+'@':['赵六','孙七','周八'],
+}}}
+        `},
+        userInfo: {
+          value: `{{{
+name: globals.currentUser.firstName,
+email: globals.currentUser.email
+}}}`},
+      },
+      events: [],
+      styles: {
+        colorList: {
+          value: `{{[
+'#f56a00',
+'#7265e6',
+'#ffbf00',
+'#00a2ae',
+'#c23531',
+'#2f4554',
+'#61a0a8',
+'#d48265',
+'#91c7ae',
+'#749f83',
+'#ca8622',
+'#bda29a',
+'#6e7074',
+'#546570',
+'#c4ccd3'
+]}}` },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        bhColor: { value: '#ffffff22' },
+      },
+    },
+  },
 ];
