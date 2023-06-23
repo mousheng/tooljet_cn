@@ -194,8 +194,8 @@ const QueryPanel = ({
         onCancel={() => {
           setSaveConfirmation(false);
         }}
-        confirmButtonText="继续编辑"
-        cancelButtonText="放弃更改"
+        confirmButtonText="放弃更改"
+        cancelButtonText="继续编辑"
         callCancelFnOnConfirm={false}
         darkMode={darkMode}
       />
