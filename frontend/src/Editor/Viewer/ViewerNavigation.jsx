@@ -155,10 +155,12 @@ const ViewerHeader = ({
   currentPageId,
   switchPage,
   currentLayout,
+  globalSettings,
 }) => {
   if (!showHeader && currentLayout !== 'mobile') {
     return null;
   }
+  const { disableLogoLink } = globalSettings;
 
   return (
     <Header
@@ -169,9 +171,11 @@ const ViewerHeader = ({
       {showHeader && (
         <>
           <h1 className="navbar-brand d-none-navbar-horizontal pe-0">
-            <Link to="/" data-cy="viewer-page-logo">
-              <LogoIcon />
-            </Link>
+            {
+              disableLogoLink ? (<LogoIcon />) : (<Link to="/" data-cy="viewer-page-logo">
+                <LogoIcon />
+              </Link>)
+            }
           </h1>
           {appName && <span>{appName}</span>}
         </>

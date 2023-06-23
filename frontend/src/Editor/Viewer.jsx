@@ -594,6 +594,7 @@ class ViewerComponent extends React.Component {
                 currentPageId={this.state?.currentPageId ?? this.state.appDefinition?.homePageId}
                 switchPage={this.switchPage}
                 currentLayout={this.state.currentLayout}
+                globalSettings={appDefinition.globalSettings}
               />
               <div className="sub-section">
                 <div className="main">

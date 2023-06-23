@@ -20,7 +20,7 @@ export const GlobalSettings = ({
   currentState,
 }) => {
   const { t } = useTranslation();
-  const { hideHeader, canvasMaxWidth, canvasMaxWidthType, canvasMaxHeight, canvasBackgroundColor, backgroundFxQuery } =
+  const { hideHeader, canvasMaxWidth, canvasMaxWidthType, canvasMaxHeight, canvasBackgroundColor, backgroundFxQuery, disableLogoLink } =
     globalSettings;
   const [showPicker, setShowPicker] = React.useState(false);
   const [forceCodeBox, setForceCodeBox] = React.useState(true);
@@ -66,6 +66,19 @@ export const GlobalSettings = ({
                   type="checkbox"
                   checked={hideHeader}
                   onChange={(e) => globalSettingsChanged('hideHeader', e.target.checked)}
+                />
+              </div>
+            </div>
+            <div className="d-flex mb-3">
+              <span data-cy={`label-hide-header-for-launched-apps`}>
+                禁止点击LOGO返回工作区
+              </span>
+              <div className="ms-auto form-check form-switch position-relative">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  checked={disableLogoLink}
+                  onChange={(e) => globalSettingsChanged('disableLogoLink', e.target.checked)}
                 />
               </div>
             </div>
@@ -178,9 +191,8 @@ export const GlobalSettings = ({
                         width: '20px',
                         height: '20px',
                         backgroundColor: canvasBackgroundColor,
-                        border: `0.25px solid ${
-                          ['#ffffff', '#fff', '#1f2936'].includes(canvasBackgroundColor) && '#c5c8c9'
-                        }`,
+                        border: `0.25px solid ${['#ffffff', '#fff', '#1f2936'].includes(canvasBackgroundColor) && '#c5c8c9'
+                          }`,
                       }}
                     ></div>
                     <div className="col">{canvasBackgroundColor}</div>
