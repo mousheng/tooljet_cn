@@ -85,7 +85,7 @@ export default function ExportAppModal({ title, show, closeModal, customClassNam
             <div className="py-2">
               <div className="current-version py-2" data-cy="current-version-section">
                 <span className="text-muted" data-cy="current-version-label">
-                  Current Version
+                  选择版本
                 </span>
                 <InputRadioField
                   versionId={currentVersion.id}
@@ -99,7 +99,7 @@ export default function ExportAppModal({ title, show, closeModal, customClassNam
               {versions.length >= 2 ? (
                 <div className="other-versions py-2" data-cy="other-version-section">
                   <span className="text-muted" data-cy="other-version-label">
-                    Other Versions
+                    其他版本
                   </span>
                   {versions.map((version) => {
                     if (version.id !== currentVersion.id) {
@@ -120,7 +120,7 @@ export default function ExportAppModal({ title, show, closeModal, customClassNam
               ) : (
                 <div className="other-versions py-2" data-cy="other-version-section">
                   <span className="text-muted" data-cy="no-other-versions-found-text">
-                    No other versions found
+                    没找到其他版本
                   </span>
                 </div>
               )}
@@ -128,7 +128,7 @@ export default function ExportAppModal({ title, show, closeModal, customClassNam
           </BootstrapModal.Body>
           <BootstrapModal.Footer className="export-app-modal-footer d-flex justify-content-end border-top align-items-center py-2">
             <span role="button" className="btn btn-light" data-cy="export-all-button" onClick={() => exportApp(app.id)}>
-              Export All
+              导出所有
             </span>
             <span
               role="button"
@@ -136,7 +136,7 @@ export default function ExportAppModal({ title, show, closeModal, customClassNam
               data-cy="export-selected-version-button"
               onClick={() => exportApp(app.id, versionId)}
             >
-              Export selected version
+              导出选择的版本
             </span>
           </BootstrapModal.Footer>
         </>
@@ -178,8 +178,8 @@ function InputRadioField({
         style={{ paddingLeft: '0.75rem' }}
       >
         <span data-cy={`${String(versionName).toLowerCase().replace(/\s+/g, '-')}-text`}>{versionName}</span>
-        <span className="text-secondary" data-cy="created-date-label">{`Created on ${moment(versionCreatedAt).format(
-          'Do MMM YYYY'
+        <span className="text-secondary" data-cy="created-date-label">{`创建于 ${moment(versionCreatedAt).format(
+          'YYYY年MMMDo HH:mm:ss'
         )}`}</span>
       </label>
     </span>
@@ -190,7 +190,7 @@ function Loader() {
   return (
     <BootstrapModal.Body>
       <div className="d-flex justify-content-center align-items-center flex-column" style={{ minHeight: '30vh' }}>
-        <div className="pb-2">Loading versions ...</div>
+        <div className="pb-2">载入版本中 ...</div>
         <div className="spinner-border" role="status"></div>
       </div>
     </BootstrapModal.Body>

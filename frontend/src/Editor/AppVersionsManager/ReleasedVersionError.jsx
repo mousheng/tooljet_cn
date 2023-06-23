@@ -26,7 +26,7 @@ export const ReleasedVersionError = ({ isUserEditingTheVersion, changeBackTheSta
               />
             </svg>
           </div>
-          <p>This is a released app. Create a new version to make changes.</p>
+          <p>这是一个已发布的程序，如要更改请先创建新的版本。</p>
         </div>
       </div>
     </div>

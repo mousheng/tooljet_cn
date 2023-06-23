@@ -576,7 +576,7 @@ class HomePageComponent extends React.Component {
                 this.setState({ isExportingApp: false, app: {} });
               }}
               customClassName="modal-version-lists"
-              title={'Select a version to export'}
+              title={'选择要导出的版本'}
               app={app}
               darkMode={this.props.darkMode}
             />
