@@ -217,7 +217,7 @@ export class AppsService {
           return await manager.update(App, appId, updatableParams);
         },
         DataBaseConstraints.APP_NAME_UNIQUE,
-        'This app name is already taken.'
+        '此程序名已存在，请修改为其他名字.'
       );
     }, manager);
   }
