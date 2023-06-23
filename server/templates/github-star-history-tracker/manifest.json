@@ -1,7 +1,7 @@
 {
-  "name": "GitHub star history tracker",
-  "description": "Tracks the growth of stargazers in a GitHub repository over time.",
-  "widgets": ["Chart"],
+  "name": "github仓库星星历史追踪器",
+  "description": "通过github Api获取指定仓库的星星历史，并显示到图表",
+  "widgets": ["Echarts","autocomplete"],
   "sources": [{"name": "REST API", "id": "restapi"}],
   "id": "github-star-history-tracker",
   "category": "product-management"
