@@ -1,7 +1,7 @@
 {
-  "name": "GitHub contributors",
-  "description": "Display the list of contributors of a GitHub repository and display profile details on selection.",
-  "widgets": ["Table"],
+  "name": "github贡献排行",
+  "description": "显示仓库贡献排行，并显示用户信息。",
+  "widgets": ["Table","autocomplete"],
   "sources": [{"name": "REST API", "id": "restapi"}],
   "id": "github-contributors",
   "category": "product-management"
