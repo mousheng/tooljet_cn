@@ -7582,6 +7582,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
     exposedVariables: {
       searchText: '',
       selectedItem: {},
+      selectedLabel: '',
     },
     // 定义新建组件时的默认值
     definition: {

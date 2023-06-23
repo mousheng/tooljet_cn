@@ -59,8 +59,9 @@ export const Autocomplete = function Autocomplete({
         fireEvent('onSearchTextChanged');
     }
 
-    const handleOnSelect = (item) => {
-        setExposedVariable('selectedItem', item)
+    const handleOnSelect = (item, option) => {
+        setExposedVariable('selectedItem', option)
+        setExposedVariable('selectedLabel', item)
         fireEvent('onSelect');
     }
 
