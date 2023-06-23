@@ -1,6 +1,6 @@
 {
-  "name": "GitHub Star Ranking",
-  "description": "Display the list of repositories having equal or more stars as set the by the user, includes advance search filter like language and minimum forks.",
+  "name": "GitHub星星排行榜",
+  "description": "根据星星数和分支数筛选Github上的仓库.",
   "widgets": ["Table"],
   "sources": [{"name": "REST API", "id": "restapi"}],
   "id": "github-star-ranking",
