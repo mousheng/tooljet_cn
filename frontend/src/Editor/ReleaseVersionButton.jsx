@@ -52,12 +52,12 @@ export const ReleaseVersionButton = function DeployVersionButton({
     <>
       <ConfirmDialog
         show={showPageDeletionConfirmation}
-        message={`Are you sure you want to release this version of the app?`}
+        message={`你确定要发布此版的应用程序吗?`}
         onConfirm={() => releaseVersion(editingVersion)}
         onCancel={() => cancelRelease()}
         darkMode={darkMode}
         confirmButtonType="primary"
-        confirmButtonText="Release App"
+        confirmButtonText="发布应用"
       />
       <div>
         <button
