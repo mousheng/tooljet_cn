@@ -73,7 +73,7 @@ export const Avatars = function Avatars({
         <ConfigProvider>
             <Badge
                 count={counts > 0 && shape !== 'circle' ? counts : null}
-                dot={counts > 0 || shape === 'circle' ? false : true}
+                dot={(counts ===0 && shape !== 'circle') ? true : false}
             >
                 <Avatar
                     size={width < height ? width - 5 : height}
