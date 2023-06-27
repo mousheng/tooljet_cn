@@ -628,29 +628,33 @@ class EditorComponent extends React.Component {
     }
   };
 
+  // 查找祖先
+  findAncestor = (components, ancestorID, id) => {
+    if (components[id]?.parent) {
+      if (components[id].parent.startsWith(ancestorID)) {
+        return true
+      } else {
+        return this.findAncestor(components, ancestorID, components[id].parent.slice(0, 36))
+      }
+    }
+    return false
+  }
+
   removeComponent = (component) => {
     const currentPageId = this.state.currentPageId;
     if (!this.isVersionReleased()) {
       let newDefinition = cloneDeep(this.state.appDefinition);
-      // Delete child components when parent is deleted
+      let components = newDefinition.pages[currentPageId].components
 
-      let childComponents = [];
-      // 删除时包括删除Accordions的子组件
-      if (['Tabs','Accordions','VerticalTabs','Drawers'].includes(newDefinition.pages[currentPageId].components?.[component.id].component.component)) {
-        childComponents = Object.keys(newDefinition.pages[currentPageId].components).filter((key) =>
-          newDefinition.pages[currentPageId].components[key].parent?.startsWith(component.id)
-        );
-      } else {
-        childComponents = Object.keys(newDefinition.pages[currentPageId].components).filter(
-          (key) => newDefinition.pages[currentPageId].components[key].parent === component.id
-        );
-      }
+      let childComponents = Object.keys(components).filter((key) =>
+        this.findAncestor(components, component.id, key)
+      );
 
       childComponents.forEach((componentId) => {
-        delete newDefinition.pages[currentPageId].components[componentId];
+        delete components[componentId];
       });
 
-      delete newDefinition.pages[currentPageId].components[component.id];
+      delete components[component.id];
       const platform = navigator?.userAgentData?.platform || navigator?.platform || 'unknown';
       if (platform.toLowerCase().indexOf('mac') > -1) {
         toast('组件已删除! (撤销请按 ⌘ + Z)', {
@@ -1587,9 +1591,8 @@ class EditorComponent extends React.Component {
                 />
               )}
               <div
-                className={`main main-editor-canvas ${
-                  this.state.isQueryPaneDragging || this.state.isDragging ? 'hide-scrollbar' : ''
-                }`}
+                className={`main main-editor-canvas ${this.state.isQueryPaneDragging || this.state.isDragging ? 'hide-scrollbar' : ''
+                  }`}
                 id="main-editor-canvas"
               >
                 <div
@@ -1735,8 +1738,8 @@ class EditorComponent extends React.Component {
                 {currentSidebarTab === 1 && (
                   <div className="pages-container">
                     {selectedComponents.length === 1 &&
-                    !isEmpty(appDefinition.pages[this.state.currentPageId]?.components) &&
-                    !isEmpty(appDefinition.pages[this.state.currentPageId]?.components[selectedComponents[0].id]) ? (
+                      !isEmpty(appDefinition.pages[this.state.currentPageId]?.components) &&
+                      !isEmpty(appDefinition.pages[this.state.currentPageId]?.components[selectedComponents[0].id]) ? (
                       <Inspector
                         moveComponents={this.moveComponents}
                         componentDefinitionChanged={this.componentDefinitionChanged}
