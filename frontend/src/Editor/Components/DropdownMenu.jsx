@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 // antd 暗色主题计算
-import { theme, ConfigProvider, Dropdown } from 'antd';
+import { theme, ConfigProvider, Dropdown, Avatar } from 'antd';
 import * as Icon from '@ant-design/icons';
 const { darkAlgorithm, compactAlgorithm } = theme;
 // 导入本地中文配置
@@ -58,10 +58,24 @@ export const DropdownMenu = function DropdownMenu({
     useEffect(() => { setButtonStatus(properties.buttonStatus) }, [properties.buttonStatus])
     useEffect(() => { setDropDownStatus(properties.dropDownStatus) }, [properties.dropDownStatus])
     useEffect(() => {
-        setDropDownIcon(() => React.createElement(
-            Icon[properties.dropDownIcon]
+        setDropDownIcon(() => (
+            React.createElement(Avatar, {
+                src: properties.dropDownIconSrc,
+                size: height * 0.7,
+                shape: properties.shape,
+                style: {
+                    backgroundColor: styles.iconBHColor,
+                    color: styles.iconColor,
+                },
+                icon: properties.dropDownIconText === '' ? React.createElement(Icon[properties.dropDownIcon], {
+                    style: {
+                        fontSize: height * 0.7,
+                    }
+                }) : ''
+            }, [properties.dropDownIconText])
         ))
-    }, [properties.dropDownIcon])
+    }, [height, properties.dropDownIconText, properties.dropDownIconSrc, properties.dropDownIcon, properties.shape, styles.iconColor, styles.iconBHColor])
+
     useEffect(() => { setTrigger(properties.trigger) }, [properties.trigger])
     //样式处理
     useEffect(() => {
@@ -74,6 +88,9 @@ export const DropdownMenu = function DropdownMenu({
     // 计算暗色主题
     const darkTheme = {
         algorithm: [darkAlgorithm, compactAlgorithm],
+        token: {
+            controlHeight: height,
+        }
     };
 
     const handleButtonClick = (e) => {
@@ -89,6 +106,7 @@ export const DropdownMenu = function DropdownMenu({
         <ConfigProvider
             theme={darkMode ? darkTheme : {
                 token: {
+                    controlHeight: height,
                 }
             }}
         >
@@ -108,6 +126,7 @@ export const DropdownMenu = function DropdownMenu({
                     leftButton,
                     React.cloneElement(rightButton, {
                         loading: dropDownStatus,
+                        className: 'p-1',
                     }),
                 ]}
             >

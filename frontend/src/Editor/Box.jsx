@@ -1,3 +1,4 @@
+import { Framework } from './Components/Framework';
 import { Comment } from './Components/Comment';
 import { DatePickerPlus } from './Components/DatePickerPlus';
 import { Images } from './Components/Images';
@@ -100,6 +101,7 @@ import { useTranslation } from 'react-i18next';
 import cnchar from 'cnchar';
 
 const AllComponents = {
+	Framework,
 	Comment,
 	DatePickerPlus,
 	Images,

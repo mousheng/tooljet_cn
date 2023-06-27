@@ -10181,13 +10181,42 @@ children: 'children'
           },
         },
       },
-      dropDownIcon: {
-        type: 'antIcon',
-        displayName: '下拉图标',
+      dropDownIconSrc: {
+        type: 'code',
+        displayName: '下拉图标自定义图片',
         validation: {
           schema: {
             type: 'string',
           },
+        },
+      },
+      dropDownIconText: {
+        type: 'code',
+        displayName: '下拉图标自定义文字',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      dropDownIcon: {
+        type: 'antIcon',
+        displayName: '自定义下拉图标',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      shape: {
+        type: 'select',
+        displayName: '图标形状',
+        options: [
+          { name: '圆形', value: 'circle' },
+          { name: '方形', value: 'square' },
+        ],
+        validation: {
+          schema: { type: 'string' },
         },
       },
       trigger: {
@@ -10220,6 +10249,24 @@ children: 'children'
         ],
         validation: {
           schema: { type: 'string' },
+        },
+      },
+      iconBHColor: {
+        type: 'color',
+        displayName: '图标背景颜色',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      iconColor: {
+        type: 'color',
+        displayName: '图标填充颜色',
+        validation: {
+          schema: {
+            type: 'string',
+          },
         },
       },
       placement: {
@@ -10283,6 +10330,9 @@ children: 'children'
         dropDownStatus: { value: false },
         dropDownIcon: { value: 'DownOutlined' },
         trigger: { value: 'click' },
+        dropDownIconSrc: { value: '' },
+        dropDownIconText: { value: '' },
+        shape: { value: 'square' },
       },
       events: [],
       styles: {
@@ -10290,6 +10340,8 @@ children: 'children'
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
         buttonType: { value: 'default' },
+        iconBHColor: { value: '#bfbfbf' },
+        iconColor: { value: '#fff' },
       },
     },
   },
@@ -10984,6 +11036,259 @@ email: globals.currentUser.email
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
         bhColor: { value: '#ffffff22' },
+      },
+    },
+  },
+  {
+    // 组件名称
+    name: 'Framework',
+    // 组件显示名称
+    displayName: '框架模板',
+    // 组件描述
+    description: '框架模板',
+    // 调用的组件名
+    component: 'Framework',
+    // 默认组件大小
+    defaultSize: {
+      width: 42,
+      height: 1000,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      menuData: {
+        type: 'code',
+        displayName: '菜单数据',
+        validation: {
+          schema: {
+            type: 'array',
+            element: { type: 'union', schemas: [{ type: 'object' }] }
+          },
+        },
+      },
+      defaultSelectedKeys: {
+        type: 'code',
+        displayName: '默认选择的菜单',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      onlyOpenOne: {
+        type: 'toggle',
+        displayName: '仅展开一个子菜单',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      logo: {
+        type: 'antIcon',
+        displayName: 'logo',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      logoSRC: {
+        type: 'code',
+        displayName: 'logo图片地址',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      title: {
+        type: 'code',
+        displayName: 'title',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onClick: { displayName: '点击菜单时' },
+      onCheck: { displayName: '点击logo时' },
+    },
+    styles: {
+      titleFontSize: {
+        type: 'number',
+        displayName: '标题字体大小',
+        validation: {
+          schema: { type: 'number' },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      bhColor: {
+        type: 'color',
+        displayName: '背景颜色',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      headerBHColor: {
+        type: 'color',
+        displayName: '眉页背景颜色',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+      {
+        handle: 'clickItem',
+        displayName: '点击菜单',
+        // 参数
+        params: [
+          {
+            handle: 'key',
+            displayName: 'key',
+            defaultValue: '',
+          },
+        ],
+      },
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      currentKey: '',
+      currentPath: '',
+      collapsed: false,
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        menuData: {
+          value: `{{[
+        {
+            label: '首页',
+            key: 'main',
+            icon: 'MailOutlined',
+        },
+        {
+            label: '我被隐藏了',
+            key: 'show',
+            icon: 'AppstoreOutlined',
+            hidden:true,
+        },
+        {
+            label: '二级菜单1',
+            key: 'submenu',
+            icon: 'AppstoreOutlined',
+            children: [
+                {
+                    type: 'group',
+                    label: '组1',
+                    children: [
+                        {
+                            label: '选项1',
+                            key: 'setting1',
+                            icon: 'AppstoreOutlined',
+                        },
+                        {
+                            label: '选项2',
+                            key: 'setting2',
+                        },
+                    ],
+                },
+                {
+                    type: 'group',
+                    label: '组二',
+                    children: [
+                        {
+                            label: '选项3',
+                            key: 'setting3',
+                        },
+                        {
+                            label: '选项4',
+                            key: 'setting4',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            label: '二级菜单2',
+            key: 'submenu2',
+            icon: 'AppstoreOutlined',
+            children: [
+                {
+                    type: 'group',
+                    label: '组3',
+                    children: [
+                        {
+                            label: '选项5',
+                            key: 'setting5',
+                            icon: 'AppstoreOutlined',
+                        },
+                        {
+                            label: '选项6',
+                            key: 'setting6',
+                        },
+                    ],
+                }
+            ]
+        },
+        {
+            label: '图标',
+            key: 'icon',
+            icon: 'AppstoreOutlined',
+        },
+      ]}}` },
+        // defaultOpenKeys: { value: "{{['submenu']}}" },
+        // openKeys: { value: '' },
+        defaultSelectedKeys: { value: "setting3" },
+        onlyOpenOne: { value: true },
+        logo: { value: 'LayoutTwoTone' },
+        title: { value: '系统框架' },
+        logoSRC: { value: '' },
+      },
+      events: [],
+      styles: {
+        titleFontSize: { value: 18 },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        bhColor: { value: '#ffffffff' },
+        headerBHColor: { value: '#ffffffff' },
       },
     },
   },
