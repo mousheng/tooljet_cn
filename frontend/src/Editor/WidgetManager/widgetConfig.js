@@ -9924,7 +9924,9 @@ children: 'children'
     // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
     exposedVariables: {
       checkedKeys: [],
-      selectedKeys: [],
+      selectedKey: [],
+      checkedKeysPath: [],
+      selectedKeyPath: [],
       expandedKeys: [],
     },
     // 定义新建组件时的默认值

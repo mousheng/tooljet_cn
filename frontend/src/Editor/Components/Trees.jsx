@@ -31,17 +31,16 @@ export const Trees = function Trees({
     const [searchFirstPY, setSearchFirstPY] = useState(properties.searchFirstPY);
     const [showSearch, setShowSearch] = useState(properties.showSearch);
     const [dataList, setDataList] = useState([]);
-    const [selectedKeys, setSelectedKeys] = useState([]);
+    const [selectedKeys, setSelectedKeys] = useState('');
     const [treeData, setTreeData] = useState(properties.treeData);
     const [placeholder, setPlaceholder] = useState(properties.placeholder);
     const [parentList, setParentList] = useState([]);
-    // const [multiple, setMultiple] = useState(properties.multiple);
     const [checkable, setCheckable] = useState(properties.checkable);
     const [checkedKeys, setCheckedKeys] = useState();
     const [expandedKeys, setExpandedKeys] = useState();
     const [autoExpandParent, setAutoExpandParent] = useState(true);
+    const [allItemsPath, setAllItemsPath] = useState();
     // 样式
-
     const [showLine, setShowLine] = useState(styles.showLine);
     const [showIcon, setShowIcon] = useState(styles.showIcon);
     const [blockNode, setBlockNode] = useState(styles.blockNode);
@@ -50,7 +49,7 @@ export const Trees = function Trees({
         setExpandedKeys(properties.defaultExpandedKeys)
         setCheckedKeys(properties.checkedKeys)
         setSelectedKeys([properties.defaultSelectKey])
-        setExposedVariable('selectedKeys', [properties.defaultSelectKey])
+        setExposedVariable('selectedKey', properties.defaultSelectKey)
         setExposedVariable('checkedKeys', properties.checkedKeys)
         setExposedVariable('expandedKeys', properties.defaultExpandedKeys);
     }, [])
@@ -61,29 +60,40 @@ export const Trees = function Trees({
     useEffect(() => {
         if (Array.isArray(properties.treeData)) {
             setTreeData(properties.treeData)
-            const temp = []
+            const allItemstemp = []
+            const allItemsPathTemp = {}
             const parentNodeList = []
-            const generateList = (data) => {
+            const generateList = (data, path = []) => {
                 for (let i = 0; i < data.length; i++) {
                     const node = data[i];
                     const { key } = node;
-                    temp.push({
+                    allItemstemp.push({
                         key,
                         title: node?.title,
                     });
+                    allItemsPathTemp[key] = path
                     if (node.children) {
                         parentNodeList.push(node.key)
-                        generateList(node.children);
+                        generateList(node.children, [...path, key]);
                     }
                 }
             };
             generateList(properties.treeData)
             setParentList(parentNodeList)
-            setDataList(temp)
+            setDataList(allItemstemp)
+            setAllItemsPath(allItemsPathTemp)
         } else {
             setTreeData([])
         }
     }, [properties.treeData])
+
+    useEffect(() => {
+        if (typeof (allItemsPath) === 'object') {
+            setExposedVariable('selectedKeyPath', allItemsPath[selectedKeys[0]])
+            setExposedVariable('checkedKeysPath', checkedKeys.map(x => allItemsPath[x]))
+        }
+    }, [JSON.stringify(allItemsPath)])
+
 
     useEffect(() => { setPlaceholder(properties.placeholder) }, [properties.placeholder])
     useEffect(() => {
@@ -149,9 +159,10 @@ export const Trees = function Trees({
     registerAction(
         'setSelectKey',
         async function (key) {
-            if (typeof key === 'string') {
+            if (typeof key === 'string' && allItemsPath[key]) {
                 setSelectedKeys([key])
-                setExposedVariable('selectedKeys', [key])
+                setExposedVariable('selectedKey', key)
+                setExposedVariable('selectedKeyPath', allItemsPath[key])
             }
         },
         [selectedKeys]
@@ -235,12 +246,14 @@ export const Trees = function Trees({
 
     const onSelect = (selectedKeys, info) => {
         setSelectedKeys(selectedKeys)
-        setExposedVariable('selectedKeys', selectedKeys)
+        setExposedVariable('selectedKey', selectedKeys[0])
+        setExposedVariable('selectedKeyPath', allItemsPath[selectedKeys[0]])
         fireEvent('onSelect')
     };
     const onCheck = (checkedKeys, info) => {
         setCheckedKeys(checkedKeys);
         setExposedVariable('checkedKeys', checkedKeys)
+        setExposedVariable('checkedKeysPath', checkedKeys.map(x => allItemsPath[x]))
         fireEvent('onChange')
     };
 
