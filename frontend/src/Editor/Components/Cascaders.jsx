@@ -27,7 +27,7 @@ export const Cascaders = function Cascaders({
     const [disabledState, setDisabledState] = useState(styles.disabledState);
     const [placement, setPlacement] = useState(styles.placement);
 
-    const [options, setOptions] = useState(properties.options);
+    const [options, setOptions] = useState();
     const [multiple, setMultiple] = useState(properties.multiple);
     const [placeholder, setPlaceholder] = useState(properties.placeholder);
     const [expandTrigger, setExpandTrigger] = useState(properties.expandTrigger);
@@ -38,7 +38,7 @@ export const Cascaders = function Cascaders({
 
     useEffect(() => {
         setOptions(properties.options)
-    }, [properties.options])
+    }, [JSON.stringify(properties.options)])
 
     useEffect(() => {
         setPlaceholder(properties.placeholder)
@@ -53,7 +53,8 @@ export const Cascaders = function Cascaders({
         setMultiple(properties.multiple)
         setSearchAllPY(properties.searchAllPY)
         setSearchFirstPY(properties.searchFirstPY)
-    }, [properties.defaultValue, properties.multiple,properties.searchAllPY,properties.searchFirstPY])
+        setExposedVariable('selectValue', properties.defaultValue)
+    }, [properties.defaultValue?.toString(), properties.multiple, properties.searchAllPY, properties.searchFirstPY])
 
     useEffect(() => {
         setVisibility(styles.visibility)
@@ -76,8 +77,8 @@ export const Cascaders = function Cascaders({
     const filter = (inputValue, path) =>
         path.some((option) => {
             return option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1 ||
-                (searchAllPY &&option.label.spell().toLowerCase().indexOf(inputValue.toLowerCase()) > -1) ||
-                (searchFirstPY &&option.label.spell('first').toLowerCase().indexOf(inputValue.toLowerCase()) > -1) 
+                (searchAllPY && option.label.spell().toLowerCase().indexOf(inputValue.toLowerCase()) > -1) ||
+                (searchFirstPY && option.label.spell('first').toLowerCase().indexOf(inputValue.toLowerCase()) > -1)
         });
     const darkTheme = {
         algorithm: [darkAlgorithm, compactAlgorithm],
