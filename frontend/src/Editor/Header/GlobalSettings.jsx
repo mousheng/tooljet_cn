@@ -131,7 +131,7 @@ export const GlobalSettings = ({
                       %
                     </option>
                     <option value="px" selected={canvasMaxWidthType === 'px' || _.isUndefined(canvasMaxWidthType)}>
-                      px
+                      像素
                     </option>
                   </select>
                 </div>

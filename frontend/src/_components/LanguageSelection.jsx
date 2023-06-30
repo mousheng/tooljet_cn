@@ -64,7 +64,7 @@ export const LanguageSelection = ({ darkMode = false, tooltipPlacement = 'bottom
       <>
         {filteredLang.length === 0 ? (
           <ListGroup.Item variant="light" className="no-results-item">
-            No results
+            无结果
           </ListGroup.Item>
         ) : (
           <>

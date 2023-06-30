@@ -50,7 +50,7 @@ export default ({ options, addNewKeyValuePair, removeKeyValuePair, keyValuePairV
                 {index === 0 && (
                   <td>
                     <button className="btn btn-sm btn-primary" onClick={addNewKeyValuePair}>
-                      Add
+                      添加
                     </button>
                   </td>
                 )}

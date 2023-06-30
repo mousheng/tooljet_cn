@@ -100,7 +100,7 @@ export const QueryManagerHeader = forwardRef(
             onClick={addNewQueryAndDeselectSelectedQuery}
             data-cy={`query-type-header`}
           >
-            {mode === 'create' ? 'New Query' : 'Queries'}
+            {mode === 'create' ? '新建查询' : '查询'}
           </span>
           <span className="breadcrum">
             <BreadcrumbsIcon />

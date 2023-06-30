@@ -242,7 +242,7 @@ export const UpdateRows = React.memo(({ currentState, darkMode }) => {
   return (
     <div className="tab-content-wrapper tj-db-field-wrapper mt-2">
       <label className="form-label" data-cy="label-column-filter">
-        Filter
+        过滤器
       </label>
 
       <div className="field-container">
@@ -262,13 +262,13 @@ export const UpdateRows = React.memo(({ currentState, darkMode }) => {
               fill="#466BF2"
             />
           </svg>
-          &nbsp;Add Condition
+          &nbsp;添加条件
         </div>
       </div>
 
       <div className="fields-container">
         <label className="form-label" data-cy="label-column-filter">
-          Columns
+          列
         </label>
         <div className="field-container">
           {Object.entries(updateRowsOptions?.columns).map(([key, value]) => {
@@ -283,7 +283,7 @@ export const UpdateRows = React.memo(({ currentState, darkMode }) => {
                   fill="#466BF2"
                 />
               </svg>
-              &nbsp; Add column
+              &nbsp; 添加列
             </div>
           )}
         </div>

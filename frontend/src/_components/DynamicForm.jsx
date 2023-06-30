@@ -350,7 +350,7 @@ const DynamicForm = ({
                         width="12"
                         height="12"
                       />
-                      Encrypted
+                      加密
                     </small>
                   </div>
                 )}

@@ -21,10 +21,10 @@ export const LinkExpiredInfoScreen = function LinkExpiredInfoScreen({ show = tru
           data-cy="email-image"
         />
         <h1 className="common-auth-section-header" data-cy="onboarding-page-header">
-          Invalid verification link
+          无效的验证链接
         </h1>
         <p className="info-screen-description" data-cy="onboarding-page-description">
-          This verification link is invalid.
+        此验证链接无效.
         </p>
         {show && (
           <ButtonSolid
@@ -33,7 +33,7 @@ export const LinkExpiredInfoScreen = function LinkExpiredInfoScreen({ show = tru
             onClick={() => navigate('/signup')}
             data-cy="back-to-signup-button"
           >
-            Back to signup
+            返回注册
           </ButtonSolid>
         )}
       </div>

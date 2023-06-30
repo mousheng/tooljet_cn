@@ -19,10 +19,10 @@ export const PasswordResetinfoScreen = function PasswordResetinfoScreen({ darkMo
           data-cy="email-image"
         />
         <h1 className="common-auth-section-header" data-cy="reset-password-page-header">
-          Password has been reset
+          密码已重置
         </h1>
         <p className="info-screen-description" data-cy="reset-password-page-description">
-          Your password has been reset successfully, log into ToolJet to continue your session
+          您的密码已成功重置，请登录ToolJet继续您的会话
         </p>
         <ButtonSolid
           variant="secondary"
@@ -30,7 +30,7 @@ export const PasswordResetinfoScreen = function PasswordResetinfoScreen({ darkMo
           className="reset-password-info-btn"
           data-cy="back-to-login-button"
         >
-          Back to log in
+          返回登录
         </ButtonSolid>
       </div>
     </div>

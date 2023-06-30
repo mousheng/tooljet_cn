@@ -16,7 +16,7 @@ export default function AppList(props) {
       <ListGroup className="mt-2 template-app-list">
         {filteredApps.length === 0 ? (
           <ListGroup.Item variant="light" className="no-results-item">
-            No results
+            未找到结果
           </ListGroup.Item>
         ) : (
           <div></div>

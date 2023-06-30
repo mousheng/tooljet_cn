@@ -392,7 +392,7 @@ export const QueryManagerBody = forwardRef(
               darkMode ? 'color-white' : 'color-light-slate-12'
             }`}
           >
-            Change Datasource
+            修改源数据库
           </div>
           <ChangeDataSource
             dataSources={[...globalDataSources, ...dataSources]}
