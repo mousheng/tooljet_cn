@@ -5,7 +5,15 @@
 # 无需在Ubuntu系统中安装node、Python、数据库等
 # 但请确保Ubuntu已安装docker
 # 如不想开启自带数据库，可注释下面的两块代码段,最后docker编译命令需要权限，记得启动加上sudo
+# 默认完全重建tooljet_cn
+# r 重启docker
+# rb 重新编译docker
 
+
+if [ "$1" = "" ];
+then
+echo "重建tooljet_cn"
+echo "正在拉取镜像"
 # pull镜像
 docker pull node:18.3.0-buster
 docker pull postgrest/postgrest:v10.1.1.20221215
@@ -64,10 +72,24 @@ sed -i "s/^ENABLE_MARKETPLACE_FEATURE=.*/ENABLE_MARKETPLACE_FEATURE=true\nENABLE
 # sed -i "s/^PGRST_HOST=.*/PGRST_HOST=postgrest:3000\nPGRST_LOG_LEVEL=info\nPGRST_DB_URI=postgres:\/\/postgres:postgres@postgres:5432\/tooljet_db/g" $envFile
 # sed -i "s/^PGRST_JWT_SECRET=.*/PGRST_JWT_SECRET=$SECRET_KEY_32/g" $envFile
 # end
-
 docker-compose build
 docker-compose run --rm  plugins npm run build:plugins
 docker-compose up
+fi
+
+if [ "$1" == "r" ];
+then
+echo "仅重启tooljet_cn docker"
+docker-compose restart
+fi
+
+if [ "$1" == "rb" ];
+then
+echo "重新编译 tooljet_cn"
+docker-compose build
+docker-compose run --rm  plugins npm run build:plugins
+docker-compose up
+fi
 
 # 生产模式的打包推送镜像命令
 # version=v2.62
