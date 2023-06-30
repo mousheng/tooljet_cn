@@ -820,7 +820,8 @@ export function getQueryVariables(options, state) {
 }
 
 export function previewQuery(_ref, query, calledFromQuery = false) {
-  const options = getQueryVariables(query.options, _ref.props.currentState);
+  // 临时修复预览出错问题
+  const options = getQueryVariables(query.options, _ref.props.currentState || _ref.state.currentState);
 
   const { setPreviewLoading, setPreviewData } = useQueryPanelStore.getState().actions;
   setPreviewLoading(true);
