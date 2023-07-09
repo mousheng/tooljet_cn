@@ -122,19 +122,19 @@
   },
   "properties": {
     "url": {
-      "label": "Base URL",
+      "label": "基础URL",
       "key": "url",
       "type": "text",
       "description": "https://api.example.com/v1/"
     },
     "headers": {
-      "label": "Headers",
+      "label": "请求标头",
       "key": "headers",
       "type": "react-component-headers",
       "description": "key-value pair headers for rest api"
     },
     "auth_type": {
-      "label": "Authentication Type",
+      "label": "身份验证类型",
       "key": "auth_type",
       "type": "react-component-oauth-authentication",
       "description": "key-value pair headers for rest api"
