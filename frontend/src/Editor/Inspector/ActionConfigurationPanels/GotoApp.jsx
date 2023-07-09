@@ -73,7 +73,6 @@ export function GotoApp({ getAllApps, currentState, event, handlerChanged, event
                 initialValue={event.queryParams[index][0]}
                 onChange={(value) => queryParamChangeHandler(index, 0, value)}
                 mode="javascript"
-                className="form-control codehinter-query-editor-input"
                 height={30}
                 placeholder="键"
               />
@@ -84,7 +83,6 @@ export function GotoApp({ getAllApps, currentState, event, handlerChanged, event
                 initialValue={event.queryParams[index][1]}
                 onChange={(value) => queryParamChangeHandler(index, 1, value)}
                 mode="javascript"
-                className="form-control codehinter-query-editor-input"
                 height={30}
                 placeholder="值"
               />

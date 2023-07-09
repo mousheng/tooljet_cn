@@ -220,7 +220,7 @@ export function CodeHinter({
                 {previewType}
               </div>
               {isFocused && (
-                <div className="preview-icons">
+                <div className="preview-icons position-relative">
                   <CodeHinter.PopupIcon callback={() => copyToClipboard(content)} icon="copy" tip="复制到剪贴板" />
                 </div>
               )}
@@ -304,7 +304,10 @@ export function CodeHinter({
         style={{ width: width, display: codeShow ? 'flex' : 'none' }}
       >
         <div className={`col code-hinter-col`} style={{ marginBottom: '0.5rem' }}>
-          <div className="code-hinter-wrapper" style={{ width: '100%', backgroundColor: darkMode && '#272822' }}>
+          <div
+            className="code-hinter-wrapper position-relative"
+            style={{ width: '100%', backgroundColor: darkMode && '#272822' }}
+          >
             <div
               className={`${defaultClassName} ${className || 'codehinter-default-input'}`}
               key={componentName}
@@ -396,7 +399,7 @@ const PopupIcon = ({ callback, icon, tip, transformation = false }) => {
   const size = transformation ? 20 : 12;
 
   return (
-    <div className="d-flex justify-content-end" style={{ position: 'relative' }}>
+    <div className="d-flex justify-content-end w-100 position-absolute" style={{ top: 0 }}>
       <OverlayTrigger
         trigger={['hover', 'focus']}
         placement="top"

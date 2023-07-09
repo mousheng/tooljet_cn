@@ -15,7 +15,8 @@ export const Container = function Container({
   dataCy,
   properties,
 }) {
-  const { visibility, disabledState, borderRadius, borderColor } = styles;
+  const { visibility, disabledState, borderRadius, borderColor, boxShadow } = styles;
+  // 是否显示滚动条
   const showScroll = component.definition.properties.showScroll.value == '{{true}}' ? true : false;
   const backgroundColor =
     ['#fff', '#ffffffff'].includes(styles.backgroundColor) && darkMode ? '#232E3C' : styles.backgroundColor;
@@ -27,6 +28,7 @@ export const Container = function Container({
     display: visibility ? 'flex' : 'none',
     overflow: showScroll ? 'hidden auto' : 'hidden',
     position: 'relative',
+    boxShadow,
   };
 
   const parentRef = useRef(null);

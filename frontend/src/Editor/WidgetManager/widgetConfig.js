@@ -598,7 +598,9 @@ export const widgets = [
         },
       },
     },
-    exposedVariables: {},
+    exposedVariables: {
+      buttonText: 'Button',
+    },
     actions: [
       {
         handle: 'click',
@@ -832,6 +834,202 @@ export const widgets = [
   //       },
   //     },
   //   },
+  {
+    name: 'Chart',
+    displayName: 'Chart',
+    description: 'Display charts',
+    component: 'Chart',
+    defaultSize: {
+      width: 20,
+      height: 400,
+    },
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    properties: {
+      title: {
+        type: 'code',
+        displayName: 'Title',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      data: {
+        type: 'json',
+        displayName: 'Data',
+        validation: {
+          schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'array' }] },
+        },
+      },
+      loadingState: {
+        type: 'toggle',
+        displayName: 'Loading State',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      markerColor: {
+        type: 'color',
+        displayName: 'Marker color',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      showAxes: {
+        type: 'toggle',
+        displayName: 'Show axes',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      showGridLines: {
+        type: 'toggle',
+        displayName: 'Show grid lines',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      type: {
+        type: 'select',
+        displayName: 'Chart type',
+        options: [
+          { name: 'Line', value: 'line' },
+          { name: 'Bar', value: 'bar' },
+          { name: 'Pie', value: 'pie' },
+        ],
+        validation: {
+          schema: {
+            type: 'union',
+            schemas: [{ type: 'string' }, { type: 'boolean' }, { type: 'number' }],
+          },
+        },
+      },
+      jsonDescription: {
+        type: 'json',
+        displayName: 'Json Description',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      plotFromJson: {
+        type: 'toggle',
+        displayName: 'Use Plotly JSON schema',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      barmode: {
+        type: 'select',
+        displayName: 'Bar mode',
+        options: [
+          { name: 'Stack', value: 'stack' },
+          { name: 'Group', value: 'group' },
+          { name: 'Overlay', value: 'overlay' },
+          { name: 'Relative', value: 'relative' },
+        ],
+        validation: {
+          schema: {
+            schemas: { type: 'string' },
+          },
+        },
+      },
+    },
+    events: {},
+    styles: {
+      padding: {
+        type: 'code',
+        displayName: 'Padding',
+        validation: {
+          schema: {
+            type: 'union',
+            schemas: [{ type: 'number' }, { type: 'string' }],
+          },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: 'Disable',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    exposedVariables: {
+      show: null,
+    },
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        title: { value: 'This title can be changed' },
+        markerColor: { value: '#CDE1F8' },
+        showAxes: { value: '{{true}}' },
+        showGridLines: { value: '{{true}}' },
+        plotFromJson: { value: '{{false}}' },
+        loadingState: { value: `{{false}}` },
+        barmode: { value: `group` },
+        jsonDescription: {
+          value: `{
+            "data": [
+                {
+                    "x": [
+                        "Jan",
+                        "Feb",
+                        "Mar"
+                    ],
+                    "y": [
+                        100,
+                        80,
+                        40
+                    ],
+                    "type": "bar"
+                }
+            ]
+        }`,
+        },
+        type: { value: `line` },
+        data: {
+          value: `[
+  { "x": "Jan", "y": 100},
+  { "x": "Feb", "y": 80},
+  { "x": "Mar", "y": 40}
+]`,
+        },
+      },
+      events: [],
+      styles: {
+        padding: { value: '50' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+      },
+    },
+  },
   {
     name: 'Modal',
     displayName: '弹窗',
@@ -1176,6 +1374,20 @@ export const widgets = [
           schema: { type: 'string' },
         },
       },
+      loadingState: {
+        type: 'toggle',
+        displayName: 'Loading state',
+        validation: {
+          schema: { type: 'boolean' },
+        },
+      },
+      decimalPlaces: {
+        type: 'code',
+        displayName: '小数位数',
+        validation: {
+          schema: { type: 'number' },
+        },
+      },
     },
     events: {
       onChange: { displayName: '内容改变时' },
@@ -1232,6 +1444,8 @@ export const widgets = [
         maxValue: { value: '' },
         minValue: { value: '' },
         placeholder: { value: '0' },
+        decimalPlaces: { value: '{{2}}' },
+        loadingState: { value: '{{false}}' },
       },
       events: [],
       styles: {
@@ -2644,6 +2858,7 @@ export const widgets = [
         values: { value: '{{[1,2,3]}}' },
         display_values: { value: '{{["北京", "上海", "杭州"]}}' },
         visible: { value: '{{true}}' },
+        showAllOption: { value: '{{false}}' },
       },
       events: [],
       styles: {
@@ -5972,12 +6187,28 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         validation: {
           schema: { type: 'string' },
         },
+        conditionallyRender: {
+          key: 'advanced',
+          value: false,
+        },
       },
       loadingState: {
         type: 'toggle',
         displayName: 'Loading state',
         validation: {
           schema: { type: 'boolean' },
+        },
+      },
+      advanced: {
+        type: 'toggle',
+        displayName: ' 自定义架构',
+      },
+      JSONSchema: {
+        type: 'code',
+        displayName: 'JSON架构',
+        conditionallyRender: {
+          key: 'advanced',
+          value: true,
         },
       },
     },
@@ -6046,6 +6277,46 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
       properties: {
         loadingState: { value: '{{false}}' },
+        advanced: { value: '{{false}}' },
+        JSONSchema: {
+          value:
+    `{{ {
+      title: 'User registration form',
+      properties: {
+        firstname: {
+          type: 'textinput',
+          value: 'Maria',
+          label: 'First name',
+          validation: {
+            maxLength: 6
+          },
+          styles: {
+            backgroundColor: '#f6f5ff',
+            textColor: 'black'
+          },
+        },
+        lastname: {
+          type: 'textinput',
+          value: 'Doe',
+          label: 'Last name',
+          styles: {
+            backgroundColor: '#f6f5ff',
+            textColor: 'black'
+          },
+        },
+        age: {
+          type: 'number'
+        },
+      },
+      submitButton: {
+        value: 'Submit',
+        styles: {
+          backgroundColor: '#3a433b',
+          borderColor: '#595959'
+        }
+      }
+    }}}`,
+        },
       },
       events: [],
       styles: {
@@ -6076,6 +6347,14 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         displayName: '图片地址',
         validation: {
           schema: { type: 'string' },
+        },
+      },
+
+      defaultValue: {
+        type: 'code',
+        displayName: 'Default value',
+        validation: {
+          schema: { type: 'union', schemas: [{ type: 'string' }, { type: 'array', element: { type: 'object' } }] },
         },
       },
       selector: {
@@ -6120,7 +6399,26 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
       },
     },
     exposedVariables: {
-      annotations: [],
+      annotations: [
+        {
+          type: 'RECTANGLE',
+          x: 41,
+          y: 62,
+          width: 40,
+          height: 24,
+          text: 'Car',
+          id: 'ce103db2-b2a6-46f5-a4f0-5f4eaa6f3663',
+        },
+        {
+          type: 'RECTANGLE',
+          x: 41,
+          y: 12,
+          width: 40,
+          height: 24,
+          text: 'Tree',
+          id: 'b1a7315e-2b15-4bc8-a1c6-a042dab44f27',
+        },
+      ],
     },
     actions: [],
     definition: {
@@ -6129,6 +6427,10 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         showOnMobile: { value: '{{false}}' },
       },
       properties: {
+        defaultValue: {
+          value:
+            "{{[\t{type: 'RECTANGLE',width: 40,height:24, x:41,y:62,text:'Car'},{type: 'RECTANGLE',width: 40,height:24, x:41,y:12,text:'Tree'}\t]}}",
+        },
         imageUrl: {
           value: `https://burst.shopifycdn.com/photos/three-cars-are-parked-on-stone-paved-street.jpg?width=746&format=pjpg&exif=1&iptc=1`,
         },

@@ -3,8 +3,8 @@ import cx from 'classnames';
 var tinycolor = require('tinycolor2');
 
 export const Button = function Button(props) {
-  const { height, properties, styles, fireEvent, registerAction, id, dataCy } = props;
-  const { backgroundColor, textColor, borderRadius, loaderColor, disabledState, borderColor } = styles;
+  const { height, properties, styles, fireEvent, registerAction, id, dataCy, setExposedVariable } = props;
+  const { backgroundColor, textColor, borderRadius, loaderColor, disabledState, borderColor, boxShadow } = styles;
 
   const [label, setLabel] = useState(properties.text);
   const [disable, setDisable] = useState(disabledState);
@@ -12,7 +12,11 @@ export const Button = function Button(props) {
   const [loading, setLoading] = useState(properties.loadingState);
   const [badge, setBadge] = useState(properties?.badge);
 
-  useEffect(() => setLabel(properties.text), [properties.text]);
+  useEffect(() => {
+    setLabel(properties.text);
+    setExposedVariable('buttonText', properties.text);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [properties.text]);
 
   useEffect(() => {
     disable !== disabledState && setDisable(disabledState);
@@ -55,6 +59,7 @@ export const Button = function Button(props) {
     '--tblr-btn-color-darker': tinycolor(backgroundColor).darken(8).toString(),
     '--loader-color': tinycolor(loaderColor ?? '#fff').toString(),
     borderColor: borderColor,
+    boxShadow: boxShadow,
   };
 
   registerAction(
@@ -71,6 +76,7 @@ export const Button = function Button(props) {
     'setText',
     async function (text) {
       setLabel(text);
+      setExposedVariable('buttonText', text);
     },
     [setLabel]
   );
@@ -99,15 +105,7 @@ export const Button = function Button(props) {
     [setLoading]
   );
 
-  registerAction(
-    'setBadge',
-    async function (value) {
-      handleBadge(value);
-    },
-    [handleBadge]
-  );
-
-  const hasCustomBackground = backgroundColor.charAt() === '#';
+  const hasCustomBackground = backgroundColor?.charAt() === '#';
   if (hasCustomBackground) {
     computedStyles['--tblr-btn-color-darker'] = tinycolor(backgroundColor).darken(8).toString();
   }

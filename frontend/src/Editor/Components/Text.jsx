@@ -26,6 +26,7 @@ export const Text = function Text({
     wordSpacing,
     fontVariant,
     disabledState,
+    boxShadow,
   } = styles;
   const { loadingState } = properties;
   const [text, setText] = useState('');
@@ -86,6 +87,7 @@ export const Text = function Text({
     textIndent: `${textIndent}px` ?? '0px',
     letterSpacing: `${letterSpacing}px` ?? '0px',
     wordSpacing: `${wordSpacing}px` ?? '0px',
+    boxShadow,
   };
   //添加Markdown解析
   return (
