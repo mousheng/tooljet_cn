@@ -26,11 +26,11 @@
   },
   "properties": {
     "api_key": {
-      "label": "API key",
+      "label": "API令牌",
       "key": "api_key",
       "type": "password",
-      "description": "Api key for airtable",
-      "helpText": "For generating API key, visit: <a href='https://airtable.com/account' target='_blank' rel='noreferrer'>Airtable account page</a>"
+      "description": "airtable Api令牌",
+      "helpText": "生成API令牌, 访问: <a href='https://airtable.com/create/tokens' target='_blank' rel='noreferrer'>Airtable令牌</a>"
     }
   },
   "required": [

@@ -6,30 +6,30 @@
   "defaults": {},
   "properties": {
     "operation": {
-      "label": "Operation",
+      "label": "操作",
       "key": "operation",
       "type": "dropdown-component-flip",
       "description": "Single select dropdown for operation",
       "list": [
         {
           "value": "list_records",
-          "name": "List records"
+          "name": "列出记录"
         },
         {
           "value": "retrieve_record",
-          "name": "Retrieve record"
+          "name": "检索记录"
         },
         {
           "value": "create_record",
-          "name": "Create record"
+          "name": "创建记录"
         },
         {
           "value": "update_record",
-          "name": "Update record"
+          "name": "更新记录"
         },
         {
           "value": "delete_record",
-          "name": "Delete record"
+          "name": "删除记录"
         }
       ]
     },
@@ -43,10 +43,10 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "appwKbrBctcQF9pYr"
+        "placeholder": "以app开头的代码，如appwKbrBctcQF9pYr"
       },
       "table_name": {
-        "label": "Table name",
+        "label": "表名/表名代码",
         "key": "table_name",
         "type": "codehinter",
         "lineNumbers": false,
@@ -54,10 +54,10 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Table name"
+        "placeholder": "表名代码如：tblQVnftfWlX1eKxx"
       },
       "page_size": {
-        "label": "Page size",
+        "label": "页面大小",
         "key": "page_size",
         "type": "codehinter",
         "lineNumbers": false,
@@ -68,7 +68,7 @@
         "placeholder": "10"
       },
       "offset": {
-        "label": "Offset",
+        "label": "偏移值",
         "key": "offset",
         "type": "codehinter",
         "lineNumbers": false,
@@ -76,7 +76,7 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "recAOzdIHaRpvRaGE"
+        "placeholder": "从服务器返回的offset属性获取"
       }
     },
     "retrieve_record": {
@@ -92,7 +92,7 @@
         "placeholder": "appwKbrBctcQF9pYr"
       },
       "table_name": {
-        "label": "Table name",
+        "label": "表名/表名代码",
         "key": "table_name",
         "type": "codehinter",
         "lineNumbers": false,
@@ -100,10 +100,10 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Table_name"
+        "placeholder": "表名代码如：tblQVnftfWlX1eKxx"
       },
       "record_id": {
-        "label": "Record ID",
+        "label": "记录ID",
         "key": "record_id",
         "type": "codehinter",
         "lineNumbers": false,
@@ -111,7 +111,7 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "recu9xMnUdr2n2cw8"
+        "placeholder": "如：recu9xMnUdr2n2cw8"
       }
     },
     "create_record": {
@@ -127,7 +127,7 @@
         "placeholder": "appwKbrBctcQF9pYr"
       },
       "table_name": {
-        "label": "Table name",
+        "label": "表名/表名代码",
         "key": "table_name",
         "lineNumbers": false,
         "type": "codehinter",
@@ -135,10 +135,10 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Table_name"
+        "placeholder": "表名代码如：tblQVnftfWlX1eKxx"
       },
       "body": {
-        "label": "Records",
+        "label": "记录列表",
         "key": "body",
         "type": "codehinter",
         "description": "Enter list of records",
@@ -159,7 +159,7 @@
         "placeholder": "appwKbrBctcQF9pYr"
       },
       "table_name": {
-        "label": "Table name",
+        "label": "表名/表名代码",
         "key": "table_name",
         "lineNumbers": false,
         "type": "codehinter",
@@ -167,10 +167,10 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Table_name"
+        "placeholder": "表名代码如：tblQVnftfWlX1eKxx"
       },
       "record_id": {
-        "label": "Record ID",
+        "label": "记录ID",
         "key": "record_id",
         "type": "codehinter",
         "lineNumbers": false,
@@ -178,7 +178,7 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "appwKbrBctcQF9pYr"
+        "placeholder": "如：recu9xMnUdr2n2cw8"
       },
       "body": {
         "label": "Body",
@@ -201,7 +201,7 @@
         "placeholder": "appwKbrBctcQF9pYr"
       },
       "table_name": {
-        "label": "Table name",
+        "label": "表名/表名代码",
         "key": "table_name",
         "type": "codehinter",
         "lineNumbers": false,
@@ -209,10 +209,10 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "Table_name"
+        "placeholder": "表名代码如：tblQVnftfWlX1eKxx"
       },
       "record_id": {
-        "label": "Record ID",
+        "label": "记录ID",
         "key": "record_id",
         "type": "codehinter",
         "lineNumbers": false,
@@ -220,7 +220,7 @@
         "width": "320px",
         "height": "36px",
         "className": "codehinter-plugins",
-        "placeholder": "appwKbrBctcQF9pYr"
+        "placeholder": "如：recu9xMnUdr2n2cw8"
       }
     }
   }
