@@ -14,11 +14,11 @@
       "description": "Single select dropdown for mode",
       "list": [
         {
-          "name": "SQL mode",
+          "name": "SQL模式",
           "value": "sql"
         },
         {
-          "name": "GUI mode",
+          "name": "GUI模式",
           "value": "gui"
         }
       ]
@@ -28,25 +28,26 @@
         "key": "query",
         "type": "codehinter",
         "description": "Enter query",
-        "height": "150px"
+        "height": "150px",
+        "placeholder": "select * from tablename"
       }
     },
     "gui": {
       "operation": {
-        "label": "Operation",
+        "label": "操作",
         "key": "operation",
         "type": "dropdown-component-flip",
         "description": "Single select dropdown for mode",
         "list": [
           {
-            "name": "Bulk update using primary key",
+            "name": "通过主键进行批量更新",
             "value": "bulk_update_pkey"
           }
         ]
       },
       "bulk_update_pkey": {
         "table": {
-          "label": "Table",
+          "label": "表名",
           "key": "table",
           "type": "codehinter",
           "lineNumbers": false,
@@ -54,10 +55,10 @@
           "width": "320px",
           "height": "36px",
           "className": "codehinter-plugins",
-          "placeholder": "Enter table"
+          "placeholder": "要更新的表名"
         },
         "primary_key_column": {
-          "label": "Primary key column",
+          "label": "主键列名",
           "key": "primary_key_column",
           "type": "codehinter",
           "lineNumbers": false,
@@ -65,15 +66,15 @@
           "width": "320px",
           "height": "36px",
           "className": "codehinter-plugins",
-          "placeholder": "Enter Enter primary key column"
+          "placeholder": "输入主键的列名"
         },
         "records": {
-          "label": "Records to update",
+          "label": "准备更新的对象数组",
           "key": "records",
           "type": "codehinter",
           "description": "Enter records",
           "height": "150px",
-          "placeholder": "{{ [ ] }}"
+          "placeholder": "{{[\n{name:'张三', age:18, sex:'man'},\n]}}"
         }
       }
     }
