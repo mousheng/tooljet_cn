@@ -337,7 +337,7 @@ const DynamicForm = ({
                       rel="noreferrer"
                       onClick={(event) => handleEncryptedFieldsToggle(event, key)}
                     >
-                      {computedProps?.[key]?.['disabled'] ? 'Edit' : 'Cancel'}
+                      {computedProps?.[key]?.['disabled'] ? '编辑' : '取消'}
                     </ButtonSolid>
                   </div>
                 )}
