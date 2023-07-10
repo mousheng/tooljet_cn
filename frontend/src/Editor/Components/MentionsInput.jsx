@@ -24,6 +24,7 @@ export const MentionsInput = function MentionsInput({
     const [disabledState, setDisabledState] = useState(styles.disabledState);
     const [options, setOptions] = useState(properties.options);
     const [defaultValue, setDefaultValue] = useState(properties.defaultValue);
+    const [placeholder, setPlaceholder] = useState(properties.placeholder);
 
     useEffect(() => {
         if (properties.options instanceof Object)
@@ -35,6 +36,10 @@ export const MentionsInput = function MentionsInput({
     useEffect(() => {
         setDefaultValue(properties.defaultValue)
     }, [properties.defaultValue])
+
+    useEffect(() => {
+        setPlaceholder(properties.placeholder)
+    }, [properties.placeholder])
 
     useEffect(() => {
         setVisibility(styles.visibility)
@@ -73,12 +78,13 @@ export const MentionsInput = function MentionsInput({
                     width: '100%',
                     height
                 }}
-                autoSize
+                rows={height / 22}
                 prefix={Object.keys(options)}
                 onChange={onChange}
                 onSelect={onSelect}
                 onSearch={onSearch}
                 onBlur={onBlur}
+                placeholder={placeholder}
                 defaultValue={defaultValue}
                 options={(options[prefix] || []).map((value) => ({
                     key: value,

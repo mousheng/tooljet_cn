@@ -8741,6 +8741,15 @@ children: 'children'
           },
         },
       },
+      placeholder: {
+        type: 'code',
+        displayName: '占位符',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
       defaultValue: {
         type: 'code',
         displayName: '默认值',
@@ -8797,7 +8806,8 @@ children: 'children'
   '#': ['1.0', '2.0', '3.0'],
 }}}`
         },
-        defaultValue: { value: '输入@或#试试' },
+        defaultValue: { value: '' },
+        placeholder: { value: '输入@或#即可快速提及' },
       },
       events: [],
       styles: {
