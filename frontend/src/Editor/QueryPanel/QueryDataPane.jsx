@@ -9,6 +9,7 @@ import cx from 'classnames';
 import { useDataQueriesStore, useDataQueries } from '@/_stores/dataQueriesStore';
 import { useAppVersionStore } from '@/_stores/appVersionStore';
 import { shallow } from 'zustand/shallow';
+import _ from 'lodash';
 
 export const QueryDataPane = ({
   setSaveConfirmation,
@@ -38,7 +39,15 @@ export const QueryDataPane = ({
   const filterQueries = useCallback(
     (value) => {
       if (value) {
-        const fuse = new Fuse(dataQueries, { keys: ['name'] });
+        let tempQueries = _.cloneDeep(dataQueries);
+        tempQueries = _.map(tempQueries, (x) => {
+          return _.assign(x,
+            {
+              fullPY: x.name.spell(),
+              firstPY: x.name.spell('first')
+            })
+        })
+        const fuse = new Fuse(tempQueries, { keys: ['name', 'fullPY', 'firstPY'] });
         const results = fuse.search(value);
         let filterDataQueries = [];
         results.every((result) => {
