@@ -66,29 +66,37 @@ export const Description = function Description({
     };
 
 
-    return (<div data-disabled={disabledState} style={{ width: width - 5, height, display: visibility ? '' : 'none' }}>
-        <ConfigProvider
-            theme={darkMode ? darkTheme : {
-                token: {
-                }
-            }}
-        >
-            <Descriptions
-                layout={layout}
-                title={title}
-                bordered={bordered}
-                size={rowHeight}
-                column={column}
-                extra={showEditButton ? <Button type="primary" onClick={handleClick}>编辑</Button> : ''}
+    return (
+        <div
+            data-disabled={disabledState}
+            style={{
+                width: width - 5,
+                height,
+                display: visibility ? '' : 'none',
+                overflow: 'auto'
+            }}>
+            <ConfigProvider
+                theme={darkMode ? darkTheme : {
+                    token: {
+                    }
+                }}
             >
-                {
-                    datas.map(item => (
-                        <Descriptions.Item label={item.label}>
-                            {parseEnter ? (item.value.split('\n').map((item, index) => (<>{index !== 0 ? <br /> : ''}{item}</>))) : item.value}
-                        </Descriptions.Item>
-                    ))
-                }
-            </Descriptions>
-        </ConfigProvider>
-    </div>)
+                <Descriptions
+                    layout={layout}
+                    title={title}
+                    bordered={bordered}
+                    size={rowHeight}
+                    column={column}
+                    extra={showEditButton ? <Button type="primary" onClick={handleClick}>编辑</Button> : ''}
+                >
+                    {
+                        datas.map(item => (
+                            <Descriptions.Item label={item.label}>
+                                {parseEnter ? (item.value.split('\n').map((item, index) => (<>{index !== 0 ? <br /> : ''}{item}</>))) : item.value}
+                            </Descriptions.Item>
+                        ))
+                    }
+                </Descriptions>
+            </ConfigProvider>
+        </div>)
 }

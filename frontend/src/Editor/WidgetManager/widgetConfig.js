@@ -9708,7 +9708,7 @@ children: 'children'
     styles: {
       bordered: {
         type: 'toggle',
-        displayName: '显示边框',
+        displayName: '显示表格边框',
         validation: {
           schema: {
             type: 'boolean',
