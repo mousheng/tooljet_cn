@@ -82,11 +82,18 @@ export const Cascaders = function Cascaders({
         });
     const darkTheme = {
         algorithm: [darkAlgorithm, compactAlgorithm],
+        token: {
+            controlHeight: height + 4
+        }
     };
 
     return (<div className='text-input' style={{ width: width - 5, height, display: visibility ? '' : 'none' }}>
         <ConfigProvider
-            theme={darkMode ? darkTheme : null}
+            theme={darkMode ? darkTheme : {
+                token: {
+                    controlHeight: height
+                }
+            }}
             locale={zhCN}
         >
             <Cascader
@@ -95,7 +102,6 @@ export const Cascaders = function Cascaders({
                 placeholder={placeholder}
                 style={{ width: width - 5 }}
                 disabled={disabledState}
-                size={height <= 26 ? 'small' : height <= 36 ? 'middle' : 'large'}
                 expandTrigger={expandTrigger}
                 defaultValue={defaultValue}
                 showSearch={{
