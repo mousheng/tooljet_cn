@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import cx from 'classnames';
 import { componentTypes } from '../WidgetManager/components';
 import { Table } from './Components/Table/Table.jsx';
-import { Chart } from './Components/Chart';
+// import { Chart } from './Components/Chart';
 import { Echarts } from './Components/Echarts';
 import { Form } from './Components/Form';
 import { renderElement } from './Utils';
@@ -499,8 +499,8 @@ const GetAccordion = React.memo(
       case 'Table':
         return <Table {...restProps} />;
 
-      case 'Chart':
-        return <Chart {...restProps} />;
+      // case 'Chart':
+      //   return <Chart {...restProps} />;
 
       case 'Echarts':
         return <Echarts {...restProps} />;
