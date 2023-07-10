@@ -26,7 +26,6 @@ export const TimePickers = function TimePickers({
     const [visibility, setVisibility] = useState(styles.visibility);
     const [disabledState, setDisabledState] = useState(styles.disabledState);
 
-    var inputRef = useRef(null)
     const [value, setValue] = useState();
     const [datas, setDatas] = useState(properties.datas);
     const [placeholder, setPlaceholder] = useState(properties.placeholder);
@@ -89,7 +88,7 @@ export const TimePickers = function TimePickers({
         <ConfigProvider
             theme={darkMode ? darkTheme : {
                 token: {
-                    // colorBgContainer: color,
+                    controlHeight: height,
                 }
             }}
             locale={zhCN}
@@ -101,7 +100,6 @@ export const TimePickers = function TimePickers({
                             width: width - 5,
                             display: visibility ? '' : 'none',
                         }}
-                        size={height <= 26 ? 'small' : height <= 36 ? 'middle' : 'large'}
                         onChange={onChange}
                         format={timeFormat}
                         value={value}
@@ -118,7 +116,6 @@ export const TimePickers = function TimePickers({
                                 width: width - 5,
                                 display: visibility ? '' : 'none',
                             }}
-                            size={height <= 26 ? 'small' : height <= 36 ? 'middle' : 'large'}
                             onChange={onChange}
                             format={timeFormat}
                             value={value}
