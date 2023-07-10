@@ -27,6 +27,7 @@ export const Autocomplete = function Autocomplete({
     const [placeholder, setPlaceholder] = useState(properties.placeholder);
     const [searchLabelOnly, setSearchLabelOnly] = useState(properties.searchLabelOnly);
     const [searchIcon, setSearchIcon] = useState(styles.searchIcon);
+    const [text, setText] = useState(properties.defaultValue);
 
     useEffect(() => {
         if (Array.isArray(properties.datas))
@@ -34,6 +35,10 @@ export const Autocomplete = function Autocomplete({
         else
             setDatas([])
     }, [properties.datas])
+
+    useEffect(() => {
+        setText(properties.defaultValue)
+    }, [properties.defaultValue])
 
     useEffect(() => {
         setSearchFirstPY(properties.searchFirstPY)
@@ -57,6 +62,7 @@ export const Autocomplete = function Autocomplete({
     const handleOnSearch = (string, results) => {
         setExposedVariable('searchText', string)
         setExposedVariable('text', string)
+        setText(string)
         setExposedVariable('selected', false)
         fireEvent('onSearchTextChanged');
     }
@@ -64,9 +70,17 @@ export const Autocomplete = function Autocomplete({
     const handleOnSelect = (item, option) => {
         setExposedVariable('selectedItem', option)
         setExposedVariable('text', item)
+        setText(item)
         setExposedVariable('selected', true)
         fireEvent('onSelect');
     }
+
+    registerAction('setValue',
+        async function (value, selected) {
+            setExposedVariable('text', value)
+            setText(value)
+            setExposedVariable('selected', selected === true)
+        });
 
     const handleOnFocus = () => {
         fireEvent('onFocus');
@@ -76,20 +90,20 @@ export const Autocomplete = function Autocomplete({
     const darkTheme = {
         algorithm: [darkAlgorithm, compactAlgorithm],
     };
-
-    return (<div style={{ height: height, display: visibility ? '' : 'none' }}>
+    return (<div style={{ display: visibility ? '' : 'none' }}>
         <ConfigProvider
             theme={darkMode ? darkTheme : {
                 token: {
-                    controlHeight: height,
+                    controlHeight: height - 2,
+                    lineHeight: 1.1,
                 }
             }}
         >
             <AutoComplete
+                value={text}
                 disabled={disabledState}
                 style={{
                     width: width - 3,
-                    justifyContent: 'space-between',
                 }}
                 placeholder={placeholder}
                 options={datas}
