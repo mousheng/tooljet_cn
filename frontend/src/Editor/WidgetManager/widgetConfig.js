@@ -11313,6 +11313,15 @@ year:'YYYY年',
           },
         },
       },
+      borderRadius: {
+        type: 'number',
+        displayName: '边框圆角半径',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
     },
     // 动作列表，需在组件中注册接受动作
     actions: [
@@ -11342,7 +11351,7 @@ year:'YYYY年',
 ]}}`,
         },
         label: { value: '评论共%d条' },
-        placeholder: { value: '请在这里输入评论' },
+        placeholder: { value: 'Shift+Enter 输入评论' },
         submitButton: { value: '发表' },
         MentionList: {
           value: `{{{
@@ -11378,6 +11387,7 @@ email: globals.currentUser.email
         visibility: { value: '{{true}}' },
         disabledState: { value: '{{false}}' },
         bhColor: { value: '#ffffff22' },
+        borderRadius: { value: 0 },
       },
     },
   },

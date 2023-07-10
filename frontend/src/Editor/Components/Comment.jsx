@@ -47,6 +47,7 @@ export const Comment = function Comment({
     const [colorList, setColorList] = useState(resolveReferences(styles.colorList, currentState) || ['grey']);
     // 样式
     const [bhColor, setBhColor] = useState(styles.bhColor);
+    const [borderRadius, setBorderRadius] = useState(styles.borderRadius);
 
     useEffect(() => {
         setCommentList(datas)
@@ -99,6 +100,7 @@ export const Comment = function Comment({
         setDisabledState(styles.disabledState)
     }, [styles.visibility, styles.disabledState])
     useEffect(() => { setBhColor(styles.bhColor) }, [styles.bhColor])
+    useEffect(() => { setBorderRadius(styles.borderRadius) }, [styles.borderRadius])
 
     useEffect(() => {
         setTimeout(() => {
@@ -156,6 +158,12 @@ export const Comment = function Comment({
             src={item?.user?.avatar}
         > {item?.user?.displayName ? item?.user?.displayName : /^([\u4e00-\u9fa5]{2,4})$/gi.test(item?.user?.name) ? item?.user?.name.slice(-2) : item?.user?.name[0]}</Avatar>)
     }
+    const onPressEnter = (e) => {
+        if (e.shiftKey) {
+            e.preventDefault();
+            handleSubmit()
+        }
+    }
 
     return (<div
         data-disabled={disabledState}
@@ -165,6 +173,7 @@ export const Comment = function Comment({
             display: visibility ? '' : 'none',
             border: '1px solid rgba(140, 140, 140, 0.35)',
             backgroundColor: bhColor,
+            borderRadius,
         }}>
         <ConfigProvider
             theme={darkMode ? darkTheme : {
@@ -229,6 +238,7 @@ export const Comment = function Comment({
                     onSelect={onSelect}
                     value={context}
                     onSearch={onSearch}
+                    onPressEnter={onPressEnter}
                     placeholder={placeholder}
                     options={(MentionList[prefix] || []).map((value) => ({
                         key: value,
