@@ -32,7 +32,7 @@ export default ({
                       initialValue={option[0]}
                       theme={theme}
                       height={'32px'}
-                      placeholder="键值"
+                      placeholder="键"
                       onChange={onChange(paramType, 0, index)}
                       componentName={`${componentName}/${tabType}::key::${index}`}
                     />

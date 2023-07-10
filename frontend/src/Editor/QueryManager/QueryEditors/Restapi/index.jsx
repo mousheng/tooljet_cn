@@ -85,20 +85,23 @@ class Restapi extends React.Component {
       this.props.optionsChanged(options);
     });
   };
-
-  handlePaste = (paramType, inputText) => {
+  // 处理粘贴浏览器标头
+  handlePaste = (paramType, inputText, setInputText) => {
     const { options } = this.state;
-    console.log(options, paramType, inputText)
-    if (confirm('确定添加这些吗？\r\n'+inputText) == true) {
-      var lines=inputText.split('\n')
-      var parseLines=[]
-      parseLines=lines.map(l=>l.split(':').map(x=>x.trim()))
+    if (/:\n/.test(inputText)) {
+      inputText = inputText.replaceAll(':\n', ':')
+    }
+    if(inputText.length===0) return;
+    if (confirm('确定添加这些标头吗？\r\n' + inputText) == true) {
+      var lines = inputText.split('\n')
+      var parseLines = []
+      parseLines = lines.map(l => l.split(':').map(x => x.trim()))
       options[paramType] = parseLines;
       this.setState({ options }, () => {
         this.props.optionsChanged(options);
       });
-    }
-
+      setInputText('')
+    } 
   }
 
   handleChange = (key, keyIndex, idx) => (value) => {
