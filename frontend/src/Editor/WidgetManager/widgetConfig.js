@@ -11644,4 +11644,190 @@ email: globals.currentUser.email
       },
     },
   },
+  {
+    // 组件名称
+    name: 'TimeLine2',
+    // 组件显示名称
+    displayName: '时间线2',
+    // 组件描述
+    description: '基于AntD的时间线组件',
+    // 调用的组件名
+    component: 'TimeLine2',
+    // 默认组件大小
+    defaultSize: {
+      width: 20,
+      height: 300,
+    },
+    // 默认子组件
+    defaultChildren: [
+    ],
+    // 其他选项,设置显示在桌面系统或移动平台
+    others: {
+      showOnDesktop: { type: 'toggle', displayName: 'Show on desktop' },
+      showOnMobile: { type: 'toggle', displayName: 'Show on mobile' },
+    },
+    // 主属性
+    properties: {
+      // 属性名,传入组件的属性名
+      items: {
+        // 输入属性的输入框类型，/code/toggle/color/number/select/json/alignButtons/antIcon等
+        type: 'code',
+        // 显示名称
+        displayName: '时间轴数据',
+        validation: {
+          schema: {
+            // string/array/number
+            type: 'array',
+            // 指定子元素类型范围
+            element: { type: 'union', schemas: [ { type: 'object' }] }
+          },
+        },
+      },
+      mode: {
+        type: 'select',
+        displayName: '时间轴位置',
+        options: [
+          { name: '左', value: 'left' },
+          { name: '右', value: 'right' },
+          { name: '交替', value: 'alternate' },
+        ],
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+      reverse: {
+        type: 'toggle',
+        displayName: '翻转',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      pending: {
+        type: 'code',
+        displayName: '未完成节点',
+        validation: {
+          schema: {
+            type: 'string',
+          },
+        },
+      },
+    },
+    // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
+    events: {
+      onClick: { displayName: '点击事件' },
+    },
+    styles: {
+      color: {
+        type: 'color',
+        displayName: '组件边框颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      bgcolor: {
+        type: 'color',
+        displayName: '组件背景颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      titleColor: {
+        type: 'color',
+        displayName: '时间线标题颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      subTitleColor: {
+        type: 'color',
+        displayName: '时间线子标题颜色',
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      borderRadius: {
+        type: 'number',
+        displayName: '边框圆角半径',
+        validation: {
+          schema: {
+            type: 'number',
+          },
+        },
+      },
+      visibility: {
+        type: 'toggle',
+        displayName: 'Visibility',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+      disabledState: {
+        type: 'toggle',
+        displayName: '禁用',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
+    },
+    // 动作列表，需在组件中注册接受动作
+    actions: [
+    ],
+    // 暴露的值，用于其他交互，组件中可用setExposedVariable设置值
+    exposedVariables: {
+      clickedItem: {},
+      clickedIndex: 0,
+    },
+    // 定义新建组件时的默认值
+    definition: {
+      others: {
+        showOnDesktop: { value: '{{true}}' },
+        showOnMobile: { value: '{{false}}' },
+      },
+      properties: {
+        items: {
+          value: `{{[
+{
+    title: '新增组件二维码组件',
+    subTitle: '用于生成二维码的组件',
+    color: 'green',
+    label: '2023-3-20',
+},
+{
+    title: '创建了tooljet_cn仓库',
+    subTitle: '上传到github',
+    color: 'green',
+    label: '2023-04-18',
+},
+{
+    title: '不断新增组件',
+    subTitle: '前后新增了数十个组件',
+    fontSize: 20,
+    dot: 'ClockCircleOutlined',
+    label: '2023-4月——至今',
+}
+]}}` },
+        mode: { value: 'left' },
+        reverse: { value: false },
+        pending: { value: '仍在不断完善' },
+      },
+      events: [],
+      styles: {
+        color: { value: '#b3b3b3' },
+        bgcolor: { value: '#ffffff' },
+        titleColor: { value: '#000000' },
+        subTitleColor: { value: '#8a8c8f' },
+        visibility: { value: '{{true}}' },
+        disabledState: { value: '{{false}}' },
+        borderRadius: { value: 5 },
+      },
+    },
+  },
 ];

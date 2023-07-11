@@ -1,3 +1,4 @@
+import { TimeLine2 } from './Components/TimeLine2';
 import { Framework } from './Components/Framework';
 import { Comment } from './Components/Comment';
 import { DatePickerPlus } from './Components/DatePickerPlus';
@@ -101,6 +102,7 @@ import { useTranslation } from 'react-i18next';
 import cnchar from 'cnchar';
 
 const AllComponents = {
+	TimeLine2,
 	Framework,
 	Comment,
 	DatePickerPlus,
