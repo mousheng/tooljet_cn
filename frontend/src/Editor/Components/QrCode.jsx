@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { QRCode, Space, theme, ConfigProvider } from 'antd';
+import { QRCode, Space, theme, ConfigProvider, Popover } from 'antd';
 const { darkAlgorithm, compactAlgorithm } = theme;
 import zhCN from 'antd/locale/zh_CN';
 
@@ -20,7 +20,7 @@ export const QrCode = function QrCode({
   const [qrType, setQRType] = useState(properties.qrType);
   const [img, setImg] = useState();
   const [status, setStatus] = useState();
-  const { qrBackgroundColor, qrColor, level } = properties;
+  const { qrBackgroundColor, qrColor, level, popQR } = properties;
   const { visibility } = styles;
 
   const widgetVisibility = visibility ?? true;
@@ -106,21 +106,49 @@ export const QrCode = function QrCode({
         }}
       >
         <Space direction="vertical" align="center">
-          <QRCode
-            value={value || '-'}
-            icon={img}
-            status={status}
-            onRefresh={onRefresh}
-            color={qrColor}
-            bgColor={qrBackgroundColor}
-            errorLevel={level}
-            type={qrType}
-            size={height > width ? width - 5 : height}
-            iconSize={height > width ? width / 4 : height / 4}
-            style={{
-              display: widgetVisibility ? '' : 'none',
-            }}
-          />
+          {popQR ?
+            (
+              <Popover
+                overlayInnerStyle={{
+                  padding: 0,
+                }}
+                trigger={['hover', 'click']}
+                content={<QRCode
+                  value={value || '-'}
+                  status={status}
+                  onRefresh={onRefresh}
+                  color={qrColor}
+                  bgColor={qrBackgroundColor}
+                  errorLevel={level}
+                  type={qrType}
+                  size={height > width ? width - 5 : height}
+                  iconSize={height > width ? width / 4 : height / 4}
+                  style={{
+                    display: widgetVisibility ? '' : 'none',
+                  }}
+                />}
+              >
+                <img width={height > width ? width - 5 : height} height={height > width ? width - 5 : height} src={img} alt="icon" />
+              </Popover>
+            ) :
+            (
+              <QRCode
+                value={value || '-'}
+                icon={img}
+                status={status}
+                onRefresh={onRefresh}
+                color={qrColor}
+                bgColor={qrBackgroundColor}
+                errorLevel={level}
+                type={qrType}
+                size={height > width ? width - 5 : height}
+                iconSize={height > width ? width / 4 : height / 4}
+                style={{
+                  display: widgetVisibility ? '' : 'none',
+                }}
+              />
+            )}
+
         </Space>
       </ConfigProvider>
     </div>
