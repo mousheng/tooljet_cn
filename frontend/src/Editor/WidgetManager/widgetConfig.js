@@ -4371,6 +4371,28 @@ export const widgets = [
           schema: { type: 'array', element: { type: 'object' } },
         },
       },
+      mode: {
+        type: 'select',
+        displayName: 'Mode',
+        options: [
+          { name: '列表模式', value: 'list' },
+          { name: '网格模式', value: 'grid' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
+      columns: {
+        type: 'number',
+        displayName: 'Columns',
+        validation: {
+          schema: { type: 'number' },
+        },
+        conditionallyRender: {
+          key: 'mode',
+          value: 'grid',
+        },
+      },
       rowHeight: {
         type: 'code',
         displayName: 'Row height',
@@ -4379,29 +4401,34 @@ export const widgets = [
         },
       },
       showBorder: {
-        type: 'code',
+        type: 'toggle',
         displayName: 'Show bottom border',
         validation: {
           schema: { type: 'boolean' },
         },
+        conditionallyRender: {
+          key: 'mode',
+          value: 'list',
+        },
       },
       enablePagination: {
         type: 'toggle',
-        displayName: 'Enable pagination',
+        displayName: '启用分页',
         validation: {
           schema: { type: 'boolean' },
         },
       },
       rowsPerPage: {
         type: 'code',
-        displayName: 'Rows per page',
+        displayName: '每页数量',
         validation: {
           schema: { type: 'number' },
         },
       },
     },
     events: {
-      onRowClicked: { displayName: '当点击行' },
+      onRowClicked: { displayName: '点击行 (已弃用)' },
+      onRecordClicked: { displayName: '点击记录' },
     },
     styles: {
       backgroundColor: {
@@ -4456,6 +4483,8 @@ export const widgets = [
     { imageURL: 'https://www.svgrepo.com/show/34217/image.svg', text: 'Sample text 1', buttonText: 'Button 3' },
   ]}}`,
         },
+        mode: { value: 'list' },
+        columns: { value: '{{3}}' },
         rowHeight: {
           value: '100',
         },
