@@ -147,6 +147,7 @@ export const QueryCard = ({
             {/* 添加复制路径图标 */}
             <div
               className={`col-auto ${renamingQuery && 'display-none'} rename-query`}
+              onClick={(e)=>e.stopPropagation()}
             >
               <CopyToClipboard
                 text={`queries.${dataQuery.name}.data`}
