@@ -149,7 +149,7 @@ export const QueryCard = ({
               className={`col-auto ${renamingQuery && 'display-none'} rename-query`}
             >
               <CopyToClipboard
-                text={`{{queries.${dataQuery.name}.data}}`}
+                text={`queries.${dataQuery.name}.data`}
                 onCopy={() => {
                   toast.success('查询引用路径已复制到剪切板.', { position: 'top-center' });
                 }}

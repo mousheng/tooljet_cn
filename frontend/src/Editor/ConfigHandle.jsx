@@ -53,7 +53,7 @@ export const ConfigHandle = function ConfigHandle({
           <>
           <div className="delete-part">
             <CopyToClipboard
-              text={`{{components.${component.name}}}`}
+              text={`components.${component.name}`}
               onCopy={() => {
                 toast.success('组件路径已复制到剪切板.', { position: 'top-center' });
               }}
