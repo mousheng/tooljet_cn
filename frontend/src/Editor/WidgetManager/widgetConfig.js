@@ -7830,6 +7830,17 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
           },
         },
       },
+      selectKey: {
+        type: 'select',
+        displayName: '选择时提取键',
+        options: [
+          { name: 'label', value: 'label' },
+          { name: 'value', value: 'value' },
+        ],
+        validation: {
+          schema: { type: 'string' },
+        },
+      },
       searchFirstPY: {
         type: 'toggle',
         displayName: '自动匹配首拼',
@@ -7942,6 +7953,7 @@ ReactDOM.render(<ConnectedComponent />, document.body);`,
         searchFirstPY: { value: '{{true}}' },
         searchAllPY: { value: '{{true}}' },
         defaultValue: { value: '' },
+        selectKey: { value: 'value' },
       },
       events: [],
       styles: {
@@ -11679,7 +11691,7 @@ email: globals.currentUser.email
             // string/array/number
             type: 'array',
             // 指定子元素类型范围
-            element: { type: 'union', schemas: [ { type: 'object' }] }
+            element: { type: 'union', schemas: [{ type: 'object' }] }
           },
         },
       },

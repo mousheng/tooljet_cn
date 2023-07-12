@@ -28,6 +28,7 @@ export const Autocomplete = function Autocomplete({
     const [searchLabelOnly, setSearchLabelOnly] = useState(properties.searchLabelOnly);
     const [searchIcon, setSearchIcon] = useState(styles.searchIcon);
     const [text, setText] = useState(properties.defaultValue);
+    const [selectKey, setSelectKey] = useState();
 
     useEffect(() => {
         if (Array.isArray(properties.datas))
@@ -50,6 +51,12 @@ export const Autocomplete = function Autocomplete({
     }, [properties.placeholder])
 
     useEffect(() => {
+        if (selectKey === '')
+            setSelectKey('value')
+        setSelectKey(properties.selectKey)
+    }, [properties.selectKey])
+
+    useEffect(() => {
         setSearchLabelOnly(properties.searchLabelOnly)
     }, [properties.searchLabelOnly])
 
@@ -69,8 +76,8 @@ export const Autocomplete = function Autocomplete({
 
     const handleOnSelect = (item, option) => {
         setExposedVariable('selectedItem', option)
-        setExposedVariable('text', item)
-        setText(item)
+        setExposedVariable('text', option[selectKey])
+        setText(option[selectKey])
         setExposedVariable('selected', true)
         fireEvent('onSelect');
     }
@@ -80,7 +87,7 @@ export const Autocomplete = function Autocomplete({
             setExposedVariable('text', value)
             setText(value)
             setExposedVariable('selected', selected === true)
-        });
+        }, [setText]);
 
     const handleOnFocus = () => {
         fireEvent('onFocus');
