@@ -9,6 +9,7 @@ import { useDataQueriesActions, useDataQueriesStore } from '@/_stores/dataQuerie
 import { useQueryPanelActions, useSelectedQuery, useUnsavedChanges } from '@/_stores/queryPanelStore';
 import { useAppVersionStore } from '@/_stores/appVersionStore';
 import { shallow } from 'zustand/shallow';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 export const QueryCard = ({
   dataQuery,
@@ -143,6 +144,21 @@ export const QueryCard = ({
 
         {!isVersionReleased && (
           <div className="col-auto query-rename-delete-btn">
+            {/* 添加复制路径图标 */}
+            <div
+              className={`col-auto ${renamingQuery && 'display-none'} rename-query`}
+            >
+              <CopyToClipboard
+                text={`{{queries.${dataQuery.name}.data}}`}
+                onCopy={() => {
+                  toast.success('查询引用路径已复制到剪切板.', { position: 'top-center' });
+                }}
+              >
+                <span className="d-flex" style={{ alignItems: 'center' }}>
+                  <svg t="1689169411056" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7355" width="auto" height="auto"><path d="M640 512h256c71.68 0 128 56.32 128 128v256c0 71.68-56.32 128-128 128h-256c-71.68 0-128-56.32-128-128v-256c0-71.68 56.32-128 128-128z" fill="#5AC8FA" p-id="7356"></path><path d="M230.4 665.6c15.36 0 25.6 10.24 25.6 25.6s-10.24 25.6-25.6 25.6h-102.4C56.32 716.8 0 660.48 0 588.8v-460.8C0 56.32 56.32 0 128 0h460.8C660.48 0 716.8 56.32 716.8 128v102.4c0 15.36-10.24 25.6-25.6 25.6s-25.6-10.24-25.6-25.6v-102.4c0-40.96-35.84-76.8-76.8-76.8h-460.8C87.04 51.2 51.2 87.04 51.2 128v460.8c0 40.96 35.84 76.8 76.8 76.8h102.4z m204.8-307.2C394.24 358.4 358.4 394.24 358.4 435.2v460.8c0 40.96 35.84 76.8 76.8 76.8h460.8c40.96 0 76.8-35.84 76.8-76.8v-460.8c0-40.96-35.84-76.8-76.8-76.8h-460.8z m0-51.2h460.8C967.68 307.2 1024 363.52 1024 435.2v460.8c0 71.68-56.32 128-128 128h-460.8C363.52 1024 307.2 967.68 307.2 896v-460.8C307.2 363.52 363.52 307.2 435.2 307.2z" fill="" p-id="7357"></path></svg>
+                </span>
+              </CopyToClipboard>
+            </div>
             <div
               className={`col-auto ${renamingQuery && 'display-none'} rename-query`}
               onClick={() => setRenamingQuery(true)}
