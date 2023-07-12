@@ -80,6 +80,7 @@ export async function dbTransactionWrap(operation: (...args) => any, manager?: E
   }
 }
 
+export const defaultAppEnvironments = [{ name: 'production', isDefault: true, priority: 3 }];
 export async function catchDbException(
   operation: () => any,
   dbConstraint: DataBaseConstraints,
@@ -94,8 +95,6 @@ export async function catchDbException(
     throw err;
   }
 }
-
-export const defaultAppEnvironments = [{ name: 'production', isDefault: true }];
 
 export function isPlural(data: Array<any>) {
   return data?.length > 1 ? 's' : '';
@@ -152,6 +151,15 @@ function formatDateTime(date, format) {
   return format;
 }
 
+export class MigrationProgress {
+  private progress = 0;
+  constructor(private fileName: string, private totalCount: number) {}
+
+  show() {
+    this.progress++;
+    console.log(`${this.fileName} Progress ${Math.round((this.progress / this.totalCount) * 100)} %`);
+  }
+}
 export const generateNextName = (firstWord: string) => {
   return `${firstWord} ${formatDateTime(new Date(),'yyyyMMddHHmmss')}`;
 };

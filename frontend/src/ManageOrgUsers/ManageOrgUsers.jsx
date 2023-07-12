@@ -165,9 +165,7 @@ class ManageOrgUsersComponent extends React.Component {
     });
   };
 
-  createUser = (event) => {
-    event.preventDefault();
-
+  createUser = (selectedGroups) => {
     if (this.handleValidation()) {
       if (!this.state.fields.fullName?.trim()) {
         toast.error('名字和姓氏不应为空');
@@ -184,12 +182,7 @@ class ManageOrgUsersComponent extends React.Component {
       });
 
       organizationUserService
-        .create(
-          this.state.fields.firstName,
-          this.state.fields.lastName,
-          this.state.fields.email,
-          this.state.fields.role
-        )
+        .create(this.state.fields.firstName, this.state.fields.lastName, this.state.fields.email, selectedGroups)
         .then(() => {
           toast.success('用户已创建');
           this.fetchUsers();

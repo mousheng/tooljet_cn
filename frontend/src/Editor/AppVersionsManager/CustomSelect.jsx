@@ -5,6 +5,7 @@ import { components } from 'react-select';
 import { EditVersion } from './EditVersionModal';
 import { CreateVersion } from './CreateVersionModal';
 import { ConfirmDialog } from '@/_components';
+import { defaultAppEnvironments } from '@/_helpers/utils';
 
 const Menu = (props) => {
   return (
@@ -108,9 +109,14 @@ export const CustomSelect = ({ ...props }) => {
         setShowCreateAppVersion={setShowCreateAppVersion}
       />
       <EditVersion {...props} showEditAppVersion={showEditAppVersion} setShowEditAppVersion={setShowEditAppVersion} />
+      {/*  When we merge this code to EE update the defaultAppEnvironments object with rest of default environments (then delete this comment)*/}
       <ConfirmDialog
         show={deleteVersion.showModal}
-        message={`你确定删除- ${deleteVersion.versionName} 版本吗？` }
+        message={`${
+          defaultAppEnvironments.length > 1
+            ? '删除某个版本会将其从所有环境中永久删除。'
+            : ''
+        }你确定删除- ${deleteVersion.versionName} 版本吗？`}
         onConfirm={() => deleteAppVersion(deleteVersion.versionId, deleteVersion.versionName)}
         onCancel={resetDeleteModal}
       />

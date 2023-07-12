@@ -23,6 +23,7 @@ export const LeftSidebarInspector = ({
   runQuery,
   setPinned,
   pinned,
+  isVersionReleased,
 }) => {
   const dataSources = useGlobalDataSources();
   const dataQueries = useDataQueries();
@@ -141,7 +142,9 @@ export const LeftSidebarInspector = ({
       for: 'components',
       actions: [
         { name: '选择组件', dispatchAction: handleSelectComponentOnEditor, icon: false, onSelect: true },
-        { name: '删除组件', dispatchAction: handleRemoveComponent, icon: true, iconName: 'trash' },
+        ...(!isVersionReleased
+          ? [{ name: '删除组件', dispatchAction: handleRemoveComponent, icon: true, iconName: 'trash' }]
+          : []),
       ],
       enableForAllChildren: false,
       enableFor1stLevelChildren: true,

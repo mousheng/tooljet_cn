@@ -14,6 +14,7 @@ export const ConfigHandle = function ConfigHandle({
   setSelectedComponent = () => null, //! Only Modal widget passes this uses props down. All other widgets use selecto lib
   customClassName = '',
   configWidgetHandlerForModalComponent = false,
+  isVersionReleased,
 }) {
   return (
     <div
@@ -47,44 +48,44 @@ export const ConfigHandle = function ConfigHandle({
             draggable="false"
           />
           <span>{component.name}</span>
-          {!isMultipleComponentsSelected && (
-            <>
-              <div className="delete-part">
-                <CopyToClipboard
-                  text={`{{components.${component.name}}}`}
-                  onCopy={() => {
-                    toast.success('组件路径已复制到剪切板.', { position: 'top-center' });
-                  }}
-                >
-                  <img
-                    style={{ cursor: 'pointer', marginLeft: '5px' }}
-                    src="assets/images/icons/duplicate.svg"
-                    width="12"
-                    role="button"
-                    height="12"
-                    draggable="false"
-                    data-cy={`${component.name.toLowerCase()}-delete-button`}
-                    className="delete-icon"
-                  />
-                </CopyToClipboard>
-
-              </div>
-              <div className="delete-part">
-                <img
-                  style={{ cursor: 'pointer', marginLeft: '5px' }}
-                  src="assets/images/icons/trash-light.svg"
-                  width="12"
-                  role="button"
-                  height="12"
-                  draggable="false"
-                  onClick={() => removeComponent({ id })}
-                  data-cy={`${component.name.toLowerCase()}-delete-button`}
-                  className="delete-icon"
-                />
-              </div>
-            </>
-          )}
         </div>
+        {!isMultipleComponentsSelected && !isVersionReleased && (
+          <>
+          <div className="delete-part">
+            <CopyToClipboard
+              text={`{{components.${component.name}}}`}
+              onCopy={() => {
+                toast.success('组件路径已复制到剪切板.', { position: 'top-center' });
+              }}
+            >
+              <img
+                style={{ cursor: 'pointer', marginLeft: '5px' }}
+                src="assets/images/icons/duplicate.svg"
+                width="12"
+                role="button"
+                height="12"
+                draggable="false"
+                data-cy={`${component.name.toLowerCase()}-delete-button`}
+                className="delete-icon"
+              />
+            </CopyToClipboard>
+
+          </div>
+          <div className="delete-part">
+            <img
+              style={{ cursor: 'pointer', marginLeft: '5px' }}
+              src="assets/images/icons/trash-light.svg"
+              width="12"
+              role="button"
+              height="12"
+              draggable="false"
+              onClick={() => removeComponent({ id })}
+              data-cy={`${component.name.toLowerCase()}-delete-button`}
+              className="delete-icon"
+            />
+          </div>
+        </>
+        )}
       </span>
     </div>
   );
