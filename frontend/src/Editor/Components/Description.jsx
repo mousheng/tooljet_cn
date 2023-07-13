@@ -90,8 +90,8 @@ export const Description = function Description({
                     extra={showEditButton ? <Button type="primary" onClick={handleClick}>编辑</Button> : ''}
                 >
                     {
-                        datas.map(item => (
-                            <Descriptions.Item label={item.label}>
+                        Array.isArray(datas) && datas.map(item => (
+                            <Descriptions.Item label={item.label} span={item?.span || 1}>
                                 {parseEnter ? (item.value.split('\n').map((item, index) => (<>{index !== 0 ? <br /> : ''}{item}</>))) : item.value}
                             </Descriptions.Item>
                         ))

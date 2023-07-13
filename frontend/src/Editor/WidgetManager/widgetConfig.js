@@ -9829,7 +9829,7 @@ children: 'children'
           value: `{{[
 { label:'姓名',value:'张三'},
 { label:'年龄',value:'15'},
-{ label:'家庭住址',value:'浙江省台州市'},
+{ label:'家庭住址',value:'浙江省台州市',span: '3'},
 { label:'电话',value:'13888888888'},
 { label:'其他情况',value:\`演示
 换行\`},
