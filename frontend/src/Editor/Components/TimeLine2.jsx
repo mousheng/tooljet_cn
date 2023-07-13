@@ -70,8 +70,10 @@ export const TimeLine2 = function TimeLine2({
         } else {
             setItems([])
         }
-    }, [properties.items])
-    
+        setExposedVariable('clickedItem', {})
+        setExposedVariable('clickedIndex', -1)
+    }, [JSON.stringify(properties.items)])
+
     useEffect(() => { setMode(properties.mode) }, [properties.mode])
     useEffect(() => { setReverse(properties.reverse) }, [properties.reverse])
     useEffect(() => { setPending(properties.pending) }, [properties.pending])
