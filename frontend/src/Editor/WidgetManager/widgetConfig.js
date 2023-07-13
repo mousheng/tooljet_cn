@@ -4209,7 +4209,7 @@ export const widgets = [
       properties: {
         tabs: {
           value:
-            "{{[ \n\t\t{ title: '主页', id: '0' }, \n\t\t{ title: '展示', id: '1' }, \n\t\t{ title: '设置', id: '2' } \n ]}}",
+            "{{[ \n\t\t{ title: '主页', id: 0 }, \n\t\t{ title: '展示', id: 1 }, \n\t\t{ title: '设置', id: 2 } \n ]}}",
         },
         defaultTab: { value: '0' },
         hideTabs: { value: false },
