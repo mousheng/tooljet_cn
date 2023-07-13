@@ -11308,7 +11308,16 @@ year:'YYYY年',
             type: 'object',
           },
         },
-      }
+      },
+      sendComment: {
+        type: 'toggle',
+        displayName: '发送评论',
+        validation: {
+          schema: {
+            type: 'boolean',
+          },
+        },
+      },
     },
     // 事件列表 /onClick/onCheck/onSearch/onChange/onSelect/onHover/onFocus/onBlur
     events: {
@@ -11404,6 +11413,7 @@ year:'YYYY年',
 name: globals.currentUser.firstName,
 email: globals.currentUser.email
 }}}`},
+        sendComment:{ value: true},
       },
       events: [],
       styles: {

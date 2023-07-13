@@ -43,6 +43,8 @@ export const Comment = function Comment({
     const [submitButton, setSubmitButton] = useState(properties.submitButton);
     const [context, setContext] = useState('')
     const [userInfo, setUserInfo] = useState({})
+    const [sendComment, setSendComment] = useState();
+
     // 头像背景色列表   
     const [colorList, setColorList] = useState(resolveReferences(styles.colorList, currentState) || ['grey']);
     // 样式
@@ -93,6 +95,9 @@ export const Comment = function Comment({
     useEffect(() => { setLabel(properties.label) }, [properties.label])
     useEffect(() => { setSubmitButton(properties.submitButton) }, [properties.submitButton])
     useEffect(() => { setPlaceholder(properties.placeholder) }, [properties.placeholder])
+    useEffect(() => {
+        setSendComment(properties.sendComment)
+    }, [properties.sendComment])
     //样式处理
     useEffect(() => { setColorList(styles.colorList) }, [styles.colorList])
     useEffect(() => {
@@ -190,13 +195,14 @@ export const Comment = function Comment({
                         style={{ height: 15 }}>{label.replaceAll('%d', commentList.length)}
                     </div>) : ''}
                     style={{
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        width: width - 5,
                     }}
                     size='small'
                 >
                     <VirtualList
                         data={commentList}
-                        height={height - 145 + (label === '' ? 40 : 0)}
+                        height={height - (sendComment ? 145 : 45) + (label === '' ? 40 : 0)}
                         itemKey="user.name"
                         ref={VirtualListRef}
                     >
@@ -226,35 +232,38 @@ export const Comment = function Comment({
                         )}
                     </VirtualList>
                 </List>
-                <Mentions
-                    style={{
-                        width: width - 20,
-                        height: 50,
-                        margin: '0px 10px 0px 5px',
-                    }}
-                    autoSize
-                    prefix={Object.keys(MentionList)}
-                    onChange={onChange}
-                    onSelect={onSelect}
-                    value={context}
-                    onSearch={onSearch}
-                    onPressEnter={onPressEnter}
-                    placeholder={placeholder}
-                    options={(MentionList[prefix] || []).map((value) => ({
-                        key: value,
-                        value,
-                        label: value,
-                    }))}
-                />
-                <Button
-                    type="primary"
-                    style={{
-                        width: width - 20,
-                        margin: '0px 10px 0px 5px',
-                    }}
-                    onClick={handleSubmit}
-                    disabled={context === ''}
-                >{submitButton}</Button>
+                {sendComment ? (
+                    <>
+                        <Mentions
+                            style={{
+                                width: width - 20,
+                                height: 50,
+                                margin: '0px 10px 0px 5px',
+                            }}
+                            prefix={Object.keys(MentionList)}
+                            onChange={onChange}
+                            onSelect={onSelect}
+                            value={context}
+                            rows={2}
+                            onSearch={onSearch}
+                            onPressEnter={onPressEnter}
+                            placeholder={placeholder}
+                            options={(MentionList[prefix] || []).map((value) => ({
+                                key: value,
+                                value,
+                                label: value,
+                            }))}
+                        />
+                        <Button
+                            type="primary"
+                            style={{
+                                width: width - 20,
+                                margin: '0px 10px 0px 5px',
+                            }}
+                            onClick={handleSubmit}
+                            disabled={context === ''}
+                        >{submitButton}</Button>
+                    </>) : ''}
             </Space>
         </ConfigProvider >
     </div >)
