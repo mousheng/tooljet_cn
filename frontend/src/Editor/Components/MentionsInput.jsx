@@ -27,11 +27,17 @@ export const MentionsInput = function MentionsInput({
     const [placeholder, setPlaceholder] = useState(properties.placeholder);
 
     useEffect(() => {
-        if (properties.options instanceof Object)
+        if (properties.options instanceof Object) {
+            for (let key in properties.options) {
+                if (properties.options.hasOwnProperty(key) && !Array.isArray(properties.options[key])) {
+                    properties.options[key] = []
+                }
+            }
             setOptions(properties.options)
+        }
         else
             setOptions({})
-    }, [properties.options])
+    }, [JSON.stringify(properties.options)])
 
     useEffect(() => {
         setDefaultValue(properties.defaultValue)
