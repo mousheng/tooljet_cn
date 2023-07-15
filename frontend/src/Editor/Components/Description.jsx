@@ -39,7 +39,7 @@ export const Description = function Description({
         } else {
             setDatas([])
         }
-    }, [properties.datas])
+    }, [JSON.stringify(properties.datas)])
     useEffect(() => { setTitle(properties.title) }, [properties.title])
     useEffect(() => { setShowEditButton(properties.showEditButton) }, [properties.showEditButton])
     //样式处理
@@ -91,8 +91,8 @@ export const Description = function Description({
                 >
                     {
                         Array.isArray(datas) && datas.map(item => (
-                            <Descriptions.Item label={item.label} span={item?.span || 1}>
-                                {parseEnter ? (item.value.split('\n').map((item, index) => (<>{index !== 0 ? <br /> : ''}{item}</>))) : item.value}
+                            <Descriptions.Item label={item?.label || ''} span={item?.span || 1}>
+                                {parseEnter ? (item?.value && item.value.split('\n').map((item, index) => (<>{index !== 0 ? <br /> : ''}{item}</>))) : item?.value || ''}
                             </Descriptions.Item>
                         ))
                     }
