@@ -2,19 +2,16 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 [![GitHub license](https://img.shields.io/github/license/ToolJet/ToolJet)](https://github.com/ToolJet/ToolJet)
 
+## 快速试用
+测试账户:test@qq.com<br>
+测试密码:123456<br>
+[点击测试ToolJet_cn](https://tooljet.mousheng.top/)<br>
+
 ### **因本人精力和能力有限，兼容性暂未作测试，不建议将本软件用作生产环境**
 
 <p align="center">
     <img src="docs/static/img/temp/index.png"/>
 
-</p>
-
-
-<p align="center">  
-  <kbd>
-    <img src="docs/static/img/temp/builder.png"/>
-
-  </kbd>
 </p>
 
 # 主要修改
@@ -231,12 +228,6 @@ tooljet-cn-cli add
 
 - **汉化:** 对绝大部分界面、组件做了深度汉化
 - **符合国内习惯:** 修改npm国内源、日期格式改为YYYY/mm/dd
-
-
-## 快速试用
-测试账户:test@qq.com<br>
-测试密码:123456<br>
-[点击测试ToolJet_cn](https://tooljet.mousheng.top/)<br>
 
 ## 一键私有部署
 
