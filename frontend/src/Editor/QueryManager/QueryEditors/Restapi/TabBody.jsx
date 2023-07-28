@@ -5,7 +5,6 @@ import TabContent from './TabContent';
 export default ({
   options = [],
   jsonBody,
-  currentState,
   theme,
   removeKeyValuePair,
   addNewKeyValuePair,
@@ -21,7 +20,6 @@ export default ({
       <GroupHeader paramType={'body'} descText={'JSON原数据'} bodyToggle={bodyToggle} setBodyToggle={setBodyToggle} handlePaste={handlePaste}/>
       <TabContent
         options={options}
-        currentState={currentState}
         theme={theme}
         removeKeyValuePair={removeKeyValuePair}
         onChange={onChange}

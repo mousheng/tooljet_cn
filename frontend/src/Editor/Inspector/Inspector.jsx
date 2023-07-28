@@ -20,6 +20,7 @@ import Accordion from '@/_ui/Accordion';
 import { useTranslation } from 'react-i18next';
 import _ from 'lodash';
 import { useMounted } from '@/_hooks/use-mount';
+import { useCurrentState } from '@/_stores/currentStateStore';
 import { useDataQueries } from '@/_stores/dataQueriesStore';
 import { useAppVersionStore } from '@/_stores/appVersionStore';
 import { shallow } from 'zustand/shallow';
@@ -28,7 +29,6 @@ export const Inspector = ({
   selectedComponentId,
   componentDefinitionChanged,
   allComponents,
-  currentState,
   apps,
   darkMode,
   switchSidebarTab,
@@ -42,6 +42,7 @@ export const Inspector = ({
     layouts: allComponents[selectedComponentId].layouts,
     parent: allComponents[selectedComponentId].parent,
   };
+  const currentState = useCurrentState();
   const [showWidgetDeleteConfirmation, setWidgetDeleteConfirmation] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [tabHeight, setTabHeight] = React.useState(0);

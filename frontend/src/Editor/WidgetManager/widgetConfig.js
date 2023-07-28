@@ -285,6 +285,16 @@ export const widgets = [
           schema: { type: 'boolean' },
         },
       },
+      defaultSelectedRow: {
+        type: 'code',
+        displayName: 'Default selected row',
+        validation: {
+          schema: {
+            type: 'object',
+          },
+        },
+      },
+
       showAddNewRowButton: {
         type: 'toggle',
         displayName: '显示添加新行按钮',
@@ -458,7 +468,7 @@ export const widgets = [
         displaySearchBox: { value: '{{true}}' },
         showDownloadButton: { value: '{{true}}' },
         showFilterButton: { value: '{{true}}' },
-        autogenerateColumns: { value: true },
+        autogenerateColumns: { value: true, generateNestedColumns: true },
         columns: {
           value: [
             {
@@ -485,6 +495,7 @@ export const widgets = [
         actions: { value: [] },
         enabledSort: { value: '{{true}}' },
         hideColumnSelectorButton: { value: '{{false}}' },
+        defaultSelectedRow: { value: '{{{"id":1}}}' },
         showAddNewRowButton: { value: '{{true}}' },
         allowSelection: { value: '{{true}}' },
       },

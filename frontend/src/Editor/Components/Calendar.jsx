@@ -62,6 +62,7 @@ const allowedCalendarViews = ['month', 'week', 'day', 'agenda'];
 
 export const Calendar = function ({
   id,
+  component,
   height,
   properties,
   styles,
@@ -223,6 +224,7 @@ export const Calendar = function ({
         containerProps={containerProps}
         removeComponent={removeComponent}
         popoverClosed={popoverClosed}
+        component={component}
       />
     </div>
   );

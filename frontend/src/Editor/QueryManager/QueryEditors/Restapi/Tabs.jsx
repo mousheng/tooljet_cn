@@ -6,7 +6,6 @@ import { Tab, ListGroup, Row } from 'react-bootstrap';
 
 function ControlledTabs({
   options,
-  currentState,
   theme,
   onChange,
   onJsonBodyChange,
@@ -19,11 +18,8 @@ function ControlledTabs({
   handlePaste,
 }) {
   const [key, setKey] = React.useState('headers');
-  const tabs = [
-    { label: '请求标头', value: "headers" },
-    { label: '参数', value: "params" },
-    { label: '请求体', value: "body" }
-  ];
+  const tabs = ['Headers', 'Params', 'Body'];
+
   return (
     <Tab.Container activeKey={key} onSelect={(k) => setKey(k)} defaultActiveKey="headers">
       <Row>
@@ -48,7 +44,6 @@ function ControlledTabs({
                 addNewKeyValuePair={addNewKeyValuePair}
                 onChange={onChange}
                 options={options['headers']}
-                currentState={currentState}
                 theme={theme}
                 darkMode={darkMode}
                 componentName={componentName}
@@ -61,7 +56,6 @@ function ControlledTabs({
                 addNewKeyValuePair={addNewKeyValuePair}
                 onChange={onChange}
                 options={options['url_params']}
-                currentState={currentState}
                 theme={theme}
                 darkMode={darkMode}
                 componentName={componentName}
@@ -76,7 +70,6 @@ function ControlledTabs({
                 onJsonBodyChange={onJsonBodyChange}
                 options={options['body']}
                 jsonBody={options['json_body']}
-                currentState={currentState}
                 theme={theme}
                 bodyToggle={bodyToggle}
                 setBodyToggle={setBodyToggle}

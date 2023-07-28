@@ -24,6 +24,7 @@ export const CreateVersion = ({
     }),
     shallow
   );
+
   const createVersion = () => {
     if (versionName.trim().length > 25) {
       toast.error('版本名称不应超过25个字符');
