@@ -5,7 +5,7 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 ## 更加优秀的平台
 来试试吧[Lowcoder_cn：开源Retool, Tooljet和Appsmith的替代方案](https://mousheng.github.io/lowcoder_CN/#/)
 
-### **近期发现原国内低代码平台码匠的开源版，该平台底子相比tooljet更好，现主要精力放在[Lowcoder](https://github.com/lowcoder-org/lowcoder)上，一些组件也将移植到该平台**
+### **近期发现原国内低代码平台码匠的开源版，该平台底子相比tooljet更好，现主要精力放在[Lowcoder](https://mousheng.github.io/lowcoder_CN/#/)上，一些组件也将移植到该平台**
 
 <p align="center">
     <img src="docs/static/img/temp/index.png"/>
