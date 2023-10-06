@@ -2,10 +2,8 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 
 [![GitHub license](https://img.shields.io/github/license/ToolJet/ToolJet)](https://github.com/ToolJet/ToolJet)
 
-## 快速试用
-测试账户:test@qq.com<br>
-测试密码:123456<br>
-[点击测试ToolJet_cn](https://tooljet.mousheng.top/)<br>
+## 更加优秀的平台
+来试试吧[Lowcoder_cn：开源Retool, Tooljet和Appsmith的替代方案](https://mousheng.github.io/lowcoder_CN/#/)
 
 ### **近期发现原国内低代码平台码匠的开源版，该平台底子相比tooljet更好，现主要精力放在[Lowcoder](https://github.com/lowcoder-org/lowcoder)上，一些组件也将移植到该平台**
 
@@ -171,6 +169,11 @@ ToolJet是一个**开源低代码框架**，可以用最少的工程工作量快
 <p align="center">
     <img src="docs/static/img/temp/按钮角标.png"/>
 </p>
+
+## 快速试用
+测试账户:test@qq.com<br>
+测试密码:123456<br>
+[点击测试ToolJet_cn](https://tooljet.mousheng.top/)<br>
 
 - **添加组件脚手架** 一键添加新组件的脚手架
 ```
